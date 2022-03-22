@@ -27,4 +27,18 @@ class AppString {
   static const squads= 'Squads';
   static const pointTable= 'Point Table';
   static const vs = 'vs';
+  static const teams = 'Teams';
+  static const m ='M';
+  static const w = 'W';
+  static const l = 'L';
+  static const points= 'Points';
+  static const nrr= 'NRR';
+
+  //Export String
+  static const predictionExperts='Prediction Experts';
+  static const sortBy= 'Sort by: ';
+  static const avgScore = 'Average-Score';
+  static const predictions = 'Predictions';
+  static const wins = 'Wins';
+  static const search = 'Search';
 }
