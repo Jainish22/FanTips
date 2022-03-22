@@ -1,4 +1,5 @@
 import 'package:fantips/Util/AppStrings.dart';
+import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -8,7 +9,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: MyAppbar(AppString.fanTips, AppString.logIn),
       body: SafeArea(
         child: Column(
           children: [
