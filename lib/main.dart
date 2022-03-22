@@ -20,6 +20,13 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
       return GetMaterialApp(
+        theme: ThemeData(
+          appBarTheme: const AppBarTheme(
+            color: Colors.black
+          ),
+          backgroundColor: const Color(0xff1B1B1B),
+          scaffoldBackgroundColor: Colors.black
+        ),
         debugShowCheckedModeBanner: false,
         title: 'MyApi',
         getPages: Routes.routes,
