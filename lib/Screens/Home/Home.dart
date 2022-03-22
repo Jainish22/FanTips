@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:fantips/Widgets/MyContainer.dart';
