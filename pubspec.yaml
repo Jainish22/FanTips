@@ -79,7 +79,7 @@ flutter:
   fonts:
     - family: Circular
       fonts:
-        - asset: asset/fonts/Circular_Std_Font.otf
+        - asset: asset/fonts/circular-std-medium-500.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
