@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
           scaffoldBackgroundColor: Colors.black
         ),
         debugShowCheckedModeBanner: false,
-        title: 'MyApi',
+        title: 'FanTips',
         getPages: Routes.routes,
         initialRoute: 'home',
       );
