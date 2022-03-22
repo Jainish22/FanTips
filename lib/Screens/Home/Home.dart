@@ -14,16 +14,11 @@ class Home extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.only(left: 4.w),
-              child: const Text(
-                AppString.Matchesforyou,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700),
-              ),
+            Container(
+              height: 10.h,
+              width: 10.w,
             ),
+            Text(AppString.fanTips),
           ],
         ),
       ),
