@@ -16,7 +16,9 @@ class Home extends StatelessWidget {
           children: [
             Container(
               height: 10.h,
-              width: 10.w,
+              width: 10.w
+
+
             ),
             Text(AppString.fanTips),
           ],
