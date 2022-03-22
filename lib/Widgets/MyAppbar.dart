@@ -4,7 +4,7 @@ PreferredSizeWidget MyAppbar(String text1, String text2 ) {
   return PreferredSize(
     preferredSize: const Size.fromHeight(40),
     child: AppBar(
-      title: Text(text1),
+      title: Text(text1,style: TextStyle(fontFamily: 'Circular',fontWeight: FontWeight.bold),),
       actions: [
         Container(
           padding: const EdgeInsets.all(10),
