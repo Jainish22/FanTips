@@ -17,7 +17,7 @@ class Home extends StatelessWidget {
               height: 10.h,
               width: 10.w,
             ),
-            Text(AppString.fanTips),
+            Text(AppString.Matchesforyou),
           ],
         ),
       ),
