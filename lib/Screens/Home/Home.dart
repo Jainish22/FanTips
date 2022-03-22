@@ -3,6 +3,7 @@ import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -13,11 +14,16 @@ class Home extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              height: 10.h,
-              width: 10.w,
+            Padding(
+              padding: EdgeInsets.only(left: 4.w),
+              child: const Text(
+                AppString.Matchesforyou,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700),
+              ),
             ),
-            Text(AppString.Matchesforyou),
           ],
         ),
       ),
