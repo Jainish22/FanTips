@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:fantips/Widgets/MyContainer.dart';
@@ -19,8 +18,8 @@ class Home extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.only(left: 4.w),
-              child: const Text(
-                AppString.Matchesforyou,
+              child: Text(
+                AppString.matchesForyou,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 15,
