@@ -1,8 +1,7 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fantips/Util/AppColor.dart';
+import 'package:fantips/Util/AppIcon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
 import 'package:sizer/sizer.dart';
 
 class MyContainer1 extends StatelessWidget {
@@ -27,7 +26,7 @@ class MyContainer1 extends StatelessWidget {
                   const Text(
                     "Zimbabe vs Afghhanistan",
                     style: TextStyle(color: AppColor.white, fontSize: 12,),),
-                  Image.asset("asset/icon/Vector.png",height: 2.2.h)
+                  Image.asset(AppIcon.notification,height: 2.2.h)
                 ],
               ),
               SizedBox(height: 1.h,),
