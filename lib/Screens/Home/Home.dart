@@ -11,14 +11,13 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: MyAppbar(AppString.fanTips, AppString.logIn),
       body: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              height: 10.h,
-              width: 10.w,
-            ),
-            Text(AppString.fanTips),
-          ],
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(10,8,10,0),
+          child: Column(
+            children: [
+              Text(AppString.matchesForyou,style: TextStyle(color: Colors.white)),
+            ],
+          ),
         ),
       ),
     );
