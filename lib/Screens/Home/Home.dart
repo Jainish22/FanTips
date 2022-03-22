@@ -1,5 +1,6 @@
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
+import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -13,11 +14,11 @@ class Home extends StatelessWidget {
       appBar: MyAppbar(AppString.fanTips, AppString.logIn),
       body: SafeArea(
         child: Column(
-          children: [
+          children: const [
             Padding(
-              padding: EdgeInsets.only(left: 4.w),
-              child: const Text(
-                AppString.Matchesforyou,
+              padding: EdgeInsets.only(left: 8),
+              child: Text(
+                AppString.matchesForyou,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 15,
@@ -25,6 +26,7 @@ class Home extends StatelessWidget {
               ),
             ),
             Text(AppString.fanTips),
+            MyContainer1()
           ],
         ),
       ),
