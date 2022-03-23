@@ -173,7 +173,7 @@ class MyContainer3 extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: 4.w,right: 4.w),
       child: Container(
-          height: 35.h,
+          height: 38.h,
           width: 95.w,
           margin: EdgeInsets.only(bottom: 10),
           decoration: BoxDecoration(
