@@ -18,6 +18,7 @@ class Home extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              AppSizebox.h15,
               const MyTitle(text: AppString.matchesForyou),
               AppSizebox.h15,
               const MyContainer1(),
@@ -28,25 +29,24 @@ class Home extends StatelessWidget {
               AppSizebox.h15,
               Row(
                 children: [
-                  MyTitle(text: AppString.topStories),
+                  const MyTitle(text: AppString.topStories),
                   Expanded(child: Container()),
-                  InkWell(
-                    child: Text(AppString.viewAll,style: TextStyle(fontSize: 12)),
-                  ),
-                  Icon(Icons.arrow_forward_ios_sharp,color: Colors.white,size: 12),
+                  const InkWell(child: Text(AppString.viewAll,style: TextStyle(fontSize: 12))),
+                  const Icon(Icons.arrow_forward_ios_sharp,color: Colors.white,size: 12),
                   AppSizebox.w15
                 ],
               ),
               AppSizebox.h15,
               SizedBox(
-                height: 500,
+                height: 200.h,
                 child: ListView.builder(
                     itemCount: 5,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) =>
-                        MyContainer3()
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index){
+                      return  const MyContainer3();
+                    }
                 ),
-              )
+              ),
             ],
           ),
         ),

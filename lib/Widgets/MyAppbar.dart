@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 PreferredSizeWidget MyAppbar(String text1, String text2 ) {
   return PreferredSize(
-    preferredSize: const Size.fromHeight(40),
+    preferredSize: const Size.fromHeight(28),
     child: AppBar(
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
