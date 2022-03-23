@@ -27,6 +27,7 @@ class _MyAppState extends State<MyApp> {
           textTheme: const TextTheme(
             bodyText2: TextStyle(
               color: Colors.white,
+              fontFamily: 'Circular'
             ),
           ),
           backgroundColor: const Color(0xff1B1B1B),

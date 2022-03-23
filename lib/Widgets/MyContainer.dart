@@ -6,15 +6,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+//First Container
 class MyContainer1 extends StatelessWidget {
   const MyContainer1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Padding(
+      padding: EdgeInsets.only(left: 4.w),
       child: Container(
+        margin: EdgeInsets.only(right: 10),
         height: 20.h,
-        width: 92.w,
+        width: 95.w,
         decoration: BoxDecoration(
             color: AppColor.light, borderRadius: BorderRadius.circular(5)),
         child: Padding(
@@ -42,7 +45,7 @@ class MyContainer1 extends StatelessWidget {
                       Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const CircleAvatar(radius: 15),
+                          const CircleAvatar(radius: 15,backgroundImage: AssetImage('asset/Images/Zim.png')),
                           SizedBox(width: 2.w),
                           const Text("ZIM",style: TextStyle(fontWeight: FontWeight.w500)),
                           SizedBox(width: 16.w),
@@ -57,7 +60,7 @@ class MyContainer1 extends StatelessWidget {
                       Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const CircleAvatar(radius: 15),
+                          const CircleAvatar(radius: 15, backgroundImage: AssetImage('asset/Images/Afg.png')),
                           SizedBox(width: 2.w),
                           const Text("ZIM",style: TextStyle(fontWeight: FontWeight.w500),),
                           SizedBox(width: 16.w),
@@ -69,7 +72,7 @@ class MyContainer1 extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: 1.5.h),
-                      const Text(AppString.matchTime + '5:45s',style: TextStyle(fontSize: 12))
+                      const Text(AppString.matchTime + ' 5:45s',style: TextStyle(fontSize: 12))
                     ],
                   ),
                   SizedBox(
@@ -79,7 +82,7 @@ class MyContainer1 extends StatelessWidget {
                     width: 18.w,
                     child: Column(
                       children: const [
-                        Text('72',style: TextStyle(height: 1.6,fontSize: 25,fontWeight: FontWeight.w900,color: AppColor.green)),
+                        Text('72',style: TextStyle(height: 1.6,fontSize: 30,fontWeight: FontWeight.w900,color: AppColor.green)),
                         Text('Prediction',style: TextStyle(fontWeight: FontWeight.w400,color: AppColor.green))
                       ],
                     ),
@@ -94,6 +97,7 @@ class MyContainer1 extends StatelessWidget {
   }
 }
 
+//Second Container
 class MyContainer2 extends StatelessWidget {
   const MyContainer2({Key? key}) : super(key: key);
 
@@ -164,7 +168,6 @@ class MyContainer2 extends StatelessWidget {
 }
 
 //Third Container
-
 class MyContainer3 extends StatelessWidget {
   const MyContainer3({Key? key}) : super(key: key);
 
@@ -177,20 +180,20 @@ class MyContainer3 extends StatelessWidget {
           width: 95.w,
           margin: EdgeInsets.only(bottom: 10),
           decoration: BoxDecoration(
-              color: AppColor.light, borderRadius: BorderRadius.circular(5)),
+              color: Colors.black, borderRadius: BorderRadius.circular(5)),
           child: Column(
             children: [
               Image.asset('asset/Images/Ground.png'),
               Container(
                 height: 12.h,
-                padding: EdgeInsets.only(left: 8,right: 8),
+                padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text('BCCI Secretary Arun Dhumal loss to the tune to thge matches... ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15)),
-                    const Text('India have registered their second successive Test series win in Australia, after beating...',style: TextStyle(color: AppColor.grey,fontSize: 12)),
-                    const Text('20h ago',style: TextStyle(color: AppColor.grey,fontSize: 12))
+                  children: const [
+                    Text('BCCI Secretary Arun Dhumal loss to the tune to thge matches... ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15)),
+                    Text('India have registered their second successive Test series win in Australia, after beating...',style: TextStyle(color: AppColor.grey,fontSize: 12)),
+                    Text('20h ago',style: TextStyle(color: AppColor.grey,fontSize: 12))
                   ],
                 ),
               )
