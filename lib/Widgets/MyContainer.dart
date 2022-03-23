@@ -1,5 +1,6 @@
-
 import 'package:fantips/Util/AppColor.dart';
+import 'package:fantips/Util/AppIcon.dart';
+import 'package:fantips/Util/AppStrings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -24,32 +25,54 @@ class MyContainer1 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    "Zimbabe vs Afghhanistan",
-                    style: TextStyle(color: AppColor.white, fontSize: 12,),),
-                  Image.asset("asset/icon/Vector.png",height: 2.2.h)
+                    "Zimbabwe vs Afghanistan",
+                    style: TextStyle(fontSize: 12,),),
+                  Image.asset(AppIcon.notification,height: 2.2.h)
                 ],
               ),
               SizedBox(height: 1.h,),
               Row(
-                children:   [
-                  const CircleAvatar(
-                    radius: 15,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children:  const [
+                          CircleAvatar(
+                            radius: 15,
+                          ),
+                          Text("ZIM"),
+                          Text("133/7"),
+                          Text("&"),
+                          Text("133/7"),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children:  const [
+                          CircleAvatar(
+                            radius: 15,
+                          ),
+                          Text("ZIM"),
+                          Text("133/7"),
+                          Text("&"),
+                          Text("133/7"),
+                        ],
+                      ),
+                      const Text(AppString.matchTime+'5:45s')
+                    ],
                   ),
-                  SizedBox(width: 2.w,),
-                  const Text("ZIM",style: TextStyle(fontSize: 14,color: AppColor.white),),
-                  SizedBox(width: 20.w,),
-
-                  const Text("133/7",style: TextStyle(color: AppColor.white),),
-                  SizedBox(width: 2.w,),
-
-                  const Text("&",style: TextStyle(color: AppColor.white),),
-                  SizedBox(width: 2.w,),
-
-                  const Text("133/7",style: TextStyle(color: AppColor.white),),
+                  const Divider(color: AppColor.white),
+                  Column(
+                    children: const [
+                      Text('72'),
+                      Text('Prediction')
+                    ],
+                  )
                 ],
-              ),
-              SizedBox(height: 2.h,),
-
+              )
             ],
           ),
         ),

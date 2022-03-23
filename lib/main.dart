@@ -24,6 +24,11 @@ class _MyAppState extends State<MyApp> {
           appBarTheme: const AppBarTheme(
             color: Colors.black
           ),
+          textTheme: const TextTheme(
+            bodyText2: TextStyle(
+              color: Colors.white,
+            ),
+          ),
           backgroundColor: const Color(0xff1B1B1B),
           scaffoldBackgroundColor: Colors.black
         ),

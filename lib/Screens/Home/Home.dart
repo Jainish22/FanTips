@@ -4,6 +4,7 @@ import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -17,8 +18,8 @@ class Home extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.only(left: 4.w),
-              child: const Text(
-                AppString.Matchesforyou,
+              child: Text(
+                AppString.matchesForyou,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 15,
