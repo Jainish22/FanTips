@@ -31,16 +31,25 @@ class MyContainer1 extends StatelessWidget {
               ),
               SizedBox(height: 1.h,),
               Row(
-                children:  const [
-                  CircleAvatar(
+                children:   [
+                  const CircleAvatar(
                     radius: 15,
                   ),
-                  Text("ZIM",style: TextStyle(fontSize: 14,color: AppColor.white),),
-                  Text("133/7",style: TextStyle(color: AppColor.white),),
-                  Text("&",style: TextStyle(color: AppColor.white),),
-                  Text("133/7",style: TextStyle(color: AppColor.white),),
+                  SizedBox(width: 2.w,),
+                  const Text("ZIM",style: TextStyle(fontSize: 14,color: AppColor.white),),
+                  SizedBox(width: 20.w,),
+
+                  const Text("133/7",style: TextStyle(color: AppColor.white),),
+                  SizedBox(width: 2.w,),
+
+                  const Text("&",style: TextStyle(color: AppColor.white),),
+                  SizedBox(width: 2.w,),
+
+                  const Text("133/7",style: TextStyle(color: AppColor.white),),
                 ],
-              )
+              ),
+              SizedBox(height: 2.h,),
+
             ],
           ),
         ),
