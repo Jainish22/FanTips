@@ -17,7 +17,7 @@ class MyContainer1 extends StatelessWidget {
         decoration: BoxDecoration(
             color: AppColor.light, borderRadius: BorderRadius.circular(5)),
         child: Padding(
-          padding: EdgeInsets.only(top: 2.h,left: 4.w,right: 5.w),
+          padding: EdgeInsets.only(top: 2.h, left: 4.w, right: 5.w),
           child: Column(
             children: [
               Row(
@@ -26,49 +26,108 @@ class MyContainer1 extends StatelessWidget {
                 children: [
                   const Text(
                     "Zimbabwe vs Afghanistan",
-                    style: TextStyle(fontSize: 12,),),
-                  Image.asset(AppIcon.notification,height: 2.2.h)
+                    style: TextStyle(
+                      fontSize: 12,
+                    ),
+                  ),
+                  Image.asset(AppIcon.notification, height: 2.2.h)
                 ],
               ),
-              SizedBox(height: 1.h,),
+              SizedBox(
+                height: 1.h,
+              ),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children:  const [
-                          CircleAvatar(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const CircleAvatar(
                             radius: 15,
                           ),
-                          Text("ZIM"),
-                          Text("133/7"),
-                          Text("&"),
-                          Text("133/7"),
+                          SizedBox(
+                            width: 2.w,
+                          ),
+                          const Text(
+                            "ZIM",
+                            style: TextStyle(fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(
+                            width: 18.w,
+                          ),
+                          Text("133/7",  style: const TextStyle(fontWeight: FontWeight.w700),),
+                          SizedBox(
+                            width: 1.w,
+                          ),
+                          Text("&",  style: TextStyle(fontWeight: FontWeight.w700),),
+                          SizedBox(
+                            width: 1.w,
+                          ),
+                          Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
                         ],
                       ),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   children:  const [
-                      //     CircleAvatar(
-                      //       radius: 15,
-                      //     ),
-                      //     Text("ZIM"),
-                      //     Text("133/7"),
-                      //     Text("&"),
-                      //     Text("133/7"),
-                      //   ],
-                      // ),
-                      const Text(AppString.matchTime+'5:45s')
+                      SizedBox(
+                        height: 1.5.h,
+                      ),
+                      Row(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const CircleAvatar(
+                            radius: 15,
+                          ),
+                          SizedBox(
+                            width: 2.w,
+                          ),
+                          const Text(
+                            "ZIM",
+                            style: TextStyle(fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(
+                            width: 18.w,
+                          ),
+                          Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
+                          SizedBox(
+                            width: 1.w,
+                          ),
+                          Text("&",  style: TextStyle(fontWeight: FontWeight.w700),),
+                          SizedBox(
+                            width: 1.w,
+                          ),
+                          Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 1.5.h,
+                      ),
+                      const Text(
+                        AppString.matchTime + '5:45s',
+                        style: TextStyle(fontSize: 12),
+                      )
                     ],
                   ),
-                  const Divider(color: AppColor.white),
+                  SizedBox(
+                    height: 9.h,
+                    child: const VerticalDivider(
+                        color: AppColor.DividerColor, thickness: 2),
+                  ),
                   Column(
                     children: const [
-                      Text('72'),
-                      Text('Prediction')
+                      Text(
+                        '72',
+                        style: TextStyle(
+                            height: 1.6,
+                            fontSize: 25,
+                            fontWeight: FontWeight.w900,
+                            color: AppColor.green),
+                      ),
+                      Text('Prediction',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.green))
                     ],
                   )
                 ],
