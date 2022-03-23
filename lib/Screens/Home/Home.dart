@@ -2,6 +2,7 @@ import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:fantips/Widgets/MyContainer.dart';
+import 'package:fantips/Widgets/MyTitle.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -32,7 +33,7 @@ class Home extends StatelessWidget {
                   InkWell(
                     child: Text(AppString.viewAll,style: TextStyle(fontSize: 12)),
                   ),
-                  Icon(Icons.arrow_forward_ios_sharp,color: AppColor.white,size: 12),
+                  Icon(Icons.arrow_forward_ios_sharp,color: Colors.white,size: 12),
                   AppSizebox.w15
                 ],
               ),

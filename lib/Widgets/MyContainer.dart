@@ -27,7 +27,7 @@ class MyContainer1 extends StatelessWidget {
                 children: [
                   const Text(
                     "Zimbabwe vs Afghanistan",
-                    style: TextStyle(fontSize: 12,),),
+                    style: TextStyle(fontSize: 12,)),
                   Image.asset(AppIcon.notification,height: 2.2.h)
                 ],
               ),
@@ -42,89 +42,47 @@ class MyContainer1 extends StatelessWidget {
                       Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const CircleAvatar(
-                            radius: 15,
-                          ),
-                          SizedBox(
-                            width: 2.w,
-                          ),
-                          const Text(
-                            "ZIM",
-                            style: TextStyle(fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(
-                            width: 18.w,
-                          ),
-                          Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          Text("&",  style: TextStyle(fontWeight: FontWeight.w700),),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
+                          const CircleAvatar(radius: 15),
+                          SizedBox(width: 2.w),
+                          const Text("ZIM",style: TextStyle(fontWeight: FontWeight.w500)),
+                          SizedBox(width: 16.w),
+                          const Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
+                          SizedBox(width: 1.w),
+                          const Text("&",  style: TextStyle(fontWeight: FontWeight.w700),),
+                          SizedBox(width: 1.w,),
+                          const Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
                         ],
                       ),
-                      SizedBox(
-                        height: 1.5.h,
-                      ),
+                      SizedBox(height: 1.5.h),
                       Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const CircleAvatar(
-                            radius: 15,
-                          ),
-                          SizedBox(
-                            width: 2.w,
-                          ),
-                          const Text(
-                            "ZIM",
-                            style: TextStyle(fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(
-                            width: 18.w,
-                          ),
-                          Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          Text("&",  style: TextStyle(fontWeight: FontWeight.w700),),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
+                          const CircleAvatar(radius: 15),
+                          SizedBox(width: 2.w),
+                          const Text("ZIM",style: TextStyle(fontWeight: FontWeight.w500),),
+                          SizedBox(width: 16.w),
+                          const Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
+                          SizedBox(width: 1.w),
+                          const Text("&",  style: TextStyle(fontWeight: FontWeight.w700)),
+                          SizedBox(width: 1.w),
+                          const Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
                         ],
                       ),
-                      SizedBox(
-                        height: 1.5.h,
-                      ),
-                      const Text(
-                        AppString.matchTime + '5:45s',
-                        style: TextStyle(fontSize: 12),
-                      )
+                      SizedBox(height: 1.5.h),
+                      const Text(AppString.matchTime + '5:45s',style: TextStyle(fontSize: 12))
                     ],
                   ),
                   SizedBox(
                     height: 9.h,
-                    child: const VerticalDivider(
-                        color: AppColor.DividerColor, thickness: 1),
-                  ),
-                  Column(
-                    children: const [
-                      Text(
-                        '72',
-                        style: TextStyle(
-                            height: 1.6,
-                            fontSize: 25,
-                            fontWeight: FontWeight.w900,
-                            color: AppColor.green),
-                      ),
-                      Text('Prediction',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.green))
-                    ],
+                    child: const VerticalDivider(color: AppColor.DividerColor, thickness: 1)),
+                  SizedBox(
+                    width: 18.w,
+                    child: Column(
+                      children: const [
+                        Text('72',style: TextStyle(height: 1.6,fontSize: 25,fontWeight: FontWeight.w900,color: AppColor.green)),
+                        Text('Prediction',style: TextStyle(fontWeight: FontWeight.w400,color: AppColor.green))
+                      ],
+                    ),
                   )
                 ],
               )
