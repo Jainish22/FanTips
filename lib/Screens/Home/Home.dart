@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
               ),
             ),
             AppSizebox.h15,
-            const MyContainer2()
+            MyContainer2()
           ],
         ),
       ),
