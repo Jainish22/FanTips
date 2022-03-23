@@ -12,10 +12,12 @@ class MyContainer1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Padding(
+      padding: EdgeInsets.only(left: 4.w),
       child: Container(
+        margin: EdgeInsets.only(right: 10),
         height: 20.h,
-        width: 92.w,
+        width: 95.w,
         decoration: BoxDecoration(
             color: AppColor.light, borderRadius: BorderRadius.circular(5)),
         child: Padding(
