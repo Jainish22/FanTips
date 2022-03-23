@@ -49,18 +49,18 @@ class MyContainer1 extends StatelessWidget {
                           Text("133/7"),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children:  const [
-                          CircleAvatar(
-                            radius: 15,
-                          ),
-                          Text("ZIM"),
-                          Text("133/7"),
-                          Text("&"),
-                          Text("133/7"),
-                        ],
-                      ),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //   children:  const [
+                      //     CircleAvatar(
+                      //       radius: 15,
+                      //     ),
+                      //     Text("ZIM"),
+                      //     Text("133/7"),
+                      //     Text("&"),
+                      //     Text("133/7"),
+                      //   ],
+                      // ),
                       const Text(AppString.matchTime+'5:45s')
                     ],
                   ),
