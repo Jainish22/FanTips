@@ -2,10 +2,10 @@ import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+//First Container
 class MyContainer1 extends StatelessWidget {
   const MyContainer1({Key? key}) : super(key: key);
 
@@ -83,6 +83,7 @@ class MyContainer1 extends StatelessWidget {
   }
 }
 
+//Second Container
 class MyContainer2 extends StatelessWidget {
   const MyContainer2({Key? key}) : super(key: key);
 
@@ -131,15 +132,15 @@ class MyContainer2 extends StatelessWidget {
                     children: [
                       Column(children: const [
                         Text('72',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
-                        Text('Predictions')
+                        Text(AppString.prediction)
                       ]),VerticalDivider(width: 2,color: AppColor.dBlack),
                       Column(children: const [
                         Text('429',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
-                        Text('Average Score')
+                        Text(AppString.avgScore)
                       ]),VerticalDivider(width: 2,color: AppColor.dBlack),
                       Column(children: const [
                         Text('13',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
-                        Text('Wins')
+                        Text(AppString.wins)
                       ])
                     ],
                   ),
@@ -151,4 +152,43 @@ class MyContainer2 extends StatelessWidget {
     );
   }
 }
+
+//Third Container
+
+class MyContainer3 extends StatelessWidget {
+  const MyContainer3({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(left: 4.w,right: 4.w),
+      child: Container(
+          height: 35.h,
+          width: 95.w,
+          margin: EdgeInsets.only(bottom: 10),
+          decoration: BoxDecoration(
+              color: AppColor.light, borderRadius: BorderRadius.circular(5)),
+          child: Column(
+            children: [
+              Image.asset('asset/Images/Ground.png'),
+              Container(
+                height: 12.h,
+                padding: EdgeInsets.only(left: 8,right: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text('BCCI Secretary Arun Dhumal loss to the tune to thge matches... ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15)),
+                    const Text('India have registered their second successive Test series win in Australia, after beating...',style: TextStyle(color: AppColor.grey,fontSize: 12)),
+                    const Text('20h ago',style: TextStyle(color: AppColor.grey,fontSize: 12))
+                  ],
+                ),
+              )
+            ],
+          )
+      ),
+    );
+  }
+}
+
 
