@@ -6,4 +6,5 @@ class AppColor{
   static const dBlack = Color(0xf4E4E4E72);
   static const green = Color(0xFF25C06D);
   static const DividerColor = Color(0xFF4E4E4E);
+  static const grey = Color(0xffB7B7B7);
 }

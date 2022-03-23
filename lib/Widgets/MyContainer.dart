@@ -27,7 +27,7 @@ class MyContainer1 extends StatelessWidget {
                 children: [
                   const Text(
                     "Zimbabwe vs Afghanistan",
-                    style: TextStyle(fontSize: 12,),),
+                    style: TextStyle(fontSize: 12,)),
                   Image.asset(AppIcon.notification,height: 2.2.h)
                 ],
               ),
@@ -42,89 +42,47 @@ class MyContainer1 extends StatelessWidget {
                       Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const CircleAvatar(
-                            radius: 15,
-                          ),
-                          SizedBox(
-                            width: 2.w,
-                          ),
-                          const Text(
-                            "ZIM",
-                            style: TextStyle(fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(
-                            width: 18.w,
-                          ),
-                          Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          Text("&",  style: TextStyle(fontWeight: FontWeight.w700),),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
+                          const CircleAvatar(radius: 15),
+                          SizedBox(width: 2.w),
+                          const Text("ZIM",style: TextStyle(fontWeight: FontWeight.w500)),
+                          SizedBox(width: 16.w),
+                          const Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
+                          SizedBox(width: 1.w),
+                          const Text("&",  style: TextStyle(fontWeight: FontWeight.w700),),
+                          SizedBox(width: 1.w,),
+                          const Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
                         ],
                       ),
-                      SizedBox(
-                        height: 1.5.h,
-                      ),
+                      SizedBox(height: 1.5.h),
                       Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const CircleAvatar(
-                            radius: 15,
-                          ),
-                          SizedBox(
-                            width: 2.w,
-                          ),
-                          const Text(
-                            "ZIM",
-                            style: TextStyle(fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(
-                            width: 18.w,
-                          ),
-                          Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          Text("&",  style: TextStyle(fontWeight: FontWeight.w700),),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
+                          const CircleAvatar(radius: 15),
+                          SizedBox(width: 2.w),
+                          const Text("ZIM",style: TextStyle(fontWeight: FontWeight.w500),),
+                          SizedBox(width: 16.w),
+                          const Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
+                          SizedBox(width: 1.w),
+                          const Text("&",  style: TextStyle(fontWeight: FontWeight.w700)),
+                          SizedBox(width: 1.w),
+                          const Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700),),
                         ],
                       ),
-                      SizedBox(
-                        height: 1.5.h,
-                      ),
-                      const Text(
-                        AppString.matchTime + '5:45s',
-                        style: TextStyle(fontSize: 12),
-                      )
+                      SizedBox(height: 1.5.h),
+                      const Text(AppString.matchTime + '5:45s',style: TextStyle(fontSize: 12))
                     ],
                   ),
                   SizedBox(
                     height: 9.h,
-                    child: const VerticalDivider(
-                        color: AppColor.DividerColor, thickness: 1),
-                  ),
-                  Column(
-                    children: const [
-                      Text(
-                        '72',
-                        style: TextStyle(
-                            height: 1.6,
-                            fontSize: 25,
-                            fontWeight: FontWeight.w900,
-                            color: AppColor.green),
-                      ),
-                      Text('Prediction',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.green))
-                    ],
+                    child: const VerticalDivider(color: AppColor.DividerColor, thickness: 1)),
+                  SizedBox(
+                    width: 18.w,
+                    child: Column(
+                      children: const [
+                        Text('72',style: TextStyle(height: 1.6,fontSize: 25,fontWeight: FontWeight.w900,color: AppColor.green)),
+                        Text('Prediction',style: TextStyle(fontWeight: FontWeight.w400,color: AppColor.green))
+                      ],
+                    ),
                   )
                 ],
               )
@@ -141,65 +99,99 @@ class MyContainer2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Padding(
+      padding: EdgeInsets.only(left: 4.w),
       child: Container(
           height: 20.h,
-          width: 92.w,
+          width: 95.w,
           decoration: BoxDecoration(
               color: AppColor.light, borderRadius: BorderRadius.circular(5)),
           child: Stack(
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: 2.5.h,left: 4.w,right: 4.w),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const CircleAvatar(radius: 20,backgroundImage: AssetImage('asset/Images/t20.png')),AppSizebox.w5,
-                    Container(
-                      width: 66.w,
-                      child: Padding(
-                        padding: EdgeInsets.only(top: 0.6.h),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text('T20 Prediction',style: TextStyle(fontSize: 18),),
-                            Row(
-                              children: [
-                                Image.asset(AppIcon.uTube,height: 1.h),AppSizebox.w2,
-                                const Text('50.9K subscribers',style: TextStyle(fontSize: 10),)
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Image.asset(AppIcon.heart, height: 2.5.h,)
-                  ],
-                ),
+              Positioned(
+                top: 2.2.h,left: 2.w,
+                child: SizedBox(
+                  height: 5.h,
+                  child: Row(
+                    children: [
+                      const CircleAvatar(radius: 20,backgroundImage: AssetImage('asset/Images/t20.png')),AppSizebox.w5,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('T20 Prediction',style: const TextStyle(fontSize: 18),),
+                          Row(
+                            children: [
+                              Image.asset(AppIcon.uTube,height: 1.h),AppSizebox.w2,
+                              const Text('50.9K subscribers',style: TextStyle(fontSize: 10),)
+                            ],
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                )
               ),
-              Container(
-                width: 86.w,
-                child: Padding(
-                  padding: EdgeInsets.only(top: 12.h,left: 5.w,right: 5.w),
+              Positioned(top: 2.h, left: 85.w, child: Image.asset(AppIcon.heart, height: 2.5.h,)),
+              Positioned(
+                top: 12.h,left: 5.w,
+                child: SizedBox(
+                  height: 7.h,
+                  width: 82.w,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Column(children: const [
                         Text('72',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
-                        Text('Predictions')
-                      ]),Container(height: 6.5.h,child: const VerticalDivider(color: AppColor.DividerColor)),
+                        Text(AppString.prediction)
+                      ]),VerticalDivider(width: 2,color: AppColor.dBlack),
                       Column(children: const [
                         Text('429',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
-                        Text('Average Score')
-                      ]),Container(height: 6.5.h,child: VerticalDivider(color: AppColor.DividerColor)),
+                        Text(AppString.avgScore)
+                      ]),VerticalDivider(width: 2,color: AppColor.dBlack),
                       Column(children: const [
                         Text('13',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
-                        Text('Wins')
+                        Text(AppString.wins)
                       ])
                     ],
                   ),
+                )
+              )
+            ],
+          )
+      ),
+    );
+  }
+}
+
+//Third Container
+
+class MyContainer3 extends StatelessWidget {
+  const MyContainer3({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(left: 4.w,right: 4.w),
+      child: Container(
+          height: 35.h,
+          width: 95.w,
+          margin: EdgeInsets.only(bottom: 10),
+          decoration: BoxDecoration(
+              color: AppColor.light, borderRadius: BorderRadius.circular(5)),
+          child: Column(
+            children: [
+              Image.asset('asset/Images/Ground.png'),
+              Container(
+                height: 12.h,
+                padding: EdgeInsets.only(left: 8,right: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text('BCCI Secretary Arun Dhumal loss to the tune to thge matches... ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15)),
+                    const Text('India have registered their second successive Test series win in Australia, after beating...',style: TextStyle(color: AppColor.grey,fontSize: 12)),
+                    const Text('20h ago',style: TextStyle(color: AppColor.grey,fontSize: 12))
+                  ],
                 ),
               )
             ],
@@ -208,4 +200,5 @@ class MyContainer2 extends StatelessWidget {
     );
   }
 }
+
 
