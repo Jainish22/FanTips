@@ -1,9 +1,7 @@
-import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:fantips/Widgets/MyContainer.dart';
-import 'package:fantips/Widgets/MyText.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
