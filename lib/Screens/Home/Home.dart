@@ -1,9 +1,9 @@
 import 'package:fantips/Util/AppStrings.dart';
+import 'package:fantips/Util/Sizebox.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -18,16 +18,23 @@ class Home extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.only(left: 4.w),
-              child: Text(
+              child: const Text(
                 AppString.matchesForyou,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
               ),
             ),
-            SizedBox(height: 2.h,),
-            MyContainer1()
+            AppSizebox.h15,
+            const MyContainer1(),
+            AppSizebox.h15,
+            Padding(
+              padding: EdgeInsets.only(left: 4.w),
+              child: const Text(
+                AppString.featuredExperts,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ),
+            AppSizebox.h15,
+            const MyContainer2()
           ],
         ),
       ),
