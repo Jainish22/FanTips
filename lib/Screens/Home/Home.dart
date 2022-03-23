@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
@@ -25,6 +26,21 @@ class Home extends StatelessWidget {
             ),
             AppSizebox.h15,
             const MyContainer1(),
+
+            // CarouselSlider.builder(
+            //   itemCount: 5,
+            //   itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
+            //       Container(
+            //         child: Container(
+            //           margin: EdgeInsets.all(3),
+            //           width: 10,
+            //           height: 10,
+            //           decoration: BoxDecoration(
+            //               color:  Colors.red,
+            //               shape: BoxShape.circle),
+            //         )
+            //       ), options:  CarouselOptions(height: 5.h),
+            // ),
             AppSizebox.h15,
             Padding(
               padding: EdgeInsets.only(left: 4.w),

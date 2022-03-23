@@ -163,7 +163,7 @@ class MyContainer2 extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('T20 Prediction',style: const TextStyle(fontSize: 18),),
+                            const Text('T20 Prediction',style: TextStyle(fontSize: 18),),
                             Row(
                               children: [
                                 Image.asset(AppIcon.uTube,height: 1.h),AppSizebox.w2,
@@ -174,10 +174,7 @@ class MyContainer2 extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 0.h),
-                      child: Image.asset(AppIcon.heart, height: 2.5.h,),
-                    )
+                    Image.asset(AppIcon.heart, height: 2.5.h,)
                   ],
                 ),
               ),
@@ -192,7 +189,7 @@ class MyContainer2 extends StatelessWidget {
                       Column(children: const [
                         Text('72',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
                         Text('Predictions')
-                      ]),Container(height: 6.5.h,child: VerticalDivider(color: AppColor.DividerColor)),
+                      ]),Container(height: 6.5.h,child: const VerticalDivider(color: AppColor.DividerColor)),
                       Column(children: const [
                         Text('429',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
                         Text('Average Score')
