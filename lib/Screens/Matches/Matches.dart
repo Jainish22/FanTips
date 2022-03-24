@@ -1,3 +1,6 @@
+import 'package:fantips/Screens/Matches/Completed/Completed.dart';
+import 'package:fantips/Screens/Matches/Live/Live.dart';
+import 'package:fantips/Screens/Matches/Upcoming/Upcoming.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
@@ -27,9 +30,9 @@ class Matches extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            Text('s1'),
-            Text('s2'),
-            Text('s3')
+            Upcoming(),
+            Live(),
+            Completed()
           ],
         ),
       ),
