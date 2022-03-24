@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Matches extends StatelessWidget {
-  const Matches({Key? key}) : super(key: key);
+class IPLMatches extends StatelessWidget {
+  const IPLMatches({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

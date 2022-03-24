@@ -1,4 +1,3 @@
-import 'package:fantips/Screens/IPL/Matches/Matches.dart';
 import 'package:fantips/Screens/IPL/PointTable/PointTable.dart';
 import 'package:fantips/Screens/IPL/Squads/Squads.dart';
 import 'package:fantips/Util/AppColor.dart';
@@ -6,6 +5,8 @@ import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+
+import 'IPLMatches/IPLMatches.dart';
 
 class Ipl extends StatelessWidget {
   const Ipl({Key? key}) : super(key: key);
@@ -32,10 +33,10 @@ class Ipl extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
             Squads(),
-            Matches(),
+            IPLMatches(),
             PointTable()
           ],
         ),
