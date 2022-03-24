@@ -421,7 +421,6 @@ class MyContainer6 extends StatelessWidget {
                         const Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700,fontSize: 14),),
                         SizedBox(width: 1.w),
                         Text("(20)", style: TextStyle(color: AppColor.grey,fontSize: 10))
-
                       ],
                     ),
                     SizedBox(height: 1.5.h),
