@@ -13,13 +13,11 @@ class HomeNews extends StatefulWidget {
 }
 
 class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
-  //
   late AnimationController ColorAnimationController;
   late AnimationController TextAnimationController;
   late Animation colorTween, iconColorTween;
   late Animation<Offset> transTween;
 
-  //
   @override
   void initState() {
     ColorAnimationController =
@@ -75,81 +73,11 @@ class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                                'BCCI Secretary Arun Dhumal loss to the tune to thge matches... ',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 14)),
-                            AppSizebox.h10,
-                            Text(
-                                'India have registered their second successive Test series win in Australia, after beating...',
-                                style: TextStyle(
-                                    color: AppColor.grey, fontSize: 12)),
-                            AppSizebox.h10,
-                            Text('20h ago',
-                                style: TextStyle(
-                                    color: AppColor.grey, fontSize: 12)),
-                            AppSizebox.h10,
-                            Text(
-                              "However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.",
-                              style: TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                            Text(
-                              "However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.",
-                              style: TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                            Text(
-                              "However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.",
-                              style: TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                            Text(
-                              "However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.",
-                              style: TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                            Text(
-                              "However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.",
-                              style: TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                            Text(
-                              "However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.",
-                              style: TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                            Text(
-                              "However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.",
-                              style: TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                            Text(
-                              "However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.",
-                              style: TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                            Text(
-                              "However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.",
-                              style: TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                            Text(
-                              "However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.",
-                              style: TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
+                          children:   const [
+                            Text('BCCI Secretary Arun Dhumal loss to the tune to thge matches... ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)), AppSizebox.h10,
+                            Text('India have registered their second successive Test series win in Australia, after beating...', style: TextStyle(color: AppColor.grey, fontSize: 12)), AppSizebox.h10,
+                            Text('20h ago', style: TextStyle(color: AppColor.grey, fontSize: 12)), AppSizebox.h10,
+                            Text("However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.", style: TextStyle(fontSize: 12,),),
                           ],
                         ),
                       ),
@@ -159,7 +87,7 @@ class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
               ),
             ),
             Container(
-              height: 80,
+              height: 10.h,
               child: AnimatedBuilder(
                 animation: ColorAnimationController,
                 builder: (context, child) => AppBar(
@@ -169,10 +97,9 @@ class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
                   title: Transform.translate(
                     offset: transTween.value,
                     child: const Text(
-                      'BCCI Secretary Arun Dhumal loss to the tune to thge matches... ',
+                        'BCCI Secretary Arun Dhumal loss to the tune to thge matches... ',
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 14)
-                    ),
+                            fontWeight: FontWeight.bold, fontSize: 14)),
                   ),
                   // iconTheme: IconThemeData(
                   //   color: iconColorTween.value,

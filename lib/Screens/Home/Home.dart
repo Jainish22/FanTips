@@ -71,7 +71,7 @@ class Home extends StatelessWidget {
                        shrinkWrap: true,
                        physics: const NeverScrollableScrollPhysics(),
                        itemBuilder: (context, index){
-                         return  InkWell(child: const MyContainer3(),onTap: (){Get.to(HomeNews());},);
+                         return  InkWell(child: const MyContainer3(),onTap: (){Get.toNamed("news");},);
                        }
                      ),
                    ),
