@@ -79,7 +79,7 @@ class MyContainer1 extends StatelessWidget {
                     height: 9.h,
                     child: const VerticalDivider(color: AppColor.DividerColor, thickness: 1)),
                   SizedBox(
-                    width: 18.w,
+                    width: 19.w,
                     child: Column(
                       children: const [
                         Text('72',style: TextStyle(height: 1.6,fontSize: 30,fontWeight: FontWeight.w900,color: AppColor.green)),
