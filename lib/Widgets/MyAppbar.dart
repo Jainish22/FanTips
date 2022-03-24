@@ -56,7 +56,7 @@ class MyBottom extends StatelessWidget {
               )
             ),
             InkWell(
-              onTap: (){Get.toNamed('home');},
+              onTap: (){Get.toNamed('ipl');},
               child: Column(
                 children: [
                   AppSizebox.h2,AppSizebox.h2,

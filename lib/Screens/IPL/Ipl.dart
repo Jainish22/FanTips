@@ -1,14 +1,15 @@
-import 'package:fantips/Screens/Matches/Completed/Completed.dart';
-import 'package:fantips/Screens/Matches/Live/Live.dart';
-import 'package:fantips/Screens/Matches/Upcoming/Upcoming.dart';
+import 'package:fantips/Screens/IPL/PointTable/PointTable.dart';
+import 'package:fantips/Screens/IPL/Squads/Squads.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-class Matches extends StatelessWidget {
-  const Matches({Key? key}) : super(key: key);
+import 'IPLMatches/IPLMatches.dart';
+
+class Ipl extends StatelessWidget {
+  const Ipl({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +27,17 @@ class Matches extends StatelessWidget {
             unselectedLabelColor: AppColor.white,
             indicatorSize: TabBarIndicatorSize.label,
             tabs: [
-              Tab(text: AppString.upcoming),
-              Tab(text: AppString.live),
-              Tab(text: AppString.completed)
+              Tab(text: AppString.squads),
+              Tab(text: AppString.matches),
+              Tab(text: AppString.pointTable)
             ],
           ),
         ),
         body: const TabBarView(
           children: [
-            Upcoming(),
-            Live(),
-            Completed()
+            Squads(),
+            IPLMatches(),
+            PointTable()
           ],
         ),
       ),
