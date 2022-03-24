@@ -3,6 +3,7 @@ import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -29,6 +30,7 @@ class MyBottom extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return BottomAppBar(
+
       color: AppColor.light,
       child: SizedBox(
         height: 7.h,
