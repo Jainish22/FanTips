@@ -21,6 +21,7 @@ class Matches extends StatelessWidget {
             indicatorColor: AppColor.green,
             labelColor: AppColor.green,
             unselectedLabelColor: AppColor.white,
+            indicatorSize: TabBarIndicatorSize.label,
             tabs: [
               Tab(text: AppString.upcoming),
               Tab(text: AppString.live),
