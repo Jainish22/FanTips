@@ -536,34 +536,6 @@ class MyContainer7 extends StatelessWidget {
   }
 }
 
-// class MyContainer8 extends StatelessWidget {
-//
-//
-//   List<String> tem = ["Delhi Capitalls","Chennai Super kings","Royal Challengers Banglore","Mumbai Indians","Rajasthan Royals","kings XI Punjab","Kolkata Knight Riders","Sunrisers Hyderabad"];
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       height: 7.h,
-//       width: 96.w,
-//       decoration: BoxDecoration(
-//         borderRadius: BorderRadius.circular(5) ,
-//             color: AppColor.light
-//       ),
-//       child: Padding(
-//         padding: EdgeInsets.only(left: 4.w),
-//         child: Row(
-//           children:  [
-//             CircleAvatar(backgroundImage: AssetImage(""),radius: 18,),
-//             AppSizebox.w10,
-//             Text(tem.toString(),style: TextStyle(fontSize: 12),)
-//
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 
 
