@@ -1,6 +1,8 @@
-import 'package:fantips/Util/Sizebox.dart';
 import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
+
+import '../../../Util/Sizebox.dart';
 
 class Live extends StatelessWidget {
   const Live({Key? key}) : super(key: key);
@@ -10,14 +12,19 @@ class Live extends StatelessWidget {
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
-          children: const [
-            AppSizebox.h20,
-            MyContainer6(),AppSizebox.h10,
-            MyContainer6(),AppSizebox.h10,
-            MyContainer6()
+          children: [
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: 3,
+              itemBuilder: (context, index) =>  Padding(
+                padding: EdgeInsets.only(left: 4.w,right: 4.w,top: 2.h),
+                child: MyContainer6(),
+              ),
+            )
           ],
         ),
-      )
+      ),
     );
   }
 }
