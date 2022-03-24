@@ -1,3 +1,4 @@
+import 'package:fantips/Screens/Experts/Experts.dart';
 import 'package:fantips/Screens/Home/Home.dart';
 import 'package:fantips/Screens/Home/HomeNews.dart';
 import 'package:fantips/Screens/IPL/Ipl.dart';
@@ -10,5 +11,6 @@ class Routes {
     GetPage(name: '/news', page: () => const HomeNews()),
     GetPage(name: '/matches', page: () => const Matches()),
     GetPage(name: '/ipl', page: () => const Ipl()),
+    GetPage(name: '/expert', page: () => const Experts()),
   ];
 }
