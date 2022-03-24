@@ -426,7 +426,7 @@ class MyContainer6 extends StatelessWidget {
                     SizedBox(height: 1.5.h),
                     Row(children: [
                       Image.asset(AppIcon.live,height: 1.5.h,),AppSizebox.w2,
-                      Text("Live",)
+                      Text("LIVE",)
                     ],)
                   ],
                 ),
