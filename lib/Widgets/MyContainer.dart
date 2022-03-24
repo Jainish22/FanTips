@@ -13,13 +13,12 @@ class MyContainer1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 4.w),
+      padding: EdgeInsets.only(left: 2.5.w),
       child: Container(
-        margin: EdgeInsets.only(right: 10),
         height: 20.h,
-        width: 95.w,
+        width: 92.w,
         decoration: BoxDecoration(
-            color: AppColor.light, borderRadius: BorderRadius.circular(5)),
+            color: AppColor.light, borderRadius: BorderRadius.circular(10)),
         child: Padding(
           padding: EdgeInsets.only(top: 2.h,left: 4.w,right: 5.w),
           child: Column(
@@ -104,12 +103,12 @@ class MyContainer2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 4.w),
+      padding: EdgeInsets.only(left: 2.5.w),
       child: Container(
           height: 20.h,
-          width: 95.w,
+          width: 92.w,
           decoration: BoxDecoration(
-              color: AppColor.light, borderRadius: BorderRadius.circular(5)),
+              color: AppColor.light, borderRadius: BorderRadius.circular(10)),
           child: Stack(
             children: [
               Positioned(
@@ -135,7 +134,7 @@ class MyContainer2 extends StatelessWidget {
                   ),
                 )
               ),
-              Positioned(top: 2.h, left: 85.w, child: Image.asset(AppIcon.heart, height: 2.5.h,)),
+              Positioned(top: 2.h, left: 82.w, child: Image.asset(AppIcon.heart, height: 2.5.h,)),
               Positioned(
                 top: 12.h,left: 5.w,
                 child: SizedBox(
@@ -360,6 +359,92 @@ class MyContainer5 extends StatelessWidget {
               )
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class MyContainer6 extends StatelessWidget {
+  const MyContainer6({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 20.h,
+      width: 92.w,
+      decoration: BoxDecoration(
+          color: AppColor.light, borderRadius: BorderRadius.circular(10)),
+      child: Padding(
+        padding: EdgeInsets.only(top: 2.h,left: 4.w,right: 5.w),
+        child: Column(
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                    "Zimbabwe vs Afghanistan",
+                    style: TextStyle(fontSize: 12,)),
+                Image.asset(AppIcon.notification,height: 2.2.h)
+              ],
+            ),
+            SizedBox(height: 1.h,),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const CircleAvatar(radius: 15,backgroundImage: AssetImage('',)),
+                        SizedBox(width: 2.w),
+                        const Text("ZIM",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14)),
+                        SizedBox(width: 24.w),
+                        const Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700,fontSize: 14),),
+                        SizedBox(width: 1.w),
+                        Text("(20)", style: TextStyle(color: AppColor.grey,fontSize: 10))
+
+                      ],
+                    ),
+                    SizedBox(height: 1.5.h),
+                    Row(
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const CircleAvatar(radius: 15,backgroundImage: AssetImage('')),
+                        SizedBox(width: 2.w),
+                        const Text("ZIM",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14)),
+                        SizedBox(width: 24.w),
+                        const Text("133/7",  style: TextStyle(fontWeight: FontWeight.w700,fontSize: 14),),
+                        SizedBox(width: 1.w),
+                        Text("(20)", style: TextStyle(color: AppColor.grey,fontSize: 10))
+                      ],
+                    ),
+                    SizedBox(height: 1.5.h),
+                    Row(children: [
+                      Image.asset(AppIcon.live,height: 1.5.h,),AppSizebox.w2,
+                      Text("Live",)
+                    ],)
+                  ],
+                ),
+                SizedBox(
+                    height: 9.h,
+                    child: const VerticalDivider(color: AppColor.DividerColor, thickness: 1)),
+                SizedBox(
+                  width: 19.w,
+                  child: Column(
+                    children: const [
+                      Text('72',style: TextStyle(height: 1.6,fontSize: 30,fontWeight: FontWeight.w900,color: AppColor.green)),
+                      Text('Prediction',style: TextStyle(fontWeight: FontWeight.w400,color: AppColor.green))
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ],
         ),
       ),
     );

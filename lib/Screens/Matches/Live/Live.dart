@@ -8,7 +8,8 @@ class Live extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: const [
-          Text('Add Container')
+          AppSizebox.h20,
+          MyContainer6()
         ],
       )
     );
