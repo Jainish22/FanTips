@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppString {
+
+  static const blank ='';
   //Home String
   static const fanTips= 'FanTips';
   static const logIn= 'Log in';

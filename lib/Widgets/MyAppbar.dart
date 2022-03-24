@@ -8,6 +8,7 @@ PreferredSizeWidget MyAppbar(String text1, String text2 ) {
   return PreferredSize(
     preferredSize: const Size.fromHeight(28),
     child: AppBar(
+      automaticallyImplyLeading: false,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children:   [
@@ -41,7 +42,7 @@ class MyBottom extends StatelessWidget {
               )
             ),
             InkWell(
-              onTap: (){Get.toNamed('home');},
+              onTap: (){Get.toNamed('matches');},
               child: Column(
                 children: const [
                   Icon(Icons.videogame_asset_outlined,color: Colors.white,size: 28),
@@ -69,6 +70,7 @@ class MyBottom extends StatelessWidget {
             ),
             InkWell(
               onTap: (){Get.toNamed('home');},
+              splashColor: Colors.black,
               child: Column(
                 children: const [
                   Icon(Icons.more_horiz,color: Colors.white,size: 28),
