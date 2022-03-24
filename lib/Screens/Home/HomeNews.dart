@@ -1,4 +1,5 @@
 import 'package:fantips/Util/Sizebox.dart';
+import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -52,6 +53,7 @@ class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
+      bottomNavigationBar: MyBottom(),
       body: NotificationListener<ScrollNotification>(
         onNotification: scrollListeners,
         child: Stack(
@@ -159,7 +161,7 @@ class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
               ),
             ),
             Container(
-              height: 80,
+              height: 10.h,
               child: AnimatedBuilder(
                 animation: ColorAnimationController,
                 builder: (context, child) => AppBar(
