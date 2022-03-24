@@ -7,7 +7,7 @@ class Live extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
-        children: [
+        children: const [
           Text('Add Container')
         ],
       )
