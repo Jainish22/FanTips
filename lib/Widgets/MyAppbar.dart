@@ -68,7 +68,7 @@ class MyBottom extends StatelessWidget {
               )
             ),
             InkWell(
-              onTap: (){Get.toNamed('home');},
+              onTap: (){Get.toNamed('expert');},
               child: Column(
                 children: const [
                   Icon(Icons.person,color: Colors.grey,size: 34),

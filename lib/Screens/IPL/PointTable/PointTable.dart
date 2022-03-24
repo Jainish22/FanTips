@@ -48,7 +48,7 @@ class PointTable extends StatelessWidget {
                             const Text('12'),
                             const Text('2'),
                             const Text('24'),
-                            SizedBox(width: 12.w,child: const Text('+1.000'))
+                            SizedBox(width: 12.w,child: const Text('+1.000')),
                           ]
                         )
                       ],
