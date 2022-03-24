@@ -13,13 +13,12 @@ class MyContainer1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 4.w),
+      padding: EdgeInsets.only(left: 2.5.w,),
       child: Container(
-        margin: EdgeInsets.only(right: 10),
         height: 20.h,
-        width: 95.w,
+        width: 92.w,
         decoration: BoxDecoration(
-            color: AppColor.light, borderRadius: BorderRadius.circular(5)),
+            color: AppColor.light, borderRadius: BorderRadius.circular(10)),
         child: Padding(
           padding: EdgeInsets.only(top: 2.h,left: 4.w,right: 5.w),
           child: Column(
@@ -79,7 +78,7 @@ class MyContainer1 extends StatelessWidget {
                     height: 9.h,
                     child: const VerticalDivider(color: AppColor.DividerColor, thickness: 1)),
                   SizedBox(
-                    width: 18.w,
+                    width: 19.w,
                     child: Column(
                       children: const [
                         Text('72',style: TextStyle(height: 1.6,fontSize: 30,fontWeight: FontWeight.w900,color: AppColor.green)),
@@ -104,12 +103,12 @@ class MyContainer2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 4.w),
+      padding: EdgeInsets.only(left: 2.5.w),
       child: Container(
           height: 20.h,
-          width: 95.w,
+          width: 92.w,
           decoration: BoxDecoration(
-              color: AppColor.light, borderRadius: BorderRadius.circular(5)),
+              color: AppColor.light, borderRadius: BorderRadius.circular(10)),
           child: Stack(
             children: [
               Positioned(
@@ -135,7 +134,7 @@ class MyContainer2 extends StatelessWidget {
                   ),
                 )
               ),
-              Positioned(top: 2.h, left: 85.w, child: Image.asset(AppIcon.heart, height: 2.5.h,)),
+              Positioned(top: 2.h, left: 82.w, child: Image.asset(AppIcon.heart, height: 2.5.h,)),
               Positioned(
                 top: 12.h,left: 5.w,
                 child: SizedBox(
