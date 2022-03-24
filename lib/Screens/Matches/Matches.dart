@@ -5,6 +5,7 @@ import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class Matches extends StatelessWidget {
   const Matches({Key? key}) : super(key: key);
@@ -16,10 +17,11 @@ class Matches extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: const Text(AppString.currentMatches),
+          title: Container(padding:EdgeInsets.only(left: 2.w),child: const Text(AppString.currentMatches)),
           bottom: const TabBar(
             indicatorColor: AppColor.green,
             labelColor: AppColor.green,
+            labelStyle: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
             unselectedLabelColor: AppColor.white,
             indicatorSize: TabBarIndicatorSize.label,
             tabs: [
