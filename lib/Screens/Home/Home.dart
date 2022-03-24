@@ -1,9 +1,11 @@
+import 'package:fantips/Screens/Home/HomeNews.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:fantips/Widgets/MyTitle.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 class Home extends StatelessWidget {
@@ -69,7 +71,7 @@ class Home extends StatelessWidget {
                        shrinkWrap: true,
                        physics: const NeverScrollableScrollPhysics(),
                        itemBuilder: (context, index){
-                         return  const MyContainer3();
+                         return  InkWell(child: const MyContainer3(),onTap: (){Get.to(HomeNews());},);
                        }
                      ),
                    ),
