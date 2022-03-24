@@ -1,5 +1,8 @@
 import 'package:fantips/Screens/Home/Home.dart';
+import 'package:fantips/Util/AppColor.dart';
+import 'package:fantips/Util/AppIcon.dart';
 import 'package:fantips/Util/AppStrings.dart';
+import 'package:fantips/Util/Sizebox.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -26,7 +29,7 @@ class MyBottom extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return BottomAppBar(
-      color: Colors.black,
+      color: AppColor.light,
       child: SizedBox(
         height: 7.h,
         child: Row(
@@ -35,18 +38,30 @@ class MyBottom extends StatelessWidget {
             InkWell(
               onTap: (){Get.toNamed('home');},
               child: Column(
-                children: const [
-                  Icon(Icons.home,color: Colors.white,size: 28),
-                  Text(AppString.home,style: TextStyle(fontSize: 12),)
+                children: [
+                  AppSizebox.h2,AppSizebox.h2,
+                  Image.asset(AppIcon.home,height: 4.h,color: Colors.grey),AppSizebox.h2,
+                  const Text(AppString.home,style: TextStyle(fontSize: 12,color: Colors.grey))
                 ],
               )
             ),
             InkWell(
               onTap: (){Get.toNamed('matches');},
               child: Column(
-                children: const [
-                  Icon(Icons.videogame_asset_outlined,color: Colors.white,size: 28),
-                  Text(AppString.matches,style: TextStyle(fontSize: 12),)
+                children: [
+                  AppSizebox.h2,AppSizebox.h2,
+                  Image.asset(AppIcon.match,height: 4.h,color: Colors.grey),AppSizebox.h2,
+                  const Text(AppString.matches,style: TextStyle(fontSize: 12,color: Colors.grey))
+                ],
+              )
+            ),
+            InkWell(
+              onTap: (){Get.toNamed('home');},
+              child: Column(
+                children: [
+                  AppSizebox.h2,AppSizebox.h2,
+                  Image.asset(AppIcon.ipl,height: 4.h,color: Colors.grey),AppSizebox.h2,
+                  const Text(AppString.ipl,style: TextStyle(fontSize: 12,color: Colors.grey))
                 ],
               )
             ),
@@ -54,17 +69,8 @@ class MyBottom extends StatelessWidget {
               onTap: (){Get.toNamed('home');},
               child: Column(
                 children: const [
-                  Icon(Icons.sports_cricket_outlined,color: Colors.white,size: 28),
-                  Text(AppString.ipl,style: TextStyle(fontSize: 12),)
-                ],
-              )
-            ),
-            InkWell(
-              onTap: (){Get.toNamed('home');},
-              child: Column(
-                children: const [
-                  Icon(Icons.person,color: Colors.white,size: 28),
-                  Text(AppString.exports,style: TextStyle(fontSize: 12),)
+                  Icon(Icons.person,color: Colors.grey,size: 34),
+                  Text(AppString.exports,style: TextStyle(fontSize: 12,color: Colors.grey))
                 ],
               )
             ),
@@ -73,8 +79,8 @@ class MyBottom extends StatelessWidget {
               splashColor: Colors.black,
               child: Column(
                 children: const [
-                  Icon(Icons.more_horiz,color: Colors.white,size: 28),
-                  Text(AppString.more,style: TextStyle(fontSize: 12),)
+                  Icon(Icons.more_horiz,color: Colors.grey,size: 34),
+                  Text(AppString.more,style: TextStyle(fontSize: 12,color: Colors.grey),)
                 ],
               )
             ),
