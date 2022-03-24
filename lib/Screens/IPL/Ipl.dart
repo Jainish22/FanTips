@@ -27,7 +27,7 @@ class Ipl extends StatelessWidget {
             unselectedLabelColor: AppColor.white,
             indicatorSize: TabBarIndicatorSize.label,
             tabs: [
-              Tab(text: AppString.squads),
+              Tab(child: Text(AppString.squads)),
               Tab(text: AppString.matches),
               Tab(text: AppString.pointTable)
             ],
