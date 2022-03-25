@@ -39,7 +39,7 @@ class AppString {
 
   //Export String
   static const predictionExperts='Prediction Experts';
-  static const sortBy= 'Sort by: ';
+  static const sortBy= 'Sort by';
   static const avgScore = 'Average Score';
   static const predictions = 'Predictions';
   static const wins = 'Wins';

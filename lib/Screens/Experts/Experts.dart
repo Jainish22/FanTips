@@ -1,5 +1,6 @@
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -16,10 +17,7 @@ class Experts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: const Text(AppString.predictionExperts),
-      ),
+      appBar: MyAppbar1(AppString.predictionExperts,AppString.logIn,AppIcon.search),
       bottomNavigationBar: MyBottom(),
       body: Stack(
         children: [
@@ -33,35 +31,49 @@ class Experts extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   color: AppColor.light
                 ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(AppIcon.sortby,height: 1.8.h,color: AppColor.green,),AppSizebox.w5,
+                    Text(AppString.sortBy+":",style: TextStyle(color: AppColor.green,fontSize: 16)),AppSizebox.w5,
+                    Text(AppString.avgScore,style: TextStyle(color: AppColor.green,fontSize: 16)),
+                    Icon(Icons.keyboard_arrow_down_sharp,color: AppColor.green,size: 20,)
+                  ],
+                ),
               ),
                 onTap: (){
                   Get.bottomSheet(
                     Container(
                       height: 28.h,
-                      child: Column(
-                        children: [
-                          AppSizebox.h15,
-                           Row(
-                             mainAxisAlignment: MainAxisAlignment.center,
-                             children: [
-                               Image.asset(AppIcon.sortby,height: 1.5.h,),
-                               AppSizebox.w5,
-                               const Text(
-                                 AppString.sortBy,
-                                 style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),
-                               ),
-                             ],
-                           ),
-                          // Divider(height: 1,color: Colors.grey.shade700,endIndent: 2),
-                          // ListTile(title: Text(AppString.predictions),trailing: Icon(Icons.check_circle,),),
-                          // Divider(height: 1,color: Colors.grey.shade700),
-                          // ListTile(title: Text(AppString.avgScore),trailing: Icon(Icons.check_circle,),),
-                          // Divider(height: 1,color: Colors.grey.shade700),
-                          // ListTile(title: Text(AppString.wins),trailing: Icon(Icons.check_circle,),),
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 3.w,right: 3.w),
+                        child: Column(
+                          children: [
+                            AppSizebox.h15,
+                             Row(
+                               mainAxisAlignment: MainAxisAlignment.center,
+                               children: [
+                                 Image.asset(AppIcon.sortby,height: 1.5.h,),
+                                 AppSizebox.w5,
+                                 const Text(
+                                   AppString.sortBy,
+                                   style: TextStyle(fontSize: 20,fontWeight: FontWeight.w500),
+                                 ),
+                               ],
+                             ),
+                             AppSizebox.h10,
+                            Divider(height: 1,color: Colors.grey.shade700,),
+                            InkWell(child: Container(height: 7.h, child:  const ListTile(title: Text(AppString.predictions,style: TextStyle(color: AppColor.white),),trailing: Icon(Icons.check_circle,color: AppColor.white,),),),onTap: (){},),
+                            Divider(height: 1,color: Colors.grey.shade700,),
+                            InkWell(child: Container(height: 7.h, child:  const ListTile(title: Text(AppString.avgScore,style: TextStyle(color: AppColor.white),),trailing: Icon(Icons.check_circle,color: AppColor.white),),),onTap: (){},),
+                            Divider(height: 1,color: Colors.grey.shade700,),
+                            InkWell(child: Container(height: 7.h, child:  const ListTile(title: Text(AppString.wins,style: TextStyle(color: AppColor.white),),trailing: Icon(Icons.check_circle,color: AppColor.white),),),onTap: (){},),
 
 
 
-                        ],
+
+                          ],
+                        ),
                       ),
                     ),
                     backgroundColor: AppColor.light,

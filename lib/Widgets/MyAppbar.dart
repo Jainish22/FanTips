@@ -25,9 +25,9 @@ PreferredSizeWidget MyAppbar(String text1, String text2,) {
   );
 }
 
-PreferredSizeWidget MyAppbar1(String text1,String image, String text2,) {
+PreferredSizeWidget MyAppbar1(String text1, String text2,String image) {
   return PreferredSize(
-    preferredSize:  Size.fromHeight(40),
+    preferredSize:  Size.fromHeight(45),
     child: AppBar(
       automaticallyImplyLeading: false,
       title: Row(
@@ -37,7 +37,7 @@ PreferredSizeWidget MyAppbar1(String text1,String image, String text2,) {
           Expanded(flex: 2,child: Container()),
           Text(text2,style: const TextStyle(fontWeight: FontWeight.w700,fontSize: 15,color: Color(0xFF25C06D),height: 0),),
           Expanded(child: Container()),
-          Image.asset(image,height: 2.h,)
+           InkWell(child: Image.asset(image,height: 2.4.h,),onTap: (){Get.toNamed('search');},)
         ],
       )
     ),
