@@ -35,9 +35,9 @@ class Experts extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(AppIcon.sortby,height: 1.8.h,color: AppColor.green,),AppSizebox.w5,
-                    Text(AppString.sortBy+":",style: TextStyle(color: AppColor.green,fontSize: 16)),AppSizebox.w5,
-                    Text(AppString.avgScore,style: TextStyle(color: AppColor.green,fontSize: 16)),
-                    Icon(Icons.keyboard_arrow_down_sharp,color: AppColor.green,size: 20,)
+                    const Text(AppString.sortBy+":",style: TextStyle(color: AppColor.green,fontSize: 16)),AppSizebox.w5,
+                    const Text(AppString.avgScore,style: TextStyle(color: AppColor.green,fontSize: 16)),
+                    const Icon(Icons.keyboard_arrow_down_sharp,color: AppColor.green,size: 20,)
                   ],
                 ),
               ),

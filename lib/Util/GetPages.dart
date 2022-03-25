@@ -1,3 +1,4 @@
+import 'package:fantips/Screens/Experts/ExperInfo/Expertinfo.dart';
 import 'package:fantips/Screens/Experts/Experts.dart';
 import 'package:fantips/Screens/Home/Home.dart';
 import 'package:fantips/Screens/Home/HomeNews.dart';
@@ -17,5 +18,8 @@ class Routes {
     GetPage(name: '/expert', page: () => const Experts()),
     GetPage(name: '/more', page: () => const More()),
     GetPage(name: '/search', page: () => const Search()),
+    GetPage(name: '/expertinfo', page: () => const ExpertInfo()),
+
+
   ];
 }

@@ -23,7 +23,7 @@ class More extends StatelessWidget {
           child: Column(
             children: [
               AppSizebox.h20,
-              const OptionContainer(text: AppString.favouriteExperts),
+              OptionContainer(text: AppString.favouriteExperts, ontap: (){}),
               AppSizebox.h20,
               SizedBox(
                 height: 25.h,
@@ -33,14 +33,14 @@ class More extends StatelessWidget {
                     itemCount: more1.length,
                     itemBuilder: (context, index) {
                       return Column(
-                        children: [OptionContainer(text: more1[index]), AppSizebox.h2],
+                        children: [OptionContainer(text: more1[index],ontap: (){}), AppSizebox.h2],
                       );
                     }
                   ),
                 ),
               ),
               AppSizebox.h20,
-              const OptionContainer(text: AppString.playGames),
+              OptionContainer(text: AppString.playGames,ontap: (){}),
               AppSizebox.h20,
               SizedBox(
                 height: 25.h,
@@ -50,7 +50,7 @@ class More extends StatelessWidget {
                     itemCount: more2.length,
                     itemBuilder: (context, index) {
                       return Column(
-                        children: [OptionContainer(text: more2[index]), AppSizebox.h2],
+                        children: [OptionContainer(text: more2[index],ontap: (){}), AppSizebox.h2],
                       );
                     }
                   ),
@@ -65,7 +65,7 @@ class More extends StatelessWidget {
                     itemCount: more3.length,
                     itemBuilder: (context, index) {
                       return Column(
-                        children: [OptionContainer(text: more3[index]), AppSizebox.h2],
+                        children: [OptionContainer(text: more3[index],ontap: (){}), AppSizebox.h2],
                       );
                     }
                   ),
