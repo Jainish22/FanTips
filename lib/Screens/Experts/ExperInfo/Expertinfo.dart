@@ -15,7 +15,7 @@ class ExpertInfo extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: true,
-          title: Container(padding:EdgeInsets.only(left: 2.w),child: const Text(AppString.prediction)),
+          title: Container(padding:EdgeInsets.only(left: 2.w),child: const Text(AppString.t20)),
           bottom: const TabBar(
             indicatorColor: AppColor.green,
             labelColor: AppColor.green,
@@ -23,8 +23,8 @@ class ExpertInfo extends StatelessWidget {
             unselectedLabelColor: AppColor.white,
             indicatorSize: TabBarIndicatorSize.label,
             tabs: [
-              Tab(text: 'Info'),
-              Tab(text: 'Matches')
+              Tab(text: AppString.info),
+              Tab(text: AppString.matches)
             ],
           ),
         ),
