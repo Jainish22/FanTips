@@ -5,6 +5,9 @@ import 'package:fantips/Screens/IPL/Ipl.dart';
 import 'package:fantips/Screens/Matches/Matches.dart';
 import 'package:get/get.dart';
 
+import '../Screens/Experts/search.dart';
+import '../Screens/More/More.dart';
+
 class Routes {
   static final routes = [
     GetPage(name: '/home', page: () => const Home()),
