@@ -8,4 +8,5 @@ class AppIcon{
   static const home = 'asset/icon/home-outline.png';
   static const match = 'asset/icon/bat.png';
   static const ipl = 'asset/icon/ipl.png';
+  static const list = 'asset/icon/list.png';
 }
