@@ -44,4 +44,17 @@ class AppString {
   static const predictions = 'Predictions';
   static const wins = 'Wins';
   static const search = 'Search';
+
+  //More String
+  static const favouriteExperts='Favourite experts';
+  static const rateUs= 'Rate Us';
+  static const share = 'Share';
+  static const feedBack = 'Feedback';
+  static const playGames = 'Play Games';
+  static const privacyPolicy = 'Private Policy';
+  static const copyright= 'Copyright';
+  static const termsOfuse = 'Terms of use';
+  static const applyAsexperts = 'Apply As Expert';
+  static const contactUsforbranding = 'Contact us for branding';
+
 }
