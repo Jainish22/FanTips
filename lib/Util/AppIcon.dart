@@ -11,4 +11,5 @@ class AppIcon{
   static const ipl = 'asset/icon/ipl.png';
   static const search = 'asset/icon/search.png';
   static const sortby = 'asset/icon/sortby.png';
+  static const list = 'asset/icon/list.png';
 }

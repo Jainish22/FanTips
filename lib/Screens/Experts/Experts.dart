@@ -1,14 +1,6 @@
-import 'package:fantips/Util/AppColor.dart';
-import 'package:fantips/Util/AppIcon.dart';
 import 'package:fantips/Util/AppStrings.dart';
-import 'package:fantips/Util/Sizebox.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
-import 'package:fantips/Widgets/MyContainer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:sizer/sizer.dart';
-import 'package:get/state_manager.dart';
 
 class Experts extends StatelessWidget {
   const Experts({Key? key}) : super(key: key);
@@ -16,7 +8,10 @@ class Experts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppbar1(AppString.predictionExperts,AppIcon.search,AppString.logIn),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const Text(AppString.predictionExperts),
+      ),
       bottomNavigationBar: MyBottom(),
       body: Stack(
         children: [
