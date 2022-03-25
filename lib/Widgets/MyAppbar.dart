@@ -28,10 +28,14 @@ class MyBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    // List _icon = [AppIcon.home,AppIcon.match,AppIcon.ipl,Icon(Icons.person),Icon(Icons.more_horiz)];
+    // List _string = [AppString.home,AppString.matches,AppString.ipl,AppString.exports,AppString.more];
+    // List _navihation = ['/home','/matches','/ipl','/expert','/more'];
+
     return BottomAppBar(
       color: AppColor.light,
       child: SizedBox(
-        height: 7.h,
+        height: 8.h,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -39,8 +43,8 @@ class MyBottom extends StatelessWidget {
               onTap: (){Get.toNamed('home');},
               child: Column(
                 children: [
-                  AppSizebox.h2,AppSizebox.h2,
-                  Image.asset(AppIcon.home,height: 4.h,color: Colors.grey),AppSizebox.h2,
+                  AppSizebox.h5,
+                  Image.asset(AppIcon.home,height: 3.h,color: Colors.grey),AppSizebox.h2,AppSizebox.h2,
                   const Text(AppString.home,style: TextStyle(fontSize: 12,color: Colors.grey))
                 ],
               )
@@ -49,8 +53,8 @@ class MyBottom extends StatelessWidget {
               onTap: (){Get.toNamed('matches');},
               child: Column(
                 children: [
-                  AppSizebox.h2,AppSizebox.h2,
-                  Image.asset(AppIcon.match,height: 4.h,color: Colors.grey),AppSizebox.h2,
+                  AppSizebox.h5,
+                  Image.asset(AppIcon.match,height: 3.h,color: Colors.grey),AppSizebox.h2,AppSizebox.h2,
                   const Text(AppString.matches,style: TextStyle(fontSize: 12,color: Colors.grey))
                 ],
               )
@@ -59,8 +63,8 @@ class MyBottom extends StatelessWidget {
               onTap: (){Get.toNamed('ipl');},
               child: Column(
                 children: [
-                  AppSizebox.h2,AppSizebox.h2,
-                  Image.asset(AppIcon.ipl,height: 4.h,color: Colors.grey),AppSizebox.h2,
+                  AppSizebox.h5,
+                  Image.asset(AppIcon.ipl,height: 3.h,color: Colors.grey),AppSizebox.h2,AppSizebox.h2,
                   const Text(AppString.ipl,style: TextStyle(fontSize: 12,color: Colors.grey))
                 ],
               )
@@ -68,8 +72,9 @@ class MyBottom extends StatelessWidget {
             InkWell(
               onTap: (){Get.toNamed('expert');},
               child: Column(
-                children: const [
-                  Icon(Icons.person,color: Colors.grey,size: 34),
+                children: [
+                  AppSizebox.h2,
+                  Icon(Icons.person,color: Colors.grey,size: 3.7.h),AppSizebox.h2,
                   Text(AppString.exports,style: TextStyle(fontSize: 12,color: Colors.grey))
                 ],
               )
@@ -78,8 +83,9 @@ class MyBottom extends StatelessWidget {
               onTap: (){Get.toNamed('more');},
               splashColor: Colors.black,
               child: Column(
-                children: const [
-                  Icon(Icons.more_horiz,color: Colors.grey,size: 34),
+                children: [
+                  AppSizebox.h2,
+                  Icon(Icons.more_horiz,color: Colors.grey,size: 3.7.h),AppSizebox.h2,
                   Text(AppString.more,style: TextStyle(fontSize: 12,color: Colors.grey),)
                 ],
               )
