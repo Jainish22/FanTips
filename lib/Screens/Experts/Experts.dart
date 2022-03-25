@@ -1,6 +1,14 @@
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:sizer/sizer.dart';
+
+import '../../Util/AppColor.dart';
+import '../../Util/AppIcon.dart';
+import '../../Util/Sizebox.dart';
+import '../../Widgets/MyContainer.dart';
 
 class Experts extends StatelessWidget {
   const Experts({Key? key}) : super(key: key);
