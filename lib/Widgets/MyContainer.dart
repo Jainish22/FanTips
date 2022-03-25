@@ -536,6 +536,25 @@ class MyContainer7 extends StatelessWidget {
   }
 }
 
+//option container
+class OptionContainer extends StatelessWidget {
+
+  final String text;
+
+  const OptionContainer({required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: AppColor.light,
+      child: ListTile(
+        onTap: (){print('tap');},
+        title: Text(text,style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 14)),
+        trailing: Icon(Icons.arrow_forward_ios_sharp,color: Colors.white,size: 16,),
+      ),
+    );
+  }
+}
 
 
 

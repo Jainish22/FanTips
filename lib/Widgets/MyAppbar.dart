@@ -97,7 +97,7 @@ class MyBottom extends StatelessWidget {
               )
             ),
             InkWell(
-              onTap: (){Get.toNamed('home');},
+              onTap: (){Get.toNamed('more');},
               splashColor: Colors.black,
               child: Column(
                 children: const [
