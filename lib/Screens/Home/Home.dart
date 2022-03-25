@@ -42,7 +42,7 @@ class Home extends StatelessWidget {
                  const MyTitle(text: AppString.featuredExperts),
                  AppSizebox.h15,
                  SizedBox(
-                   height: 19.h,
+                   height: 20.h,
                    child: Expanded(
                      child: ListView.builder(
                        itemCount: 5,
