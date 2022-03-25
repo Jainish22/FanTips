@@ -54,7 +54,6 @@ class MyBottom extends StatelessWidget {
     // List _navihation = ['/home','/matches','/ipl','/expert','/more'];
 
     return BottomAppBar(
-
       color: AppColor.light,
       child: SizedBox(
         height: 8.h,
@@ -97,19 +96,18 @@ class MyBottom extends StatelessWidget {
                 children: [
                   AppSizebox.h2,
                   Icon(Icons.person,color: Colors.grey,size: 3.7.h),AppSizebox.h2,
-                  Text(AppString.exports,style: TextStyle(fontSize: 12,color: Colors.grey))
+                  const Text(AppString.exports,style: TextStyle(fontSize: 12,color: Colors.grey))
                 ],
               )
             ),
             InkWell(
-              
               onTap: (){Get.toNamed('more');},
               splashColor: Colors.black,
               child: Column(
                 children: [
                   AppSizebox.h2,
                   Icon(Icons.more_horiz,color: Colors.grey,size: 3.7.h),AppSizebox.h2,
-                  Text(AppString.more,style: TextStyle(fontSize: 12,color: Colors.grey),)
+                  const Text(AppString.more,style: TextStyle(fontSize: 12,color: Colors.grey),)
                 ],
               )
             ),

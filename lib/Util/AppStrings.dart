@@ -57,4 +57,9 @@ class AppString {
   static const applyAsexperts = 'Apply As Expert';
   static const contactUsforbranding = 'Contact us for branding';
 
+  //t20 prediction
+  static const t20 = 'T20 Predictions';
+  static const info = 'Info';
+
+
 }
