@@ -44,7 +44,7 @@ class Experts extends StatelessWidget {
                 onTap: (){
                   Get.bottomSheet(
                     Container(
-                      height: 28.h,
+                      height: 29.h,
                       child: Padding(
                         padding: EdgeInsets.only(left: 3.w,right: 3.w),
                         child: Column(
@@ -63,15 +63,11 @@ class Experts extends StatelessWidget {
                              ),
                              AppSizebox.h10,
                             Divider(height: 1,color: Colors.grey.shade700,),
-                            InkWell(child: Container(height: 7.h, child:  const ListTile(title: Text(AppString.predictions,style: TextStyle(color: AppColor.white),),trailing: Icon(Icons.check_circle,color: AppColor.white,),),),onTap: (){},),
+                            SizedBox(height: 7.h, child: ListTile(onTap: (){},title: Text(AppString.predictions,style: TextStyle(color: AppColor.white),),trailing: Icon(Icons.check_circle,color: AppColor.white,),),),
                             Divider(height: 1,color: Colors.grey.shade700,),
-                            InkWell(child: Container(height: 7.h, child:  const ListTile(title: Text(AppString.avgScore,style: TextStyle(color: AppColor.white),),trailing: Icon(Icons.check_circle,color: AppColor.white),),),onTap: (){},),
+                            SizedBox(height: 7.h, child: ListTile(onTap: (){},title: Text(AppString.avgScore,style: TextStyle(color: AppColor.white),),trailing: Icon(Icons.check_circle,color: AppColor.white),),),
                             Divider(height: 1,color: Colors.grey.shade700,),
-                            InkWell(child: Container(height: 7.h, child:  const ListTile(title: Text(AppString.wins,style: TextStyle(color: AppColor.white),),trailing: Icon(Icons.check_circle,color: AppColor.white),),),onTap: (){},),
-
-
-
-
+                            SizedBox(height: 7.h, child: ListTile(onTap: (){},title: Text(AppString.wins,style: TextStyle(color: AppColor.white),),trailing: Icon(Icons.check_circle,color: AppColor.white),),),
                           ],
                         ),
                       ),
