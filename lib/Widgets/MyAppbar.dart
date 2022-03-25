@@ -7,7 +7,11 @@ import 'package:fantips/Util/Sizebox.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:sizer/sizer.dart';
+
+import '../Screens/Experts/Experts.dart';
 
 PreferredSizeWidget MyAppbar(String text1, String text2,) {
   return PreferredSize(
@@ -53,6 +57,8 @@ class MyBottom extends StatelessWidget {
     // List _string = [AppString.home,AppString.matches,AppString.ipl,AppString.exports,AppString.more];
     // List _navihation = ['/home','/matches','/ipl','/expert','/more'];
 
+
+    
     return BottomAppBar(
       color: AppColor.light,
       child: SizedBox(
@@ -115,5 +121,5 @@ class MyBottom extends StatelessWidget {
         )
       ),
     );
-  }
+ }
 }
