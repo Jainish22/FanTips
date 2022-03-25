@@ -1,15 +1,17 @@
+
 import 'package:fantips/Screens/Home/Home.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-PreferredSizeWidget MyAppbar(String text1, String text2 ) {
+PreferredSizeWidget MyAppbar(String text1, String text2,) {
   return PreferredSize(
-    preferredSize: const Size.fromHeight(28),
+    preferredSize: const Size.fromHeight(34),
     child: AppBar(
       automaticallyImplyLeading: false,
       title: Row(
@@ -17,6 +19,25 @@ PreferredSizeWidget MyAppbar(String text1, String text2 ) {
         children:   [
           Text(text1,style: const TextStyle(fontWeight: FontWeight.w700,fontSize: 20),) ,
           Text(text2,style: const TextStyle(fontWeight: FontWeight.w700,fontSize: 15,color: Color(0xFF25C06D),height: 2),)
+        ],
+      )
+    ),
+  );
+}
+
+PreferredSizeWidget MyAppbar1(String text1, String text2,String image) {
+  return PreferredSize(
+    preferredSize:  Size.fromHeight(45),
+    child: AppBar(
+      automaticallyImplyLeading: false,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children:   [
+          Text(text1,style: const TextStyle(fontWeight: FontWeight.w700,fontSize: 20),) ,
+          Expanded(flex: 2,child: Container()),
+          Text(text2,style: const TextStyle(fontWeight: FontWeight.w700,fontSize: 15,color: Color(0xFF25C06D),height: 0),),
+          Expanded(child: Container()),
+           InkWell(child: Image.asset(image,height: 2.4.h,),onTap: (){Get.toNamed('search');},)
         ],
       )
     ),
@@ -33,6 +54,7 @@ class MyBottom extends StatelessWidget {
     // List _navihation = ['/home','/matches','/ipl','/expert','/more'];
 
     return BottomAppBar(
+
       color: AppColor.light,
       child: SizedBox(
         height: 8.h,
