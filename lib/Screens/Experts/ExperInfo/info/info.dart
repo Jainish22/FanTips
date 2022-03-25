@@ -24,19 +24,19 @@ class Info extends StatelessWidget {
                 ],
               ),
             ),
-            CircleAvatar(radius: 60,backgroundImage: AssetImage(""),),
+            const CircleAvatar(radius: 60,backgroundImage: AssetImage(""),),
             AppSizebox.h20,
-            Text("T20 Predictions",style: TextStyle(fontSize: 20),),
+            const Text(AppString.t20,style: TextStyle(fontSize: 20),),
             AppSizebox.h10,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(AppIcon.uTube,height: 2.h),AppSizebox.w5,
-                const Text('YouTube',style: TextStyle(fontSize: 15),)
+                const Text(AppString.utube,style: TextStyle(fontSize: 15),)
               ],
             ),
             AppSizebox.h20,
-            Container(height: 3.h,width: 25.w,color: AppColor.light,child: Center(child: Text("View Channel",textAlign: TextAlign.center,style: TextStyle(fontSize: 12),)),),
+            Container(height: 3.h,width: 25.w,color: AppColor.light,child: const Center(child: Text(AppString.viewChannel,textAlign: TextAlign.center,style: TextStyle(fontSize: 12),)),),
             AppSizebox.h20,
             Container(
               height: 36.h,
@@ -67,7 +67,7 @@ class Info extends StatelessWidget {
                       top: 3.h,left: 42.w,
                       child: Column(children: const [
                         Text("479",style: TextStyle(fontSize: 30),),
-                        Text("Avg.Score",style: TextStyle(fontSize: 15),)
+                        Text(AppString.avgS,style: TextStyle(fontSize: 15),)
                       ],),
                     ),
 
@@ -82,7 +82,7 @@ class Info extends StatelessWidget {
                       top: 17.h,left: 42.w,
                       child: Column(children: const [
                         Text("50.8K",style: TextStyle(fontSize: 30),),
-                        Text("Subscribers",style: TextStyle(fontSize: 15),)
+                        Text(AppString.subscriber,style: TextStyle(fontSize: 15),)
                       ],),
                     ),
 

@@ -61,5 +61,15 @@ class AppString {
   static const t20 = 'T20 Predictions';
   static const info = 'Info';
 
+  //t20predictionscreen
+  static const utube = 'YouTube';
+  static const avgS = 'Avg.Score';
+  static const subscriber = 'Subscribers';
+  static const viewChannel ='View Channel';
 
+  //upcomingMatches
+  static const fantasy = 'Fantasy';
+  static const bestPicks= 'Best Picks';
+  static const myTeams = 'My Teams';
+  static const quiz = 'Quiz';
 }

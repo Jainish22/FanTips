@@ -4,6 +4,7 @@ import 'package:fantips/Screens/Home/Home.dart';
 import 'package:fantips/Screens/Home/HomeNews.dart';
 import 'package:fantips/Screens/IPL/Ipl.dart';
 import 'package:fantips/Screens/Matches/Matches.dart';
+import 'package:fantips/Screens/Matches/Upcoming/UpcomingMatches/UpcomingMatches.dart';
 import 'package:get/get.dart';
 
 import '../Screens/Experts/search.dart';
@@ -19,7 +20,7 @@ class Routes {
     GetPage(name: '/more', page: () => const More()),
     GetPage(name: '/search', page: () => const Search()),
     GetPage(name: '/expertinfo', page: () => const ExpertInfo()),
-
+    GetPage(name: '/upcomingmatches', page: () => const UpcomingMatches()),
 
   ];
 }
