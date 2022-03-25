@@ -7,7 +7,7 @@ class ExpertMatches extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Column(
-          children: [
+          children: const [
             Text('Matches')
           ],
         )
