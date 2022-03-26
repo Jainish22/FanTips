@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fantips/Screens/Home/HomeNews.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
@@ -27,15 +28,18 @@ class Home extends StatelessWidget {
                  AppSizebox.h15,
                  SizedBox(
                    height: 19.h,
-                   child: Expanded(
-                     child: ListView.builder(
-                       itemCount: 5,
-                       shrinkWrap: true,
-                       scrollDirection: Axis.horizontal,
-                       itemBuilder: (context, index) {
-                         return const MyContainer1();
-                       },
+                   width: 100.w,
+                   child: CarouselSlider.builder(
+                    options: CarouselOptions(
+                       enableInfiniteScroll: true,
+                       reverse: false,
+                       autoPlay: false,
+                       viewportFraction: 1,
                      ),
+                     itemCount: 5,
+                     itemBuilder: (BuildContext context, int index, int pageViewIndex){
+                       return const MyContainer1();
+                     }
                    ),
                  ),
                  AppSizebox.h15,
@@ -43,15 +47,18 @@ class Home extends StatelessWidget {
                  AppSizebox.h15,
                  SizedBox(
                    height: 20.h,
-                   child: Expanded(
-                     child: ListView.builder(
+                   width: 100.w,
+                   child: CarouselSlider.builder(
+                       options: CarouselOptions(
+                           enableInfiniteScroll: true,
+                           reverse: false,
+                           autoPlay: false,
+                           viewportFraction: 1
+                       ),
                        itemCount: 5,
-                       shrinkWrap: true,
-                       scrollDirection: Axis.horizontal,
-                       itemBuilder: (context, index) {
-                       return const MyContainer2();
+                       itemBuilder: (BuildContext context, int index, int pageViewIndex){
+                         return const MyContainer2();
                        }
-                     ),
                    ),
                  ),
                  AppSizebox.h15,

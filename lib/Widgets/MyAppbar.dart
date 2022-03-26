@@ -61,7 +61,9 @@ class MyBottom extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             InkWell(
-              onTap: (){Get.toNamed('home');},
+              highlightColor: Colors.transparent,
+              splashFactory: NoSplash.splashFactory,
+              onTap: (){Get.offNamed('home');},
               child: Column(
                 children: [
                   AppSizebox.h5,
@@ -71,7 +73,9 @@ class MyBottom extends StatelessWidget {
               )
             ),
             InkWell(
-              onTap: (){Get.toNamed('matches');},
+              highlightColor: Colors.transparent,
+              splashFactory: NoSplash.splashFactory,
+              onTap: (){Get.offNamed('matches');},
               child: Column(
                 children: [
                   AppSizebox.h5,
@@ -81,7 +85,9 @@ class MyBottom extends StatelessWidget {
               )
             ),
             InkWell(
-              onTap: (){Get.toNamed('ipl');},
+              highlightColor: Colors.transparent,
+              splashFactory: NoSplash.splashFactory,
+              onTap: (){Get.offNamed('ipl');},
               child: Column(
                 children: [
                   AppSizebox.h5,
@@ -91,7 +97,9 @@ class MyBottom extends StatelessWidget {
               )
             ),
             InkWell(
-              onTap: (){Get.toNamed('expert');},
+              highlightColor: Colors.transparent,
+              splashFactory: NoSplash.splashFactory,
+              onTap: (){Get.offNamed('expert');},
               child: Column(
                 children: [
                   AppSizebox.h2,
@@ -101,7 +109,9 @@ class MyBottom extends StatelessWidget {
               )
             ),
             InkWell(
-              onTap: (){Get.toNamed('more');},
+              highlightColor: Colors.transparent,
+              splashFactory: NoSplash.splashFactory,
+              onTap: (){Get.offNamed('more');},
               splashColor: Colors.black,
               child: Column(
                 children: [
