@@ -58,7 +58,7 @@ class MyBottom extends StatelessWidget {
     // List _navihation = ['/home','/matches','/ipl','/expert','/more'];
 
 
-    
+
     return BottomAppBar(
       color: AppColor.light,
       child: SizedBox(
