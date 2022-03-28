@@ -22,6 +22,8 @@ class AppString {
 
   //Matches String
   static const currentMatches= 'Current Matches';
+  static const gtvslsg= 'GT vs LSG';
+  static const pbksvsrcd= 'PBKS vs RCB';
   static const upcoming= 'Upcoming';
   static const live= 'Live';
   static const completed= 'Completed';
@@ -72,6 +74,8 @@ class AppString {
   static const bestPicks= 'Best Picks';
   static const myTeams = 'My Teams';
   static const quiz = 'Quiz';
+  static const commentary = 'Commentary';
+  static const scorecard = 'scorecard';
 
   static const favourite = 'Favourites';
   static const createTeam ='CREATE TEAMS';

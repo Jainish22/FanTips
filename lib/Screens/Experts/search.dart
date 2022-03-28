@@ -1,6 +1,7 @@
 import 'package:fantips/Util/AppColor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:get/state_manager.dart';
 import 'package:sizer/sizer.dart';
@@ -27,12 +28,13 @@ class Search extends StatelessWidget {
               ),
               child: TextFormField(
                 cursorColor: AppColor.white,
-                decoration: const InputDecoration(
+                decoration:  InputDecoration(
                   prefixIcon: InkWell(
                     child: Icon(
                       Icons.arrow_back,
                       color: AppColor.white,
                     ),
+                    onTap: (){Get.back();},
                   ),
                   hintText: "search",
                   hintStyle: TextStyle(color: Colors.white),
@@ -42,6 +44,13 @@ class Search extends StatelessWidget {
               ),
             ),
           ),
+          Center(child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset("asset/player/Placeholder.png"),
+              Text("No Data!")
+            ],
+          ))
         ],
       ),
     );
