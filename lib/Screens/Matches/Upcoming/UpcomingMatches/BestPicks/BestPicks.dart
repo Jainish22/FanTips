@@ -1,4 +1,7 @@
+import 'package:fantips/Screens/Matches/Upcoming/UpcomingMatches/Fantasy/Fantasy.dart';
 import 'package:fantips/Util/AppStrings.dart';
+import 'package:fantips/Util/Sizebox.dart';
+import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:flutter/material.dart';
 
 class BestPicks extends StatelessWidget {
@@ -9,7 +12,8 @@ class BestPicks extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          Text(AppString.bestPicks)
+          AppSizebox.h10,
+          FantasyUpcoming()
         ],
       )
     );

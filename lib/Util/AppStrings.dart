@@ -72,4 +72,7 @@ class AppString {
   static const bestPicks= 'Best Picks';
   static const myTeams = 'My Teams';
   static const quiz = 'Quiz';
+
+  static const favourite = 'Favourites';
+  static const createTeam ='CREATE TEAMS';
 }
