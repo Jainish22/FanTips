@@ -27,15 +27,13 @@ class Home extends StatelessWidget {
                  AppSizebox.h15,
                  SizedBox(
                    height: 19.h,
-                   child: Expanded(
-                     child: ListView.builder(
-                       itemCount: 5,
-                       shrinkWrap: true,
-                       scrollDirection: Axis.horizontal,
-                       itemBuilder: (context, index) {
-                         return const MyContainer1();
-                       },
-                     ),
+                   child: ListView.builder(
+                     itemCount: 5,
+                     shrinkWrap: true,
+                     scrollDirection: Axis.horizontal,
+                     itemBuilder: (context, index) {
+                       return const MyContainer1();
+                     },
                    ),
                  ),
                  AppSizebox.h15,
@@ -43,22 +41,20 @@ class Home extends StatelessWidget {
                  AppSizebox.h15,
                  SizedBox(
                    height: 20.h,
-                   child: Expanded(
-                     child: ListView.builder(
-                       itemCount: 5,
-                       shrinkWrap: true,
-                       scrollDirection: Axis.horizontal,
-                       itemBuilder: (context, index) {
-                       return const MyContainer2();
-                       }
-                     ),
+                   child: ListView.builder(
+                     itemCount: 5,
+                     shrinkWrap: true,
+                     scrollDirection: Axis.horizontal,
+                     itemBuilder: (context, index) {
+                     return const MyContainer2();
+                     }
                    ),
                  ),
                  AppSizebox.h15,
                  Row(
                    children: [
                      const MyTitle(text: AppString.topStories),
-                     Expanded(child: Container()),
+                     Spacer(),
                      const InkWell(child: Text(AppString.viewAll,style: TextStyle(fontSize: 12))),
                      const Icon(Icons.arrow_forward_ios_sharp,color: Colors.white,size: 12),
                      AppSizebox.w15
@@ -66,15 +62,13 @@ class Home extends StatelessWidget {
                  ),
                  AppSizebox.h15,
                  SizedBox(
-                   child: Expanded(
-                     child: ListView.builder(
-                       itemCount: 6,
-                       shrinkWrap: true,
-                       physics: const NeverScrollableScrollPhysics(),
-                       itemBuilder: (context, index){
-                         return  InkWell(child: const MyContainer3(),onTap: (){Get.toNamed('news');},);
-                       }
-                     ),
+                   child: ListView.builder(
+                     itemCount: 6,
+                     shrinkWrap: true,
+                     physics: const NeverScrollableScrollPhysics(),
+                     itemBuilder: (context, index){
+                       return  InkWell(child: const MyContainer3(),onTap: (){Get.toNamed('news');},);
+                     }
                    ),
                  ),
                ],
