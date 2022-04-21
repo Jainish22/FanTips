@@ -38,8 +38,9 @@ dependencies:
   sizer: ^2.0.15
   carousel_slider: ^4.0.0
   tabbar: ^0.1.1
-  persistent_bottom_nav_bar: ^4.0.2
-  google_nav_bar: ^5.0.6
+  http: ^0.13.4
+  intl: ^0.17.0
+
 
 dev_dependencies:
   flutter_test:

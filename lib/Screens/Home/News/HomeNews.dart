@@ -1,13 +1,16 @@
+import 'package:fantips/Screens/Home/News/Controller/News_Controller.dart';
 import 'package:fantips/Util/Sizebox.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../Util/AppColor.dart';
+import '../../../Util/AppColor.dart';
 
 class HomeNews extends StatefulWidget {
-  const HomeNews({Key? key}) : super(key: key);
+  HomeNews({Key? key}) : super(key: key);
+  final NewsController _NewsController = Get.put(NewsController());
 
   @override
   _HomeNewsState createState() => _HomeNewsState();
