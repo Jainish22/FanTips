@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:fantips/Helper/MyBottomsheet/MyBottomSheet.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
@@ -8,6 +7,7 @@ import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:fantips/Widgets/MyTitle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
 import 'News/Controller/News_Controller.dart';
