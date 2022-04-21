@@ -921,7 +921,7 @@ class FantasyUpcoming extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            CircleAvatar(radius: 3.h),
+                            CircleAvatar(radius: 3.h,child: Text("MI"),),
                             const Text('MI',
                                 style: TextStyle(
                                     color: AppColor.greymin, fontSize: 18))
@@ -953,7 +953,7 @@ class FantasyUpcoming extends StatelessWidget {
                             const Text('RCB',
                                 style: TextStyle(
                                     color: AppColor.greymin, fontSize: 18)),
-                            CircleAvatar(radius: 3.h)
+                            CircleAvatar(radius: 3.h,child: Text("RCD"),)
                           ],
                         ),
                       )
@@ -1232,7 +1232,7 @@ class FantasyCompleted extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          CircleAvatar(radius: 3.h),
+                          CircleAvatar(radius: 3.h,child: Text("RCD"),),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -1261,7 +1261,7 @@ class FantasyCompleted extends StatelessWidget {
                     ),
                     Image.asset(
                       "asset/icon/light.png",
-                      height: 2.h,
+                      height: 2.h,color: Colors.white,
                     ),
                     SizedBox(
                       width: 37.w,
@@ -1291,7 +1291,7 @@ class FantasyCompleted extends StatelessWidget {
                               )
                             ],
                           ),
-                          CircleAvatar(radius: 3.h)
+                          CircleAvatar(radius: 3.h,child: Text("MI"),)
                         ],
                       ),
                     )
