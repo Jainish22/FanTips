@@ -16,7 +16,7 @@ class More extends StatelessWidget {
     List more3 = [AppString.applyAsexperts,AppString.contactUsforbranding];
 
     return Scaffold(
-      appBar: MyAppbar(AppString.more, ''),
+      appBar: MyAppbar(AppString.more),
       bottomNavigationBar: MyBottom(),
       body: SafeArea(
         child: SingleChildScrollView(

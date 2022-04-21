@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:math';
 
+import 'package:fantips/Helper/MyBottomsheet/MyBottomSheet.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
 import 'package:fantips/Util/AppStrings.dart';
@@ -12,7 +13,6 @@ import 'package:sizer/sizer.dart';
 
 PreferredSizeWidget MyAppbar(
   String text1,
-  String text2,
 ) {
   return PreferredSize(
     preferredSize: const Size.fromHeight(34),
@@ -25,10 +25,7 @@ PreferredSizeWidget MyAppbar(
               text1,
               style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
             ),
-            Text(
-              text2,
-              style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15, color: Color(0xFF25C06D), height: 2),
-            )
+            TextButton(onPressed: (){LoginBottomSheet();}, child: Text(AppString.logIn,style: TextStyle(color: AppColor.green),))
           ],
         )),
   );

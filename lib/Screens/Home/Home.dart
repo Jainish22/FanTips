@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:fantips/Helper/MyBottomsheet/MyBottomSheet.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
@@ -36,7 +37,7 @@ class _HomeState extends State<Home> {
     final CarouselController _controller = CarouselController();
 
     return Scaffold(
-      appBar: MyAppbar(AppString.fanTips, AppString.logIn),
+      appBar: MyAppbar(AppString.fanTips),
       bottomNavigationBar: MyBottom(),
       body: SafeArea(
         child: ListView(
