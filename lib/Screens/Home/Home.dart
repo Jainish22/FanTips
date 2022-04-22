@@ -83,7 +83,7 @@ class _HomeState extends State<Home> {
                       child: Container(
                         width: 14.0,
                         height: 4.0,
-                        margin: EdgeInsets.symmetric(
+                        margin: const EdgeInsets.symmetric(
                             vertical: 8.0, horizontal: 4.0),
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
@@ -129,7 +129,7 @@ class _HomeState extends State<Home> {
                       child: Container(
                         width: 14.0,
                         height: 4.0,
-                        margin: EdgeInsets.symmetric(
+                        margin: const EdgeInsets.symmetric(
                             vertical: 8.0, horizontal: 4.0),
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
@@ -159,8 +159,9 @@ class _HomeState extends State<Home> {
                 SizedBox(
                   child: Expanded(
                     child: ListView.builder(
-                        itemCount: 5 ,
-                        //_NewsController.getNews.value.news!.length,
+                        itemCount:
+                        5,
+                        //_NewsController.getNews.value.news?.length,
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) {

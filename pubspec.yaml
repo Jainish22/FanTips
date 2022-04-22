@@ -86,6 +86,7 @@ flutter:
     - family: Circular
       fonts:
         - asset: asset/fonts/circular-std-medium-500.ttf
+          weight: 700
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

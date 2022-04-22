@@ -614,7 +614,36 @@ class MyContainer6 extends StatelessWidget {
 
 ///Seventh Container IPLMatches
 class MyContainer7 extends StatelessWidget {
-  const MyContainer7({Key? key}) : super(key: key);
+  final String headerText;
+  final ImageProvider backgroundImage;
+  final String assetName;
+  final String matchesname1;
+  final String matchesname2;
+  final String infoMsg;
+  final String Over1;
+  final String Over2;
+  final String run1;
+  final String run2;
+  final String wk1;
+  final String wk2;
+  final String totalprediction;
+
+  const MyContainer7({
+    Key? key,
+    required this.headerText,
+    required this.backgroundImage,
+    required this.assetName,
+    required this.matchesname1,
+    required this.infoMsg,
+    required this.Over1,
+    required this.Over2,
+    required this.matchesname2,
+    required this.run1,
+    required this.run2,
+    required this.wk1,
+    required this.wk2,
+    required this.totalprediction,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -628,102 +657,143 @@ class MyContainer7 extends StatelessWidget {
         decoration: BoxDecoration(
             color: AppColor.light, borderRadius: BorderRadius.circular(10)),
         child: Padding(
-          padding: EdgeInsets.only(top: 2.h, left: 4.w, right: 5.w),
-          child: Column(
+          padding: EdgeInsets.only(top: 2.h, left: 4.w, right: 4.w),
+          child: Stack(
             children: [
-              Row(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text("Zimbabwe vs Afghanistan",
-                      style: TextStyle(
-                        fontSize: 12,
-                      )),
-                  Image.asset(AppIcon.notification, height: 2.2.h)
-                ],
-              ),
-              SizedBox(
-                height: 1.h,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
+                  Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const CircleAvatar(
-                              radius: 15,
-                              backgroundImage: AssetImage(
-                                '',
-                              )),
-                          SizedBox(width: 2.w),
-                          const Text("ZIM",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 14)),
-                          SizedBox(width: 24.w),
-                          const Text(
-                            "133/7",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w700, fontSize: 14),
-                          ),
-                          SizedBox(width: 1.w),
-                          Text("(20)",
-                              style:
-                                  TextStyle(color: AppColor.grey, fontSize: 10))
-                        ],
-                      ),
-                      SizedBox(height: 1.5.h),
-                      Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const CircleAvatar(
-                              radius: 15, backgroundImage: AssetImage('')),
-                          SizedBox(width: 2.w),
-                          const Text("ZIM",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 14)),
-                          SizedBox(width: 24.w),
-                          const Text(
-                            "133/7",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w700, fontSize: 14),
-                          ),
-                          SizedBox(width: 1.w),
-                          Text("(20)",
-                              style:
-                                  TextStyle(color: AppColor.grey, fontSize: 10))
-                        ],
-                      ),
-                      SizedBox(height: 1.5.h),
-                      const Text("Sri Lanka Won By 20 Runs")
+                      Text(headerText,
+                          style: const TextStyle(
+                            fontSize: 12,color: AppColor.greymin
+                          )),
+                      Image.asset(AppIcon.notification, height: 2.2.h)
                     ],
                   ),
                   SizedBox(
-                      height: 9.h,
-                      child: const VerticalDivider(
-                          color: AppColor.DividerColor, thickness: 1)),
-                  SizedBox(
-                    width: 19.w,
-                    child: Column(
-                      children: const [
-                        Text('72',
-                            style: TextStyle(
-                                height: 1.6,
-                                fontSize: 30,
-                                fontWeight: FontWeight.w900,
-                                color: AppColor.green)),
-                        Text('Prediction',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                color: AppColor.green))
+                    height: 1.h,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Column(
+                                children: [
+                                  CircleAvatar(
+                                      radius: 15,
+                                      backgroundImage: backgroundImage),
+                                  SizedBox(height: 1.5.h),
+                                  CircleAvatar(
+                                      radius: 15,
+                                      backgroundImage: NetworkImage(assetName)),
+                                ],
+                              ),
+                              SizedBox(width: 2.w),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(matchesname1,
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 14)),
+                                  SizedBox(height: 3.h),
+                                  Text(matchesname2,
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 14)),
+                                ],
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 1.5.h),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Text(
+                    infoMsg,
+                    maxLines: 1,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w300, color: AppColor.greymin),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 40.w, top: 4.h),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                      // crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          "${run1}/${wk1}",
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 14),
+                        ),
+                        SizedBox(height: 3.h),
+                        Text(
+                          "${run2}/${wk2}",
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 14),
+                        ),
                       ],
                     ),
-                  )
-                ],
+                    SizedBox(width: 1.w),
+                    Padding(
+                      padding: EdgeInsets.only(top: 0.5.h),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text("(${Over1})",
+                              style: const TextStyle(
+                                  color: AppColor.grey, fontSize: 10)),
+                          SizedBox(height: 3.5.h),
+                          Text("(${Over2})",
+                              style: const TextStyle(
+                                  color: AppColor.grey, fontSize: 10)),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 62.w, top: 3.h),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                        height: 10.h,
+                        child: const VerticalDivider(
+                            color: AppColor.DividerColor, thickness: 1)),
+                    Padding(
+                      padding: EdgeInsets.only(top: 1.5.h),
+                      child: Column(
+                        children: [
+                          Text(totalprediction,
+                              style: const TextStyle(
+                                  fontSize: 26,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColor.green)),
+                          const Text('Predictions',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w100,
+                                  color: AppColor.green))
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ],
           ),
@@ -921,7 +991,10 @@ class FantasyUpcoming extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            CircleAvatar(radius: 3.h,child: Text("MI"),),
+                            CircleAvatar(
+                              radius: 3.h,
+                              child: Text("MI"),
+                            ),
                             const Text('MI',
                                 style: TextStyle(
                                     color: AppColor.greymin, fontSize: 18))
@@ -953,7 +1026,10 @@ class FantasyUpcoming extends StatelessWidget {
                             const Text('RCB',
                                 style: TextStyle(
                                     color: AppColor.greymin, fontSize: 18)),
-                            CircleAvatar(radius: 3.h,child: Text("RCD"),)
+                            CircleAvatar(
+                              radius: 3.h,
+                              child: Text("RCD"),
+                            )
                           ],
                         ),
                       )
@@ -1091,7 +1167,9 @@ class BestPicksTile extends StatelessWidget {
                         backgroundImage:
                             AssetImage("asset/player/Player Profile.png"),
                       ),
-                      SizedBox(width: 20.w,),
+                      SizedBox(
+                        width: 20.w,
+                      ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
@@ -1109,7 +1187,6 @@ class BestPicksTile extends StatelessWidget {
                           ),
                         ],
                       ),
-
                       Expanded(
                         child: Container(),
                       ),
@@ -1132,7 +1209,9 @@ class BestPicksTile extends StatelessWidget {
                       const CircleAvatar(
                         backgroundImage: AssetImage("asset/player/1513.png"),
                       ),
-                      SizedBox(width: 20.w,),
+                      SizedBox(
+                        width: 20.w,
+                      ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
@@ -1169,7 +1248,9 @@ class BestPicksTile extends StatelessWidget {
                       const CircleAvatar(
                         backgroundColor: Colors.yellow,
                       ),
-                      SizedBox(width: 20.w,),
+                      SizedBox(
+                        width: 20.w,
+                      ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
@@ -1233,7 +1314,10 @@ class FantasyCompleted extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          CircleAvatar(radius: 3.h,child: Text("RCD"),),
+                          CircleAvatar(
+                            radius: 3.h,
+                            child: Text("RCD"),
+                          ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -1262,7 +1346,8 @@ class FantasyCompleted extends StatelessWidget {
                     ),
                     Image.asset(
                       "asset/icon/light.png",
-                      height: 2.h,color: Colors.white,
+                      height: 2.h,
+                      color: Colors.white,
                     ),
                     SizedBox(
                       width: 37.w,
@@ -1292,7 +1377,10 @@ class FantasyCompleted extends StatelessWidget {
                               )
                             ],
                           ),
-                          CircleAvatar(radius: 3.h,child: Text("MI"),)
+                          CircleAvatar(
+                            radius: 3.h,
+                            child: Text("MI"),
+                          )
                         ],
                       ),
                     )
@@ -1398,7 +1486,7 @@ class Scorecard extends StatelessWidget {
                           itemCount: iplteam.length,
                           itemBuilder: (BuildContext context, index) {
                             return Container(
-                              height: 6.h,
+                                height: 6.h,
                                 margin: const EdgeInsets.only(top: 10),
                                 child: Column(
                                   children: [
@@ -1430,7 +1518,6 @@ class Scorecard extends StatelessWidget {
           )
         ],
       ),
-
     );
   }
 }
