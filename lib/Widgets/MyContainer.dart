@@ -1085,13 +1085,13 @@ class BestPicksTile extends StatelessWidget {
                 Container(
                   height: 8.h,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const CircleAvatar(
                         backgroundImage:
                             AssetImage("asset/player/Player Profile.png"),
                       ),
-                      AppSizebox.w10,
+                      SizedBox(width: 20.w,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
@@ -1109,9 +1109,10 @@ class BestPicksTile extends StatelessWidget {
                           ),
                         ],
                       ),
-                      // Expanded(
-                      //   child: Container(),
-                      // ),
+
+                      Expanded(
+                        child: Container(),
+                      ),
                       const Text(
                         "14.19%",
                         style: TextStyle(fontSize: 18, color: AppColor.greymin),
@@ -1126,12 +1127,12 @@ class BestPicksTile extends StatelessWidget {
                 Container(
                   height: 8.h,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const CircleAvatar(
                         backgroundImage: AssetImage("asset/player/1513.png"),
                       ),
-                      AppSizebox.w10,
+                      SizedBox(width: 20.w,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
@@ -1149,9 +1150,9 @@ class BestPicksTile extends StatelessWidget {
                           ),
                         ],
                       ),
-                      // Expanded(
-                      //   child: Container(),
-                      // ),
+                      Expanded(
+                        child: Container(),
+                      ),
                       const Text(
                         "154.19%",
                         style: TextStyle(fontSize: 18, color: AppColor.greymin),
@@ -1163,12 +1164,12 @@ class BestPicksTile extends StatelessWidget {
                 Container(
                   height: 8.h,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const CircleAvatar(
                         backgroundColor: Colors.yellow,
                       ),
-                      AppSizebox.w10,
+                      SizedBox(width: 20.w,),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
@@ -1186,9 +1187,9 @@ class BestPicksTile extends StatelessWidget {
                           ),
                         ],
                       ),
-                      // Expanded(
-                      //   child: Container(),
-                      // ),
+                      Expanded(
+                        child: Container(),
+                      ),
                       const Text(
                         "194.19%",
                         style: TextStyle(fontSize: 18, color: AppColor.greymin),

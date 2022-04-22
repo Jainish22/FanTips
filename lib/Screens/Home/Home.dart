@@ -12,7 +12,12 @@ import 'package:sizer/sizer.dart';
 
 import 'News/Controller/News_Controller.dart';
 
-final List imgList = [MyContainer1(), MyContainer1(), MyContainer1(), MyContainer1()];
+final List imgList = [
+  MyContainer1(),
+  MyContainer1(),
+  MyContainer1(),
+  MyContainer1(),
+];
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -26,12 +31,13 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    var dtf = DateFormat('dd, yyyy MMM');
-    var day = DateFormat('EEEE');
-    getTime(var time) {
-      return DateFormat.jm().format(DateFormat("hh:mm:ss").parse(time));
-    }
-
+    // var dtf = DateFormat('dd, yyyy MMM');
+    // var day = DateFormat('EEEE');
+    // getTime(var time) {
+    //   return DateFormat.jm().format(DateFormat("hh:mm:ss").parse(time));
+    // }
+    DateTime now = DateTime.now();
+    String formattedDate = DateFormat('h:mm').format(now);
     int _current = 0;
     final CarouselController _controller = CarouselController();
 
@@ -64,7 +70,8 @@ class _HomeState extends State<Home> {
                         },
                       ),
                       itemCount: 4,
-                      itemBuilder: (BuildContext context, int index, int pageViewIndex) {
+                      itemBuilder:
+                          (BuildContext context, int index, int pageViewIndex) {
                         return const MyContainer1();
                       }),
                 ),
@@ -76,11 +83,15 @@ class _HomeState extends State<Home> {
                       child: Container(
                         width: 14.0,
                         height: 4.0,
-                        margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                        margin: EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 4.0),
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
                             borderRadius: BorderRadius.circular(15),
-                            color: _current == entry.key ? AppColor.green : AppColor.grey.withOpacity(_current == entry.key ? 0.9 : 0.4)),
+                            color: _current == entry.key
+                                ? AppColor.green
+                                : AppColor.grey.withOpacity(
+                                    _current == entry.key ? 0.9 : 0.4)),
                       ),
                     );
                   }).toList(),
@@ -105,7 +116,8 @@ class _HomeState extends State<Home> {
                         },
                       ),
                       itemCount: 4,
-                      itemBuilder: (BuildContext context, int index, int pageViewIndex) {
+                      itemBuilder:
+                          (BuildContext context, int index, int pageViewIndex) {
                         return const MyContainer2();
                       }),
                 ),
@@ -117,11 +129,15 @@ class _HomeState extends State<Home> {
                       child: Container(
                         width: 14.0,
                         height: 4.0,
-                        margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                        margin: EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 4.0),
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
                             borderRadius: BorderRadius.circular(15),
-                            color: _current == entry.key ? AppColor.green : AppColor.grey.withOpacity(_current == entry.key ? 0.9 : 0.4)),
+                            color: _current == entry.key
+                                ? AppColor.green
+                                : AppColor.grey.withOpacity(
+                                    _current == entry.key ? 0.9 : 0.4)),
                       ),
                     );
                   }).toList(),
@@ -131,8 +147,11 @@ class _HomeState extends State<Home> {
                   children: [
                     const MyTitle(text: AppString.topStories),
                     Expanded(child: Container()),
-                    const InkWell(child: Text(AppString.viewAll, style: TextStyle(fontSize: 12))),
-                    const Icon(Icons.arrow_forward_ios_sharp, color: Colors.white, size: 12),
+                    const InkWell(
+                        child: Text(AppString.viewAll,
+                            style: TextStyle(fontSize: 12))),
+                    const Icon(Icons.arrow_forward_ios_sharp,
+                        color: Colors.white, size: 12),
                     AppSizebox.w15
                   ],
                 ),
@@ -140,56 +159,72 @@ class _HomeState extends State<Home> {
                 SizedBox(
                   child: Expanded(
                     child: ListView.builder(
-                        itemCount: 5, //_NewsController.getNews.value.news!.length,
+                        itemCount: 5 ,
+                        //_NewsController.getNews.value.news!.length,
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) {
                           return InkWell(
                             child: Padding(
                               padding: EdgeInsets.only(left: 4.w, right: 4.w),
-                              child: Container(
-                                  height: 34.h,
-                                  width: 92.w,
-                                  margin: EdgeInsets.only(bottom: 10),
-                                  decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(5)),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(20),
-                                            image: DecorationImage(
-                                                image: NetworkImage(_NewsController.getNews.value.news![index].image.toString()), fit: BoxFit.cover)),
-                                        height: 20.h,
-                                        width: 90.w,
-                                        child: Image.network(_NewsController.getNews.value.news![index].image.toString(), fit: BoxFit.cover),
-                                      ),
-                                      Column(
-                                        children: [
-                                          Container(
-                                            height: 12.h,
-                                            padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
-                                            child: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Text(_NewsController.getNews.value.news![index].title.toString(),
-                                                    maxLines: 1, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
-                                                Text(_NewsController.getNews.value.news![index].smallDesc ?? "".toString(),
-                                                    style: TextStyle(color: AppColor.grey, fontSize: 12)),
-                                                Text(_NewsController.getNews.value.news![index].time.toString(),
-                                                    style: TextStyle(color: AppColor.grey, fontSize: 12)),
-                                              ],
+                              child: Obx(()=>
+                                 Container(
+                                    height: 38.h,
+                                    width: 92.w,
+                                    margin: EdgeInsets.only(bottom: 10),
+                                    decoration: BoxDecoration(
+                                        color: Colors.black,
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              image: DecorationImage(
+                                                  image: NetworkImage(
+                                                      _NewsController
+                                                              .getNews
+                                                              .value
+                                                              .news?[index]
+                                                              .image ??
+                                                          ""),
+                                                  fit: BoxFit.cover),
                                             ),
+                                            height: 20.h,
+                                            width: 90.w,
+                                            // child: Image.network(_NewsController.getNews.value.news![index].image.toString(), fit: BoxFit.cover),
                                           ),
-                                          AppSizebox.h10,
-                                          const Divider(
-                                            height: 2,
-                                            color: AppColor.DividerColor,
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  )),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              height: 16.h,
+                                              padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
+                                              child: Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Text(_NewsController.getNews.value.news?[index].title ?? "",
+                                                      maxLines: 2, style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 15)),
+                                                  Text(_NewsController.getNews.value.news?[index].smallDesc ?? "",
+                                                      style: const TextStyle(color: AppColor.grey, fontSize: 12)),
+                                                  Text(_NewsController.getNews.value.news?[index].newsSource ?? "",
+                                                      style: const TextStyle(color: AppColor.grey, fontSize: 12)),
+                                                  Text(formattedDate, style: const TextStyle(fontSize: 12),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            AppSizebox.h10,
+                                            const Divider(
+                                              height: 2,
+                                              color: AppColor.DividerColor,
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    )),
+                              ),
                             ),
                             onTap: () {
                               Get.toNamed('news');
