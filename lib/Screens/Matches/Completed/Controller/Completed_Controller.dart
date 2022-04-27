@@ -19,14 +19,16 @@ class CompletedController extends GetxController {
     super.onInit();
   }
   getData({value}) async{
-    isLoading.value = true;
-    log("******666**5");
-    final result = await CompletedService.getCompleted(value: '');
-    if(result != null){
-      getCompleted.value = result;
-    }
+    try {
+      isLoading.value = true;
+      log("******666**5");
+      final result = await CompletedService.getCompleted(value: '');
+      if (result != null) {
+        getCompleted.value = result;
+      }
 
-    log("-----${getCompleted.value}");
-    isLoading.value = false;
+      log("-----${getCompleted.value}");
+    }catch (e) {} finally{
+    isLoading.value = false;}
   }
 }

@@ -10,7 +10,7 @@ import 'package:sizer/sizer.dart';
 import 'BestPicks/BestPicks.dart';
 import 'Fantasy/Fantasy.dart';
 import 'MyTeams/MyTeams.dart';
-import 'Quiz/Quiz.dart';
+import '../../loginpage/loginpage.dart';
 
 class UpcomingMatches extends StatelessWidget {
   const UpcomingMatches({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class UpcomingMatches extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5,
+      length: 4,
       child: Scaffold(
         bottomNavigationBar: MyBottom(),
         appBar: AppBar(
@@ -43,7 +43,6 @@ class UpcomingMatches extends StatelessWidget {
               Tab(text: AppString.fantasy,),
               Tab(text: AppString.bestPicks),
               Tab(text: AppString.myTeams),
-              Tab(text: AppString.quiz),
               Tab(text: AppString.squads)
             ],
           ),
@@ -53,7 +52,6 @@ class UpcomingMatches extends StatelessWidget {
             Fantasy(),
             BestPicks(),
             MyTeams(),
-            Quiz(),
             Squads()
           ],
         ),

@@ -1,32 +1,118 @@
 import 'package:fantips/Util/Sizebox.dart';
 import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
-class Upcoming extends StatelessWidget {
+import 'Controller/Upcoming_Controller.dart';
+
+class Upcoming extends StatefulWidget {
   const Upcoming({Key? key}) : super(key: key);
 
   @override
+  State<Upcoming> createState() => _UpcomingState();
+}
+
+class _UpcomingState extends State<Upcoming> {
+  final UpcomingController _upcomingController = Get.put(UpcomingController());
+
+  @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Container(
-          alignment: Alignment.center,
-          child: Column(
-            children: const [
-              AppSizebox.h10,
-              Text('Tomorrow, 15 May',style: TextStyle(fontSize: 16)),AppSizebox.h10,
-              MyContainer4(),AppSizebox.h10,
-              Text('Sunday, 16 May',style: TextStyle(fontSize: 16)),AppSizebox.h10,
-              MyContainer5(),AppSizebox.h10,
-              MyContainer5(),AppSizebox.h10,
-              Text('Sunday, 16 May',style: TextStyle(fontSize: 16)),AppSizebox.h10,
-              MyContainer5(),AppSizebox.h10,
-              MyContainer5(),AppSizebox.h10,
-            ],
-          ),
-        ),
-      )
+    Future<bool> _onWillPop() async {
+      return (await showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              backgroundColor: Colors.grey[800],
+              // title:  Text('Are you sure?'),
+              content: const Text(
+                'Are you sure want to exit?',
+                style: TextStyle(color: Colors.white),
+              ),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child:
+                      const Text('NO', style: TextStyle(color: Colors.white)),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(true),
+                  child:
+                      const Text('YES', style: TextStyle(color: Colors.white)),
+                ),
+              ],
+            ),
+          )) ??
+          false;
+    }
+
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child: SafeArea(
+          child: Obx(
+        () => _upcomingController.isLoading.value
+            ? const Center(
+                child: CircularProgressIndicator(
+                color: Colors.green,
+              ))
+            : Padding(
+                padding: EdgeInsets.only(top: 2.h),
+                child: Column(
+                  children: [
+                    Flexible(
+                      child: ListView.builder(
+                        itemCount: _upcomingController
+                            .getUpcoming.value.matches?.notstarted?.length,
+                        itemBuilder: (context, index) {
+                          final completeData = _upcomingController
+                              .getUpcoming.value.matches?.notstarted?[index];
+                          final f = DateFormat('EEEEEE, d MMM');
+                          final ff = DateFormat.jm();
+
+                          return Padding(
+                            padding: EdgeInsets.only(top: 1.h),
+                            child: Column(
+                              children: [
+                                Center(
+                                  child: Text(
+                                    f.format(
+                                        DateTime.fromMillisecondsSinceEpoch(
+                                            completeData?.startTime ?? 0)),
+                                    style: const TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ),
+                                AppSizebox.h10,
+                                MyContainer4(
+                                    headerText: completeData?.header ?? "",
+                                    backgroundImage1: "${completeData?.t1Flag}",
+                                    backgroundImage2: "${completeData?.t2Flag}",
+                                    matchesname1: "${completeData?.team1Name}",
+                                    matchesname2: "${completeData?.team2Name}",
+                                    infoMsg: ff.format(
+                                      DateTime.fromMillisecondsSinceEpoch(
+                                          completeData?.startTime ?? 0),
+                                    ),
+                                    totalprediction: completeData?.totalprediction != 0
+                                        ? "Predictions" : ff.format(DateTime.fromMillisecondsSinceEpoch(completeData?.startTime ?? 0)),
+
+                                    Starts: completeData?.totalprediction!=0?"${completeData?.totalprediction}":"Starts At"),
+
+                                AppSizebox.h5
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              ),
+      )),
     );
   }
 }

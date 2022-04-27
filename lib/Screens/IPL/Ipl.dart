@@ -20,7 +20,10 @@ class Ipl extends StatelessWidget {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: Container(padding:EdgeInsets.only(left: 2.w),child: const Text(AppString.currentMatches)),
-          bottom:  const TabBar(
+          bottom:   TabBar(
+            padding: EdgeInsets.only(right: 24.w),
+            isScrollable: true,
+            labelPadding: EdgeInsets.symmetric(horizontal: 7.0),
             indicatorColor: AppColor.green,
             labelColor: AppColor.green,
             labelStyle: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),

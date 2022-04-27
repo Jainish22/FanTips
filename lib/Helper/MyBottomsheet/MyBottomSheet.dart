@@ -10,8 +10,11 @@ class MyBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 29.h,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30))
+      ),
       child: Padding(
         padding: EdgeInsets.only(left: 3.w,right: 3.w),
         child: Column(

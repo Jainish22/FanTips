@@ -1,15 +1,14 @@
-import 'dart:developer';
-import 'dart:math';
-
 import 'package:fantips/Helper/MyBottomsheet/MyBottomSheet.dart';
+import 'package:fantips/Screens/loginpage/loginpage.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
 import 'package:fantips/Util/AppStrings.dart';
-import 'package:fantips/Util/Sizebox.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
+import '../Util/Sizebox.dart';
 
 PreferredSizeWidget MyAppbar(
   String text1,
@@ -25,7 +24,18 @@ PreferredSizeWidget MyAppbar(
               text1,
               style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
             ),
-            TextButton(onPressed: (){LoginBottomSheet();}, child: Text(AppString.logIn,style: TextStyle(color: AppColor.green),))
+            TextButton(
+                onPressed: () {
+                  LoginBottomSheet();
+                },
+                child: InkWell(
+                    onTap: () {
+                      Get.to(Login());
+                    },
+                    child: const Text(
+                      AppString.logIn,
+                      style: TextStyle(color: AppColor.green),
+                    )))
           ],
         )),
   );
@@ -44,9 +54,18 @@ PreferredSizeWidget MyAppbar1(String text1, String text2, String image) {
               style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
             ),
             Expanded(flex: 2, child: Container()),
-            Text(
-              text2,
-              style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15, color: Color(0xFF25C06D), height: 0),
+            InkWell(
+              onTap: () {
+                Get.to(Login());
+              },
+              child: Text(
+                text2,
+                style: const TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 15,
+                    color: Color(0xFF25C06D),
+                    height: 0),
+              ),
             ),
             Expanded(child: Container()),
             InkWell(
@@ -69,13 +88,10 @@ class MyBottom extends StatefulWidget {
 }
 
 class _MyBottomState extends State<MyBottom> {
+  int pageindex = 0;
+
   @override
   Widget build(BuildContext context) {
-    // List _icon = [AppIcon.home,AppIcon.match,AppIcon.ipl,Icon(Icons.person),Icon(Icons.more_horiz)];
-    // List _string = [AppString.home,AppString.matches,AppString.ipl,AppString.exports,AppString.more];
-    // List _navihation = ['/home','/matches','/ipl','/expert','/more'];
-    int pageindex = 0;
-
     return SizedBox(
         height: 8.h,
         child: Row(
@@ -98,7 +114,10 @@ class _MyBottomState extends State<MyBottom> {
                     Image.asset(AppIcon.home, height: 3.h, color: Colors.grey),
                     AppSizebox.h2,
                     AppSizebox.h2,
-                    Text(AppString.home, style: TextStyle(fontSize: pageindex==0?14:12, color: pageindex==0?Colors.white:Colors.grey))
+                    Text(AppString.home,
+                        style: TextStyle(
+                            fontSize: pageindex == 0 ? 14 : 12,
+                            color: pageindex == 0 ? Colors.white : Colors.grey))
                   ],
                 )),
             InkWell(
@@ -117,7 +136,10 @@ class _MyBottomState extends State<MyBottom> {
                     Image.asset(AppIcon.match, height: 3.h, color: Colors.grey),
                     AppSizebox.h2,
                     AppSizebox.h2,
-                    Text(AppString.matches, style: TextStyle(fontSize: pageindex==1?14:12, color: pageindex==1?Colors.white:Colors.grey))
+                    Text(AppString.matches,
+                        style: TextStyle(
+                            fontSize: pageindex == 1 ? 14 : 12,
+                            color: pageindex == 1 ? Colors.white : Colors.grey))
                   ],
                 )),
             InkWell(
@@ -136,7 +158,10 @@ class _MyBottomState extends State<MyBottom> {
                     Image.asset(AppIcon.ipl, height: 3.h, color: Colors.grey),
                     AppSizebox.h2,
                     AppSizebox.h2,
-                    Text(AppString.ipl, style: TextStyle(fontSize: pageindex==2?14:12, color: pageindex==1?Colors.white:Colors.grey))
+                    Text(AppString.ipl,
+                        style: TextStyle(
+                            fontSize: pageindex == 2 ? 14 : 12,
+                            color: pageindex == 1 ? Colors.white : Colors.grey))
                   ],
                 )),
             InkWell(
@@ -154,7 +179,10 @@ class _MyBottomState extends State<MyBottom> {
                     AppSizebox.h2,
                     Icon(Icons.person, color: Colors.grey, size: 3.7.h),
                     AppSizebox.h2,
-                    Text(AppString.exports, style: TextStyle(fontSize: pageindex==3?14:12, color: pageindex==3?Colors.white:Colors.grey))
+                    Text(AppString.exports,
+                        style: TextStyle(
+                            fontSize: pageindex == 3 ? 14 : 12,
+                            color: pageindex == 3 ? Colors.white : Colors.grey))
                   ],
                 )),
             InkWell(
@@ -174,7 +202,9 @@ class _MyBottomState extends State<MyBottom> {
                     AppSizebox.h2,
                     Text(
                       AppString.more,
-                      style: TextStyle(fontSize: pageindex==4?14:12, color: pageindex==4?Colors.white:Colors.grey),
+                      style: TextStyle(
+                          fontSize: pageindex == 4 ? 14 : 12,
+                          color: pageindex == 4 ? Colors.white : Colors.grey),
                     )
                   ],
                 )),
@@ -252,5 +282,106 @@ class _MyBottomState extends State<MyBottom> {
     //     )
     //   ),
     // );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key? key}) : super(key: key);
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int _selectedIndex = 0;
+  int pageindex = 0;
+
+  // TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static List<Widget> _widgetOptions = <Widget>[
+    InkWell(
+      onTap: () {
+        // pageindex = 0;
+        Get.offNamed('more');
+      },
+    ),
+    InkWell(
+      onTap: () {
+        // pageindex = 0;
+        Get.offNamed('more');
+      },
+    ),
+    InkWell(
+      onTap: () {
+        // pageindex = 0;
+        Get.offNamed('more');
+      },
+    ),
+    InkWell(
+      onTap: () {
+        // pageindex = 0;
+        Get.offNamed('more');
+      },
+    ),
+    InkWell(
+      onTap: () {
+        // pageindex = 0;
+        Get.offNamed('more');
+      },
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('BottomNavigationBar Sample'),
+      ),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage(AppIcon.home),
+              ),
+              label: 'Home',
+              backgroundColor: Colors.grey),
+          BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage(AppIcon.home),
+              ),
+              label: 'Home',
+              backgroundColor: Colors.grey),
+          BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage(AppIcon.home),
+              ),
+              label: 'Home',
+              backgroundColor: Colors.grey),
+          BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage(AppIcon.home),
+              ),
+              label: 'Home',
+              backgroundColor: Colors.grey),
+          BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage(AppIcon.home),
+              ),
+              label: 'Home',
+              backgroundColor: Colors.grey),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
+      ),
+    );
   }
 }

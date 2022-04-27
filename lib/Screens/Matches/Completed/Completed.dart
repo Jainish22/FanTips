@@ -18,67 +18,99 @@ class Completed extends StatefulWidget {
 }
 
 class _CompletedState extends State<Completed> {
-  final CompletedController _completedController =
-      Get.put(CompletedController());
+  final CompletedController _completedController = Get.put(CompletedController());
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Obx(
-      () => Padding(
-        padding: EdgeInsets.only(top: 2.h),
-        child: Column(
-          children: [
-            Flexible(
-              child: ListView.builder(
-                itemCount: _completedController
-                    .getCompleted.value.matches?.completed?.length,
-                itemBuilder: (context, index) {
-                  final completeData = _completedController
-                      .getCompleted.value.matches?.completed?[index];
-                  final f = DateFormat('EEEEEE, d MMM');
-
-                  return Padding(
-                    padding: EdgeInsets.only(top: 1.h),
-                    child: Column(
-                      children: [
-                        Center(
-                          child: Text(
-                            f.format(DateTime.fromMillisecondsSinceEpoch(
-                                completeData?.startTime ?? 0)),
-                            style: const TextStyle(
-                                color: Colors.grey,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400),
-                          ),
-                        ),
-                        AppSizebox.h10,
-                        MyContainer7(
-                          headerText: completeData?.header ?? "",
-                          backgroundImage:
-                              NetworkImage("${completeData?.t1Flag}"),
-                          assetName: "${completeData?.t2Flag}",
-                          matchesname1: "${completeData?.team1Name}",
-                          matchesname2: "${completeData?.team2Name}",
-                          infoMsg: '${completeData?.infoMsg}',
-                          Over1: "${completeData?.t2Over}",
-                          Over2: "${completeData?.t1Over}",
-                          run1: "${completeData?.t1Run}",
-                          run2: "${completeData?.t2Run}",
-                          wk2: "${completeData?.t1Wk}",
-                          wk1: "${completeData?.t2Wk}",
-                          totalprediction: "${completeData?.totalprediction}",
-                        ),
-                        AppSizebox.h5
-                      ],
-                    ),
-                  );
-                },
-              ),
-            )
+    Future<bool> _onWillPop() async {
+      return (await showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          backgroundColor: Colors.grey[800],
+          // title:  Text('Are you sure?'),
+          content: const Text(
+            'Are you sure want to exit?',
+            style: TextStyle(color: Colors.white),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child:
+              const Text('NO', style: TextStyle(color: Colors.white)),
+            ),
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              child:
+              const Text('YES', style: TextStyle(color: Colors.white)),
+            ),
           ],
         ),
-      ),
-    ));
+      )) ??
+          false;
+    }
+
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child: SafeArea(
+          child: Obx(
+        () =>
+        _completedController.isLoading.value? Center(child: CircularProgressIndicator(color: Colors.green,)):
+
+        Padding(
+          padding: EdgeInsets.only(top: 2.h),
+          child: Column(
+            children: [
+              Flexible(
+                child: ListView.builder(
+                  itemCount: _completedController
+                      .getCompleted.value.matches?.completed?.length,
+                  itemBuilder: (context, index) {
+                    final completeData = _completedController
+                        .getCompleted.value.matches?.completed?[index];
+                    final f = DateFormat('EEEEEE, d MMM');
+
+                    return Padding(
+                      padding: EdgeInsets.only(top: 1.h),
+                      child: Column(
+                        children: [
+                          Center(
+                            child: Text(
+                              f.format(DateTime.fromMillisecondsSinceEpoch(
+                                  completeData?.startTime ?? 0)),
+                              style: const TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                          AppSizebox.h10,
+                          MyContainer7(
+                            headerText: completeData?.header ?? "",
+                            backgroundImage1:
+                                NetworkImage("${completeData?.t1Flag}"),
+                            backgroundImage2: "${completeData?.t2Flag}",
+                            matchesname1: "${completeData?.team1Name}",
+                            matchesname2: "${completeData?.team2Name}",
+                            infoMsg: '${completeData?.infoMsg}',
+                            Over1: "${completeData?.t2Over}",
+                            Over2: "${completeData?.t1Over}",
+                            run1: "${completeData?.t1Run}",
+                            run2: "${completeData?.t2Run}",
+                            wk2: "${completeData?.t1Wk}",
+                            wk1: "${completeData?.t2Wk}",
+                            totalprediction: "${completeData?.totalprediction}",
+                          ),
+                          AppSizebox.h5
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              )
+            ],
+          ),
+        ),
+      )),
+    );
   }
 }
