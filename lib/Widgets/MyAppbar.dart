@@ -1,6 +1,3 @@
-import 'dart:developer';
-import 'dart:math';
-
 import 'package:fantips/Helper/MyBottomsheet/MyBottomSheet.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
@@ -13,6 +10,7 @@ import 'package:sizer/sizer.dart';
 
 PreferredSizeWidget MyAppbar(
   String text1,
+  String logIn,
 ) {
   return PreferredSize(
     preferredSize: const Size.fromHeight(34),
@@ -25,7 +23,14 @@ PreferredSizeWidget MyAppbar(
               text1,
               style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
             ),
-            TextButton(onPressed: (){LoginBottomSheet();}, child: Text(AppString.logIn,style: TextStyle(color: AppColor.green),))
+            TextButton(
+                onPressed: () {
+                  LoginBottomSheet();
+                },
+                child: Text(
+                  AppString.logIn,
+                  style: TextStyle(color: AppColor.green),
+                ))
           ],
         )),
   );
@@ -98,7 +103,7 @@ class _MyBottomState extends State<MyBottom> {
                     Image.asset(AppIcon.home, height: 3.h, color: Colors.grey),
                     AppSizebox.h2,
                     AppSizebox.h2,
-                    Text(AppString.home, style: TextStyle(fontSize: pageindex==0?14:12, color: pageindex==0?Colors.white:Colors.grey))
+                    Text(AppString.home, style: TextStyle(fontSize: pageindex == 0 ? 14 : 12, color: pageindex == 0 ? Colors.white : Colors.grey))
                   ],
                 )),
             InkWell(
@@ -117,7 +122,7 @@ class _MyBottomState extends State<MyBottom> {
                     Image.asset(AppIcon.match, height: 3.h, color: Colors.grey),
                     AppSizebox.h2,
                     AppSizebox.h2,
-                    Text(AppString.matches, style: TextStyle(fontSize: pageindex==1?14:12, color: pageindex==1?Colors.white:Colors.grey))
+                    Text(AppString.matches, style: TextStyle(fontSize: pageindex == 1 ? 14 : 12, color: pageindex == 1 ? Colors.white : Colors.grey))
                   ],
                 )),
             InkWell(
@@ -136,7 +141,7 @@ class _MyBottomState extends State<MyBottom> {
                     Image.asset(AppIcon.ipl, height: 3.h, color: Colors.grey),
                     AppSizebox.h2,
                     AppSizebox.h2,
-                    Text(AppString.ipl, style: TextStyle(fontSize: pageindex==2?14:12, color: pageindex==1?Colors.white:Colors.grey))
+                    Text(AppString.ipl, style: TextStyle(fontSize: pageindex == 2 ? 14 : 12, color: pageindex == 1 ? Colors.white : Colors.grey))
                   ],
                 )),
             InkWell(
@@ -154,7 +159,7 @@ class _MyBottomState extends State<MyBottom> {
                     AppSizebox.h2,
                     Icon(Icons.person, color: Colors.grey, size: 3.7.h),
                     AppSizebox.h2,
-                    Text(AppString.exports, style: TextStyle(fontSize: pageindex==3?14:12, color: pageindex==3?Colors.white:Colors.grey))
+                    Text(AppString.exports, style: TextStyle(fontSize: pageindex == 3 ? 14 : 12, color: pageindex == 3 ? Colors.white : Colors.grey))
                   ],
                 )),
             InkWell(
@@ -174,7 +179,7 @@ class _MyBottomState extends State<MyBottom> {
                     AppSizebox.h2,
                     Text(
                       AppString.more,
-                      style: TextStyle(fontSize: pageindex==4?14:12, color: pageindex==4?Colors.white:Colors.grey),
+                      style: TextStyle(fontSize: pageindex == 4 ? 14 : 12, color: pageindex == 4 ? Colors.white : Colors.grey),
                     )
                   ],
                 )),

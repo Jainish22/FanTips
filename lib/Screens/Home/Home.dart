@@ -36,8 +36,7 @@ class Home extends StatelessWidget {
                         viewportFraction: 1,
                       ),
                       itemCount: 5,
-                      itemBuilder:
-                          (BuildContext context, int index, int pageViewIndex) {
+                      itemBuilder: (BuildContext context, int index, int pageViewIndex) {
                         return const MyContainer1();
                       }),
                 ),
@@ -48,14 +47,9 @@ class Home extends StatelessWidget {
                   height: 20.h,
                   width: 100.w,
                   child: CarouselSlider.builder(
-                      options: CarouselOptions(
-                          enableInfiniteScroll: true,
-                          reverse: false,
-                          autoPlay: false,
-                          viewportFraction: 1),
+                      options: CarouselOptions(enableInfiniteScroll: true, reverse: false, autoPlay: false, viewportFraction: 1),
                       itemCount: 5,
-                      itemBuilder:
-                          (BuildContext context, int index, int pageViewIndex) {
+                      itemBuilder: (BuildContext context, int index, int pageViewIndex) {
                         return const MyContainer2();
                       }),
                 ),
@@ -64,11 +58,8 @@ class Home extends StatelessWidget {
                   children: const [
                     MyTitle(text: AppString.topStories),
                     Spacer(),
-                    InkWell(
-                        child: Text(AppString.viewAll,
-                            style: TextStyle(fontSize: 12))),
-                    Icon(Icons.arrow_forward_ios_sharp,
-                        color: Colors.white, size: 12),
+                    InkWell(child: Text(AppString.viewAll, style: TextStyle(fontSize: 12))),
+                    Icon(Icons.arrow_forward_ios_sharp, color: Colors.white, size: 12),
                     AppSizebox.w15
                   ],
                 ),
