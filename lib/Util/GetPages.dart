@@ -8,6 +8,7 @@ import 'package:fantips/Screens/Matches/Upcoming/UpcomingMatches/UpcomingMatches
 import 'package:get/get.dart';
 
 import '../Screens/Experts/search.dart';
+import '../Screens/Matches/Completed/CompletedMatches/CompletedMatches.dart';
 import '../Screens/More/More.dart';
 
 class Routes {
@@ -21,6 +22,7 @@ class Routes {
     GetPage(name: '/search', page: () => const Search()),
     GetPage(name: '/expertinfo', page: () => const ExpertInfo()),
     GetPage(name: '/upcomingmatches', page: () => const UpcomingMatches()),
+    GetPage(name: '/completedMatches', page: () => const CompletedMatches()),
 
   ];
 }

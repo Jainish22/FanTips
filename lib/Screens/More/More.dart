@@ -16,7 +16,7 @@ class More extends StatelessWidget {
     List more3 = [AppString.applyAsexperts,AppString.contactUsforbranding];
 
     return Scaffold(
-      appBar: MyAppbar(AppString.more),
+      appBar: MyAppbar(AppString.more, AppString.logIn),
       bottomNavigationBar: MyBottom(),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -27,16 +27,14 @@ class More extends StatelessWidget {
               AppSizebox.h20,
               SizedBox(
                 height: 25.h,
-                child: Expanded(
-                  child: ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: more1.length,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [OptionContainer(text: more1[index],ontap: (){}), AppSizebox.h2],
-                      );
-                    }
-                  ),
+                child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: more1.length,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [OptionContainer(text: more1[index],ontap: (){}), AppSizebox.h2],
+                    );
+                  }
                 ),
               ),
               AppSizebox.h20,
@@ -44,31 +42,27 @@ class More extends StatelessWidget {
               AppSizebox.h20,
               SizedBox(
                 height: 25.h,
-                child: Expanded(
-                  child: ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: more2.length,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [OptionContainer(text: more2[index],ontap: (){}), AppSizebox.h2],
-                      );
-                    }
-                  ),
+                child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: more2.length,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [OptionContainer(text: more2[index],ontap: (){}), AppSizebox.h2],
+                    );
+                  }
                 ),
               ),
               AppSizebox.h20,
               SizedBox(
                 height: 25.h,
-                child: Expanded(
-                  child: ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: more3.length,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [OptionContainer(text: more3[index],ontap: (){}), AppSizebox.h2],
-                      );
-                    }
-                  ),
+                child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: more3.length,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [OptionContainer(text: more3[index],ontap: (){}), AppSizebox.h2],
+                    );
+                  }
                 ),
               ),
             ],

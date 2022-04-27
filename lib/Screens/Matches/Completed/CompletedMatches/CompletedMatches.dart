@@ -1,29 +1,28 @@
-import 'package:fantips/Screens/IPL/Squads/Squads.dart';
-import 'package:fantips/Util/AppColor.dart';
-import 'package:fantips/Util/AppStrings.dart';
-import 'package:fantips/Widgets/MyAppbar.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:get/state_manager.dart';
+import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import 'BestPicks/BestPicks.dart';
-import 'Fantasy/Fantasy.dart';
-import 'MyTeams/MyTeams.dart';
-import 'Quiz/Quiz.dart';
+import '../../../../Util/AppColor.dart';
+import '../../../../Util/AppStrings.dart';
+import '../../../../Widgets/MyAppbar.dart';
+import 'CompletedCommentary/CompletedCommentary.dart';
+import 'CompletedFantasy/CompletedFantasy.dart';
+import 'CompletedScorecard/CompletedScorecard.dart';
+import 'CompletedSquad/CompletedSquad.dart';
 
-class UpcomingMatches extends StatelessWidget {
-  const UpcomingMatches({Key? key}) : super(key: key);
+class CompletedMatches extends StatelessWidget {
+  const CompletedMatches({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5,
+      length: 4,
       child: Scaffold(
         bottomNavigationBar: MyBottom(),
         appBar: AppBar(
 
-          title: Container(padding:EdgeInsets.only(left: 2.w),child: const Text(AppString.gtvslsg)),
+          title: Container(padding:EdgeInsets.only(left: 2.w),child: const Text(AppString.pbksvsrcd)),
           actions: [
             Padding(
               padding: const EdgeInsets.all(15),
@@ -41,20 +40,18 @@ class UpcomingMatches extends StatelessWidget {
             indicatorSize: TabBarIndicatorSize.label,
             tabs: [
               Tab(text: AppString.fantasy,),
-              Tab(text: AppString.bestPicks),
-              Tab(text: AppString.myTeams),
-              Tab(text: AppString.quiz),
-              Tab(text: AppString.squads)
+              Tab(text: AppString.commentary),
+              Tab(text: AppString.scorecard),
+              Tab(text: AppString.squads),
             ],
           ),
         ),
-        body:  TabBarView(
+        body:  const TabBarView(
           children: [
-            Fantasy(),
-            BestPicks(),
-            MyTeams(),
-            Quiz(),
-            Squads()
+            CompletedFantasy(),
+            CompletedCommentary(),
+            CompletedScorecard(),
+            CompletedSquad(),
           ],
         ),
       ),

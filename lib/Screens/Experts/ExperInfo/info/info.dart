@@ -19,7 +19,7 @@ class Info extends StatelessWidget {
               padding: EdgeInsets.only(right: 5.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [
+                children: const [
                   Icon(Icons.share,color: AppColor.white,),
                 ],
               ),
