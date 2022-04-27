@@ -40,13 +40,11 @@ class _ExpertsState extends State<Experts> {
               actions: <Widget>[
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(false),
-                  child:
-                      const Text('NO', style: TextStyle(color: Colors.white)),
+                  child: const Text('NO', style: TextStyle(color: Colors.white)),
                 ),
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(true),
-                  child:
-                      const Text('YES', style: TextStyle(color: Colors.white)),
+                  child: const Text('YES', style: TextStyle(color: Colors.white)),
                 ),
               ],
             ),
@@ -57,9 +55,7 @@ class _ExpertsState extends State<Experts> {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-        appBar: MyAppbar1(
-            AppString.predictionExperts, AppString.logIn, AppIcon.search),
-        bottomNavigationBar: MyBottom(),
+        appBar: MyAppbar1(AppString.predictionExperts, AppString.logIn, AppIcon.search),
         body: Stack(
           children: [
             Padding(
@@ -68,9 +64,7 @@ class _ExpertsState extends State<Experts> {
                   child: Container(
                     height: 6.h,
                     width: 92.w,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: AppColor.light),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: AppColor.light),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -80,13 +74,9 @@ class _ExpertsState extends State<Experts> {
                           color: AppColor.green,
                         ),
                         AppSizebox.w5,
-                        const Text(AppString.sortBy + ":",
-                            style:
-                                TextStyle(color: AppColor.green, fontSize: 16)),
+                        const Text(AppString.sortBy + ":", style: TextStyle(color: AppColor.green, fontSize: 16)),
                         AppSizebox.w5,
-                        const Text(AppString.avgScore,
-                            style:
-                                TextStyle(color: AppColor.green, fontSize: 16)),
+                        const Text(AppString.avgScore, style: TextStyle(color: AppColor.green, fontSize: 16)),
                         const Icon(
                           Icons.keyboard_arrow_down_sharp,
                           color: AppColor.green,
@@ -116,20 +106,16 @@ class _ExpertsState extends State<Experts> {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.only(
-                                  left: 12.sp, right: 12.sp, top: 10.sp),
+                              padding: EdgeInsets.only(left: 12.sp, right: 12.sp, top: 10.sp),
                               child: Obx(
                                 () {
-                                  print(expertsController
-                                      .getExpert.value.tipsters?.length);
+                                  print(expertsController.getExpert.value.tipsters?.length);
                                   return Column(
                                     children: [
                                       AppSizebox.h5,
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
                                           Image.asset(
                                             AppIcon.sortby,
@@ -141,9 +127,7 @@ class _ExpertsState extends State<Experts> {
                                           ),
                                           const Text(
                                             AppString.sortBy,
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w700),
+                                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                                           )
                                         ],
                                       ),
@@ -156,22 +140,17 @@ class _ExpertsState extends State<Experts> {
                                       ),
                                       InkWell(
                                         onTap: () {
-                                          if (expertsController.isBottomSelect =
-                                              true) {
+                                          if (expertsController.isBottomSelect = true) {
                                             expertsController.index.value = 0;
                                             print("prediction==>>>");
-                                            expertsController
-                                                .getExpert.value.tipsters
-                                                ?.sort(
-                                              (a, b) =>
-                                                  a.totalPredictions!.compareTo(
+                                            expertsController.getExpert.value.tipsters?.sort(
+                                              (a, b) => a.totalPredictions!.compareTo(
                                                 b.totalPredictions!,
                                               ),
                                             );
                                             setState(() {});
                                           } else {
-                                            expertsController.isBottomSelect =
-                                                false;
+                                            expertsController.isBottomSelect = false;
                                           }
                                         },
                                         child: Row(
@@ -183,10 +162,8 @@ class _ExpertsState extends State<Experts> {
                                             expertsController.index.value == 0
                                                 ? const CircleAvatar(
                                                     radius: 8,
-                                                    backgroundColor:
-                                                        AppColor.white,
-                                                    child: Icon(Icons.done,
-                                                        size: 12),
+                                                    backgroundColor: AppColor.white,
+                                                    child: Icon(Icons.done, size: 12),
                                                   )
                                                 : const Text(
                                                     "",
@@ -203,18 +180,13 @@ class _ExpertsState extends State<Experts> {
                                       ),
                                       InkWell(
                                         onTap: () {
-                                          if (expertsController.isBottomSelect =
-                                              true) {
+                                          if (expertsController.isBottomSelect = true) {
                                             expertsController.index.value = 1;
                                             print("avgScore==>>>");
-                                            expertsController
-                                                .getExpert.value.tipsters
-                                                ?.sort((a, b) => a.avgScore!
-                                                    .compareTo(b.avgScore!));
+                                            expertsController.getExpert.value.tipsters?.sort((a, b) => a.avgScore!.compareTo(b.avgScore!));
                                             setState(() {});
                                           } else {
-                                            expertsController.isBottomSelect =
-                                                false;
+                                            expertsController.isBottomSelect = false;
                                           }
                                         },
                                         child: Row(
@@ -226,8 +198,7 @@ class _ExpertsState extends State<Experts> {
                                             expertsController.index.value == 1
                                                 ? const CircleAvatar(
                                                     radius: 8,
-                                                    backgroundColor:
-                                                        AppColor.white,
+                                                    backgroundColor: AppColor.white,
                                                     child: Icon(
                                                       Icons.done,
                                                       size: 12,
@@ -248,18 +219,13 @@ class _ExpertsState extends State<Experts> {
                                       ),
                                       InkWell(
                                         onTap: () {
-                                          if (expertsController.isBottomSelect =
-                                              true) {
+                                          if (expertsController.isBottomSelect = true) {
                                             expertsController.index.value = 2;
                                             print("wins==>>>");
-                                            expertsController
-                                                .getExpert.value.tipsters
-                                                ?.sort((a, b) =>
-                                                    a.top3!.compareTo(b.top3!));
+                                            expertsController.getExpert.value.tipsters?.sort((a, b) => a.top3!.compareTo(b.top3!));
                                             setState(() {});
                                           } else {
-                                            expertsController.isBottomSelect =
-                                                false;
+                                            expertsController.isBottomSelect = false;
                                           }
                                         },
                                         child: Row(
@@ -271,10 +237,8 @@ class _ExpertsState extends State<Experts> {
                                             expertsController.index.value == 2
                                                 ? const CircleAvatar(
                                                     radius: 8,
-                                                    backgroundColor:
-                                                        AppColor.white,
-                                                    child: Icon(Icons.done,
-                                                        size: 12),
+                                                    backgroundColor: AppColor.white,
+                                                    child: Icon(Icons.done, size: 12),
                                                   )
                                                 : const Text(""),
                                           ],
@@ -394,15 +358,15 @@ class _ExpertsState extends State<Experts> {
                             controller: expertsController.scrollController,
                             itemBuilder: (BuildContext context, index) {
                               log("Service111111-------${expertsController.getitem.length}");
-                              final Experts =
-                                  expertsController.getitem.value[index];
+                              final Experts = expertsController.getitem.value[index];
                               return InkWell(
                                 onTap: () {
                                   Get.to(ExpertInfo(
                                     name: Experts.name,
                                     wins: "${Experts.top3}",
                                     ave: "${Experts.avgScore}",
-                                    sub:"${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
+                                    sub:
+                                        "${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
                                     //sub: '${Experts.subscriberCount}',
                                     pre: '${Experts.totalPredictions}', backgroundImage: Experts.profileUrl,
                                   ));
@@ -411,12 +375,12 @@ class _ExpertsState extends State<Experts> {
                                   children: [
                                     // ignore: invalid_use_of_protected_member
                                     MyContainer22(
-                                      headerText:
-                                          "${Experts.name!.length >= 25 ? Experts.name?.substring(0, 12) : Experts.name}",
+                                      headerText: "${Experts.name!.length >= 25 ? Experts.name?.substring(0, 12) : Experts.name}",
                                       pr: "${Experts.totalPredictions ?? " "}",
                                       ave: "${Experts.avgScore ?? ""}",
                                       wins: "${Experts.top3}",
-                                      subscribers: '${Experts.subscriberCount}', backgroundImage: Experts.profileUrl??"",
+                                      subscribers: '${Experts.subscriberCount}',
+                                      backgroundImage: Experts.profileUrl ?? "",
                                     ),
                                     AppSizebox.h10,
                                   ],

@@ -21,8 +21,7 @@ class _Screen1State extends State<Screen1> {
     Future.delayed(
       const Duration(seconds: 2),
       () async {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => Home()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeMain()));
       },
     );
   }
@@ -33,8 +32,7 @@ class _Screen1State extends State<Screen1> {
       statusBarColor: Colors.transparent,
       systemNavigationBarColor: Colors.transparent,
     ));
-    SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -76,8 +74,7 @@ class _Screen1State extends State<Screen1> {
                   padding: EdgeInsets.only(top: 2.h, left: 2.w),
                   child: Text(
                     "FANTIPS",
-                    style:
-                        TextStyle(color: Colors.black,fontWeight: FontWeight.w500, fontSize: 38, shadows: [
+                    style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 38, shadows: [
                       Shadow(
                         color: Colors.black.withOpacity(0.3),
                         offset: Offset(5, 7),
@@ -88,7 +85,10 @@ class _Screen1State extends State<Screen1> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 25.h),
-                  child: FadingText('...',style: TextStyle(color: Colors.black,fontSize: 80),),
+                  child: FadingText(
+                    '...',
+                    style: TextStyle(color: Colors.black, fontSize: 80),
+                  ),
                 ),
                 // SizedBox(height: 2.0),
               ],
