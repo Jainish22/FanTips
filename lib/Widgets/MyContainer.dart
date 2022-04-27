@@ -427,6 +427,7 @@ class _MyContainer4State extends State<MyContainer4> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+focusColor: Colors.yellow,
       onTap: () {
         Get.toNamed('upcomingmatches');
       },
