@@ -8,7 +8,6 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../Util/AppColor.dart';
-import '../../../Widgets/MyAppbar.dart';
 import '../../../Widgets/MyContainer.dart';
 import 'Controller/SearchController.dart';
 
@@ -26,7 +25,6 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: MyBottom(),
       body: Padding(
         padding: EdgeInsets.only(top: 7.h),
         child: Stack(
@@ -92,7 +90,8 @@ class _SearchState extends State<Search> {
                         ),
                       );
                     } else if (searchController.service1.value.isNotEmpty) {
-                      return Obx(() => Padding(
+                      return Obx(
+                        () => Padding(
                             padding: EdgeInsets.only(top: 2.h),
                             child: ListView.builder(
                               padding: EdgeInsets.zero,
@@ -105,8 +104,7 @@ class _SearchState extends State<Search> {
                                 return Column(
                                   children: [
                                     MyContainer2(
-                                      backgroundImage:
-                                          NetworkImage(search.profileUrl ?? ""),
+                                      backgroundImage: NetworkImage(search.profileUrl ?? ""),
                                       name: search.name ?? "",
                                       subscribers: search.subscriberCount ?? "",
                                       pr: "${search.totalPredictions ?? " "}",

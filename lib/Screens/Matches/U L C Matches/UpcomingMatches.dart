@@ -1,7 +1,6 @@
 import 'package:fantips/Screens/IPL/Squads/Squads.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppStrings.dart';
-import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -10,7 +9,6 @@ import 'package:sizer/sizer.dart';
 import 'BestPicks/BestPicks.dart';
 import 'Fantasy/Fantasy.dart';
 import 'MyTeams/MyTeams.dart';
-import '../../loginpage/loginpage.dart';
 
 class UpcomingMatches extends StatelessWidget {
   const UpcomingMatches({Key? key}) : super(key: key);
@@ -20,40 +18,40 @@ class UpcomingMatches extends StatelessWidget {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        bottomNavigationBar: MyBottom(),
         appBar: AppBar(
-
-          title: Container(padding:EdgeInsets.only(left: 2.w),child: const Text(AppString.gtvslsg)),
+          title: Container(padding: EdgeInsets.only(left: 2.w), child: const Text(AppString.gtvslsg)),
           actions: [
             Padding(
               padding: const EdgeInsets.all(15),
-              child: InkWell(child: const Icon(Icons.search),onTap: (){Get.toNamed('search');},),
+              child: InkWell(
+                child: const Icon(Icons.search),
+                onTap: () {
+                  Get.toNamed('search');
+                },
+              ),
             )
           ],
           bottom: const TabBar(
             padding: EdgeInsets.zero,
             isScrollable: true,
-            indicatorPadding:EdgeInsets.zero ,
+            indicatorPadding: EdgeInsets.zero,
             indicatorColor: AppColor.green,
             labelColor: AppColor.green,
-            labelStyle: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+            labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             unselectedLabelColor: AppColor.white,
             indicatorSize: TabBarIndicatorSize.label,
             tabs: [
-              Tab(text: AppString.fantasy,),
+              Tab(
+                text: AppString.fantasy,
+              ),
               Tab(text: AppString.bestPicks),
               Tab(text: AppString.myTeams),
               Tab(text: AppString.squads)
             ],
           ),
         ),
-        body:  TabBarView(
-          children: [
-            Fantasy(),
-            BestPicks(),
-            MyTeams(),
-            Squads()
-          ],
+        body: TabBarView(
+          children: [Fantasy(), BestPicks(), MyTeams(), Squads()],
         ),
       ),
     );

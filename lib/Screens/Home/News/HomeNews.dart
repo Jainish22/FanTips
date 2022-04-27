@@ -1,6 +1,5 @@
 import 'package:fantips/Screens/Home/News/Controller/News_Controller.dart';
 import 'package:fantips/Util/Sizebox.dart';
-import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,11 +8,7 @@ import 'package:sizer/sizer.dart';
 import '../../../Util/AppColor.dart';
 
 class HomeNews extends StatefulWidget {
-  HomeNews(
-      {this.newimage,
-      this.newname,
-      required this.samlldata,
-      required this.newstime});
+  HomeNews({this.newimage, this.newname, required this.samlldata, required this.newstime});
 
   String? newimage;
   String? newname;
@@ -34,18 +29,13 @@ class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    ColorAnimationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 0));
-    colorTween = ColorTween(begin: Colors.transparent, end: Colors.black)
-        .animate(ColorAnimationController);
-    iconColorTween = ColorTween(begin: Colors.white, end: Colors.white)
-        .animate(ColorAnimationController);
+    ColorAnimationController = AnimationController(vsync: this, duration: const Duration(seconds: 0));
+    colorTween = ColorTween(begin: Colors.transparent, end: Colors.black).animate(ColorAnimationController);
+    iconColorTween = ColorTween(begin: Colors.white, end: Colors.white).animate(ColorAnimationController);
 
-    TextAnimationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 0));
+    TextAnimationController = AnimationController(vsync: this, duration: const Duration(seconds: 0));
 
-    transTween = Tween(begin: Offset(-10, 40), end: Offset(-10, 0))
-        .animate(TextAnimationController);
+    transTween = Tween(begin: Offset(-10, 40), end: Offset(-10, 0)).animate(TextAnimationController);
 
     super.initState();
   }
@@ -64,7 +54,6 @@ class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      bottomNavigationBar: MyBottom(),
       body: NotificationListener<ScrollNotification>(
         onNotification: scrollListeners,
         child: Stack(
@@ -86,23 +75,14 @@ class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("${widget.newname}",
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 14)),
+                        Text("${widget.newname}", style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
                         AppSizebox.h10,
-                        Text("${widget.samlldata}",
-                            style: const TextStyle(
-                                color: AppColor.grey,
-                                fontSize: 11,
-                                fontWeight: FontWeight.w500)),
+                        Text("${widget.samlldata}", style: const TextStyle(color: AppColor.grey, fontSize: 11, fontWeight: FontWeight.w500)),
                         AppSizebox.h10,
-                        Text("${widget.newstime}",
-                            style: const TextStyle(
-                                color: AppColor.grey, fontSize: 12)),
+                        Text("${widget.newstime}", style: const TextStyle(color: AppColor.grey, fontSize: 12)),
                         AppSizebox.h10,
                         ListView.builder(
-                            itemCount:
-                                newsController.getNews.value.news?.length,
+                            itemCount: newsController.getNews.value.news?.length,
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
                             itemBuilder: (context, index) {
@@ -131,10 +111,8 @@ class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
                   titleSpacing: 0.0,
                   title: Transform.translate(
                     offset: transTween.value,
-                    child: const Text(
-                        'BCCI Secretary Arun Dhumal loss to the tune to thge matches... ',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 14)),
+                    child: const Text('BCCI Secretary Arun Dhumal loss to the tune to thge matches... ',
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
                   ),
                   // iconTheme: IconThemeData(
                   //   color: iconColorTween.value,
