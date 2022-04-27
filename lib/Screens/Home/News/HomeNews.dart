@@ -9,14 +9,24 @@ import 'package:sizer/sizer.dart';
 import '../../../Util/AppColor.dart';
 
 class HomeNews extends StatefulWidget {
-  HomeNews({Key? key}) : super(key: key);
-  final NewsController _NewsController = Get.put(NewsController());
+  HomeNews(
+      {this.newimage,
+      this.newname,
+      required this.samlldata,
+      required this.newstime});
+
+  String? newimage;
+  String? newname;
+  String? samlldata;
+  String? newstime;
 
   @override
   _HomeNewsState createState() => _HomeNewsState();
 }
 
 class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
+  final NewsController newsController = Get.find();
+
   late AnimationController ColorAnimationController;
   late AnimationController TextAnimationController;
   late Animation colorTween, iconColorTween;
@@ -63,36 +73,49 @@ class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
               child: Column(
                 children: [
                   Container(
-                    height: 25.h,
-                    child: Image.asset("asset/Images/Ground.png"),
+                    height: 30.h,
+                    width: 100.w,
+                    child: Image.network(
+                      "${widget.newimage}",
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                  Container(
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(10),
-                            topLeft: Radius.circular(10))),
-                    child: Expanded(
-                      child: Padding(
-                        padding:
-                            EdgeInsets.only(left: 5.w, right: 5.w, top: 3.h),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children:   const [
-                            Text('BCCI Secretary Arun Dhumal loss to the tune to thge matches... ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)), AppSizebox.h10,
-                            Text('India have registered their second successive Test series win in Australia, after beating...', style: TextStyle(color: AppColor.grey, fontSize: 12)), AppSizebox.h10,
-                            Text('20h ago', style: TextStyle(color: AppColor.grey, fontSize: 12)), AppSizebox.h10,
-                            Text("However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.", style: TextStyle(fontSize: 12,),),AppSizebox.h5,
-                            Text("However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.", style: TextStyle(fontSize: 12,),),AppSizebox.h5,
-                            Text("However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.", style: TextStyle(fontSize: 12,),),AppSizebox.h5,
-                            Text("However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.", style: TextStyle(fontSize: 12,),),AppSizebox.h5,
-                            Text("However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.", style: TextStyle(fontSize: 12,),),AppSizebox.h5,
-                            Text("However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.", style: TextStyle(fontSize: 12,),),AppSizebox.h5,
-                            Text("However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.", style: TextStyle(fontSize: 12,),),AppSizebox.h5,
-                            Text("However, these were the only two wickets that Sri Lanka could get throughout the day as Mushfiqur Rahim and Liton Das then set up shop. Their fifth-wicket partnership was worth 50 runs when the umpires led the players back to their dressing rooms early due to rain. Play was eventually called off.", style: TextStyle(fontSize: 12,),),AppSizebox.h20,
-                          ],
-                        ),
-                      ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 5.w, right: 5.w, top: 3.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("${widget.newname}",
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 14)),
+                        AppSizebox.h10,
+                        Text("${widget.samlldata}",
+                            style: const TextStyle(
+                                color: AppColor.grey,
+                                fontSize: 11,
+                                fontWeight: FontWeight.w500)),
+                        AppSizebox.h10,
+                        Text("${widget.newstime}",
+                            style: const TextStyle(
+                                color: AppColor.grey, fontSize: 12)),
+                        AppSizebox.h10,
+                        ListView.builder(
+                            itemCount:
+                                newsController.getNews.value.news?.length,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemBuilder: (context, index) {
+                              return Text(
+                                "${newsController.getNews.value.news?[index].title}",
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                ),
+                              );
+                            }),
+                        AppSizebox.h5,
+                        AppSizebox.h20,
+                      ],
                     ),
                   ),
                 ],

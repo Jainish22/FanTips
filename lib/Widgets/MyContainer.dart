@@ -1,3 +1,4 @@
+
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
 import 'package:fantips/Util/AppStrings.dart';
@@ -5,13 +6,22 @@ import 'package:fantips/Util/Sizebox.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
 import '../Helper/MyBottomsheet/MyBottomSheet.dart';
 
 ///First Container Home
-class MyContainer1 extends StatelessWidget {
-  const MyContainer1({Key? key}) : super(key: key);
+class MyContainer1 extends StatefulWidget {
+  MyContainer1({Key? key}) : super(key: key);
+
+  @override
+  State<MyContainer1> createState() => _MyContainer1State();
+}
+
+class _MyContainer1State extends State<MyContainer1> {
+  bool _value = true;
+  BlendMode? blendMode;
 
   @override
   Widget build(BuildContext context) {
@@ -25,18 +35,38 @@ class MyContainer1 extends StatelessWidget {
         decoration: BoxDecoration(
             color: AppColor.light, borderRadius: BorderRadius.circular(10)),
         child: Padding(
-          padding: EdgeInsets.only(top: 2.h, left: 4.w, right: 5.w),
+          padding: EdgeInsets.only(top: 1.h, left: 4.w, right: 4.w),
           child: Column(
             children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text("Zimbabwe vs Afghanistan",
-                      style: TextStyle(
-                        fontSize: 12,
-                      )),
-                  Image.asset(AppIcon.notification, height: 2.2.h)
+                  Padding(
+                    padding: EdgeInsets.only(top: 1.h),
+                    child: const Text("Zimbabwe vs Afghanistan",
+                        style: TextStyle(
+                          fontSize: 12,
+                        )),
+                  ),
+                  // Image.asset(AppIcon.notification, height: 2.2.h)
+                  // Icon(Icons.notifications_none,color: Colors.white,)
+
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        _value = !_value;
+                      });
+                    },
+                    child: Container(
+                        child: _value
+                            ? Icon(
+                          Icons.notifications_none,
+                          color: Colors.white,
+                        )
+                            : Icon(Icons.notifications,
+                            color: Colors.white)),
+                  ),
                 ],
               ),
               SizedBox(
@@ -55,7 +85,7 @@ class MyContainer1 extends StatelessWidget {
                           const CircleAvatar(
                               radius: 15,
                               backgroundImage:
-                                  AssetImage('asset/Images/Zim.png')),
+                              AssetImage('asset/Images/Zim.png')),
                           SizedBox(width: 2.w),
                           const Text("ZIM",
                               style: TextStyle(fontWeight: FontWeight.w500)),
@@ -85,7 +115,7 @@ class MyContainer1 extends StatelessWidget {
                           const CircleAvatar(
                               radius: 15,
                               backgroundImage:
-                                  AssetImage('asset/Images/Afg.png')),
+                              AssetImage('asset/Images/Afg.png')),
                           SizedBox(width: 2.w),
                           const Text(
                             "ZIM",
@@ -143,8 +173,28 @@ class MyContainer1 extends StatelessWidget {
 }
 
 ///Second Container T20Prediction
-class MyContainer2 extends StatelessWidget {
-  const MyContainer2({Key? key}) : super(key: key);
+class MyContainer2 extends StatefulWidget {
+  const MyContainer2({Key? key,
+    required this.backgroundImage,
+    required this.name,
+    required this.subscribers,
+    required this.age,
+    required this.wins,
+    required this.pr})
+      : super(key: key);
+  final ImageProvider backgroundImage;
+  final String name;
+  final String subscribers;
+  final String pr;
+  final String age;
+  final String wins;
+
+  @override
+  State<MyContainer2> createState() => _MyContainer2State();
+}
+
+class _MyContainer2State extends State<MyContainer2> {
+  bool _value = false;
 
   @override
   Widget build(BuildContext context) {
@@ -153,7 +203,7 @@ class MyContainer2 extends StatelessWidget {
         Get.toNamed('expertinfo');
       },
       child: Container(
-          height: 20.h,
+          height: 18.h,
           width: 92.w,
           decoration: BoxDecoration(
               color: AppColor.light, borderRadius: BorderRadius.circular(10)),
@@ -166,24 +216,24 @@ class MyContainer2 extends StatelessWidget {
                     height: 5.h,
                     child: Row(
                       children: [
-                        const CircleAvatar(
-                            radius: 20,
-                            backgroundImage:
-                                AssetImage('asset/Images/t20.png')),
+                        CircleAvatar(
+                          backgroundImage: widget.backgroundImage,
+                          minRadius: 20,
+                        ),
                         AppSizebox.w5,
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'T20 Prediction',
+                              widget.name,
                               style: const TextStyle(fontSize: 18),
                             ),
                             Row(
                               children: [
                                 Image.asset(AppIcon.uTube, height: 1.h),
                                 AppSizebox.w2,
-                                const Text(
-                                  '50.9K subscribers',
+                                Text(
+                                  widget.subscribers,
                                   style: TextStyle(fontSize: 10),
                                 )
                               ],
@@ -194,44 +244,100 @@ class MyContainer2 extends StatelessWidget {
                     ),
                   )),
               Positioned(
-                  top: 2.h,
-                  left: 82.w,
-                  child: Image.asset(
-                    AppIcon.heart,
-                    height: 2.5.h,
-                  )),
-              Positioned(
-                  top: 12.h,
-                  left: 5.w,
-                  child: SizedBox(
-                    height: 7.h,
-                    width: 82.w,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(children: const [
-                          Text('72',
-                              style: TextStyle(
-                                  fontSize: 25, fontWeight: FontWeight.bold)),
-                          Text(AppString.prediction)
-                        ]),
-                        VerticalDivider(width: 2, color: AppColor.dBlack),
-                        Column(children: const [
-                          Text('429',
-                              style: TextStyle(
-                                  fontSize: 25, fontWeight: FontWeight.bold)),
-                          Text(AppString.avgScore)
-                        ]),
-                        VerticalDivider(width: 2, color: AppColor.dBlack),
-                        Column(children: const [
-                          Text('13',
-                              style: TextStyle(
-                                  fontSize: 25, fontWeight: FontWeight.bold)),
-                          Text(AppString.wins)
-                        ])
-                      ],
-                    ),
-                  ))
+                top: 2.h,
+                left: 82.w,
+                child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      _value = !_value;
+                    });
+                  },
+                  child: Container(
+                      child: _value
+                          ? const Icon(
+                        Icons.favorite,
+                        color: Colors.green,
+                      )
+                          : const Icon(Icons.favorite_border, color: Colors.green)),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 10.h, left: 5.w, right: 6.w),
+                child: SizedBox(
+                  height: 7.h,
+                  // width: 85.w,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(children: [
+                        Text(widget.pr,
+                            style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: "GothamPro",
+                                color: AppColor.greymin)),
+                        const Text(
+                          AppString.prediction,
+                          style: TextStyle(
+                            color: AppColor.greymin,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            // fontFamily: "GothamPro",
+                          ),
+                        )
+                      ]),
+                      const VerticalDivider(
+                          width: 2,
+                          color: AppColor.dBlack,
+                          thickness: 1,
+                          endIndent: 10,
+                          indent: 10),
+                      Column(children: [
+                        Text(widget.age,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: "GothamPro",
+                              color: AppColor.greymin,
+                            )),
+                        const Text(
+                          AppString.avgScore,
+                          style: TextStyle(
+                            color: AppColor.greymin,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            // fontFamily: "GothamPro",
+                          ),
+                        )
+                      ]),
+                      const VerticalDivider(
+                          width: 2,
+                          color: AppColor.dBlack,
+                          thickness: 1,
+                          endIndent: 10,
+                          indent: 10),
+                      Column(children: [
+                        Text(widget.wins,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: "GothamPro",
+                              color: AppColor.greymin,
+                            )),
+                        const Text(
+                          AppString.wins,
+                          style: TextStyle(
+                            color: AppColor.greymin,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            // fontFamily: "GothamPro",
+                          ),
+                        )
+                      ])
+                    ],
+                  ),
+                ),
+              ),
             ],
           )),
     );
@@ -281,8 +387,42 @@ class MyContainer3 extends StatelessWidget {
 }
 
 ///Fourth Container Upcoming
-class MyContainer4 extends StatelessWidget {
-  const MyContainer4({Key? key}) : super(key: key);
+class MyContainer4 extends StatefulWidget {
+  const MyContainer4({Key? key,
+    required this.headerText,
+    required this.backgroundImage1,
+    required this.backgroundImage2,
+    required this.matchesname1,
+    required this.matchesname2,
+    required this.infoMsg,
+    required this.totalprediction,
+    required this.Starts})
+      : super(key: key);
+
+  final String headerText;
+  final String backgroundImage1;
+  final String backgroundImage2;
+  final String matchesname1;
+  final String matchesname2;
+  final String infoMsg;
+  final String totalprediction;
+  final String Starts;
+
+  @override
+  State<MyContainer4> createState() => _MyContainer4State();
+}
+
+class _MyContainer4State extends State<MyContainer4> {
+
+  static String hourAndMin(int milliSecond) {
+    DateTime date = DateTime.fromMillisecondsSinceEpoch(milliSecond);
+    final dt =
+    DateTime(date.year, date.month, date.day, date.hour, date.minute);
+    final format = DateFormat.jm(); //"6:00 AM"
+    return format.format(dt);
+  }
+
+  bool _value = true;
 
   @override
   Widget build(BuildContext context) {
@@ -294,89 +434,181 @@ class MyContainer4 extends StatelessWidget {
         height: 20.h,
         width: 92.w,
         decoration: BoxDecoration(
-            color: AppColor.light, borderRadius: BorderRadius.circular(5)),
+            color: AppColor.light, borderRadius: BorderRadius.circular(10)),
         child: Padding(
-          padding: EdgeInsets.only(top: 2.h, left: 4.w, right: 5.w),
-          child: Column(
+          padding: EdgeInsets.only(top: 2.h, left: 4.w, right: 4.w),
+          child: Stack(
             children: [
-              Row(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text("Zimbabwe vs Afghanistan",
-                      style: TextStyle(
-                        fontSize: 12,
-                      )),
-                  Image.asset(AppIcon.notification, height: 2.2.h)
-                ],
-              ),
-              SizedBox(
-                height: 1.h,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
+                  Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const CircleAvatar(
-                              radius: 15,
-                              backgroundImage:
-                                  AssetImage('asset/Images/Zim.png')),
-                          SizedBox(width: 2.w),
-                          const Text("ZIM",
-                              style: TextStyle(fontWeight: FontWeight.w500)),
-                          SizedBox(width: 40.w)
-                        ],
+                      Text(widget.headerText,
+                          style: const TextStyle(
+                              fontSize: 12, color: AppColor.greymin)),
+                      InkWell(
+                        onTap: () {
+                          setState(() {
+                            _value = !_value;
+                          });
+                        },
+                        child: Container(
+                            child: _value
+                                ? const Icon(
+                              Icons.notifications_none,
+                              color: Colors.white,
+                            )
+                                : const Icon(Icons.notifications,
+                                color: Colors.white)),
                       ),
-                      SizedBox(height: 1.5.h),
-                      Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const CircleAvatar(
-                              radius: 15,
-                              backgroundImage:
-                                  AssetImage('asset/Images/Afg.png')),
-                          SizedBox(width: 2.w),
-                          const Text(
-                            "ZIM",
-                            style: TextStyle(fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(width: 40.w)
-                        ],
-                      ),
-                      SizedBox(height: 1.5.h),
-                      const Text(AppString.matchTime + ' 5:45s',
-                          style: TextStyle(fontSize: 12))
                     ],
                   ),
                   SizedBox(
-                      height: 9.h,
-                      child: const VerticalDivider(
-                          color: AppColor.DividerColor, thickness: 1)),
-                  SizedBox(
-                    width: 19.w,
-                    child: Column(
-                      children: const [
-                        Text('72',
-                            style: TextStyle(
-                                height: 1.6,
-                                fontSize: 30,
-                                fontWeight: FontWeight.w900,
-                                color: AppColor.green)),
-                        Text('Prediction',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                color: AppColor.green))
-                      ],
-                    ),
-                  )
+                    height: 1.h,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Column(
+                                children: [
+                                  Container(
+                                    height: 4.h,
+                                    width: 8.5.w,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                        BorderRadius.circular(50)),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        widget.backgroundImage2,
+                                        fit: BoxFit.cover,
+                                        loadingBuilder:
+                                            (context, child, loadingProgress) {
+                                          if (loadingProgress == null)
+                                            return child;
+                                          return const Center(
+                                              child: CircularProgressIndicator(
+                                                color: Colors.green,
+                                              ));
+                                        },
+                                        errorBuilder:
+                                            (context, error, stackTrace) =>
+                                        const Center(
+                                          child: Text(
+                                            "",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 7),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 1.5.h),
+                                  Container(
+                                    height: 4.h,
+                                    width: 8.5.w,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                        BorderRadius.circular(50)),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        widget.backgroundImage2,
+                                        fit: BoxFit.cover,
+                                        loadingBuilder:
+                                            (context, child, loadingProgress) {
+                                          if (loadingProgress == null)
+                                            return child;
+                                          return const Center(
+                                              child:
+                                              CircularProgressIndicator());
+                                        },
+                                        errorBuilder:
+                                            (context, error, stackTrace) =>
+                                        const Center(
+                                          child: Text(
+                                            "",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 7),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(width: 2.w),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(widget.matchesname1,
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 14)),
+                                  SizedBox(height: 3.h),
+                                  Text(widget.matchesname2,
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 14)),
+                                ],
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 1.5.h),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Text(
+                    "Match Starts in ${widget.infoMsg}",
+                    maxLines: 1,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w300,
+                        color: AppColor.greymin,
+                        fontSize: 12),
+                  ),
                 ],
-              )
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 62.w, top: 3.h),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                        height: 10.h,
+                        child: const VerticalDivider(
+                            color: AppColor.DividerColor, thickness: 1)),
+                    AppSizebox.w2,
+                    Padding(
+                      padding: EdgeInsets.only(top: 2.5.h),
+                      child: Column(
+                        children: const [
+                          Text("72",
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w800,
+                                  color: AppColor.green)),
+                          AppSizebox.h2,
+                          Text("Predictions", style: TextStyle(
+                              fontSize: 11,
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.green))
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -431,7 +663,7 @@ class MyContainer5 extends StatelessWidget {
                           const CircleAvatar(
                               radius: 15,
                               backgroundImage:
-                                  AssetImage('asset/Images/Zim.png')),
+                              AssetImage('asset/Images/Zim.png')),
                           SizedBox(width: 2.w),
                           const Text("ZIM",
                               style: TextStyle(fontWeight: FontWeight.w500)),
@@ -445,7 +677,7 @@ class MyContainer5 extends StatelessWidget {
                           const CircleAvatar(
                               radius: 15,
                               backgroundImage:
-                                  AssetImage('asset/Images/Afg.png')),
+                              AssetImage('asset/Images/Afg.png')),
                           SizedBox(width: 2.w),
                           const Text(
                             "ZIM",
@@ -540,9 +772,9 @@ class MyContainer6 extends StatelessWidget {
                               fontWeight: FontWeight.w700, fontSize: 14),
                         ),
                         SizedBox(width: 1.w),
-                        Text("(20)",
+                        const Text("(20)",
                             style:
-                                TextStyle(color: AppColor.grey, fontSize: 10))
+                            TextStyle(color: AppColor.grey, fontSize: 10))
                       ],
                     ),
                     SizedBox(height: 1.5.h),
@@ -564,7 +796,7 @@ class MyContainer6 extends StatelessWidget {
                         SizedBox(width: 1.w),
                         Text("(20)",
                             style:
-                                TextStyle(color: AppColor.grey, fontSize: 10))
+                            TextStyle(color: AppColor.grey, fontSize: 10))
                       ],
                     ),
                     SizedBox(height: 1.5.h),
@@ -613,8 +845,44 @@ class MyContainer6 extends StatelessWidget {
 }
 
 ///Seventh Container IPLMatches
-class MyContainer7 extends StatelessWidget {
-  const MyContainer7({Key? key}) : super(key: key);
+class MyContainer7 extends StatefulWidget {
+  final String headerText;
+  final ImageProvider backgroundImage1;
+  final String backgroundImage2;
+  final String matchesname1;
+  final String matchesname2;
+  final String infoMsg;
+  final String Over1;
+  final String Over2;
+  final String run1;
+  final String run2;
+  final String wk1;
+  final String wk2;
+  final String totalprediction;
+
+  const MyContainer7({
+    Key? key,
+    required this.headerText,
+    required this.backgroundImage1,
+    required this.backgroundImage2,
+    required this.matchesname1,
+    required this.infoMsg,
+    required this.Over1,
+    required this.Over2,
+    required this.matchesname2,
+    required this.run1,
+    required this.run2,
+    required this.wk1,
+    required this.wk2,
+    required this.totalprediction,
+  }) : super(key: key);
+
+  @override
+  State<MyContainer7> createState() => _MyContainer7State();
+}
+
+class _MyContainer7State extends State<MyContainer7> {
+  bool _value = false;
 
   @override
   Widget build(BuildContext context) {
@@ -628,102 +896,216 @@ class MyContainer7 extends StatelessWidget {
         decoration: BoxDecoration(
             color: AppColor.light, borderRadius: BorderRadius.circular(10)),
         child: Padding(
-          padding: EdgeInsets.only(top: 2.h, left: 4.w, right: 5.w),
-          child: Column(
+          padding: EdgeInsets.only(top: 2.h, left: 4.w, right: 4.w),
+          child: Stack(
             children: [
-              Row(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text("Zimbabwe vs Afghanistan",
-                      style: TextStyle(
-                        fontSize: 12,
-                      )),
-                  Image.asset(AppIcon.notification, height: 2.2.h)
-                ],
-              ),
-              SizedBox(
-                height: 1.h,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
+                  Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const CircleAvatar(
-                              radius: 15,
-                              backgroundImage: AssetImage(
-                                '',
-                              )),
-                          SizedBox(width: 2.w),
-                          const Text("ZIM",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 14)),
-                          SizedBox(width: 24.w),
-                          const Text(
-                            "133/7",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w700, fontSize: 14),
-                          ),
-                          SizedBox(width: 1.w),
-                          Text("(20)",
-                              style:
-                                  TextStyle(color: AppColor.grey, fontSize: 10))
-                        ],
+                      Text(widget.headerText,
+                          style: const TextStyle(
+                              fontSize: 12, color: AppColor.greymin)),
+                      InkWell(
+                        onTap: () {
+                          setState(() {
+                            _value = !_value;
+                          });
+                        },
+                        child: Container(
+                            child: _value
+                                ? const Icon(
+                              Icons.notifications,
+                              color: Colors.white,
+                            )
+                                : const Icon(Icons.notifications_none,
+                                color: Colors.white)),
                       ),
-                      SizedBox(height: 1.5.h),
-                      Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const CircleAvatar(
-                              radius: 15, backgroundImage: AssetImage('')),
-                          SizedBox(width: 2.w),
-                          const Text("ZIM",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 14)),
-                          SizedBox(width: 24.w),
-                          const Text(
-                            "133/7",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w700, fontSize: 14),
-                          ),
-                          SizedBox(width: 1.w),
-                          Text("(20)",
-                              style:
-                                  TextStyle(color: AppColor.grey, fontSize: 10))
-                        ],
-                      ),
-                      SizedBox(height: 1.5.h),
-                      const Text("Sri Lanka Won By 20 Runs")
                     ],
                   ),
                   SizedBox(
-                      height: 9.h,
-                      child: const VerticalDivider(
-                          color: AppColor.DividerColor, thickness: 1)),
-                  SizedBox(
-                    width: 19.w,
-                    child: Column(
-                      children: const [
-                        Text('72',
-                            style: TextStyle(
-                                height: 1.6,
-                                fontSize: 30,
-                                fontWeight: FontWeight.w900,
-                                color: AppColor.green)),
-                        Text('Prediction',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                color: AppColor.green))
+                    height: 1.h,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Column(
+                                children: [
+                                  Container(
+                                    height: 4.h,
+                                    width: 8.5.w,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                        BorderRadius.circular(50)),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        widget.backgroundImage2,
+                                        fit: BoxFit.cover,
+                                        loadingBuilder:
+                                            (context, child, loadingProgress) {
+                                          if (loadingProgress == null)
+                                            return child;
+                                          return const Center(
+                                              child: CircularProgressIndicator(
+                                                color: Colors.green,
+                                              ));
+                                        },
+                                        errorBuilder:
+                                            (context, error, stackTrace) =>
+                                        const Center(
+                                          child: Text(
+                                            "",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 7),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 1.5.h),
+                                  Container(
+                                    height: 4.h,
+                                    width: 8.5.w,
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                        BorderRadius.circular(50)),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        widget.backgroundImage2,
+                                        fit: BoxFit.cover,
+                                        loadingBuilder:
+                                            (context, child, loadingProgress) {
+                                          if (loadingProgress == null)
+                                            return child;
+                                          return const Center(
+                                              child: CircularProgressIndicator(
+                                                color: Colors.green,
+                                              ));
+                                        },
+                                        errorBuilder:
+                                            (context, error, stackTrace) =>
+                                        const Center(
+                                          child: Text(
+                                            "",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 7),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(width: 2.w),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(widget.matchesname1,
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 14)),
+                                  SizedBox(height: 3.h),
+                                  Text(widget.matchesname2,
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 14)),
+                                ],
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 1.5.h),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Text(
+                    widget.infoMsg,
+                    maxLines: 1,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w300, color: AppColor.greymin),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 40.w, top: 5.h),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                      // crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          "${widget.run1}/${widget.wk1}",
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 14),
+                        ),
+                        SizedBox(height: 3.h),
+                        Text(
+                          "${widget.run2}/${widget.wk2}",
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 14),
+                        ),
                       ],
                     ),
-                  )
-                ],
+                    SizedBox(width: 1.w),
+                    Padding(
+                      padding: EdgeInsets.only(top: 0.5.h),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text("(${widget.Over1})",
+                              style: const TextStyle(
+                                  color: AppColor.grey, fontSize: 10)),
+                          SizedBox(height: 3.5.h),
+                          Text("(${widget.Over2})",
+                              style: const TextStyle(
+                                  color: AppColor.grey, fontSize: 10)),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 62.w, top: 3.h),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                        height: 10.h,
+                        child: const VerticalDivider(
+                            color: AppColor.DividerColor, thickness: 1)),
+                    Padding(
+                      padding: EdgeInsets.only(top: 2.h),
+                      child: Column(
+                        children: [
+                          Text(widget.totalprediction,
+                              style: const TextStyle(
+                                  fontSize: 26,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColor.green)),
+                          const Text('Predictions',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w100,
+                                  color: AppColor.green))
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ],
           ),
@@ -818,7 +1200,7 @@ class MyContainer8 extends StatelessWidget {
                         SizedBox(width: 1.w),
                         Text("(20)",
                             style:
-                                TextStyle(color: AppColor.grey, fontSize: 10))
+                            TextStyle(color: AppColor.grey, fontSize: 10))
                       ],
                     ),
                     SizedBox(height: 1.5.h),
@@ -840,7 +1222,7 @@ class MyContainer8 extends StatelessWidget {
                         SizedBox(width: 1.w),
                         const Text("(20)",
                             style:
-                                TextStyle(color: AppColor.grey, fontSize: 10))
+                            TextStyle(color: AppColor.grey, fontSize: 10))
                       ],
                     ),
                     SizedBox(height: 1.5.h),
@@ -921,7 +1303,10 @@ class FantasyUpcoming extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            CircleAvatar(radius: 3.h,child: Text("MI"),),
+                            CircleAvatar(
+                              radius: 3.h,
+                              child: Text("MI"),
+                            ),
                             const Text('MI',
                                 style: TextStyle(
                                     color: AppColor.greymin, fontSize: 18))
@@ -953,7 +1338,10 @@ class FantasyUpcoming extends StatelessWidget {
                             const Text('RCB',
                                 style: TextStyle(
                                     color: AppColor.greymin, fontSize: 18)),
-                            CircleAvatar(radius: 3.h,child: Text("RCD"),)
+                            CircleAvatar(
+                              radius: 3.h,
+                              child: Text("RCD"),
+                            )
                           ],
                         ),
                       )
@@ -1010,8 +1398,15 @@ class FantasySecondone extends StatelessWidget {
 }
 
 ///12 FantasySecondtwo
-class FantasySecondtwo extends StatelessWidget {
+class FantasySecondtwo extends StatefulWidget {
   const FantasySecondtwo({Key? key}) : super(key: key);
+
+  @override
+  State<FantasySecondtwo> createState() => _FantasySecondtwoState();
+}
+
+class _FantasySecondtwoState extends State<FantasySecondtwo> {
+  bool _value = false;
 
   @override
   Widget build(BuildContext context) {
@@ -1025,9 +1420,36 @@ class FantasySecondtwo extends StatelessWidget {
               bottomRight: Radius.circular(6), topRight: Radius.circular(6))),
       child: Row(
         children: [
-          Image.asset(AppIcon.heart, height: 2.h),
-          AppSizebox.w5,
-          const Text(AppString.favourite)
+          InkWell(
+            onTap: () {
+              setState(() {
+                _value = !_value;
+              });
+            },
+            child: Container(
+                child: _value
+                    ? Row(
+                  children: const [
+                    Icon(Icons.favorite_border, color: Colors.green),
+                    AppSizebox.w5,
+                    Text(AppString.favourite,
+                        style: TextStyle(color: Colors.green))
+                  ],
+                )
+                    : Row(
+                  children: const [
+                    Icon(
+                      Icons.favorite,
+                      color: Colors.grey,
+                    ),
+                    AppSizebox.w5,
+                    Text(
+                      AppString.favourite,
+                      style: TextStyle(color: Colors.grey),
+                    )
+                  ],
+                )),
+          ),
         ],
       ),
     );
@@ -1085,13 +1507,15 @@ class BestPicksTile extends StatelessWidget {
                 Container(
                   height: 8.h,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const CircleAvatar(
                         backgroundImage:
-                            AssetImage("asset/player/Player Profile.png"),
+                        AssetImage("asset/player/Player Profile.png"),
                       ),
-                      AppSizebox.w10,
+                      SizedBox(
+                        width: 20.w,
+                      ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
@@ -1109,9 +1533,9 @@ class BestPicksTile extends StatelessWidget {
                           ),
                         ],
                       ),
-                      // Expanded(
-                      //   child: Container(),
-                      // ),
+                      Expanded(
+                        child: Container(),
+                      ),
                       const Text(
                         "14.19%",
                         style: TextStyle(fontSize: 18, color: AppColor.greymin),
@@ -1126,12 +1550,14 @@ class BestPicksTile extends StatelessWidget {
                 Container(
                   height: 8.h,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const CircleAvatar(
                         backgroundImage: AssetImage("asset/player/1513.png"),
                       ),
-                      AppSizebox.w10,
+                      SizedBox(
+                        width: 20.w,
+                      ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
@@ -1149,9 +1575,9 @@ class BestPicksTile extends StatelessWidget {
                           ),
                         ],
                       ),
-                      // Expanded(
-                      //   child: Container(),
-                      // ),
+                      Expanded(
+                        child: Container(),
+                      ),
                       const Text(
                         "154.19%",
                         style: TextStyle(fontSize: 18, color: AppColor.greymin),
@@ -1163,12 +1589,14 @@ class BestPicksTile extends StatelessWidget {
                 Container(
                   height: 8.h,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const CircleAvatar(
                         backgroundColor: Colors.yellow,
                       ),
-                      AppSizebox.w10,
+                      SizedBox(
+                        width: 20.w,
+                      ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
@@ -1186,9 +1614,9 @@ class BestPicksTile extends StatelessWidget {
                           ),
                         ],
                       ),
-                      // Expanded(
-                      //   child: Container(),
-                      // ),
+                      Expanded(
+                        child: Container(),
+                      ),
                       const Text(
                         "194.19%",
                         style: TextStyle(fontSize: 18, color: AppColor.greymin),
@@ -1232,7 +1660,10 @@ class FantasyCompleted extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          CircleAvatar(radius: 3.h,child: Text("RCD"),),
+                          CircleAvatar(
+                            radius: 3.h,
+                            child: Text("RCD"),
+                          ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -1261,7 +1692,8 @@ class FantasyCompleted extends StatelessWidget {
                     ),
                     Image.asset(
                       "asset/icon/light.png",
-                      height: 2.h,color: Colors.white,
+                      height: 2.h,
+                      color: Colors.white,
                     ),
                     SizedBox(
                       width: 37.w,
@@ -1291,7 +1723,10 @@ class FantasyCompleted extends StatelessWidget {
                               )
                             ],
                           ),
-                          CircleAvatar(radius: 3.h,child: Text("MI"),)
+                          CircleAvatar(
+                            radius: 3.h,
+                            child: Text("MI"),
+                          )
                         ],
                       ),
                     )
@@ -1397,7 +1832,7 @@ class Scorecard extends StatelessWidget {
                           itemCount: iplteam.length,
                           itemBuilder: (BuildContext context, index) {
                             return Container(
-                              height: 6.h,
+                                height: 6.h,
                                 margin: const EdgeInsets.only(top: 10),
                                 child: Column(
                                   children: [
@@ -1406,7 +1841,7 @@ class Scorecard extends StatelessWidget {
                                     AppSizebox.h10,
                                     Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                        MainAxisAlignment.spaceBetween,
                                         children: [
                                           SizedBox(
                                               width: 42.w,
@@ -1429,7 +1864,344 @@ class Scorecard extends StatelessWidget {
           )
         ],
       ),
-
     );
   }
 }
+
+class MyContainer22 extends StatefulWidget {
+  final String headerText;
+  final String subscribers;
+  final String backgroundImage;
+  final String wins;
+  final String pr;
+  final String ave;
+
+  MyContainer22({Key? key,
+    required this.backgroundImage,
+    required this.headerText,
+    required this.subscribers,
+    required this.ave,
+    required this.wins,
+    required this.pr})
+      : super(key: key);
+
+  @override
+  State<MyContainer22> createState() => _MyContainer22State();
+}
+
+class _MyContainer22State extends State<MyContainer22> {
+  bool _value = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: 18.h,
+        width: 92.w,
+        decoration: BoxDecoration(
+            color: AppColor.light, borderRadius: BorderRadius.circular(10)),
+        child: Stack(
+          children: [
+            Positioned(
+                top: 2.2.h,
+                left: 2.w,
+                child: SizedBox(
+                  height: 6.h,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ClipOval(
+                        child: Image.network(widget.backgroundImage,
+                          width: 45,
+                          height: 80,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      AppSizebox.w5,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            widget.headerText,
+                            overflow: TextOverflow.fade,
+                            maxLines: 1,
+                            softWrap: false,
+                            style: TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.w400),
+                          ),
+                          Row(
+                            children: [
+                              Image.asset(AppIcon.uTube, height: 1.h),
+                              AppSizebox.w2,
+                              Text(
+                                widget.subscribers,
+                                style: TextStyle(fontSize: 10),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                )),
+            Positioned(
+              top: 2.h,
+              left: 82.w,
+              child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _value = !_value;
+                  });
+                },
+                child: Container(
+                    child: _value
+                        ? Icon(
+                      Icons.favorite,
+                      color: Colors.green,
+                    )
+                        : Icon(Icons.favorite_border, color: Colors.green)),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 10.h, left: 5.w, right: 6.w),
+              child: SizedBox(
+                height: 7.h,
+                // width: 85.w,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(children: [
+                      Text(widget.pr,
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: "GothamPro",
+                              color: AppColor.greymin)),
+                      const Text(
+                        AppString.prediction,
+                        style: TextStyle(
+                          color: AppColor.greymin,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          // fontFamily: "GothamPro",
+                        ),
+                      )
+                    ]),
+                    const VerticalDivider(
+                        width: 2,
+                        color: AppColor.dBlack,
+                        thickness: 1,
+                        endIndent: 10,
+                        indent: 10),
+                    Column(children: [
+                      Text(widget.ave,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "GothamPro",
+                            color: AppColor.greymin,
+                          )),
+                      const Text(
+                        AppString.avgScore,
+                        style: TextStyle(
+                          color: AppColor.greymin,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          // fontFamily: "GothamPro",
+                        ),
+                      )
+                    ]),
+                    const VerticalDivider(
+                        width: 2,
+                        color: AppColor.dBlack,
+                        thickness: 1,
+                        endIndent: 10,
+                        indent: 10),
+                    Column(children: [
+                      Text(widget.wins,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "GothamPro",
+                            color: AppColor.greymin,
+                          )),
+                      const Text(
+                        AppString.wins,
+                        style: TextStyle(
+                          color: AppColor.greymin,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          // fontFamily: "GothamPro",
+                        ),
+                      )
+                    ])
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ));
+  }
+}
+
+class MyContainer23 extends StatefulWidget {
+  @override
+  State<MyContainer23> createState() => _MyContainer23State();
+}
+
+class _MyContainer23State extends State<MyContainer23> {
+  bool _value = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Get.toNamed('expertinfo');
+      },
+      child: Container(
+        // height: 14.h,
+          width: 92.w,
+          decoration: BoxDecoration(
+              color: AppColor.light, borderRadius: BorderRadius.circular(10)),
+          child: Stack(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: 2.h, left: 4.w),
+                child: SizedBox(
+                  height: 7.h,
+                  child: Row(
+                    children: [
+                      const CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            "https://yt3.ggpht.com/ytc/AKedOLQZKvC4YtSgcsOZ-O--Nqhp6FEIv-pCBpywzpuHDw=s900-c-k-c0x00ffffff-no-rj"),
+                        radius: 25,
+                      ),
+                      AppSizebox.w5,
+                      Padding(
+                        padding: EdgeInsets.only(top: 1.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              "Prediction Bhajan",
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            Row(
+                              children: [
+                                Image.asset(AppIcon.uTube, height: 1.h),
+                                AppSizebox.w2,
+                                Text(
+                                  "subscribers",
+                                  style: TextStyle(fontSize: 10),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 3.5.h, left: 80.w),
+                child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      _value = !_value;
+                    });
+                  },
+                  child: Container(
+                      child: _value
+                          ? Icon(
+                        Icons.favorite,
+                        color: Colors.green,
+                      )
+                          : Icon(Icons.favorite_border, color: Colors.green)),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 12.h, left: 5.w, right: 6.w),
+                child: SizedBox(
+                  height: 7.h,
+                  // width: 85.w,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(children: const [
+                        Text("234",
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: "GothamPro",
+                                color: AppColor.greymin)),
+                        Text(
+                          AppString.prediction,
+                          style: TextStyle(
+                            color: AppColor.greymin,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            // fontFamily: "GothamPro",
+                          ),
+                        )
+                      ]),
+                      const VerticalDivider(
+                          width: 2,
+                          color: AppColor.dBlack,
+                          thickness: 1,
+                          endIndent: 10,
+                          indent: 10),
+                      Column(children: const [
+                        Text("2342",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: "GothamPro",
+                              color: AppColor.greymin,
+                            )),
+                        Text(
+                          AppString.avgScore,
+                          style: TextStyle(
+                            color: AppColor.greymin,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            // fontFamily: "GothamPro",
+                          ),
+                        )
+                      ]),
+                      const VerticalDivider(
+                          width: 2,
+                          color: AppColor.dBlack,
+                          thickness: 1,
+                          endIndent: 10,
+                          indent: 10),
+                      Column(children: const [
+                        Text("23",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: "GothamPro",
+                              color: AppColor.greymin,
+                            )),
+                        Text(
+                          AppString.wins,
+                          style: TextStyle(
+                            color: AppColor.greymin,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            // fontFamily: "GothamPro",
+                          ),
+                        )
+                      ])
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          )),
+    );
+  }
+}
+
+
+
+

@@ -20,16 +20,17 @@ class Matches extends StatelessWidget {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: Container(padding:EdgeInsets.only(left: 2.w),child: const Text(AppString.currentMatches)),
-          bottom: const TabBar(
-            padding: EdgeInsets.zero,
-            // isScrollable: true,
+          bottom:  TabBar(
+            padding: EdgeInsets.only(right: 25.w),
+             isScrollable: true,
+            labelPadding: const EdgeInsets.symmetric(horizontal:10.0),
             indicatorPadding:EdgeInsets.zero ,
             indicatorColor: AppColor.green,
             labelColor: AppColor.green,
-            labelStyle: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+            labelStyle: const TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
             unselectedLabelColor: AppColor.white,
             indicatorSize: TabBarIndicatorSize.label,
-            tabs: [
+            tabs: const [
               Tab(text: AppString.upcoming,),
               Tab(text: AppString.live),
               Tab(text: AppString.completed)

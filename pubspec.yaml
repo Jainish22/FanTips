@@ -38,9 +38,15 @@ dependencies:
   sizer: ^2.0.15
   carousel_slider: ^4.0.0
   tabbar: ^0.1.1
-  persistent_bottom_nav_bar: ^4.0.2
-  google_nav_bar: ^5.0.6
   http: ^0.13.4
+  step_progress_indicator: ^1.0.2
+  intl: ^0.17.0
+  google_fonts: ^2.3.1
+  url_launcher: ^6.1.0
+  flutter_share: ^2.0.0
+  progress_indicators: ^1.0.0
+
+
 
 dev_dependencies:
   flutter_test:
@@ -83,9 +89,17 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Circular
+    - family: GothamPro
       fonts:
-        - asset: asset/fonts/circular-std-medium-500.ttf
+
+        - asset: asset/fonts/Oswald-ExtraLight.ttf
+          weight: 600
+        - asset: asset/fonts/Oswald-Light.ttf
+          weight: 500
+        - asset: asset/fonts/Oswald-Regular.ttf
+          weight: 700
+        - asset: asset/fonts/Oswald-SemiBold.ttf
+          weight: 800
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

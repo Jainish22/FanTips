@@ -3,10 +3,33 @@ import 'package:fantips/Screens/Experts/ExperInfo/info/info.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 
-class ExpertInfo extends StatelessWidget {
-  const ExpertInfo({Key? key}) : super(key: key);
+import '../controller/ExpertsController.dart';
+
+class ExpertInfo extends StatefulWidget {
+   ExpertInfo(    {required this.name,
+     required this.pre,
+     required this.sub,
+     required this.wins,
+     required this.backgroundImage,
+     required this.ave});
+
+   String? name;
+   String? ave;
+   String? pre;
+   String? wins;
+   String? sub;
+   String? backgroundImage;
+
+  @override
+  State<ExpertInfo> createState() => _ExpertInfoState();
+}
+
+class _ExpertInfoState extends State<ExpertInfo> {
+  ExpertsController expertsController = Get.put(ExpertsController());
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +38,11 @@ class ExpertInfo extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: true,
-          title: Container(padding:EdgeInsets.only(left: 2.w),child: const Text(AppString.t20)),
-          bottom: const TabBar(
+          title: Container(padding:EdgeInsets.only(right: 30.w),child: const Text("Live Support")),
+          bottom:  TabBar(
+            padding: EdgeInsets.only(right: 50.w),
+            isScrollable: true,
+            labelPadding: const EdgeInsets.symmetric(horizontal: 10.0),
             indicatorColor: AppColor.green,
             labelColor: AppColor.green,
             labelStyle: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
@@ -28,9 +54,9 @@ class ExpertInfo extends StatelessWidget {
             ],
           ),
         ),
-        body: const TabBarView(
+        body:  TabBarView(
           children: [
-            Info(),
+            Info(name: widget.name, sub: widget.sub, ave: widget.ave, wins: widget.wins, backgroundImage: widget.backgroundImage, pre: widget.pre,),
             ExpertMatches()
           ],
         ),
