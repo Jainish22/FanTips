@@ -1,9 +1,9 @@
+// ignore_for_file: prefer_is_empty
+
 import 'dart:developer';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../../../Util/Sizebox.dart';
@@ -55,27 +55,29 @@ class _CompletedFantasyState extends State<CompletedFantasy> {
                           controller: expertsController.scrollController,
                           itemBuilder: (BuildContext context, index) {
                             log("Service111111-------${expertsController.getitem.length}");
-                            final Experts =
-                                expertsController.getitem.value[index];
+                            final Experts = expertsController.getitem.value[index];
                             return Column(
                               children: [
                                 InkWell(
-                                  onTap: (){Get.to(Get.to(ExpertInfo(
-                                    name: Experts.name,
-                                    wins: "${Experts.top3}",
-                                    ave: "${Experts.avgScore}",
-                                    sub:"${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
-                                    //sub: '${Experts.subscriberCount}',
-                                    pre: '${Experts.totalPredictions}', backgroundImage: Experts.profileUrl,
-                                  )));},
+                                  onTap: () {
+                                    Get.to(Get.to(ExpertInfo(
+                                      name: Experts.name,
+                                      wins: "${Experts.top3}",
+                                      ave: "${Experts.avgScore}",
+                                      sub:
+                                          "${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
+                                      //sub: '${Experts.subscriberCount}',
+                                      pre: '${Experts.totalPredictions}',
+                                      backgroundImage: Experts.profileUrl,
+                                    )));
+                                  },
                                   child: MyContainer22(
-
-                                    headerText:
-                                        "${Experts.name!.length >= 25 ? Experts.name?.substring(0, 12) : Experts.name}",
+                                    headerText: "${Experts.name!.length >= 25 ? Experts.name?.substring(0, 12) : Experts.name}",
                                     pr: "${Experts.totalPredictions ?? " "}",
                                     ave: "${Experts.avgScore ?? ""}",
                                     wins: "${Experts.top3}",
-                                    subscribers: '${Experts.subscriberCount}', backgroundImage: Experts.profileUrl??"",
+                                    subscribers: '${Experts.subscriberCount}',
+                                    backgroundImage: Experts.profileUrl ?? "",
                                   ),
                                 ),
                                 AppSizebox.h10,

@@ -1,9 +1,7 @@
-
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -13,7 +11,7 @@ import '../Helper/MyBottomsheet/MyBottomSheet.dart';
 
 ///First Container Home
 class MyContainer1 extends StatefulWidget {
-  MyContainer1({Key? key}) : super(key: key);
+  const MyContainer1({Key? key}) : super(key: key);
 
   @override
   State<MyContainer1> createState() => _MyContainer1State();
@@ -32,8 +30,7 @@ class _MyContainer1State extends State<MyContainer1> {
       child: Container(
         height: 20.h,
         width: 92.w,
-        decoration: BoxDecoration(
-            color: AppColor.light, borderRadius: BorderRadius.circular(10)),
+        decoration: BoxDecoration(color: AppColor.light, borderRadius: BorderRadius.circular(10)),
         child: Padding(
           padding: EdgeInsets.only(top: 1.h, left: 4.w, right: 4.w),
           child: Column(
@@ -60,12 +57,11 @@ class _MyContainer1State extends State<MyContainer1> {
                     },
                     child: Container(
                         child: _value
-                            ? Icon(
-                          Icons.notifications_none,
-                          color: Colors.white,
-                        )
-                            : Icon(Icons.notifications,
-                            color: Colors.white)),
+                            ? const Icon(
+                                Icons.notifications_none,
+                                color: Colors.white,
+                              )
+                            : const Icon(Icons.notifications, color: Colors.white)),
                   ),
                 ],
               ),
@@ -82,13 +78,9 @@ class _MyContainer1State extends State<MyContainer1> {
                       Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const CircleAvatar(
-                              radius: 15,
-                              backgroundImage:
-                              AssetImage('asset/Images/Zim.png')),
+                          const CircleAvatar(radius: 15, backgroundImage: AssetImage('asset/Images/Zim.png')),
                           SizedBox(width: 2.w),
-                          const Text("ZIM",
-                              style: TextStyle(fontWeight: FontWeight.w500)),
+                          const Text("ZIM", style: TextStyle(fontWeight: FontWeight.w500)),
                           SizedBox(width: 16.w),
                           const Text(
                             "133/7",
@@ -112,10 +104,7 @@ class _MyContainer1State extends State<MyContainer1> {
                       Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const CircleAvatar(
-                              radius: 15,
-                              backgroundImage:
-                              AssetImage('asset/Images/Afg.png')),
+                          const CircleAvatar(radius: 15, backgroundImage: AssetImage('asset/Images/Afg.png')),
                           SizedBox(width: 2.w),
                           const Text(
                             "ZIM",
@@ -127,8 +116,7 @@ class _MyContainer1State extends State<MyContainer1> {
                             style: TextStyle(fontWeight: FontWeight.w700),
                           ),
                           SizedBox(width: 1.w),
-                          const Text("&",
-                              style: TextStyle(fontWeight: FontWeight.w700)),
+                          const Text("&", style: TextStyle(fontWeight: FontWeight.w700)),
                           SizedBox(width: 1.w),
                           const Text(
                             "133/7",
@@ -137,28 +125,16 @@ class _MyContainer1State extends State<MyContainer1> {
                         ],
                       ),
                       SizedBox(height: 1.5.h),
-                      const Text(AppString.matchTime + ' 5:45s',
-                          style: TextStyle(fontSize: 12))
+                      const Text(AppString.matchTime + ' 5:45s', style: TextStyle(fontSize: 12))
                     ],
                   ),
-                  SizedBox(
-                      height: 9.h,
-                      child: const VerticalDivider(
-                          color: AppColor.DividerColor, thickness: 1)),
+                  SizedBox(height: 9.h, child: const VerticalDivider(color: AppColor.DividerColor, thickness: 1)),
                   SizedBox(
                     width: 19.w,
                     child: Column(
                       children: const [
-                        Text('72',
-                            style: TextStyle(
-                                height: 1.6,
-                                fontSize: 30,
-                                fontWeight: FontWeight.w900,
-                                color: AppColor.green)),
-                        Text('Prediction',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                color: AppColor.green))
+                        Text('72', style: TextStyle(height: 1.6, fontSize: 30, fontWeight: FontWeight.w900, color: AppColor.green)),
+                        Text('Prediction', style: TextStyle(fontWeight: FontWeight.w400, color: AppColor.green))
                       ],
                     ),
                   )
@@ -174,13 +150,14 @@ class _MyContainer1State extends State<MyContainer1> {
 
 ///Second Container T20Prediction
 class MyContainer2 extends StatefulWidget {
-  const MyContainer2({Key? key,
-    required this.backgroundImage,
-    required this.name,
-    required this.subscribers,
-    required this.age,
-    required this.wins,
-    required this.pr})
+  const MyContainer2(
+      {Key? key,
+      required this.backgroundImage,
+      required this.name,
+      required this.subscribers,
+      required this.age,
+      required this.wins,
+      required this.pr})
       : super(key: key);
   final ImageProvider backgroundImage;
   final String name;
@@ -205,8 +182,7 @@ class _MyContainer2State extends State<MyContainer2> {
       child: Container(
           height: 18.h,
           width: 92.w,
-          decoration: BoxDecoration(
-              color: AppColor.light, borderRadius: BorderRadius.circular(10)),
+          decoration: BoxDecoration(color: AppColor.light, borderRadius: BorderRadius.circular(10)),
           child: Stack(
             children: [
               Positioned(
@@ -234,7 +210,7 @@ class _MyContainer2State extends State<MyContainer2> {
                                 AppSizebox.w2,
                                 Text(
                                   widget.subscribers,
-                                  style: TextStyle(fontSize: 10),
+                                  style: const TextStyle(fontSize: 10),
                                 )
                               ],
                             )
@@ -255,9 +231,9 @@ class _MyContainer2State extends State<MyContainer2> {
                   child: Container(
                       child: _value
                           ? const Icon(
-                        Icons.favorite,
-                        color: Colors.green,
-                      )
+                              Icons.favorite,
+                              color: Colors.green,
+                            )
                           : const Icon(Icons.favorite_border, color: Colors.green)),
                 ),
               ),
@@ -271,11 +247,7 @@ class _MyContainer2State extends State<MyContainer2> {
                     children: [
                       Column(children: [
                         Text(widget.pr,
-                            style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                fontFamily: "GothamPro",
-                                color: AppColor.greymin)),
+                            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500, fontFamily: "GothamPro", color: AppColor.greymin)),
                         const Text(
                           AppString.prediction,
                           style: TextStyle(
@@ -286,12 +258,7 @@ class _MyContainer2State extends State<MyContainer2> {
                           ),
                         )
                       ]),
-                      const VerticalDivider(
-                          width: 2,
-                          color: AppColor.dBlack,
-                          thickness: 1,
-                          endIndent: 10,
-                          indent: 10),
+                      const VerticalDivider(width: 2, color: AppColor.dBlack, thickness: 1, endIndent: 10, indent: 10),
                       Column(children: [
                         Text(widget.age,
                             style: const TextStyle(
@@ -310,12 +277,7 @@ class _MyContainer2State extends State<MyContainer2> {
                           ),
                         )
                       ]),
-                      const VerticalDivider(
-                          width: 2,
-                          color: AppColor.dBlack,
-                          thickness: 1,
-                          endIndent: 10,
-                          indent: 10),
+                      const VerticalDivider(width: 2, color: AppColor.dBlack, thickness: 1, endIndent: 10, indent: 10),
                       Column(children: [
                         Text(widget.wins,
                             style: const TextStyle(
@@ -355,28 +317,23 @@ class MyContainer3 extends StatelessWidget {
       child: Container(
           height: 38.h,
           width: 92.w,
-          margin: EdgeInsets.only(bottom: 10),
-          decoration: BoxDecoration(
-              color: Colors.black, borderRadius: BorderRadius.circular(5)),
+          margin: const EdgeInsets.only(bottom: 10),
+          decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(5)),
           child: Column(
             children: [
               Image.asset('asset/Images/Ground.png'),
               Container(
                 height: 12.h,
-                padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
+                padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
-                    Text(
-                        'BCCI Secretary Arun Dhumal loss to the tune to thge matches... ',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15)),
-                    Text(
-                        'India have registered their second successive Test series win in Australia, after beating...',
+                    Text('BCCI Secretary Arun Dhumal loss to the tune to thge matches... ',
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                    Text('India have registered their second successive Test series win in Australia, after beating...',
                         style: TextStyle(color: AppColor.grey, fontSize: 12)),
-                    Text('20h ago',
-                        style: TextStyle(color: AppColor.grey, fontSize: 12))
+                    Text('20h ago', style: TextStyle(color: AppColor.grey, fontSize: 12))
                   ],
                 ),
               )
@@ -388,15 +345,16 @@ class MyContainer3 extends StatelessWidget {
 
 ///Fourth Container Upcoming
 class MyContainer4 extends StatefulWidget {
-  const MyContainer4({Key? key,
-    required this.headerText,
-    required this.backgroundImage1,
-    required this.backgroundImage2,
-    required this.matchesname1,
-    required this.matchesname2,
-    required this.infoMsg,
-    required this.totalprediction,
-    required this.Starts})
+  const MyContainer4(
+      {Key? key,
+      required this.headerText,
+      required this.backgroundImage1,
+      required this.backgroundImage2,
+      required this.matchesname1,
+      required this.matchesname2,
+      required this.infoMsg,
+      required this.totalprediction,
+      required this.Starts})
       : super(key: key);
 
   final String headerText;
@@ -413,11 +371,9 @@ class MyContainer4 extends StatefulWidget {
 }
 
 class _MyContainer4State extends State<MyContainer4> {
-
   static String hourAndMin(int milliSecond) {
     DateTime date = DateTime.fromMillisecondsSinceEpoch(milliSecond);
-    final dt =
-    DateTime(date.year, date.month, date.day, date.hour, date.minute);
+    final dt = DateTime(date.year, date.month, date.day, date.hour, date.minute);
     final format = DateFormat.jm(); //"6:00 AM"
     return format.format(dt);
   }
@@ -433,8 +389,7 @@ class _MyContainer4State extends State<MyContainer4> {
       child: Container(
         height: 20.h,
         width: 92.w,
-        decoration: BoxDecoration(
-            color: AppColor.light, borderRadius: BorderRadius.circular(10)),
+        decoration: BoxDecoration(color: AppColor.light, borderRadius: BorderRadius.circular(10)),
         child: Padding(
           padding: EdgeInsets.only(top: 2.h, left: 4.w, right: 4.w),
           child: Stack(
@@ -446,9 +401,7 @@ class _MyContainer4State extends State<MyContainer4> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(widget.headerText,
-                          style: const TextStyle(
-                              fontSize: 12, color: AppColor.greymin)),
+                      Text(widget.headerText, style: const TextStyle(fontSize: 12, color: AppColor.greymin)),
                       InkWell(
                         onTap: () {
                           setState(() {
@@ -458,11 +411,10 @@ class _MyContainer4State extends State<MyContainer4> {
                         child: Container(
                             child: _value
                                 ? const Icon(
-                              Icons.notifications_none,
-                              color: Colors.white,
-                            )
-                                : const Icon(Icons.notifications,
-                                color: Colors.white)),
+                                    Icons.notifications_none,
+                                    color: Colors.white,
+                                  )
+                                : const Icon(Icons.notifications, color: Colors.white)),
                       ),
                     ],
                   ),
@@ -482,31 +434,25 @@ class _MyContainer4State extends State<MyContainer4> {
                                   Container(
                                     height: 4.h,
                                     width: 8.5.w,
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                        BorderRadius.circular(50)),
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
                                         widget.backgroundImage2,
                                         fit: BoxFit.cover,
-                                        loadingBuilder:
-                                            (context, child, loadingProgress) {
-                                          if (loadingProgress == null)
+                                        loadingBuilder: (context, child, loadingProgress) {
+                                          if (loadingProgress == null) {
                                             return child;
+                                          }
                                           return const Center(
                                               child: CircularProgressIndicator(
-                                                color: Colors.green,
-                                              ));
+                                            color: Colors.green,
+                                          ));
                                         },
-                                        errorBuilder:
-                                            (context, error, stackTrace) =>
-                                        const Center(
+                                        errorBuilder: (context, error, stackTrace) => const Center(
                                           child: Text(
                                             "",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 7),
+                                            style: TextStyle(color: Colors.white, fontSize: 7),
                                           ),
                                         ),
                                       ),
@@ -516,30 +462,22 @@ class _MyContainer4State extends State<MyContainer4> {
                                   Container(
                                     height: 4.h,
                                     width: 8.5.w,
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                        BorderRadius.circular(50)),
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
                                         widget.backgroundImage2,
                                         fit: BoxFit.cover,
-                                        loadingBuilder:
-                                            (context, child, loadingProgress) {
-                                          if (loadingProgress == null)
+                                        loadingBuilder: (context, child, loadingProgress) {
+                                          if (loadingProgress == null) {
                                             return child;
-                                          return const Center(
-                                              child:
-                                              CircularProgressIndicator());
+                                          }
+                                          return const Center(child: CircularProgressIndicator());
                                         },
-                                        errorBuilder:
-                                            (context, error, stackTrace) =>
-                                        const Center(
+                                        errorBuilder: (context, error, stackTrace) => const Center(
                                           child: Text(
                                             "",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 7),
+                                            style: TextStyle(color: Colors.white, fontSize: 7),
                                           ),
                                         ),
                                       ),
@@ -551,15 +489,9 @@ class _MyContainer4State extends State<MyContainer4> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(widget.matchesname1,
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 14)),
+                                  Text(widget.matchesname1, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 14)),
                                   SizedBox(height: 3.h),
-                                  Text(widget.matchesname2,
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 14)),
+                                  Text(widget.matchesname2, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 14)),
                                 ],
                               ),
                             ],
@@ -572,10 +504,7 @@ class _MyContainer4State extends State<MyContainer4> {
                   Text(
                     "Match Starts in ${widget.infoMsg}",
                     maxLines: 1,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w300,
-                        color: AppColor.greymin,
-                        fontSize: 12),
+                    style: const TextStyle(fontWeight: FontWeight.w300, color: AppColor.greymin, fontSize: 12),
                   ),
                 ],
               ),
@@ -584,25 +513,15 @@ class _MyContainer4State extends State<MyContainer4> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                        height: 10.h,
-                        child: const VerticalDivider(
-                            color: AppColor.DividerColor, thickness: 1)),
+                    SizedBox(height: 10.h, child: const VerticalDivider(color: AppColor.DividerColor, thickness: 1)),
                     AppSizebox.w2,
                     Padding(
                       padding: EdgeInsets.only(top: 2.5.h),
                       child: Column(
                         children: const [
-                          Text("72",
-                              style: TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w800,
-                                  color: AppColor.green)),
+                          Text("72", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800, color: AppColor.green)),
                           AppSizebox.h2,
-                          Text("Predictions", style: TextStyle(
-                              fontSize: 11,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.green))
+                          Text("Predictions", style: TextStyle(fontSize: 11, fontWeight: FontWeight.w400, color: AppColor.green))
                         ],
                       ),
                     )
@@ -630,8 +549,7 @@ class MyContainer5 extends StatelessWidget {
       child: Container(
         height: 20.h,
         width: 92.w,
-        decoration: BoxDecoration(
-            color: AppColor.light, borderRadius: BorderRadius.circular(5)),
+        decoration: BoxDecoration(color: AppColor.light, borderRadius: BorderRadius.circular(5)),
         child: Padding(
           padding: EdgeInsets.only(top: 2.h, left: 4.w, right: 5.w),
           child: Column(
@@ -660,13 +578,9 @@ class MyContainer5 extends StatelessWidget {
                       Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const CircleAvatar(
-                              radius: 15,
-                              backgroundImage:
-                              AssetImage('asset/Images/Zim.png')),
+                          const CircleAvatar(radius: 15, backgroundImage: AssetImage('asset/Images/Zim.png')),
                           SizedBox(width: 2.w),
-                          const Text("ZIM",
-                              style: TextStyle(fontWeight: FontWeight.w500)),
+                          const Text("ZIM", style: TextStyle(fontWeight: FontWeight.w500)),
                           SizedBox(width: 40.w)
                         ],
                       ),
@@ -674,10 +588,7 @@ class MyContainer5 extends StatelessWidget {
                       Row(
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const CircleAvatar(
-                              radius: 15,
-                              backgroundImage:
-                              AssetImage('asset/Images/Afg.png')),
+                          const CircleAvatar(radius: 15, backgroundImage: AssetImage('asset/Images/Afg.png')),
                           SizedBox(width: 2.w),
                           const Text(
                             "ZIM",
@@ -687,23 +598,16 @@ class MyContainer5 extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: 1.5.h),
-                      const Text(AppString.matchTime + ' 5:45s',
-                          style: TextStyle(fontSize: 12))
+                      const Text(AppString.matchTime + ' 5:45s', style: TextStyle(fontSize: 12))
                     ],
                   ),
-                  SizedBox(
-                      height: 9.h,
-                      child: const VerticalDivider(
-                          color: AppColor.DividerColor, thickness: 1)),
+                  SizedBox(height: 9.h, child: const VerticalDivider(color: AppColor.DividerColor, thickness: 1)),
                   SizedBox(
                     width: 20.w,
                     child: Column(
                       children: const [
-                        Text('Starts At',
-                            style: TextStyle(height: 3, fontSize: 12)),
-                        Text('06:00 PM',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15))
+                        Text('Starts At', style: TextStyle(height: 3, fontSize: 12)),
+                        Text('06:00 PM', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15))
                       ],
                     ),
                   )
@@ -726,8 +630,7 @@ class MyContainer6 extends StatelessWidget {
     return Container(
       height: 20.h,
       width: 92.w,
-      decoration: BoxDecoration(
-          color: AppColor.light, borderRadius: BorderRadius.circular(10)),
+      decoration: BoxDecoration(color: AppColor.light, borderRadius: BorderRadius.circular(10)),
       child: Padding(
         padding: EdgeInsets.only(top: 2.h, left: 4.w, right: 5.w),
         child: Column(
@@ -762,41 +665,30 @@ class MyContainer6 extends StatelessWidget {
                               '',
                             )),
                         SizedBox(width: 2.w),
-                        const Text("ZIM",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 14)),
+                        const Text("ZIM", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14)),
                         SizedBox(width: 24.w),
                         const Text(
                           "133/7",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 14),
+                          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
                         ),
                         SizedBox(width: 1.w),
-                        const Text("(20)",
-                            style:
-                            TextStyle(color: AppColor.grey, fontSize: 10))
+                        const Text("(20)", style: TextStyle(color: AppColor.grey, fontSize: 10))
                       ],
                     ),
                     SizedBox(height: 1.5.h),
                     Row(
                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const CircleAvatar(
-                            radius: 15, backgroundImage: AssetImage('')),
+                        const CircleAvatar(radius: 15, backgroundImage: AssetImage('')),
                         SizedBox(width: 2.w),
-                        const Text("ZIM",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 14)),
+                        const Text("ZIM", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14)),
                         SizedBox(width: 24.w),
                         const Text(
                           "133/7",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 14),
+                          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
                         ),
                         SizedBox(width: 1.w),
-                        Text("(20)",
-                            style:
-                            TextStyle(color: AppColor.grey, fontSize: 10))
+                        const Text("(20)", style: TextStyle(color: AppColor.grey, fontSize: 10))
                       ],
                     ),
                     SizedBox(height: 1.5.h),
@@ -807,31 +699,20 @@ class MyContainer6 extends StatelessWidget {
                           height: 1.5.h,
                         ),
                         AppSizebox.w2,
-                        Text(
+                        const Text(
                           "LIVE",
                         )
                       ],
                     )
                   ],
                 ),
-                SizedBox(
-                    height: 9.h,
-                    child: const VerticalDivider(
-                        color: AppColor.DividerColor, thickness: 1)),
+                SizedBox(height: 9.h, child: const VerticalDivider(color: AppColor.DividerColor, thickness: 1)),
                 SizedBox(
                   width: 19.w,
                   child: Column(
                     children: const [
-                      Text('72',
-                          style: TextStyle(
-                              height: 1.6,
-                              fontSize: 30,
-                              fontWeight: FontWeight.w900,
-                              color: AppColor.green)),
-                      Text('Prediction',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.green))
+                      Text('72', style: TextStyle(height: 1.6, fontSize: 30, fontWeight: FontWeight.w900, color: AppColor.green)),
+                      Text('Prediction', style: TextStyle(fontWeight: FontWeight.w400, color: AppColor.green))
                     ],
                   ),
                 )
@@ -893,8 +774,7 @@ class _MyContainer7State extends State<MyContainer7> {
       child: Container(
         height: 20.h,
         width: 92.w,
-        decoration: BoxDecoration(
-            color: AppColor.light, borderRadius: BorderRadius.circular(10)),
+        decoration: BoxDecoration(color: AppColor.light, borderRadius: BorderRadius.circular(10)),
         child: Padding(
           padding: EdgeInsets.only(top: 2.h, left: 4.w, right: 4.w),
           child: Stack(
@@ -906,9 +786,7 @@ class _MyContainer7State extends State<MyContainer7> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(widget.headerText,
-                          style: const TextStyle(
-                              fontSize: 12, color: AppColor.greymin)),
+                      Text(widget.headerText, style: const TextStyle(fontSize: 12, color: AppColor.greymin)),
                       InkWell(
                         onTap: () {
                           setState(() {
@@ -918,11 +796,10 @@ class _MyContainer7State extends State<MyContainer7> {
                         child: Container(
                             child: _value
                                 ? const Icon(
-                              Icons.notifications,
-                              color: Colors.white,
-                            )
-                                : const Icon(Icons.notifications_none,
-                                color: Colors.white)),
+                                    Icons.notifications,
+                                    color: Colors.white,
+                                  )
+                                : const Icon(Icons.notifications_none, color: Colors.white)),
                       ),
                     ],
                   ),
@@ -942,31 +819,25 @@ class _MyContainer7State extends State<MyContainer7> {
                                   Container(
                                     height: 4.h,
                                     width: 8.5.w,
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                        BorderRadius.circular(50)),
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
                                         widget.backgroundImage2,
                                         fit: BoxFit.cover,
-                                        loadingBuilder:
-                                            (context, child, loadingProgress) {
-                                          if (loadingProgress == null)
+                                        loadingBuilder: (context, child, loadingProgress) {
+                                          if (loadingProgress == null) {
                                             return child;
+                                          }
                                           return const Center(
                                               child: CircularProgressIndicator(
-                                                color: Colors.green,
-                                              ));
+                                            color: Colors.green,
+                                          ));
                                         },
-                                        errorBuilder:
-                                            (context, error, stackTrace) =>
-                                        const Center(
+                                        errorBuilder: (context, error, stackTrace) => const Center(
                                           child: Text(
                                             "",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 7),
+                                            style: TextStyle(color: Colors.white, fontSize: 7),
                                           ),
                                         ),
                                       ),
@@ -976,31 +847,25 @@ class _MyContainer7State extends State<MyContainer7> {
                                   Container(
                                     height: 4.h,
                                     width: 8.5.w,
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                        BorderRadius.circular(50)),
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
                                         widget.backgroundImage2,
                                         fit: BoxFit.cover,
-                                        loadingBuilder:
-                                            (context, child, loadingProgress) {
-                                          if (loadingProgress == null)
+                                        loadingBuilder: (context, child, loadingProgress) {
+                                          if (loadingProgress == null) {
                                             return child;
+                                          }
                                           return const Center(
                                               child: CircularProgressIndicator(
-                                                color: Colors.green,
-                                              ));
+                                            color: Colors.green,
+                                          ));
                                         },
-                                        errorBuilder:
-                                            (context, error, stackTrace) =>
-                                        const Center(
+                                        errorBuilder: (context, error, stackTrace) => const Center(
                                           child: Text(
                                             "",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 7),
+                                            style: TextStyle(color: Colors.white, fontSize: 7),
                                           ),
                                         ),
                                       ),
@@ -1012,15 +877,9 @@ class _MyContainer7State extends State<MyContainer7> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(widget.matchesname1,
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 14)),
+                                  Text(widget.matchesname1, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 14)),
                                   SizedBox(height: 3.h),
-                                  Text(widget.matchesname2,
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 14)),
+                                  Text(widget.matchesname2, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 14)),
                                 ],
                               ),
                             ],
@@ -1033,8 +892,7 @@ class _MyContainer7State extends State<MyContainer7> {
                   Text(
                     widget.infoMsg,
                     maxLines: 1,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w300, color: AppColor.greymin),
+                    style: const TextStyle(fontWeight: FontWeight.w300, color: AppColor.greymin),
                   ),
                 ],
               ),
@@ -1048,14 +906,12 @@ class _MyContainer7State extends State<MyContainer7> {
                       children: [
                         Text(
                           "${widget.run1}/${widget.wk1}",
-                          style: const TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 14),
+                          style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
                         ),
                         SizedBox(height: 3.h),
                         Text(
                           "${widget.run2}/${widget.wk2}",
-                          style: const TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 14),
+                          style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
                         ),
                       ],
                     ),
@@ -1065,13 +921,9 @@ class _MyContainer7State extends State<MyContainer7> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text("(${widget.Over1})",
-                              style: const TextStyle(
-                                  color: AppColor.grey, fontSize: 10)),
+                          Text("(${widget.Over1})", style: const TextStyle(color: AppColor.grey, fontSize: 10)),
                           SizedBox(height: 3.5.h),
-                          Text("(${widget.Over2})",
-                              style: const TextStyle(
-                                  color: AppColor.grey, fontSize: 10)),
+                          Text("(${widget.Over2})", style: const TextStyle(color: AppColor.grey, fontSize: 10)),
                         ],
                       ),
                     ),
@@ -1083,24 +935,13 @@ class _MyContainer7State extends State<MyContainer7> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                        height: 10.h,
-                        child: const VerticalDivider(
-                            color: AppColor.DividerColor, thickness: 1)),
+                    SizedBox(height: 10.h, child: const VerticalDivider(color: AppColor.DividerColor, thickness: 1)),
                     Padding(
                       padding: EdgeInsets.only(top: 2.h),
                       child: Column(
                         children: [
-                          Text(widget.totalprediction,
-                              style: const TextStyle(
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.w700,
-                                  color: AppColor.green)),
-                          const Text('Predictions',
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w100,
-                                  color: AppColor.green))
+                          Text(widget.totalprediction, style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700, color: AppColor.green)),
+                          const Text('Predictions', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w100, color: AppColor.green))
                         ],
                       ),
                     )
@@ -1128,11 +969,7 @@ class OptionContainer extends StatelessWidget {
       color: AppColor.light,
       child: ListTile(
         onTap: ontap,
-        title: Text(text,
-            style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
-                fontSize: 14)),
+        title: Text(text, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 14)),
         trailing: const Icon(
           Icons.arrow_forward_ios_sharp,
           color: Colors.white,
@@ -1152,8 +989,7 @@ class MyContainer8 extends StatelessWidget {
     return Container(
       height: 20.h,
       width: 92.w,
-      decoration: BoxDecoration(
-          color: AppColor.light, borderRadius: BorderRadius.circular(10)),
+      decoration: BoxDecoration(color: AppColor.light, borderRadius: BorderRadius.circular(10)),
       child: Padding(
         padding: EdgeInsets.only(top: 2.h, left: 4.w, right: 5.w),
         child: Column(
@@ -1188,64 +1024,42 @@ class MyContainer8 extends StatelessWidget {
                               '',
                             )),
                         SizedBox(width: 2.w),
-                        const Text("ZIM",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 14)),
+                        const Text("ZIM", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14)),
                         SizedBox(width: 24.w),
                         const Text(
                           "133/7",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 14),
+                          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
                         ),
                         SizedBox(width: 1.w),
-                        Text("(20)",
-                            style:
-                            TextStyle(color: AppColor.grey, fontSize: 10))
+                        const Text("(20)", style: TextStyle(color: AppColor.grey, fontSize: 10))
                       ],
                     ),
                     SizedBox(height: 1.5.h),
                     Row(
                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const CircleAvatar(
-                            radius: 15, backgroundImage: AssetImage('')),
+                        const CircleAvatar(radius: 15, backgroundImage: AssetImage('')),
                         SizedBox(width: 2.w),
-                        const Text("ZIM",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 14)),
+                        const Text("ZIM", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14)),
                         SizedBox(width: 24.w),
                         const Text(
                           "133/7",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700, fontSize: 14),
+                          style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14),
                         ),
                         SizedBox(width: 1.w),
-                        const Text("(20)",
-                            style:
-                            TextStyle(color: AppColor.grey, fontSize: 10))
+                        const Text("(20)", style: TextStyle(color: AppColor.grey, fontSize: 10))
                       ],
                     ),
                     SizedBox(height: 1.5.h),
                   ],
                 ),
-                SizedBox(
-                    height: 9.h,
-                    child: const VerticalDivider(
-                        color: AppColor.DividerColor, thickness: 1)),
+                SizedBox(height: 9.h, child: const VerticalDivider(color: AppColor.DividerColor, thickness: 1)),
                 SizedBox(
                   width: 19.w,
                   child: Column(
                     children: const [
-                      Text('#72',
-                          style: TextStyle(
-                              height: 1.6,
-                              fontSize: 30,
-                              fontWeight: FontWeight.w900,
-                              color: AppColor.green)),
-                      Text('Best Rank',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.green))
+                      Text('#72', style: TextStyle(height: 1.6, fontSize: 30, fontWeight: FontWeight.w900, color: AppColor.green)),
+                      Text('Best Rank', style: TextStyle(fontWeight: FontWeight.w400, color: AppColor.green))
                     ],
                   ),
                 )
@@ -1286,8 +1100,7 @@ class FantasyUpcoming extends StatelessWidget {
     return Container(
         height: 12.5.h,
         width: 92.w,
-        decoration: BoxDecoration(
-            color: AppColor.light, borderRadius: BorderRadius.circular(10)),
+        decoration: BoxDecoration(color: AppColor.light, borderRadius: BorderRadius.circular(10)),
         child: Stack(
           children: [
             Positioned(
@@ -1305,11 +1118,9 @@ class FantasyUpcoming extends StatelessWidget {
                           children: [
                             CircleAvatar(
                               radius: 3.h,
-                              child: Text("MI"),
+                              child: const Text("MI"),
                             ),
-                            const Text('MI',
-                                style: TextStyle(
-                                    color: AppColor.greymin, fontSize: 18))
+                            const Text('MI', style: TextStyle(color: AppColor.greymin, fontSize: 18))
                           ],
                         ),
                       ),
@@ -1319,14 +1130,8 @@ class FantasyUpcoming extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: const [
-                            Text(AppString.matchTime,
-                                style: TextStyle(
-                                    color: AppColor.greymin, fontSize: 12)),
-                            Text('5h 30m',
-                                style: TextStyle(
-                                    color: AppColor.greymin,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold))
+                            Text(AppString.matchTime, style: TextStyle(color: AppColor.greymin, fontSize: 12)),
+                            Text('5h 30m', style: TextStyle(color: AppColor.greymin, fontSize: 18, fontWeight: FontWeight.bold))
                           ],
                         ),
                       ),
@@ -1335,12 +1140,10 @@ class FantasyUpcoming extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            const Text('RCB',
-                                style: TextStyle(
-                                    color: AppColor.greymin, fontSize: 18)),
+                            const Text('RCB', style: TextStyle(color: AppColor.greymin, fontSize: 18)),
                             CircleAvatar(
                               radius: 3.h,
-                              child: Text("RCD"),
+                              child: const Text("RCD"),
                             )
                           ],
                         ),
@@ -1364,10 +1167,8 @@ class FantasySecondone extends StatelessWidget {
         padding: EdgeInsets.only(left: 10.w),
         height: 4.5.h,
         width: 45.5.w,
-        decoration: const BoxDecoration(
-            color: AppColor.light,
-            borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(6), topLeft: Radius.circular(6))),
+        decoration:
+            const BoxDecoration(color: AppColor.light, borderRadius: BorderRadius.only(bottomLeft: Radius.circular(6), topLeft: Radius.circular(6))),
         child: Row(
           children: [
             Image.asset(
@@ -1385,7 +1186,7 @@ class FantasySecondone extends StatelessWidget {
       ),
       onTap: () {
         Get.bottomSheet(
-          MyBottomSheet(),
+          const MyBottomSheet(),
           backgroundColor: AppColor.light,
           elevation: 0,
           shape: RoundedRectangleBorder(
@@ -1414,10 +1215,8 @@ class _FantasySecondtwoState extends State<FantasySecondtwo> {
       padding: EdgeInsets.only(left: 10.w),
       height: 4.5.h,
       width: 45.5.w,
-      decoration: const BoxDecoration(
-          color: AppColor.light,
-          borderRadius: BorderRadius.only(
-              bottomRight: Radius.circular(6), topRight: Radius.circular(6))),
+      decoration:
+          const BoxDecoration(color: AppColor.light, borderRadius: BorderRadius.only(bottomRight: Radius.circular(6), topRight: Radius.circular(6))),
       child: Row(
         children: [
           InkWell(
@@ -1429,26 +1228,25 @@ class _FantasySecondtwoState extends State<FantasySecondtwo> {
             child: Container(
                 child: _value
                     ? Row(
-                  children: const [
-                    Icon(Icons.favorite_border, color: Colors.green),
-                    AppSizebox.w5,
-                    Text(AppString.favourite,
-                        style: TextStyle(color: Colors.green))
-                  ],
-                )
+                        children: const [
+                          Icon(Icons.favorite_border, color: Colors.green),
+                          AppSizebox.w5,
+                          Text(AppString.favourite, style: TextStyle(color: Colors.green))
+                        ],
+                      )
                     : Row(
-                  children: const [
-                    Icon(
-                      Icons.favorite,
-                      color: Colors.grey,
-                    ),
-                    AppSizebox.w5,
-                    Text(
-                      AppString.favourite,
-                      style: TextStyle(color: Colors.grey),
-                    )
-                  ],
-                )),
+                        children: const [
+                          Icon(
+                            Icons.favorite,
+                            color: Colors.grey,
+                          ),
+                          AppSizebox.w5,
+                          Text(
+                            AppString.favourite,
+                            style: TextStyle(color: Colors.grey),
+                          )
+                        ],
+                      )),
           ),
         ],
       ),
@@ -1504,14 +1302,13 @@ class BestPicksTile extends StatelessWidget {
                 ),
                 AppSizebox.h10,
                 Divider(height: 1, color: Colors.grey.shade700),
-                Container(
+                SizedBox(
                   height: 8.h,
                   child: Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const CircleAvatar(
-                        backgroundImage:
-                        AssetImage("asset/player/Player Profile.png"),
+                        backgroundImage: AssetImage("asset/player/Player Profile.png"),
                       ),
                       SizedBox(
                         width: 20.w,
@@ -1521,15 +1318,11 @@ class BestPicksTile extends StatelessWidget {
                         children: const [
                           Text(
                             "SA Yadav",
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: AppColor.greymin,
-                                height: 2.4),
+                            style: TextStyle(fontSize: 14, color: AppColor.greymin, height: 2.4),
                           ),
                           Text(
                             "MI",
-                            style: TextStyle(
-                                fontSize: 11, color: AppColor.greymin),
+                            style: TextStyle(fontSize: 11, color: AppColor.greymin),
                           ),
                         ],
                       ),
@@ -1547,7 +1340,7 @@ class BestPicksTile extends StatelessWidget {
                   color: Colors.grey.shade700,
                   height: 1,
                 ),
-                Container(
+                SizedBox(
                   height: 8.h,
                   child: Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1563,15 +1356,11 @@ class BestPicksTile extends StatelessWidget {
                         children: const [
                           Text(
                             "Virat kohli",
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: AppColor.greymin,
-                                height: 2.4),
+                            style: TextStyle(fontSize: 14, color: AppColor.greymin, height: 2.4),
                           ),
                           Text(
                             "MI",
-                            style: TextStyle(
-                                fontSize: 11, color: AppColor.greymin),
+                            style: TextStyle(fontSize: 11, color: AppColor.greymin),
                           ),
                         ],
                       ),
@@ -1586,7 +1375,7 @@ class BestPicksTile extends StatelessWidget {
                   ),
                 ),
                 Divider(height: 1, color: Colors.grey.shade700),
-                Container(
+                SizedBox(
                   height: 8.h,
                   child: Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1602,15 +1391,11 @@ class BestPicksTile extends StatelessWidget {
                         children: const [
                           Text(
                             "Rohit Sharma",
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: AppColor.greymin,
-                                height: 2.4),
+                            style: TextStyle(fontSize: 14, color: AppColor.greymin, height: 2.4),
                           ),
                           Text(
                             "RCB",
-                            style: TextStyle(
-                                fontSize: 11, color: AppColor.greymin),
+                            style: TextStyle(fontSize: 11, color: AppColor.greymin),
                           ),
                         ],
                       ),
@@ -1642,8 +1427,7 @@ class FantasyCompleted extends StatelessWidget {
     return Container(
       height: 12.h,
       width: 92.w,
-      decoration: BoxDecoration(
-          color: AppColor.light, borderRadius: BorderRadius.circular(10)),
+      decoration: BoxDecoration(color: AppColor.light, borderRadius: BorderRadius.circular(10)),
       child: Stack(
         children: [
           Positioned(
@@ -1662,27 +1446,17 @@ class FantasyCompleted extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             radius: 3.h,
-                            child: Text("RCD"),
+                            child: const Text("RCD"),
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text('RCD',
-                                  style: TextStyle(
-                                      color: AppColor.greymin,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w900)),
+                              const Text('RCD', style: TextStyle(color: AppColor.greymin, fontSize: 16, fontWeight: FontWeight.w900)),
                               Row(
                                 children: const [
-                                  Text("135-7",
-                                      style: TextStyle(
-                                          color: AppColor.greymin,
-                                          fontSize: 20)),
+                                  Text("135-7", style: TextStyle(color: AppColor.greymin, fontSize: 20)),
                                   AppSizebox.w5,
-                                  Text("(15.4)",
-                                      style: TextStyle(
-                                          color: AppColor.greymin,
-                                          fontSize: 10)),
+                                  Text("(15.4)", style: TextStyle(color: AppColor.greymin, fontSize: 10)),
                                 ],
                               )
                             ],
@@ -1703,29 +1477,19 @@ class FantasyCompleted extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              const Text('MI',
-                                  style: TextStyle(
-                                      color: AppColor.greymin,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w900)),
+                              const Text('MI', style: TextStyle(color: AppColor.greymin, fontSize: 16, fontWeight: FontWeight.w900)),
                               Row(
                                 children: const [
-                                  Text("135-7",
-                                      style: TextStyle(
-                                          color: AppColor.greymin,
-                                          fontSize: 20)),
+                                  Text("135-7", style: TextStyle(color: AppColor.greymin, fontSize: 20)),
                                   AppSizebox.w5,
-                                  Text("(15.4)",
-                                      style: TextStyle(
-                                          color: AppColor.greymin,
-                                          fontSize: 10)),
+                                  Text("(15.4)", style: TextStyle(color: AppColor.greymin, fontSize: 10)),
                                 ],
                               )
                             ],
                           ),
                           CircleAvatar(
                             radius: 3.h,
-                            child: Text("MI"),
+                            child: const Text("MI"),
                           )
                         ],
                       ),
@@ -1747,16 +1511,12 @@ class Commentary extends StatelessWidget {
     return Column(
       children: [
         Row(
-          children: const [
-            Text("20.1"),
-            AppSizebox.w20,
-            Text("Marco jamsen to harshal Patel")
-          ],
+          children: const [Text("20.1"), AppSizebox.w20, Text("Marco jamsen to harshal Patel")],
         ),
         AppSizebox.h5,
         Row(
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               radius: 10,
               backgroundColor: Colors.orange,
               child: Text("1"),
@@ -1764,7 +1524,7 @@ class Commentary extends StatelessWidget {
             SizedBox(
               width: 7.w,
             ),
-            Text("1 run.")
+            const Text("1 run.")
           ],
         )
       ],
@@ -1813,17 +1573,14 @@ class Scorecard extends StatelessWidget {
               children: [
                 Container(
                     padding: const EdgeInsets.fromLTRB(0, 2, 0, 2),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(width: 43.w, child: const Text('Teams')),
-                          const Text('M',
-                              style: TextStyle(color: Colors.white)),
-                          const Text('W'),
-                          const Text('L'),
-                          const Text('Points'),
-                          const Text('NRR')
-                        ])),
+                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                      SizedBox(width: 43.w, child: const Text('Teams')),
+                      const Text('M', style: TextStyle(color: Colors.white)),
+                      const Text('W'),
+                      const Text('L'),
+                      const Text('Points'),
+                      const Text('NRR')
+                    ])),
                 SizedBox(
                   child: Expanded(
                       child: ListView.builder(
@@ -1836,25 +1593,16 @@ class Scorecard extends StatelessWidget {
                                 margin: const EdgeInsets.only(top: 10),
                                 child: Column(
                                   children: [
-                                    Divider(
-                                        height: 1, color: Colors.grey.shade700),
+                                    Divider(height: 1, color: Colors.grey.shade700),
                                     AppSizebox.h10,
-                                    Row(
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          SizedBox(
-                                              width: 42.w,
-                                              child: Text(iplteam[index],
-                                                  maxLines: 2)),
-                                          const Text('14'),
-                                          const Text('12'),
-                                          const Text('2'),
-                                          const Text('24'),
-                                          SizedBox(
-                                              width: 12.w,
-                                              child: const Text('+1.000')),
-                                        ])
+                                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                                      SizedBox(width: 42.w, child: Text(iplteam[index], maxLines: 2)),
+                                      const Text('14'),
+                                      const Text('12'),
+                                      const Text('2'),
+                                      const Text('24'),
+                                      SizedBox(width: 12.w, child: const Text('+1.000')),
+                                    ])
                                   ],
                                 ));
                           })),
@@ -1876,13 +1624,14 @@ class MyContainer22 extends StatefulWidget {
   final String pr;
   final String ave;
 
-  MyContainer22({Key? key,
-    required this.backgroundImage,
-    required this.headerText,
-    required this.subscribers,
-    required this.ave,
-    required this.wins,
-    required this.pr})
+  const MyContainer22(
+      {Key? key,
+      required this.backgroundImage,
+      required this.headerText,
+      required this.subscribers,
+      required this.ave,
+      required this.wins,
+      required this.pr})
       : super(key: key);
 
   @override
@@ -1897,8 +1646,7 @@ class _MyContainer22State extends State<MyContainer22> {
     return Container(
         height: 18.h,
         width: 92.w,
-        decoration: BoxDecoration(
-            color: AppColor.light, borderRadius: BorderRadius.circular(10)),
+        decoration: BoxDecoration(color: AppColor.light, borderRadius: BorderRadius.circular(10)),
         child: Stack(
           children: [
             Positioned(
@@ -1910,7 +1658,8 @@ class _MyContainer22State extends State<MyContainer22> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ClipOval(
-                        child: Image.network(widget.backgroundImage,
+                        child: Image.network(
+                          widget.backgroundImage,
                           width: 45,
                           height: 80,
                           fit: BoxFit.cover,
@@ -1925,8 +1674,7 @@ class _MyContainer22State extends State<MyContainer22> {
                             overflow: TextOverflow.fade,
                             maxLines: 1,
                             softWrap: false,
-                            style: TextStyle(
-                                fontSize: 17, fontWeight: FontWeight.w400),
+                            style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
                           ),
                           Row(
                             children: [
@@ -1934,7 +1682,7 @@ class _MyContainer22State extends State<MyContainer22> {
                               AppSizebox.w2,
                               Text(
                                 widget.subscribers,
-                                style: TextStyle(fontSize: 10),
+                                style: const TextStyle(fontSize: 10),
                               )
                             ],
                           )
@@ -1954,11 +1702,11 @@ class _MyContainer22State extends State<MyContainer22> {
                 },
                 child: Container(
                     child: _value
-                        ? Icon(
-                      Icons.favorite,
-                      color: Colors.green,
-                    )
-                        : Icon(Icons.favorite_border, color: Colors.green)),
+                        ? const Icon(
+                            Icons.favorite,
+                            color: Colors.green,
+                          )
+                        : const Icon(Icons.favorite_border, color: Colors.green)),
               ),
             ),
             Padding(
@@ -1971,11 +1719,7 @@ class _MyContainer22State extends State<MyContainer22> {
                   children: [
                     Column(children: [
                       Text(widget.pr,
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: "GothamPro",
-                              color: AppColor.greymin)),
+                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500, fontFamily: "GothamPro", color: AppColor.greymin)),
                       const Text(
                         AppString.prediction,
                         style: TextStyle(
@@ -1986,12 +1730,7 @@ class _MyContainer22State extends State<MyContainer22> {
                         ),
                       )
                     ]),
-                    const VerticalDivider(
-                        width: 2,
-                        color: AppColor.dBlack,
-                        thickness: 1,
-                        endIndent: 10,
-                        indent: 10),
+                    const VerticalDivider(width: 2, color: AppColor.dBlack, thickness: 1, endIndent: 10, indent: 10),
                     Column(children: [
                       Text(widget.ave,
                           style: const TextStyle(
@@ -2010,12 +1749,7 @@ class _MyContainer22State extends State<MyContainer22> {
                         ),
                       )
                     ]),
-                    const VerticalDivider(
-                        width: 2,
-                        color: AppColor.dBlack,
-                        thickness: 1,
-                        endIndent: 10,
-                        indent: 10),
+                    const VerticalDivider(width: 2, color: AppColor.dBlack, thickness: 1, endIndent: 10, indent: 10),
                     Column(children: [
                       Text(widget.wins,
                           style: const TextStyle(
@@ -2044,6 +1778,8 @@ class _MyContainer22State extends State<MyContainer22> {
 }
 
 class MyContainer23 extends StatefulWidget {
+  const MyContainer23({Key? key}) : super(key: key);
+
   @override
   State<MyContainer23> createState() => _MyContainer23State();
 }
@@ -2058,10 +1794,9 @@ class _MyContainer23State extends State<MyContainer23> {
         Get.toNamed('expertinfo');
       },
       child: Container(
-        // height: 14.h,
+          // height: 14.h,
           width: 92.w,
-          decoration: BoxDecoration(
-              color: AppColor.light, borderRadius: BorderRadius.circular(10)),
+          decoration: BoxDecoration(color: AppColor.light, borderRadius: BorderRadius.circular(10)),
           child: Stack(
             children: [
               Padding(
@@ -2071,8 +1806,8 @@ class _MyContainer23State extends State<MyContainer23> {
                   child: Row(
                     children: [
                       const CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            "https://yt3.ggpht.com/ytc/AKedOLQZKvC4YtSgcsOZ-O--Nqhp6FEIv-pCBpywzpuHDw=s900-c-k-c0x00ffffff-no-rj"),
+                        backgroundImage:
+                            NetworkImage("https://yt3.ggpht.com/ytc/AKedOLQZKvC4YtSgcsOZ-O--Nqhp6FEIv-pCBpywzpuHDw=s900-c-k-c0x00ffffff-no-rj"),
                         radius: 25,
                       ),
                       AppSizebox.w5,
@@ -2089,7 +1824,7 @@ class _MyContainer23State extends State<MyContainer23> {
                               children: [
                                 Image.asset(AppIcon.uTube, height: 1.h),
                                 AppSizebox.w2,
-                                Text(
+                                const Text(
                                   "subscribers",
                                   style: TextStyle(fontSize: 10),
                                 )
@@ -2112,11 +1847,11 @@ class _MyContainer23State extends State<MyContainer23> {
                   },
                   child: Container(
                       child: _value
-                          ? Icon(
-                        Icons.favorite,
-                        color: Colors.green,
-                      )
-                          : Icon(Icons.favorite_border, color: Colors.green)),
+                          ? const Icon(
+                              Icons.favorite,
+                              color: Colors.green,
+                            )
+                          : const Icon(Icons.favorite_border, color: Colors.green)),
                 ),
               ),
               Padding(
@@ -2128,12 +1863,7 @@ class _MyContainer23State extends State<MyContainer23> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(children: const [
-                        Text("234",
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                fontFamily: "GothamPro",
-                                color: AppColor.greymin)),
+                        Text("234", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500, fontFamily: "GothamPro", color: AppColor.greymin)),
                         Text(
                           AppString.prediction,
                           style: TextStyle(
@@ -2144,12 +1874,7 @@ class _MyContainer23State extends State<MyContainer23> {
                           ),
                         )
                       ]),
-                      const VerticalDivider(
-                          width: 2,
-                          color: AppColor.dBlack,
-                          thickness: 1,
-                          endIndent: 10,
-                          indent: 10),
+                      const VerticalDivider(width: 2, color: AppColor.dBlack, thickness: 1, endIndent: 10, indent: 10),
                       Column(children: const [
                         Text("2342",
                             style: TextStyle(
@@ -2168,12 +1893,7 @@ class _MyContainer23State extends State<MyContainer23> {
                           ),
                         )
                       ]),
-                      const VerticalDivider(
-                          width: 2,
-                          color: AppColor.dBlack,
-                          thickness: 1,
-                          endIndent: 10,
-                          indent: 10),
+                      const VerticalDivider(width: 2, color: AppColor.dBlack, thickness: 1, endIndent: 10, indent: 10),
                       Column(children: const [
                         Text("23",
                             style: TextStyle(
@@ -2201,7 +1921,3 @@ class _MyContainer23State extends State<MyContainer23> {
     );
   }
 }
-
-
-
-

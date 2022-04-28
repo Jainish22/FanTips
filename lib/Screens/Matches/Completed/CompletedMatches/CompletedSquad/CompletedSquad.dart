@@ -1,5 +1,3 @@
-import "package:get/state_manager.dart";
-import 'package:get/state_manager.dart';
 import 'package:flutter/material.dart';
 
 class CompletedSquad extends StatelessWidget {
@@ -9,14 +7,10 @@ class CompletedSquad extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children:  [
-              Image.asset("asset/player/Placeholder.png"),
-              const Text("Team squads to be added soon!")
-            ],
-          ),
-        )
-    );
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [Image.asset("asset/player/Placeholder.png"), const Text("Team squads to be added soon!")],
+      ),
+    ));
   }
 }

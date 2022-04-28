@@ -1,6 +1,4 @@
-import 'package:fantips/Util/AppStrings.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
 
 import '../../../../../Util/AppColor.dart';
 
@@ -19,16 +17,12 @@ class MyTeams extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children:  [
-              Image.asset("asset/player/Placeholder.png"),
-              const Text("You haven't created a team yet!")
-            ],
-          ),
-        )
-      ),
+          child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Image.asset("asset/player/Placeholder.png"), const Text("You haven't created a team yet!")],
+        ),
+      )),
     );
   }
 }

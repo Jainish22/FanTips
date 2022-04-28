@@ -11,27 +11,26 @@ class CompletedCommentary extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: SingleChildScrollView(
-          child: Container(
-            alignment: Alignment.center,
-            child: Column(
-              children: [
-                AppSizebox.h10,
-                const FantasyCompleted(),
-                AppSizebox.h5,
-
-                ListView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.only(left: 5.w, right: 5.w, top: 2.h),
-                        child: Commentary(),
-                      );
-                    })
-              ],
-            ),
-          ),
-        ));
+      child: Container(
+        alignment: Alignment.center,
+        child: Column(
+          children: [
+            AppSizebox.h10,
+            const FantasyCompleted(),
+            AppSizebox.h5,
+            ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: EdgeInsets.only(left: 5.w, right: 5.w, top: 2.h),
+                    child: const Commentary(),
+                  );
+                })
+          ],
+        ),
+      ),
+    ));
   }
 }

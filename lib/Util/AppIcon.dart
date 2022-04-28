@@ -1,16 +1,14 @@
-import 'package:flutter/material.dart';
-
-class AppIcon{
-  static const imagePath= 'asset/icon';
+class AppIcon {
+  static const imagePath = 'asset/icon';
   static const notification = '$imagePath/Vector.png';
-  static const heart = 'asset/icon/heart.png';
-  static const uTube = 'asset/icon/utube.png';
-  static const live = 'asset/icon/live.png';
-  static const home = 'asset/icon/home-outline.png';
-  static const match = 'asset/icon/bat.png';
-  static const ipl = 'asset/icon/ipl.png';
-  static const search = 'asset/icon/search.png';
-  static const sortby = 'asset/icon/sortby.png';
-  static const info = 'asset/icon/info.png';
-  static const group = 'asset/icon/group.png';
+  static const heart = '$imagePath/heart.png';
+  static const uTube = '$imagePath/utube.png';
+  static const live = '$imagePath/live.png';
+  static const home = '$imagePath/home-outline.png';
+  static const match = '$imagePath/bat.png';
+  static const ipl = '$imagePath/ipl.png';
+  static const search = '$imagePath/search.png';
+  static const sortby = '$imagePath/sortby.png';
+  static const info = '$imagePath/icon/info.png';
+  static const group = '$imagePath/group.png';
 }

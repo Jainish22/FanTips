@@ -1,9 +1,6 @@
 import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
 import 'package:sizer/sizer.dart';
-
-import '../../../../../Util/Sizebox.dart';
 
 class CompletedScorecard extends StatelessWidget {
   const CompletedScorecard({Key? key}) : super(key: key);
@@ -14,7 +11,6 @@ class CompletedScorecard extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),

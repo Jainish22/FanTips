@@ -13,7 +13,6 @@ import 'package:fantips/Util/Sizebox.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:fantips/Widgets/MyTitle.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -40,6 +39,7 @@ class _HomeMainState extends State<HomeMain> {
     const Experts(),
     const More(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -240,7 +240,8 @@ class _HomeState extends State<Home> {
                                         sub:
                                             "${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
                                         //sub: '${Experts.subscriberCount}',
-                                        pre: '${Experts.totalPredictions}', backgroundImage: Experts.profileUrl,
+                                        pre: '${Experts.totalPredictions}',
+                                        backgroundImage: Experts.profileUrl,
                                       ));
                                     },
                                     child: MyContainer22(
@@ -281,9 +282,9 @@ class _HomeState extends State<Home> {
                       Expanded(child: Container()),
                       InkWell(
                           onTap: () {
-                            Get.to(ViewAll());
+                            Get.to(const ViewAll());
                           },
-                          child: Text(AppString.viewAll, style: TextStyle(fontSize: 12))),
+                          child: const Text(AppString.viewAll, style: TextStyle(fontSize: 12))),
                       const Icon(Icons.arrow_forward_ios_sharp, color: Colors.white, size: 12),
                       AppSizebox.w15
                     ],
@@ -296,7 +297,6 @@ class _HomeState extends State<Home> {
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) {
-                          final NewsData = _NewsController.getNews.value.news?[index];
                           return Padding(
                             padding: EdgeInsets.only(left: 4.w, right: 4.w),
                             child: Obx(
@@ -312,7 +312,7 @@ class _HomeState extends State<Home> {
                                 child: Container(
                                     height: 38.h,
                                     width: 92.w,
-                                    margin: EdgeInsets.only(bottom: 10),
+                                    margin: const EdgeInsets.only(bottom: 10),
                                     decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(5)),
                                     child: Column(
                                       children: [
@@ -339,7 +339,7 @@ class _HomeState extends State<Home> {
                                           children: [
                                             Container(
                                               height: 16.h,
-                                              padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
+                                              padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
                                               child: Column(
                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

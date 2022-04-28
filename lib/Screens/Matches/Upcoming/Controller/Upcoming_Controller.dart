@@ -12,7 +12,6 @@ class UpcomingController extends GetxController {
   RxBool isLoading = false.obs;
   RxInt matchSelect = 0.obs;
 
-
   @override
   void onInit() {
     // TODO: implement onInit
@@ -29,7 +28,8 @@ class UpcomingController extends GetxController {
         getUpcoming.value = result;
       }
       log("-----${getUpcoming.value}");
-    } catch (e) {} finally {
+    } catch (e) {
+    } finally {
       isLoading.value = false;
     }
   }

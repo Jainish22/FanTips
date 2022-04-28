@@ -1,10 +1,8 @@
 import 'dart:async';
 
 import 'package:fantips/Util/Sizebox.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../Util/AppColor.dart';
@@ -82,7 +80,7 @@ class _SearchState extends State<Search> {
                         child: Column(
                           children: [
                             Image.asset("asset/player/Placeholder.png"),
-                            Text(
+                            const Text(
                               "No matches available",
                               style: TextStyle(fontWeight: FontWeight.w100),
                             )

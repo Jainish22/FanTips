@@ -1,17 +1,17 @@
 import 'dart:convert';
 import 'dart:developer';
+
 import 'package:http/http.dart' as http;
 
 import '../../../../Model/Matches_Model/completedmodel.dart';
 
 class CompletedService {
-  static Future<Completedapi?> getCompleted({ required String value}) async {
+  static Future<Completedapi?> getCompleted({required String value}) async {
     try {
       const url = "https://api.freefantasy.in/tips/getMatches";
 
       var request = http.MultipartRequest('POST', Uri.parse(url));
-      request.fields
-          .addAll({'matchStatus': '4', 'offset': "0", 'limit': '20'});
+      request.fields.addAll({'matchStatus': '4', 'offset': "0", 'limit': '20'});
 
       http.StreamedResponse response = await request.send();
       final data = await response.stream.bytesToString();
@@ -23,6 +23,7 @@ class CompletedService {
       }
     } catch (e, st) {
       log("Error++==>$e ,$st");
-    }finally {}
+    } finally {}
+    return null;
   }
 }

@@ -3,7 +3,6 @@ import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 
 import 'BestPicks/BestPicks.dart';
@@ -51,7 +50,7 @@ class UpcomingMatches extends StatelessWidget {
           ),
         ),
         body: TabBarView(
-          children: [Fantasy(), BestPicks(), MyTeams(), Squads()],
+          children: [const Fantasy(), BestPicks(), const MyTeams(), const Squads()],
         ),
       ),
     );

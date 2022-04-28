@@ -1,5 +1,4 @@
 import 'package:fantips/Util/AppColor.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:progress_indicators/progress_indicators.dart';
@@ -21,7 +20,7 @@ class _Screen1State extends State<Screen1> {
     Future.delayed(
       const Duration(seconds: 2),
       () async {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeMain()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomeMain()));
       },
     );
   }
@@ -77,7 +76,7 @@ class _Screen1State extends State<Screen1> {
                     style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 38, shadows: [
                       Shadow(
                         color: Colors.black.withOpacity(0.3),
-                        offset: Offset(5, 7),
+                        offset: const Offset(5, 7),
                         blurRadius: 15,
                       )
                     ]),
@@ -87,7 +86,7 @@ class _Screen1State extends State<Screen1> {
                   padding: EdgeInsets.only(top: 25.h),
                   child: FadingText(
                     '...',
-                    style: TextStyle(color: Colors.black, fontSize: 80),
+                    style: const TextStyle(color: Colors.black, fontSize: 80),
                   ),
                 ),
                 // SizedBox(height: 2.0),

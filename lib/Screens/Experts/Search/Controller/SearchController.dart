@@ -1,4 +1,5 @@
 import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -6,7 +7,6 @@ import '../../../../Model/Matches_Model/Searchmodel.dart';
 import '../Service/SearchService.dart';
 
 class SearchController extends GetxController {
-
   Rx<Profile?> service = Profile().obs;
   RxList<Tipster> service1 = <Tipster>[].obs;
 
@@ -21,8 +21,7 @@ class SearchController extends GetxController {
   void onInit() {
     // TODO: implement onInit
     scrollController.addListener(() {
-      if (scrollController.position.pixels ==
-          scrollController.position.maxScrollExtent) {
+      if (scrollController.position.pixels == scrollController.position.maxScrollExtent) {
         getMoreData();
       }
     });
@@ -33,8 +32,7 @@ class SearchController extends GetxController {
     isLoadMoreRunning.value = true;
 
     page.value++;
-    final result =
-    await ApiServices.login(page: page.value, value: controller.text);
+    final result = await ApiServices.login(page: page.value, value: controller.text);
     if (result != null) {
       service.value = result;
       if (page.value == 1) {

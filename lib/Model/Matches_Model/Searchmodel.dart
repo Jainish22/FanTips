@@ -20,16 +20,16 @@ class Profile {
   bool? status;
 
   factory Profile.fromJson(Map<String, dynamic> json) => Profile(
-    result: json["result"],
-    tipsters: List<Tipster>.from(json["tipsters"].map((x) => Tipster.fromJson(x))),
-    status: json["status"],
-  );
+        result: json["result"],
+        tipsters: List<Tipster>.from(json["tipsters"].map((x) => Tipster.fromJson(x))),
+        status: json["status"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "result": result,
-    "tipsters": List<dynamic>.from(tipsters!.map((x) => x.toJson())),
-    "status": status,
-  };
+        "result": result,
+        "tipsters": List<dynamic>.from(tipsters!.map((x) => x.toJson())),
+        "status": status,
+      };
 }
 
 class Tipster {
@@ -58,28 +58,28 @@ class Tipster {
   String? platform;
 
   factory Tipster.fromJson(Map<String, dynamic> json) => Tipster(
-    sourceUrl: json["sourceUrl"],
-    profileUrl: json["profileUrl"],
-    avgScore: json["avgScore"],
-    totalPredictions: json["totalPredictions"],
-    subscriberCount: json["subscriberCount"],
-    name: json["name"],
-    top3: json["top3"],
-    active: json["active"],
-    id: json["id"],
-    platform: json["platform"],
-  );
+        sourceUrl: json["sourceUrl"],
+        profileUrl: json["profileUrl"],
+        avgScore: json["avgScore"],
+        totalPredictions: json["totalPredictions"],
+        subscriberCount: json["subscriberCount"],
+        name: json["name"],
+        top3: json["top3"],
+        active: json["active"],
+        id: json["id"],
+        platform: json["platform"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "sourceUrl": sourceUrl,
-    "profileUrl": profileUrl,
-    "avgScore": avgScore,
-    "totalPredictions": totalPredictions,
-    "subscriberCount": subscriberCount,
-    "name": name,
-    "top3": top3,
-    "active": active,
-    "id": id,
-    "platform": platform,
-  };
+        "sourceUrl": sourceUrl,
+        "profileUrl": profileUrl,
+        "avgScore": avgScore,
+        "totalPredictions": totalPredictions,
+        "subscriberCount": subscriberCount,
+        "name": name,
+        "top3": top3,
+        "active": active,
+        "id": id,
+        "platform": platform,
+      };
 }

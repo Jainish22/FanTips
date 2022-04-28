@@ -1,13 +1,16 @@
+// ignore_for_file: prefer_is_empty
+
 import 'dart:developer';
+
 import 'package:fantips/Screens/Experts/controller/ExpertsController.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
 import 'package:fantips/Widgets/MyContainer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
 import '../../../Experts/ExperInfo/Expertinfo.dart';
 
 class Fantasy extends StatefulWidget {
@@ -72,27 +75,29 @@ class _FantasyState extends State<Fantasy> {
                             controller: expertsController.scrollController,
                             itemBuilder: (BuildContext context, index) {
                               log("Service111111-------${expertsController.getitem.length}");
-                              final Experts =
-                                  expertsController.getitem.value[index];
+                              final Experts = expertsController.getitem.value[index];
                               return InkWell(
-                                onTap: (){Get.to(Get.to(ExpertInfo(
-                                  name: Experts.name,
-                                  wins: "${Experts.top3}",
-                                  ave: "${Experts.avgScore}",
-                                  sub:"${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
-                                  //sub: '${Experts.subscriberCount}',
-                                  pre: '${Experts.totalPredictions}', backgroundImage: Experts.profileUrl,
-                                )));},
+                                onTap: () {
+                                  Get.to(Get.to(ExpertInfo(
+                                    name: Experts.name,
+                                    wins: "${Experts.top3}",
+                                    ave: "${Experts.avgScore}",
+                                    sub:
+                                        "${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
+                                    //sub: '${Experts.subscriberCount}',
+                                    pre: '${Experts.totalPredictions}',
+                                    backgroundImage: Experts.profileUrl,
+                                  )));
+                                },
                                 child: Column(
                                   children: [
                                     MyContainer22(
-
-                                      headerText:
-                                          "${Experts.name!.length >= 25 ? Experts.name?.substring(0, 12) : Experts.name}",
+                                      headerText: "${Experts.name!.length >= 25 ? Experts.name?.substring(0, 12) : Experts.name}",
                                       pr: "${Experts.totalPredictions ?? " "}",
                                       ave: "${Experts.avgScore ?? ""}",
                                       wins: "${Experts.top3}",
-                                      subscribers: '${Experts.subscriberCount}', backgroundImage: Experts.profileUrl??"",
+                                      subscribers: '${Experts.subscriberCount}',
+                                      backgroundImage: Experts.profileUrl ?? "",
                                     ),
                                     AppSizebox.h10,
                                   ],

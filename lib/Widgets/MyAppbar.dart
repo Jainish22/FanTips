@@ -3,7 +3,6 @@ import 'package:fantips/Screens/loginpage/loginpage.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
 import 'package:fantips/Util/AppStrings.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -24,11 +23,11 @@ PreferredSizeWidget MyAppbar(
             ),
             TextButton(
                 onPressed: () {
-                  LoginBottomSheet();
+                  const LoginBottomSheet();
                 },
                 child: InkWell(
                     onTap: () {
-                      Get.to(Login());
+                      Get.to(const Login());
                     },
                     child: const Text(
                       AppString.logIn,
@@ -41,7 +40,7 @@ PreferredSizeWidget MyAppbar(
 
 PreferredSizeWidget MyAppbar1(String text1, String text2, String image) {
   return PreferredSize(
-    preferredSize: Size.fromHeight(45),
+    preferredSize: const Size.fromHeight(45),
     child: AppBar(
         automaticallyImplyLeading: false,
         title: Row(
@@ -54,7 +53,7 @@ PreferredSizeWidget MyAppbar1(String text1, String text2, String image) {
             Expanded(flex: 2, child: Container()),
             InkWell(
               onTap: () {
-                Get.to(Login());
+                Get.to(const Login());
               },
               child: Text(
                 text2,
@@ -88,7 +87,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int pageindex = 0;
 
   // TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     InkWell(
       onTap: () {
         // pageindex = 0;

@@ -1,6 +1,5 @@
 import 'package:fantips/Screens/Home/News/Controller/News_Controller.dart';
 import 'package:fantips/Util/Sizebox.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -35,7 +34,7 @@ class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
 
     TextAnimationController = AnimationController(vsync: this, duration: const Duration(seconds: 0));
 
-    transTween = Tween(begin: Offset(-10, 40), end: Offset(-10, 0)).animate(TextAnimationController);
+    transTween = Tween(begin: const Offset(-10, 40), end: const Offset(-10, 0)).animate(TextAnimationController);
 
     super.initState();
   }
@@ -61,7 +60,7 @@ class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
             SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(
+                  SizedBox(
                     height: 30.h,
                     width: 100.w,
                     child: Image.network(
@@ -101,7 +100,7 @@ class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               height: 10.h,
               child: AnimatedBuilder(
                 animation: ColorAnimationController,

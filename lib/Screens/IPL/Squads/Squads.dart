@@ -11,28 +11,26 @@ class Squads extends StatelessWidget {
   Widget build(BuildContext context) {
     Future<bool> _onWillPop() async {
       return (await showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          backgroundColor: Colors.grey[800],
-          // title:  Text('Are you sure?'),
-          content: const Text(
-            'Are you sure want to exit?',
-            style: TextStyle(color: Colors.white),
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(false),
-              child:
-              const Text('NO', style: TextStyle(color: Colors.white)),
+            context: context,
+            builder: (context) => AlertDialog(
+              backgroundColor: Colors.grey[800],
+              // title:  Text('Are you sure?'),
+              content: const Text(
+                'Are you sure want to exit?',
+                style: TextStyle(color: Colors.white),
+              ),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child: const Text('NO', style: TextStyle(color: Colors.white)),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(true),
+                  child: const Text('YES', style: TextStyle(color: Colors.white)),
+                ),
+              ],
             ),
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(true),
-              child:
-              const Text('YES', style: TextStyle(color: Colors.white)),
-            ),
-          ],
-        ),
-      )) ??
+          )) ??
           false;
     }
 
@@ -47,7 +45,7 @@ class Squads extends StatelessWidget {
       "Sunrisers Hyderabad"
     ];
     return WillPopScope(
-     onWillPop: _onWillPop,
+      onWillPop: _onWillPop,
       child: SafeArea(
           child: SingleChildScrollView(
         child: Column(
@@ -63,21 +61,20 @@ class Squads extends StatelessWidget {
                 child: Container(
                   height: 7.h,
                   width: 96.w,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: AppColor.light),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: AppColor.light),
                   child: Padding(
                     padding: EdgeInsets.only(left: 4.w),
                     child: Row(
                       children: [
-                         CircleAvatar(
-                          backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT55MYVXS9ma7LYsvyWCMsmeZSglCVjG2O6PfTXm1ID1vRyy07H2CuOcMmeWDRTxVfyOYM&usqp=CAU"),
+                        const CircleAvatar(
+                          backgroundImage: NetworkImage(
+                              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT55MYVXS9ma7LYsvyWCMsmeZSglCVjG2O6PfTXm1ID1vRyy07H2CuOcMmeWDRTxVfyOYM&usqp=CAU"),
                           radius: 18,
                         ),
                         AppSizebox.w10,
                         Text(
                           tem[index],
-                          style: TextStyle(fontSize: 12),
+                          style: const TextStyle(fontSize: 12),
                         )
                       ],
                     ),

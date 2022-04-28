@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
-import 'Controller/Live_Controller.dart';
 
 class Live extends StatefulWidget {
   const Live({Key? key}) : super(key: key);
@@ -12,34 +8,30 @@ class Live extends StatefulWidget {
 }
 
 class _LiveState extends State<Live> {
-  final LiveController _liveController = Get.put(LiveController());
-
   @override
   Widget build(BuildContext context) {
     Future<bool> _onWillPop() async {
       return (await showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          backgroundColor: Colors.grey[800],
-          // title:  Text('Are you sure?'),
-          content: const Text(
-            'Are you sure want to exit?',
-            style: TextStyle(color: Colors.white),
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(false),
-              child:
-              const Text('NO', style: TextStyle(color: Colors.white)),
+            context: context,
+            builder: (context) => AlertDialog(
+              backgroundColor: Colors.grey[800],
+              // title:  Text('Are you sure?'),
+              content: const Text(
+                'Are you sure want to exit?',
+                style: TextStyle(color: Colors.white),
+              ),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child: const Text('NO', style: TextStyle(color: Colors.white)),
+                ),
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(true),
+                  child: const Text('YES', style: TextStyle(color: Colors.white)),
+                ),
+              ],
             ),
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(true),
-              child:
-              const Text('YES', style: TextStyle(color: Colors.white)),
-            ),
-          ],
-        ),
-      )) ??
+          )) ??
           false;
     }
 
@@ -51,7 +43,10 @@ class _LiveState extends State<Live> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset("asset/player/Placeholder.png"),
-              const Text("No matches available",style: TextStyle(fontWeight: FontWeight.w100),)
+              const Text(
+                "No matches available",
+                style: TextStyle(fontWeight: FontWeight.w100),
+              )
             ],
           ),
         ),

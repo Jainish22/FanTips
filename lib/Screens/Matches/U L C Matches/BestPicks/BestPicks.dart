@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class BestPicks extends StatefulWidget {
+  const BestPicks({Key? key}) : super(key: key);
+
   @override
   State<BestPicks> createState() => _BestPicksState();
 }
@@ -25,7 +27,7 @@ class _BestPicksState extends State<BestPicks> {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: EdgeInsets.only(left: 3.w, right: 3.w, top: 1.h),
-                  child: BestPicksTile(),
+                  child: const BestPicksTile(),
                 );
               },
             ),

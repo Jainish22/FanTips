@@ -20,16 +20,16 @@ class Upcomingapi {
   bool? status;
 
   factory Upcomingapi.fromJson(Map<String, dynamic> json) => Upcomingapi(
-    result: json["result"],
-    matches: Matches.fromJson(json["matches"]),
-    status: json["status"],
-  );
+        result: json["result"],
+        matches: Matches.fromJson(json["matches"]),
+        status: json["status"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "result": result,
-    "matches": matches!.toJson(),
-    "status": status,
-  };
+        "result": result,
+        "matches": matches!.toJson(),
+        "status": status,
+      };
 }
 
 class Matches {
@@ -37,15 +37,15 @@ class Matches {
     this.notstarted,
   });
 
-  List<Notstarted> ?notstarted;
+  List<Notstarted>? notstarted;
 
   factory Matches.fromJson(Map<String, dynamic> json) => Matches(
-    notstarted: List<Notstarted>.from(json["NOTSTARTED"].map((x) => Notstarted.fromJson(x))),
-  );
+        notstarted: List<Notstarted>.from(json["NOTSTARTED"].map((x) => Notstarted.fromJson(x))),
+      );
 
   Map<String, dynamic> toJson() => {
-    "NOTSTARTED": List<dynamic>.from(notstarted!.map((x) => x.toJson())),
-  };
+        "NOTSTARTED": List<dynamic>.from(notstarted!.map((x) => x.toJson())),
+      };
 }
 
 class Notstarted {
@@ -108,64 +108,64 @@ class Notstarted {
   int? status;
 
   factory Notstarted.fromJson(Map<String, dynamic> json) => Notstarted(
-    quizavailable: json["quizavailable"],
-    team2Id: json["team2Id"],
-    tispterWinnderDeclared: json["tispterWinnderDeclared"],
-    infoMsg: json["infoMsg"],
-    t1Over: json["t1over"],
-    type: json["type"],
-    t1Flag: json["t1Flag"],
-    i4Details: Details.fromJson(json["i4details"]),
-    t1Run: json["t1run"],
-    team1Id: json["team1Id"],
-    id: json["id"],
-    team2Name: json["team2Name"],
-    i2Details: Details.fromJson(json["i2details"]),
-    t2Flag: json["t2Flag"],
-    i1Details: Details.fromJson(json["i1details"]),
-    i3Details: Details.fromJson(json["i3details"]),
-    t1Wk: json["t1wk"],
-    totalprediction: json["totalprediction"],
-    matchName: json["matchName"],
-    t2Wk: json["t2wk"],
-    matchKey: json["matchKey"],
-    startTime: json["start_time"],
-    team1Name: json["team1Name"],
-    t2Over: json["t2over"],
-    t2Run: json["t2run"],
-    header: json["header"],
-    status: json["status"],
-  );
+        quizavailable: json["quizavailable"],
+        team2Id: json["team2Id"],
+        tispterWinnderDeclared: json["tispterWinnderDeclared"],
+        infoMsg: json["infoMsg"],
+        t1Over: json["t1over"],
+        type: json["type"],
+        t1Flag: json["t1Flag"],
+        i4Details: Details.fromJson(json["i4details"]),
+        t1Run: json["t1run"],
+        team1Id: json["team1Id"],
+        id: json["id"],
+        team2Name: json["team2Name"],
+        i2Details: Details.fromJson(json["i2details"]),
+        t2Flag: json["t2Flag"],
+        i1Details: Details.fromJson(json["i1details"]),
+        i3Details: Details.fromJson(json["i3details"]),
+        t1Wk: json["t1wk"],
+        totalprediction: json["totalprediction"],
+        matchName: json["matchName"],
+        t2Wk: json["t2wk"],
+        matchKey: json["matchKey"],
+        startTime: json["start_time"],
+        team1Name: json["team1Name"],
+        t2Over: json["t2over"],
+        t2Run: json["t2run"],
+        header: json["header"],
+        status: json["status"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "quizavailable": quizavailable,
-    "team2Id": team2Id,
-    "tispterWinnderDeclared": tispterWinnderDeclared,
-    "infoMsg": infoMsg,
-    "t1over": t1Over,
-    "type": type,
-    "t1Flag": t1Flag,
-    "i4details": i4Details!.toJson(),
-    "t1run": t1Run,
-    "team1Id": team1Id,
-    "id": id,
-    "team2Name": team2Name,
-    "i2details": i2Details!.toJson(),
-    "t2Flag": t2Flag,
-    "i1details": i1Details!.toJson(),
-    "i3details": i3Details!.toJson(),
-    "t1wk": t1Wk,
-    "totalprediction": totalprediction,
-    "matchName": matchName,
-    "t2wk": t2Wk,
-    "matchKey": matchKey,
-    "start_time": startTime,
-    "team1Name": team1Name,
-    "t2over": t2Over,
-    "t2run": t2Run,
-    "header": header,
-    "status": status,
-  };
+        "quizavailable": quizavailable,
+        "team2Id": team2Id,
+        "tispterWinnderDeclared": tispterWinnderDeclared,
+        "infoMsg": infoMsg,
+        "t1over": t1Over,
+        "type": type,
+        "t1Flag": t1Flag,
+        "i4details": i4Details!.toJson(),
+        "t1run": t1Run,
+        "team1Id": team1Id,
+        "id": id,
+        "team2Name": team2Name,
+        "i2details": i2Details!.toJson(),
+        "t2Flag": t2Flag,
+        "i1details": i1Details!.toJson(),
+        "i3details": i3Details!.toJson(),
+        "t1wk": t1Wk,
+        "totalprediction": totalprediction,
+        "matchName": matchName,
+        "t2wk": t2Wk,
+        "matchKey": matchKey,
+        "start_time": startTime,
+        "team1Name": team1Name,
+        "t2over": t2Over,
+        "t2run": t2Run,
+        "header": header,
+        "status": status,
+      };
 }
 
 class Details {
@@ -190,24 +190,24 @@ class Details {
   int? id;
 
   factory Details.fromJson(Map<String, dynamic> json) => Details(
-    over: json["over"],
-    inid: json["inid"],
-    wk: json["wk"],
-    batTeamId: json["batTeamId"],
-    bowlTeamId: json["BowlTeamId"],
-    mId: json["mId"],
-    run: json["run"],
-    id: json["id"],
-  );
+        over: json["over"],
+        inid: json["inid"],
+        wk: json["wk"],
+        batTeamId: json["batTeamId"],
+        bowlTeamId: json["BowlTeamId"],
+        mId: json["mId"],
+        run: json["run"],
+        id: json["id"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "over": over,
-    "inid": inid,
-    "wk": wk,
-    "batTeamId": batTeamId,
-    "BowlTeamId": bowlTeamId,
-    "mId": mId,
-    "run": run,
-    "id": id,
-  };
+        "over": over,
+        "inid": inid,
+        "wk": wk,
+        "batTeamId": batTeamId,
+        "BowlTeamId": bowlTeamId,
+        "mId": mId,
+        "run": run,
+        "id": id,
+      };
 }

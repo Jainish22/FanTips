@@ -3,10 +3,8 @@ import 'dart:developer';
 import 'package:fantips/Screens/Experts/ExperInfo/Expertinfo.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../Util/AppColor.dart';
@@ -194,7 +192,7 @@ class _ExpertsState extends State<Experts> {
                                             const Text(
                                               AppString.avgScore,
                                             ),
-                                            Spacer(),
+                                            const Spacer(),
                                             expertsController.index.value == 1
                                                 ? const CircleAvatar(
                                                     radius: 8,
@@ -368,7 +366,8 @@ class _ExpertsState extends State<Experts> {
                                     sub:
                                         "${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
                                     //sub: '${Experts.subscriberCount}',
-                                    pre: '${Experts.totalPredictions}', backgroundImage: Experts.profileUrl,
+                                    pre: '${Experts.totalPredictions}',
+                                    backgroundImage: Experts.profileUrl,
                                   ));
                                 },
                                 child: Column(

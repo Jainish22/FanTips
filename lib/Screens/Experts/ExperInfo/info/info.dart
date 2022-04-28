@@ -1,6 +1,5 @@
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppStrings.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:sizer/sizer.dart';
@@ -10,13 +9,7 @@ import '../../../../Util/AppIcon.dart';
 import '../../../../Util/Sizebox.dart';
 
 class Info extends StatefulWidget {
-  Info(
-      {required this.name,
-      required this.pre,
-     required this.sub,
-     required this.wins,
-     required this.backgroundImage,
-     required this.ave});
+  Info({required this.name, required this.pre, required this.sub, required this.wins, required this.backgroundImage, required this.ave});
 
   String? name;
   String? ave;
@@ -56,7 +49,8 @@ class _InfoState extends State<Info> {
             ),
           ),
           ClipOval(
-            child: Image.network(widget.backgroundImage??"",
+            child: Image.network(
+              widget.backgroundImage ?? "",
               width: 110,
               height: 110,
               fit: BoxFit.cover,
@@ -66,7 +60,7 @@ class _InfoState extends State<Info> {
           Text(
             widget.name ?? "",
             // "DEV's fantasy XI",
-            style: TextStyle(fontSize: 20, color: Colors.white),
+            style: const TextStyle(fontSize: 20, color: Colors.white),
           ),
           AppSizebox.h10,
           Row(
@@ -97,7 +91,7 @@ class _InfoState extends State<Info> {
                     ))),
           ),
           AppSizebox.h20,
-          Container(
+          SizedBox(
               height: 36.h,
               width: 86.w,
               child: Padding(
@@ -122,14 +116,14 @@ class _InfoState extends State<Info> {
                       top: 3.h,
                       left: 5.w,
                       child: Column(
-                        children:  [
+                        children: [
                           Text(
-                            widget.pre??"",
-                            style: TextStyle(fontSize: 30,fontWeight: FontWeight.w800),
+                            widget.pre ?? "",
+                            style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w800),
                           ),
-                          Text(
+                          const Text(
                             AppString.prediction,
-                            style: TextStyle(fontSize: 14,color: AppColor.greymin,fontWeight: FontWeight.w600),
+                            style: TextStyle(fontSize: 14, color: AppColor.greymin, fontWeight: FontWeight.w600),
                           )
                         ],
                       ),
@@ -138,14 +132,14 @@ class _InfoState extends State<Info> {
                       top: 3.h,
                       left: 44.w,
                       child: Column(
-                        children:  [
+                        children: [
                           Text(
-                            widget.ave??"",
-                            style: TextStyle(fontSize: 30,fontWeight: FontWeight.w800),
+                            widget.ave ?? "",
+                            style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w800),
                           ),
-                          Text(
+                          const Text(
                             AppString.avgS,
-                            style: TextStyle(fontSize: 14,color: AppColor.greymin,fontWeight: FontWeight.w600),
+                            style: TextStyle(fontSize: 14, color: AppColor.greymin, fontWeight: FontWeight.w600),
                           )
                         ],
                       ),
@@ -155,14 +149,14 @@ class _InfoState extends State<Info> {
                       top: 17.h,
                       left: 8.w,
                       child: Column(
-                        children:  [
+                        children: [
                           Text(
-                        widget.wins??"",
-                            style: TextStyle(fontSize: 30,fontWeight: FontWeight.w800),
+                            widget.wins ?? "",
+                            style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w800),
                           ),
-                          Text(
+                          const Text(
                             AppString.wins,
-                            style: TextStyle(fontSize: 14,color: AppColor.greymin,fontWeight: FontWeight.w600),
+                            style: TextStyle(fontSize: 14, color: AppColor.greymin, fontWeight: FontWeight.w600),
                           )
                         ],
                       ),
@@ -174,12 +168,12 @@ class _InfoState extends State<Info> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            widget.sub??"",
-                            style: TextStyle(fontSize: 30,fontWeight: FontWeight.w800),
+                            widget.sub ?? "",
+                            style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w800),
                           ),
                           const Text(
                             AppString.subscriber,
-                            style: TextStyle(fontSize: 14,color: AppColor.greymin,fontWeight: FontWeight.w600),
+                            style: TextStyle(fontSize: 14, color: AppColor.greymin, fontWeight: FontWeight.w600),
                           )
                         ],
                       ),

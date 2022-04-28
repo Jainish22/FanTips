@@ -1,9 +1,8 @@
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/Sizebox.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
 import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -19,11 +18,19 @@ class _LoginState extends State<Login> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading:               Padding(
-          padding: EdgeInsets.only(left: 8.w,top: 2.h),
-          child: InkWell(child: Icon(Icons.close,color: Colors.black,size: 4.h,),onTap: (){Get.back();},),
+        leading: Padding(
+          padding: EdgeInsets.only(left: 8.w, top: 2.h),
+          child: InkWell(
+            child: Icon(
+              Icons.close,
+              color: Colors.black,
+              size: 4.h,
+            ),
+            onTap: () {
+              Get.back();
+            },
+          ),
         ),
-
       ),
       body: Center(
         child: Padding(
@@ -32,26 +39,26 @@ class _LoginState extends State<Login> {
             children: [
               Stack(
                 children: [
-
                   Container(
                     height: 116,
                     width: 116,
-                    decoration:  BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Colors.green,
                       borderRadius: BorderRadius.circular(30),
                       //border: Border.all(width: 2,color: Colors.green),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 0.8.w,top: 0.4.h),
+                    padding: EdgeInsets.only(left: 0.8.w, top: 0.4.h),
                     child: Container(
                       height: 110,
                       width: 110,
                       decoration: BoxDecoration(
-                        border: Border.all(width: 3,color: Colors.white),
-                        borderRadius: BorderRadius.circular(30),
-                        image: DecorationImage(image: NetworkImage( "https://lh3.googleusercontent.com/1GT4w6dAfG4lkO9ja9ZOhUKqVdU21r940zFnBrBrAsYUsTXnVb44MuUpO56ohHQzAow=s200"))
-                      ),
+                          border: Border.all(width: 3, color: Colors.white),
+                          borderRadius: BorderRadius.circular(30),
+                          image: const DecorationImage(
+                              image: NetworkImage(
+                                  "https://lh3.googleusercontent.com/1GT4w6dAfG4lkO9ja9ZOhUKqVdU21r940zFnBrBrAsYUsTXnVb44MuUpO56ohHQzAow=s200"))),
                     ),
                   ),
                 ],
@@ -79,17 +86,14 @@ class _LoginState extends State<Login> {
               Container(
                 height: 7.h,
                 width: 75.w,
-                decoration: BoxDecoration(
-                    color: Colors.grey[800],
-                    borderRadius: BorderRadius.circular(15)),
+                decoration: BoxDecoration(color: Colors.grey[800], borderRadius: BorderRadius.circular(15)),
                 child: Row(
                   children: const [
                     AppSizebox.w20,
                     CircleAvatar(
                       radius: 15,
                       backgroundColor: Colors.transparent,
-                      backgroundImage: NetworkImage(
-                          "https://img.icons8.com/fluency/2x/google-logo.png"),
+                      backgroundImage: NetworkImage("https://img.icons8.com/fluency/2x/google-logo.png"),
                     ),
                     AppSizebox.w15,
                     Text(
@@ -105,16 +109,13 @@ class _LoginState extends State<Login> {
               Container(
                 height: 7.h,
                 width: 75.w,
-                decoration: BoxDecoration(
-                    color: Colors.grey[800],
-                    borderRadius: BorderRadius.circular(15)),
+                decoration: BoxDecoration(color: Colors.grey[800], borderRadius: BorderRadius.circular(15)),
                 child: Row(
                   children: const [
                     AppSizebox.w20,
                     CircleAvatar(
                       radius: 15,
-                      backgroundImage: NetworkImage(
-                          "https://cdn-icons-png.flaticon.com/128/5968/5968764.png"),
+                      backgroundImage: NetworkImage("https://cdn-icons-png.flaticon.com/128/5968/5968764.png"),
                     ),
                     AppSizebox.w15,
                     Text(

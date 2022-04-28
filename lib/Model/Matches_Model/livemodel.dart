@@ -20,16 +20,16 @@ class Liveapi {
   bool? status;
 
   factory Liveapi.fromJson(Map<String, dynamic> json) => Liveapi(
-    result: json["result"],
-    matches: Matches.fromJson(json["matches"]),
-    status: json["status"],
-  );
+        result: json["result"],
+        matches: Matches.fromJson(json["matches"]),
+        status: json["status"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "result": result,
-    "matches": matches!.toJson(),
-    "status": status,
-  };
+        "result": result,
+        "matches": matches!.toJson(),
+        "status": status,
+      };
 }
 
 class Matches {
@@ -37,13 +37,13 @@ class Matches {
     this.started,
   });
 
-  List<dynamic> ?started;
+  List<dynamic>? started;
 
   factory Matches.fromJson(Map<String, dynamic> json) => Matches(
-    started: List<dynamic>.from(json["STARTED"].map((x) => x)),
-  );
+        started: List<dynamic>.from(json["STARTED"].map((x) => x)),
+      );
 
   Map<String, dynamic> toJson() => {
-    "STARTED": List<dynamic>.from(started!.map((x) => x)),
-  };
+        "STARTED": List<dynamic>.from(started!.map((x) => x)),
+      };
 }

@@ -2,8 +2,6 @@ import 'package:fantips/Util/Sizebox.dart';
 import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
@@ -34,13 +32,11 @@ class _UpcomingState extends State<Upcoming> {
               actions: <Widget>[
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(false),
-                  child:
-                      const Text('NO', style: TextStyle(color: Colors.white)),
+                  child: const Text('NO', style: TextStyle(color: Colors.white)),
                 ),
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(true),
-                  child:
-                      const Text('YES', style: TextStyle(color: Colors.white)),
+                  child: const Text('YES', style: TextStyle(color: Colors.white)),
                 ),
               ],
             ),
@@ -63,11 +59,9 @@ class _UpcomingState extends State<Upcoming> {
                   children: [
                     Flexible(
                       child: ListView.builder(
-                        itemCount: _upcomingController
-                            .getUpcoming.value.matches?.notstarted?.length,
+                        itemCount: _upcomingController.getUpcoming.value.matches?.notstarted?.length,
                         itemBuilder: (context, index) {
-                          final completeData = _upcomingController
-                              .getUpcoming.value.matches?.notstarted?[index];
+                          final completeData = _upcomingController.getUpcoming.value.matches?.notstarted?[index];
                           final f = DateFormat('EEEEEE, d MMM');
                           final ff = DateFormat.jm();
 
@@ -77,13 +71,8 @@ class _UpcomingState extends State<Upcoming> {
                               children: [
                                 Center(
                                   child: Text(
-                                    f.format(
-                                        DateTime.fromMillisecondsSinceEpoch(
-                                            completeData?.startTime ?? 0)),
-                                    style: const TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w400),
+                                    f.format(DateTime.fromMillisecondsSinceEpoch(completeData?.startTime ?? 0)),
+                                    style: const TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.w400),
                                   ),
                                 ),
                                 AppSizebox.h10,
@@ -94,14 +83,12 @@ class _UpcomingState extends State<Upcoming> {
                                     matchesname1: "${completeData?.team1Name}",
                                     matchesname2: "${completeData?.team2Name}",
                                     infoMsg: ff.format(
-                                      DateTime.fromMillisecondsSinceEpoch(
-                                          completeData?.startTime ?? 0),
+                                      DateTime.fromMillisecondsSinceEpoch(completeData?.startTime ?? 0),
                                     ),
                                     totalprediction: completeData?.totalprediction != 0
-                                        ? "Predictions" : ff.format(DateTime.fromMillisecondsSinceEpoch(completeData?.startTime ?? 0)),
-
-                                    Starts: completeData?.totalprediction!=0?"${completeData?.totalprediction}":"Starts At"),
-
+                                        ? "Predictions"
+                                        : ff.format(DateTime.fromMillisecondsSinceEpoch(completeData?.startTime ?? 0)),
+                                    Starts: completeData?.totalprediction != 0 ? "${completeData?.totalprediction}" : "Starts At"),
                                 AppSizebox.h5
                               ],
                             ),

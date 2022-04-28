@@ -1,18 +1,16 @@
 import 'dart:convert';
 import 'dart:developer';
+
 import 'package:fantips/Model/Matches_Model/UpcomingModel.dart';
 import 'package:http/http.dart' as http;
 
-import '../../../../Model/Matches_Model/completedmodel.dart';
-
 class UpcomingService {
-  static Future<Upcomingapi?> getUpcoming({ required String value}) async {
+  static Future<Upcomingapi?> getUpcoming({required String value}) async {
     try {
       const url = "https://api.freefantasy.in/tips/getMatches";
 
       var request = http.MultipartRequest('POST', Uri.parse(url));
-      request.fields
-          .addAll({'matchStatus': '4', 'offset': "0", 'limit': '20'});
+      request.fields.addAll({'matchStatus': '4', 'offset': "0", 'limit': '20'});
 
       http.StreamedResponse response = await request.send();
       final data = await response.stream.bytesToString();
@@ -24,6 +22,6 @@ class UpcomingService {
       }
     } catch (e, st) {
       log("Error++==>$e ,$st");
-    }finally {}
+    } finally {}
   }
 }

@@ -21,13 +21,13 @@ class Ipl extends StatelessWidget {
           bottom: TabBar(
             padding: EdgeInsets.only(right: 24.w),
             isScrollable: true,
-            labelPadding: EdgeInsets.symmetric(horizontal: 7.0),
+            labelPadding: const EdgeInsets.symmetric(horizontal: 7.0),
             indicatorColor: AppColor.green,
             labelColor: AppColor.green,
-            labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             unselectedLabelColor: AppColor.white,
             indicatorSize: TabBarIndicatorSize.label,
-            tabs: [Tab(child: Text(AppString.squads)), Tab(text: AppString.matches), Tab(text: AppString.pointTable)],
+            tabs: const [Tab(child: Text(AppString.squads)), Tab(text: AppString.matches), Tab(text: AppString.pointTable)],
           ),
         ),
         body: const TabBarView(
