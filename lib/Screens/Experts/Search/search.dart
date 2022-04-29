@@ -82,7 +82,7 @@ class _SearchState extends State<Search> {
                         child: Column(
                           children: [
                             Image.asset("asset/player/Placeholder.png"),
-                            Text(
+                            const Text(
                               "No matches available",
                               style: TextStyle(fontWeight: FontWeight.w100),
                             )
@@ -113,6 +113,23 @@ class _SearchState extends State<Search> {
                                       // you: '${search}',
                                     ),
                                     AppSizebox.h10,
+                                    searchController.service1.value.length -
+                                        1 ==
+                                        index
+                                        ? SizedBox(
+                                      height: 15.0,
+                                      width: 15.0,
+                                      child: Transform.scale(
+                                        scale: 2,
+                                        child:
+                                        const CircularProgressIndicator(
+                                          strokeWidth: 1,
+                                          color: Colors.green,
+                                        ),
+                                      ),
+                                    )
+                                        : const SizedBox(),
+
                                   ],
                                 );
                               },

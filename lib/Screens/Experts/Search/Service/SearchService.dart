@@ -18,7 +18,7 @@ class ApiServices {
       print("${url}");
 
 
-      final body = {"pageIndex": page, "searchText": value, "returnedRecords": 20};
+      final body = {"pageIndex": 1, "searchText": value, "returnedRecords": 25};
 
       final headers = {"Content-Type": "application/json"};
 

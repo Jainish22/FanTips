@@ -38,7 +38,7 @@ class SearchController extends GetxController {
     if (result != null) {
       service.value = result;
       if (page.value == 1) {
-        service1.clear();
+        // service1.clear();
       }
       log("-----000000000000000${result.tipsters}");
       service1.addAll(service.value?.tipsters ?? []);

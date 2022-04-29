@@ -6,6 +6,7 @@ import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:rating_dialog/rating_dialog.dart';
+import 'package:sizer/sizer.dart';
 
 class More extends StatefulWidget {
   const More({Key? key}) : super(key: key);
@@ -20,7 +21,8 @@ class _MoreState extends State<More> {
   }
 
   final _dialog = RatingDialog(
-    // your app's name?
+    starSize: 5.h,
+    enableComment: false,
     title: const Text(
       'Rating Dialog',
       textAlign: TextAlign.center,
@@ -29,18 +31,43 @@ class _MoreState extends State<More> {
         fontWeight: FontWeight.bold,
       ),
     ),
-    // encourage your user to leave a high rating?
     message: const Text(
       'Tap a star to ret it on the App Store.',
       textAlign: TextAlign.center,
       style: TextStyle(fontSize: 15),
     ),
-    // your app's logo?
-    image: Image.network("https://lh3.googleusercontent.com/1GT4w6dAfG4lkO9ja9ZOhUKqVdU21r940zFnBrBrAsYUsTXnVb44MuUpO56ohHQzAow=s200",height: 80,width: 80,),
-    submitButtonText: 'Not Now',
-    onSubmitted: (response) {
+    image: Center(
+      child: Stack(
+        children: [
+          Container(
+            height: 80,
+            width: 80,
+            decoration: BoxDecoration(
+              color: Colors.green,
+              borderRadius: BorderRadius.circular(30),
+              //border: Border.all(width: 2,color: Colors.green),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 0.8.w, top: 0.4.h),
+            child: Container(
+              height: 74,
+              width: 74,
+              decoration: BoxDecoration(
+                  border: Border.all(width: 3, color: Colors.white),
+                  borderRadius: BorderRadius.circular(30),
+                  image: DecorationImage(
+                      image: NetworkImage(
+                          "https://lh3.googleusercontent.com/1GT4w6dAfG4lkO9ja9ZOhUKqVdU21r940zFnBrBrAsYUsTXnVb44MuUpO56ohHQzAow=s200"))),
+            ),
+          ),
+        ],
+      ),
+    ),
 
-    },
+    submitButtonText: 'Not Now',
+    submitButtonTextStyle: TextStyle(color: Colors.green),
+    onSubmitted: (response) {},
   );
 
   // show the dialog
@@ -74,13 +101,6 @@ class _MoreState extends State<More> {
           false;
     }
 
-    List more1 = [AppString.rateUs, AppString.share, AppString.feedBack];
-    List more2 = [
-      AppString.privacyPolicy,
-      AppString.copyright,
-      AppString.termsOfuse
-    ];
-    List more3 = [AppString.applyAsexperts, AppString.contactUsforbranding];
 
     return WillPopScope(
       onWillPop: _onWillPop,
@@ -138,7 +158,9 @@ class _MoreState extends State<More> {
               ),
               AppSizebox.h2,
               GestureDetector(
-                onTap: (){Applay();},
+                onTap: () {
+                  Applay();
+                },
                 child: OptionContainer(
                   text: AppString.applyAsexperts,
                 ),
@@ -205,5 +227,4 @@ class _MoreState extends State<More> {
       ),
     );
   }
-
 }
