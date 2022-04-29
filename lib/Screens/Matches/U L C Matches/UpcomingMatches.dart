@@ -31,7 +31,9 @@ class UpcomingMatches extends StatelessWidget {
               ),
             )
           ],
-          bottom: const TabBar(
+          bottom:  TabBar(
+            splashFactory: NoSplash.splashFactory,
+
             padding: EdgeInsets.zero,
             isScrollable: true,
             indicatorPadding: EdgeInsets.zero,
@@ -40,6 +42,17 @@ class UpcomingMatches extends StatelessWidget {
             labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             unselectedLabelColor: AppColor.white,
             indicatorSize: TabBarIndicatorSize.label,
+            overlayColor: MaterialStateColor.resolveWith((Set<MaterialState> states) {
+              if (states.contains(MaterialState.pressed)) {
+                return Colors.transparent;
+              } if (states.contains(MaterialState.focused)) {
+                return Colors.orange;
+              } else if (states.contains(MaterialState.hovered)) {
+                return Colors.pinkAccent;
+              }
+
+              return Colors.transparent;
+            }),
             tabs: [
               Tab(
                 text: AppString.fantasy,

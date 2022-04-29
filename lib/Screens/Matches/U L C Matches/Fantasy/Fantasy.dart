@@ -74,7 +74,7 @@ class _FantasyState extends State<Fantasy> {
                               log("Service111111-------${expertsController.getitem.length}");
                               final Experts =
                                   expertsController.getitem.value[index];
-                              return InkWell(
+                              return GestureDetector(
                                 onTap: (){Get.to(Get.to(ExpertInfo(
                                   name: Experts.name,
                                   wins: "${Experts.top3}",

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppSizebox{
   //height
+  static const h1 = SizedBox(height: 1);
   static const h2 = SizedBox(height: 2);
   static const h3 = SizedBox(height: 3);
   static const h4 = SizedBox(height: 4);

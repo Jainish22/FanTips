@@ -359,7 +359,7 @@ class _ExpertsState extends State<Experts> {
                             itemBuilder: (BuildContext context, index) {
                               log("Service111111-------${expertsController.getitem.length}");
                               final Experts = expertsController.getitem.value[index];
-                              return InkWell(
+                              return GestureDetector(
                                 onTap: () {
                                   Get.to(ExpertInfo(
                                     name: Experts.name,

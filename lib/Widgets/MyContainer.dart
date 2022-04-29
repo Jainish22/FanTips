@@ -426,8 +426,7 @@ class _MyContainer4State extends State<MyContainer4> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-focusColor: Colors.yellow,
+    return GestureDetector(
       onTap: () {
         Get.toNamed('upcomingmatches');
       },
@@ -887,7 +886,7 @@ class _MyContainer7State extends State<MyContainer7> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () {
         Get.toNamed('completedMatches');
       },
@@ -1119,18 +1118,16 @@ class _MyContainer7State extends State<MyContainer7> {
 ///8 option container
 class OptionContainer extends StatelessWidget {
   final String text;
-  final GestureTapCallback ontap;
 
-  const OptionContainer({required this.text, required this.ontap});
+  const OptionContainer({required this.text, });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: AppColor.light,
       child: ListTile(
-        onTap: ontap,
         title: Text(text,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
                 fontSize: 14)),

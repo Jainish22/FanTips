@@ -231,7 +231,7 @@ class _HomeState extends State<Home> {
 
                                 return Padding(
                                   padding: EdgeInsets.only(left: 4.w, right: 4.w),
-                                  child: InkWell(
+                                  child: GestureDetector(
                                     onTap: () {
                                       Get.to(ExpertInfo(
                                         name: Experts.name,
@@ -279,7 +279,7 @@ class _HomeState extends State<Home> {
                     children: [
                       const MyTitle(text: AppString.topStories),
                       Expanded(child: Container()),
-                      InkWell(
+                      GestureDetector(
                           onTap: () {
                             Get.to(ViewAll());
                           },
@@ -300,7 +300,7 @@ class _HomeState extends State<Home> {
                           return Padding(
                             padding: EdgeInsets.only(left: 4.w, right: 4.w),
                             child: Obx(
-                              () => InkWell(
+                              () => GestureDetector(
                                 onTap: () {
                                   Get.to(HomeNews(
                                     newimage: _NewsController.getNews.value.news?[index].image,

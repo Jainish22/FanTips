@@ -27,6 +27,17 @@ class Ipl extends StatelessWidget {
             labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             unselectedLabelColor: AppColor.white,
             indicatorSize: TabBarIndicatorSize.label,
+            overlayColor: MaterialStateColor.resolveWith((Set<MaterialState> states) {
+              if (states.contains(MaterialState.pressed)) {
+                return Colors.transparent;
+              } if (states.contains(MaterialState.focused)) {
+                return Colors.orange;
+              } else if (states.contains(MaterialState.hovered)) {
+                return Colors.pinkAccent;
+              }
+
+              return Colors.transparent;
+            }),
             tabs: [Tab(child: Text(AppString.squads)), Tab(text: AppString.matches), Tab(text: AppString.pointTable)],
           ),
         ),

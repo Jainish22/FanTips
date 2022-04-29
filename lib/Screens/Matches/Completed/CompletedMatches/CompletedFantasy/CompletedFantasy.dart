@@ -59,7 +59,7 @@ class _CompletedFantasyState extends State<CompletedFantasy> {
                                 expertsController.getitem.value[index];
                             return Column(
                               children: [
-                                InkWell(
+                                GestureDetector(
                                   onTap: (){Get.to(Get.to(ExpertInfo(
                                     name: Experts.name,
                                     wins: "${Experts.top3}",

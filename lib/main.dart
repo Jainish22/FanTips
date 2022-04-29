@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
               ),
             ),
             backgroundColor: const Color(0xff1B1B1B),
-            scaffoldBackgroundColor: Colors.black
+            scaffoldBackgroundColor: Colors.black,
           ),
           debugShowCheckedModeBanner: false,
           title: 'FanTips',

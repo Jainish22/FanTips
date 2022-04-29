@@ -56,6 +56,7 @@ class AppString {
   static const privacyPolicy = 'Private Policy';
   static const copyright= 'Copyright';
   static const termsOfuse = 'Terms of use';
+  static const howtoplay = 'How to play quiz?';
   static const applyAsexperts = 'Apply As Expert';
   static const contactUsforbranding = 'Contact us for branding';
 
