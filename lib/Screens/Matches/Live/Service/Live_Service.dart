@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:fantips/Model/Matches_Model/livemodel.dart';
 import 'package:http/http.dart' as http;
 
-import '../../../../Model/Matches_Model/livemodel.dart';
 
 class LiveService {
   static Future<Liveapi?> getLive({ required String value}) async {

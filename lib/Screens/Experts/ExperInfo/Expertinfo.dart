@@ -59,7 +59,7 @@ class _ExpertInfoState extends State<ExpertInfo> {
 
               return Colors.transparent;
             }),
-            tabs: [
+            tabs: const [
               Tab(text: AppString.info),
               Tab(text: AppString.matches)
             ],

@@ -1,4 +1,3 @@
-import 'package:fantips/Helper/MyBottomsheet/MyBottomSheet.dart';
 import 'package:fantips/Screens/loginpage/loginpage.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
@@ -14,28 +13,31 @@ PreferredSizeWidget MyAppbar(
   return PreferredSize(
     preferredSize: const Size.fromHeight(34),
     child: AppBar(
-        automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              text1,
-              style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+      automaticallyImplyLeading: false,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            text1,
+            style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+          ),
+          TextButton(
+            onPressed: () {
+              // LoginBottomSheet();
+            },
+            child: GestureDetector(
+              onTap: () {
+                Get.to(Login());
+              },
+              child: const Text(
+                AppString.logIn,
+                style: TextStyle(color: AppColor.green),
+              ),
             ),
-            TextButton(
-                onPressed: () {
-                  LoginBottomSheet();
-                },
-                child: InkWell(
-                    onTap: () {
-                      Get.to(Login());
-                    },
-                    child: const Text(
-                      AppString.logIn,
-                      style: TextStyle(color: AppColor.green),
-                    )))
-          ],
-        )),
+          ),
+        ],
+      ),
+    ),
   );
 }
 
@@ -43,36 +45,41 @@ PreferredSizeWidget MyAppbar1(String text1, String text2, String image) {
   return PreferredSize(
     preferredSize: Size.fromHeight(45),
     child: AppBar(
-        automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              text1,
-              style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+      automaticallyImplyLeading: false,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            text1,
+            style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+          ),
+          Expanded(flex: 2, child: Container()),
+          InkWell(
+            onTap: () {
+              Get.to(Login());
+            },
+            child: Text(
+              text2,
+              style: const TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 15,
+                  color: Color(0xFF25C06D),
+                  height: 0),
             ),
-            Expanded(flex: 2, child: Container()),
-            InkWell(
-              onTap: () {
-                Get.to(Login());
-              },
-              child: Text(
-                text2,
-                style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15, color: Color(0xFF25C06D), height: 0),
-              ),
+          ),
+          Expanded(child: Container()),
+          InkWell(
+            child: Image.asset(
+              image,
+              height: 2.4.h,
             ),
-            Expanded(child: Container()),
-            InkWell(
-              child: Image.asset(
-                image,
-                height: 2.4.h,
-              ),
-              onTap: () {
-                Get.toNamed('search');
-              },
-            )
-          ],
-        )),
+            onTap: () {
+              Get.toNamed('search');
+            },
+          )
+        ],
+      ),
+    ),
   );
 }
 

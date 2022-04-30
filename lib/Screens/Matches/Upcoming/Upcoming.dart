@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:intl/intl.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 import 'package:sizer/sizer.dart';
 
 import 'Controller/Upcoming_Controller.dart';
@@ -53,10 +54,18 @@ class _UpcomingState extends State<Upcoming> {
       child: SafeArea(
           child: Obx(
         () => _upcomingController.isLoading.value
-            ? const Center(
-                child: CircularProgressIndicator(
-                color: Colors.green,
-              ))
+            ? Center(
+                child:  Container(
+                  height: 3.h,
+                  width: 6.w,
+                  child: const LoadingIndicator(
+                      indicatorType: Indicator. lineSpinFadeLoader,
+                      colors: [Colors.white],
+                      strokeWidth: 1,
+                      backgroundColor: Colors.black,
+                      pathBackgroundColor: Colors.black
+                  ),
+                ))
             : Padding(
                 padding: EdgeInsets.only(top: 2.h),
                 child: Column(

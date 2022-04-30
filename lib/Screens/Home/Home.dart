@@ -1,10 +1,12 @@
 import 'dart:developer';
-
+import 'package:fantips/Screens/Experts/ExperInfo/Expertinfo.dart';
 import 'package:fantips/Screens/Experts/Experts.dart';
+import 'package:fantips/Screens/Experts/controller/ExpertsController.dart';
 import 'package:fantips/Screens/Home/News/HomeNews.dart';
 import 'package:fantips/Screens/Home/ViewAll/ViewAll.dart';
 import 'package:fantips/Screens/IPL/Ipl.dart';
 import 'package:fantips/Screens/Matches/Matches.dart';
+import 'package:fantips/Screens/Matches/Upcoming/Controller/Upcoming_Controller.dart';
 import 'package:fantips/Screens/More/More.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
@@ -13,15 +15,12 @@ import 'package:fantips/Util/Sizebox.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:fantips/Widgets/MyTitle.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 import 'package:sizer/sizer.dart';
 
-import '../Experts/ExperInfo/Expertinfo.dart';
-import '../Experts/controller/ExpertsController.dart';
-import '../Matches/Upcoming/Controller/Upcoming_Controller.dart';
 import 'News/Controller/News_Controller.dart';
 
 class HomeMain extends StatefulWidget {
@@ -34,7 +33,7 @@ class HomeMain extends StatefulWidget {
 class _HomeMainState extends State<HomeMain> {
   int _currentIndex = 0;
   List body = [
-    Home(),
+    const Home(),
     const Matches_Screen(),
     const Ipl(),
     const Experts(),
@@ -92,7 +91,7 @@ class _HomeMainState extends State<HomeMain> {
 }
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -100,9 +99,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final NewsController _NewsController = Get.put(NewsController());
-  ExpertsController expertsController = Get.put(ExpertsController());
+  final ExpertsController expertsController = Get.put(ExpertsController());
   final UpcomingController upcomingController = Get.put(UpcomingController());
-  int pageindex = 0;
+  final int pageindex = 0;
 
   static String hourAndMin(int milliSecond) {
     DateTime date = DateTime.fromMillisecondsSinceEpoch(milliSecond);
@@ -119,7 +118,6 @@ class _HomeState extends State<Home> {
             context: context,
             builder: (context) => AlertDialog(
               backgroundColor: Colors.grey[800],
-              // title:  Text('Are you sure?'),
               content: const Text(
                 'Are you sure want to exit?',
                 style: TextStyle(color: Colors.white),
@@ -159,16 +157,23 @@ class _HomeState extends State<Home> {
                     width: 100.w,
                     child: Obx(
                       () => upcomingController.isLoading.value
-                          ? const Center(
-                              child: CircularProgressIndicator(
-                              color: Colors.green,
-                            ))
+                          ? Center(
+                              child: Container(
+                                height: 3.h,
+                                width: 4.w,
+                                child: const LoadingIndicator(
+                                    indicatorType: Indicator.lineSpinFadeLoader,
+                                    colors: [Colors.white],
+                                    strokeWidth: 1,
+                                    backgroundColor: Colors.black,
+                                    pathBackgroundColor: Colors.black),
+                              ),
+                            )
                           : PageView.builder(
                               onPageChanged: (value) {
                                 upcomingController.matchSelect.value = value;
                               },
-                              itemCount: upcomingController.getUpcoming.value
-                                  .matches?.notstarted?.length,
+                              itemCount: 4,
                               itemBuilder: (context, index) {
                                 final completeData = upcomingController
                                     .getUpcoming
@@ -214,24 +219,21 @@ class _HomeState extends State<Home> {
                     () => Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
-                          (upcomingController.getUpcoming.value.matches
-                                  ?.notstarted?.length ??
-                              0),
-                          (index) => Container(
-                                height: 0.6.h,
-                                width: upcomingController.matchSelect.value ==
-                                        index
-                                    ? 4.w
-                                    : 3.w,
-                                margin: EdgeInsets.symmetric(horizontal: 1.w),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.sp),
-                                  color: upcomingController.matchSelect.value ==
-                                          index
-                                      ? Colors.green
-                                      : AppColor.grey.withOpacity(0.5),
-                                ),
-                              )),
+                        4,
+                        (index) => Container(
+                          height: 0.6.h,
+                          width: upcomingController.matchSelect.value == index
+                              ? 4.w
+                              : 3.w,
+                          margin: EdgeInsets.symmetric(horizontal: 1.w),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.sp),
+                            color: upcomingController.matchSelect.value == index
+                                ? Colors.green
+                                : AppColor.grey.withOpacity(0.5),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                   AppSizebox.h15,
@@ -243,12 +245,17 @@ class _HomeState extends State<Home> {
                     child: Obx(
                       () => expertsController.isLoading.value
                           ? Center(
-                              child: Padding(
-                              padding: EdgeInsets.only(top: 1.h),
-                              child: const CircularProgressIndicator(
-                                color: Colors.green,
+                              child: Container(
+                                height: 3.h,
+                                width: 4.w,
+                                child: const LoadingIndicator(
+                                    indicatorType: Indicator.lineSpinFadeLoader,
+                                    colors: [Colors.white],
+                                    strokeWidth: 1,
+                                    backgroundColor: Colors.black,
+                                    pathBackgroundColor: Colors.black),
                               ),
-                            ))
+                            )
                           : PageView.builder(
                               onPageChanged: (value) {
                                 expertsController.matchSelect.value = value;
@@ -266,16 +273,18 @@ class _HomeState extends State<Home> {
                                       EdgeInsets.only(left: 4.w, right: 4.w),
                                   child: GestureDetector(
                                     onTap: () {
-                                      Get.to(ExpertInfo(
-                                        name: Experts.name,
-                                        wins: "${Experts.top3}",
-                                        ave: "${Experts.avgScore}",
-                                        sub:
-                                            "${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
-                                        //sub: '${Experts.subscriberCount}',
-                                        pre: '${Experts.totalPredictions}',
-                                        backgroundImage: Experts.profileUrl,
-                                      ));
+                                      Get.to(
+                                        ExpertInfo(
+                                          name: Experts.name,
+                                          wins: "${Experts.top3}",
+                                          ave: "${Experts.avgScore}",
+                                          sub:
+                                              "${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
+                                          //sub: '${Experts.subscriberCount}',
+                                          pre: '${Experts.totalPredictions}',
+                                          backgroundImage: Experts.profileUrl,
+                                        ),
+                                      );
                                     },
                                     child: MyContainer22(
                                       headerText:
@@ -297,22 +306,21 @@ class _HomeState extends State<Home> {
                     () => Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
-                          5,
-                          (index) => Container(
-                                height: 0.6.h,
-                                width:
-                                    expertsController.matchSelect.value == index
-                                        ? 4.w
-                                        : 3.w,
-                                margin: EdgeInsets.symmetric(horizontal: 1.w),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.sp),
-                                  color: expertsController.matchSelect.value ==
-                                          index
-                                      ? Colors.green
-                                      : AppColor.grey.withOpacity(0.5),
-                                ),
-                              )),
+                        5,
+                        (index) => Container(
+                          height: 0.6.h,
+                          width: expertsController.matchSelect.value == index
+                              ? 4.w
+                              : 3.w,
+                          margin: EdgeInsets.symmetric(horizontal: 1.w),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.sp),
+                            color: expertsController.matchSelect.value == index
+                                ? Colors.green
+                                : AppColor.grey.withOpacity(0.5),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                   AppSizebox.h15,
@@ -322,9 +330,9 @@ class _HomeState extends State<Home> {
                       Expanded(child: Container()),
                       GestureDetector(
                           onTap: () {
-                            Get.to(ViewAll());
+                            Get.to(const ViewAll());
                           },
-                          child: Text(AppString.viewAll,
+                          child: const Text(AppString.viewAll,
                               style: TextStyle(fontSize: 12))),
                       const Icon(Icons.arrow_forward_ios_sharp,
                           color: Colors.white, size: 12),
@@ -334,19 +342,18 @@ class _HomeState extends State<Home> {
                   AppSizebox.h15,
                   SizedBox(
                     child: ListView.builder(
-                        itemCount: 20,
-                        //_NewsController.getNews.value.news?.length,
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (context, index) {
-                          final NewsData =
-                              _NewsController.getNews.value.news?[index];
-                          return Padding(
-                            padding: EdgeInsets.only(left: 4.w, right: 4.w),
-                            child: Obx(
-                              () => GestureDetector(
-                                onTap: () {
-                                  Get.to(HomeNews(
+                      itemCount: 5,
+                      //_NewsController.getNews.value.news?.length,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: EdgeInsets.only(left: 4.w, right: 4.w),
+                          child: Obx(
+                            () => GestureDetector(
+                              onTap: () {
+                                Get.to(
+                                  HomeNews(
                                     newimage: _NewsController
                                         .getNews.value.news?[index].image,
                                     newname: _NewsController
@@ -355,24 +362,26 @@ class _HomeState extends State<Home> {
                                         "${_NewsController.getNews.value.news?[index].time}",
                                     samlldata:
                                         "${_NewsController.getNews.value.news?[index].smallDesc}",
-                                  ));
-                                },
-                                child: Container(
-                                    height: 38.h,
-                                    width: 92.w,
-                                    margin: EdgeInsets.only(bottom: 10),
-                                    decoration: BoxDecoration(
-                                        color: Colors.black,
-                                        borderRadius: BorderRadius.circular(5)),
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                          ),
-                                          height: 20.h,
-                                          width: 90.w,
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                height: 38.h,
+                                width: 92.w,
+                                margin: EdgeInsets.only(bottom: 10),
+                                decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    borderRadius: BorderRadius.circular(5)),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 20.h,
+                                      width: 90.w,
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(
+                                            20), // Image border
+                                        child: SizedBox.fromSize(
+                                          size: Size.fromRadius(48),
                                           child: Image.network(
                                             _NewsController.getNews.value
                                                     .news?[index].image ??
@@ -382,90 +391,131 @@ class _HomeState extends State<Home> {
                                                 loadingProgress) {
                                               if (loadingProgress == null)
                                                 return child;
-                                              return const Center(
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                color: Colors.green,
-                                              ));
+                                              return Center(
+                                                child: Container(
+                                                  height: 3.h,
+                                                  width: 6.w,
+                                                  child: const LoadingIndicator(
+                                                      indicatorType: Indicator
+                                                          .lineSpinFadeLoader,
+                                                      colors: [Colors.white],
+                                                      strokeWidth: 1,
+                                                      backgroundColor:
+                                                          Colors.black,
+                                                      pathBackgroundColor:
+                                                          Colors.black),
+                                                ),
+                                              );
                                             },
                                             errorBuilder: (context, error,
                                                     stackTrace) =>
-                                                const Center(
-                                                    child:
-                                                        CircularProgressIndicator()),
+                                                const Center(child: Text("")),
                                           ),
                                         ),
-                                        Column(
-                                          children: [
-                                            Container(
-                                              height: 16.h,
-                                              padding: EdgeInsets.fromLTRB(
-                                                  8, 8, 8, 0),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Text(
-                                                      _NewsController
-                                                              .getNews
-                                                              .value
-                                                              .news?[index]
-                                                              .title ??
-                                                          "",
-                                                      maxLines: 2,
-                                                      style: const TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.w400,
-                                                          fontSize: 15)),
-                                                  Text(
-                                                      _NewsController
-                                                              .getNews
-                                                              .value
-                                                              .news?[index]
-                                                              .smallDesc ??
-                                                          "",
-                                                      style: const TextStyle(
-                                                          color: AppColor.grey,
-                                                          fontSize: 12)),
-                                                  Text(
-                                                      _NewsController
-                                                              .getNews
-                                                              .value
-                                                              .news?[index]
-                                                              .newsSource ??
-                                                          "",
-                                                      style: const TextStyle(
-                                                          color: AppColor.grey,
-                                                          fontSize: 12)),
-                                                  Text(
-                                                      hourAndMin(_NewsController
-                                                              .getNews
-                                                              .value
-                                                              .news?[index]
-                                                              .time ??
-                                                          0),
-                                                      style: const TextStyle(
-                                                          color: AppColor.grey,
-                                                          fontSize: 12)),
-                                                ],
-                                              ),
-                                            ),
-                                            AppSizebox.h10,
-                                            const Divider(
-                                              height: 2,
-                                              color: AppColor.DividerColor,
-                                            )
-                                          ],
+                                      ),
+                                    ),
+                                    // Container(
+                                    //   decoration: BoxDecoration(
+                                    //     borderRadius: BorderRadius.circular(20),
+                                    //     // image: DecorationImage(
+                                    //     //     image: NetworkImage(
+                                    //     //         _NewsController.getNews.value
+                                    //     //                 .news?[index].image ??
+                                    //     //             "",scale: 1),
+                                    //     //     fit: BoxFit.cover)
+                                    //   ),
+                                    //   height: 20.h,
+                                    //   width: 90.w,
+                                    //   child: Image.network(
+                                    //     _NewsController.getNews.value
+                                    //             .news?[index].image ??
+                                    //         "",
+                                    //     fit: BoxFit.cover,
+                                    //     loadingBuilder:
+                                    //         (context, child, loadingProgress) {
+                                    //       if (loadingProgress == null)
+                                    //         return child;
+                                    //       return const Center(
+                                    //           child: CircularProgressIndicator(
+                                    //         color: Colors.green,
+                                    //       ));
+                                    //     },
+                                    //     errorBuilder:
+                                    //         (context, error, stackTrace) =>
+                                    //             const Center(child: Text("")),
+                                    //   ),
+                                    // ),
+                                    Column(
+                                      children: [
+                                        Container(
+                                          height: 16.h,
+                                          padding: const EdgeInsets.fromLTRB(
+                                              8, 8, 8, 0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                  _NewsController.getNews.value
+                                                          .news?[index].title ??
+                                                      "",
+                                                  maxLines: 2,
+                                                  style: const TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      fontSize: 15)),
+                                              Text(
+                                                  _NewsController
+                                                          .getNews
+                                                          .value
+                                                          .news?[index]
+                                                          .smallDesc ??
+                                                      "",
+                                                  maxLines: 3,
+                                                  style: const TextStyle(
+                                                    color: AppColor.grey,
+                                                    fontSize: 12,
+                                                  )),
+                                              Text(
+                                                  _NewsController
+                                                          .getNews
+                                                          .value
+                                                          .news?[index]
+                                                          .newsSource ??
+                                                      "",
+                                                  style: const TextStyle(
+                                                      color: AppColor.grey,
+                                                      fontSize: 12)),
+                                              Text(
+                                                  hourAndMin(_NewsController
+                                                          .getNews
+                                                          .value
+                                                          .news?[index]
+                                                          .time ??
+                                                      0),
+                                                  style: const TextStyle(
+                                                      color: AppColor.grey,
+                                                      fontSize: 12)),
+                                            ],
+                                          ),
+                                        ),
+                                        AppSizebox.h10,
+                                        const Divider(
+                                          height: 2,
+                                          color: AppColor.DividerColor,
                                         )
                                       ],
-                                    )),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                          );
-                        }),
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -478,6 +528,8 @@ class _HomeState extends State<Home> {
 
   String timeAgo(DateTime date) {
     Duration diff = DateTime.now().difference(date);
+    print('date--->>>> ${diff}');
+
     if (diff.inDays > 365) {
       return "${(diff.inDays / 365).floor()} ${(diff.inDays / 365).floor() == 1 ? "year" : "years"} ago";
     }

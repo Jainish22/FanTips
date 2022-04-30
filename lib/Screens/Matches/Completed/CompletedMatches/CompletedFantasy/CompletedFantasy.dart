@@ -1,15 +1,15 @@
 import 'dart:developer';
 
+import 'package:fantips/Screens/Experts/ExperInfo/Expertinfo.dart';
+import 'package:fantips/Screens/Experts/controller/ExpertsController.dart';
+import 'package:fantips/Screens/Matches/U%20L%20C%20Matches/Team/team.dart';
+import 'package:fantips/Util/Sizebox.dart';
+import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:sizer/sizer.dart';
-
-import '../../../../../Util/Sizebox.dart';
-import '../../../../../Widgets/MyContainer.dart';
-import '../../../../Experts/ExperInfo/Expertinfo.dart';
-import '../../../../Experts/controller/ExpertsController.dart';
 
 class CompletedFantasy extends StatefulWidget {
   const CompletedFantasy({Key? key}) : super(key: key);
@@ -60,22 +60,30 @@ class _CompletedFantasyState extends State<CompletedFantasy> {
                             return Column(
                               children: [
                                 GestureDetector(
-                                  onTap: (){Get.to(Get.to(ExpertInfo(
-                                    name: Experts.name,
-                                    wins: "${Experts.top3}",
-                                    ave: "${Experts.avgScore}",
-                                    sub:"${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
-                                    //sub: '${Experts.subscriberCount}',
-                                    pre: '${Experts.totalPredictions}', backgroundImage: Experts.profileUrl,
-                                  )));},
-                                  child: MyContainer22(
+                                  onTap: () {
+                                    Get.to(Team());
 
+                                    // Get.to(
+                                    //   ExpertInfo(
+                                    //     name: Experts.name,
+                                    //     wins: "${Experts.top3}",
+                                    //     ave: "${Experts.avgScore}",
+                                    //     sub:
+                                    //         "${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
+                                    //     //sub: '${Experts.subscriberCount}',
+                                    //     pre: '${Experts.totalPredictions}',
+                                    //     backgroundImage: Experts.profileUrl,
+                                    //   ),
+                                    // );
+                                  },
+                                  child: MyContainer22(
                                     headerText:
                                         "${Experts.name!.length >= 25 ? Experts.name?.substring(0, 12) : Experts.name}",
                                     pr: "${Experts.totalPredictions ?? " "}",
                                     ave: "${Experts.avgScore ?? ""}",
                                     wins: "${Experts.top3}",
-                                    subscribers: '${Experts.subscriberCount}', backgroundImage: Experts.profileUrl??"",
+                                    subscribers: '${Experts.subscriberCount}',
+                                    backgroundImage: Experts.profileUrl ?? "",
                                   ),
                                 ),
                                 AppSizebox.h10,

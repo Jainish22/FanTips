@@ -31,7 +31,7 @@ class Info extends StatefulWidget {
 
 class _InfoState extends State<Info> {
   void share() {
-    FlutterShare.share(title: "Example", linkUrl: "'https://flutter.dev/");
+    FlutterShare.share(title: "Example", linkUrl: "https://play.google.com/store/apps/details?id=fantasy.prediction.fantips");
   }
 
   @override

@@ -1,8 +1,9 @@
+import 'package:fantips/Util/Sizebox.dart';
+import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../Util/Sizebox.dart';
-import '../../../../../Widgets/MyContainer.dart';
+
 
 class CompletedCommentary extends StatelessWidget {
   const CompletedCommentary({Key? key}) : super(key: key);

@@ -1,9 +1,9 @@
 import 'dart:developer';
+import 'package:fantips/Model/Matches_Model/Searchmodel.dart';
+import 'package:fantips/Screens/Experts/Search/Service/SearchService.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../../../../Model/Matches_Model/Searchmodel.dart';
-import '../Service/SearchService.dart';
 
 class SearchController extends GetxController {
 

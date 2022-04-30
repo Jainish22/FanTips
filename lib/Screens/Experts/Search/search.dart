@@ -1,14 +1,13 @@
 import 'dart:async';
-
+import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/Sizebox.dart';
+import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 import 'package:sizer/sizer.dart';
-
-import '../../../Util/AppColor.dart';
-import '../../../Widgets/MyContainer.dart';
 import 'Controller/SearchController.dart';
 
 class Search extends StatefulWidget {
@@ -122,10 +121,17 @@ class _SearchState extends State<Search> {
                                       child: Transform.scale(
                                         scale: 2,
                                         child:
-                                        const CircularProgressIndicator(
-                                          strokeWidth: 1,
-                                          color: Colors.green,
-                                        ),
+                                        Container(
+                                          height: 3.h,
+                                          width: 6.w,
+                                          child: const LoadingIndicator(
+                                              indicatorType: Indicator. lineSpinFadeLoader,
+                                              colors: [Colors.white],
+                                              strokeWidth: 1,
+                                              backgroundColor: Colors.black,
+                                              pathBackgroundColor: Colors.black
+                                          ),
+                                        )
                                       ),
                                     )
                                         : const SizedBox(),

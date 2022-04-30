@@ -13,4 +13,5 @@ class AppIcon{
   static const sortby = 'asset/icon/sortby.png';
   static const info = 'asset/icon/info.png';
   static const group = 'asset/icon/group.png';
+  static const logo = 'asset/icon/fantips_logo.png';
 }

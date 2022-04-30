@@ -1,11 +1,11 @@
 import 'package:fantips/Screens/Home/News/Controller/News_Controller.dart';
+import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/Sizebox.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../Util/AppColor.dart';
 
 class HomeNews extends StatefulWidget {
   HomeNews({this.newimage, this.newname, required this.samlldata, required this.newstime});
@@ -26,6 +26,8 @@ class _HomeNewsState extends State<HomeNews> with TickerProviderStateMixin {
   late AnimationController TextAnimationController;
   late Animation colorTween, iconColorTween;
   late Animation<Offset> transTween;
+
+
 
   @override
   void initState() {

@@ -1,9 +1,9 @@
 import 'dart:developer';
 
 import 'package:fantips/Model/Matches_Model/UpcomingModel.dart';
+import 'package:fantips/Model/Matches_Model/completedmodel.dart';
 import 'package:get/get.dart';
 
-import '../../../../Model/Matches_Model/completedmodel.dart';
 import '../Service/Upcoming_Service.dart';
 
 class UpcomingController extends GetxController {

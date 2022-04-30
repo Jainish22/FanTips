@@ -1,4 +1,3 @@
-import 'package:fantips/Screens/More/morefile/applay.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
@@ -7,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:rating_dialog/rating_dialog.dart';
 import 'package:sizer/sizer.dart';
+
+import 'ApplayMore.dart';
 
 class More extends StatefulWidget {
   const More({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class More extends StatefulWidget {
 
 class _MoreState extends State<More> {
   void share() {
-    FlutterShare.share(title: "Example", linkUrl: "'https://flutter.dev/");
+    FlutterShare.share(title: "Fantips", linkUrl: "https://play.google.com/store/apps/details?id=fantasy.prediction.fantips");
   }
 
   final _dialog = RatingDialog(
@@ -56,18 +57,18 @@ class _MoreState extends State<More> {
               decoration: BoxDecoration(
                   border: Border.all(width: 3, color: Colors.white),
                   borderRadius: BorderRadius.circular(30),
-                  image: DecorationImage(
-                      image: NetworkImage(
-                          "https://lh3.googleusercontent.com/1GT4w6dAfG4lkO9ja9ZOhUKqVdU21r940zFnBrBrAsYUsTXnVb44MuUpO56ohHQzAow=s200"))),
+                  image: const DecorationImage(
+                    image: AssetImage("asset/Images/fantips_logo.png"),
+                  )),
             ),
           ),
         ],
       ),
     ),
-
     submitButtonText: 'Not Now',
     submitButtonTextStyle: TextStyle(color: Colors.green),
     onSubmitted: (response) {},
+
   );
 
   // show the dialog
@@ -101,7 +102,6 @@ class _MoreState extends State<More> {
           false;
     }
 
-
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
@@ -116,7 +116,7 @@ class _MoreState extends State<More> {
               ),
               AppSizebox.h20,
               GestureDetector(
-                child: OptionContainer(
+                child: const OptionContainer(
                   text: AppString.rateUs,
                 ),
                 onTap: () {
@@ -129,7 +129,7 @@ class _MoreState extends State<More> {
               ),
               AppSizebox.h2,
               GestureDetector(
-                child: OptionContainer(
+                child: const OptionContainer(
                   text: AppString.share,
                 ),
                 onTap: () {
@@ -137,8 +137,13 @@ class _MoreState extends State<More> {
                 },
               ),
               AppSizebox.h2,
-              OptionContainer(
-                text: AppString.feedBack,
+              GestureDetector(
+                child: OptionContainer(
+                  text: AppString.feedBack,
+                ),
+                onTap: (){
+                  Applay();
+                },
               ),
               AppSizebox.h20,
               OptionContainer(
@@ -157,17 +162,17 @@ class _MoreState extends State<More> {
                 text: AppString.howtoplay,
               ),
               AppSizebox.h2,
-              GestureDetector(
+              OptionContainer(
+                text: AppString.applyAsexperts,
+              ),
+              AppSizebox.h2,
+              InkWell(
+                child: OptionContainer(
+                  text: AppString.contactUsforbranding,
+                ),
                 onTap: () {
                   Applay();
                 },
-                child: OptionContainer(
-                  text: AppString.applyAsexperts,
-                ),
-              ),
-              AppSizebox.h2,
-              OptionContainer(
-                text: AppString.contactUsforbranding,
               ),
             ],
           )

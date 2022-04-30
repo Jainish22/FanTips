@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:fantips/Model/Matches_Model/UpcomingModel.dart';
 import 'package:http/http.dart' as http;
 
-import '../../../../Model/Matches_Model/completedmodel.dart';
 
 class UpcomingService {
   static Future<Upcomingapi?> getUpcoming({ required String value}) async {

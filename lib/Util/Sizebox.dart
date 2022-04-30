@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppSizebox{
+class AppSizebox {
   //height
   static const h1 = SizedBox(height: 1);
   static const h2 = SizedBox(height: 2);
@@ -11,8 +11,11 @@ class AppSizebox{
   static const h15 = SizedBox(height: 15);
   static const h20 = SizedBox(height: 20);
   static const h25 = SizedBox(height: 25);
+  static const h40 = SizedBox(height: 40);
+  static const h45 = SizedBox(height: 45);
+  static const h50 = SizedBox(height: 50);
 
-  //height
+  //width
   static const w2 = SizedBox(width: 2);
   static const w5 = SizedBox(width: 5);
   static const w10 = SizedBox(width: 10);

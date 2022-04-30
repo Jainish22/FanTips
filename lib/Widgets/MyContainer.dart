@@ -1,4 +1,4 @@
-
+import 'package:fantips/Helper/MyBottomsheet/MyBottomSheet.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
 import 'package:fantips/Util/AppStrings.dart';
@@ -9,7 +9,6 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
-import '../Helper/MyBottomsheet/MyBottomSheet.dart';
 
 ///First Container Home
 class MyContainer1 extends StatefulWidget {
@@ -61,11 +60,10 @@ class _MyContainer1State extends State<MyContainer1> {
                     child: Container(
                         child: _value
                             ? Icon(
-                          Icons.notifications_none,
-                          color: Colors.white,
-                        )
-                            : Icon(Icons.notifications,
-                            color: Colors.white)),
+                                Icons.notifications_none,
+                                color: Colors.white,
+                              )
+                            : Icon(Icons.notifications, color: Colors.white)),
                   ),
                 ],
               ),
@@ -85,7 +83,7 @@ class _MyContainer1State extends State<MyContainer1> {
                           const CircleAvatar(
                               radius: 15,
                               backgroundImage:
-                              AssetImage('asset/Images/Zim.png')),
+                                  AssetImage('asset/Images/Zim.png')),
                           SizedBox(width: 2.w),
                           const Text("ZIM",
                               style: TextStyle(fontWeight: FontWeight.w500)),
@@ -115,7 +113,7 @@ class _MyContainer1State extends State<MyContainer1> {
                           const CircleAvatar(
                               radius: 15,
                               backgroundImage:
-                              AssetImage('asset/Images/Afg.png')),
+                                  AssetImage('asset/Images/Afg.png')),
                           SizedBox(width: 2.w),
                           const Text(
                             "ZIM",
@@ -174,13 +172,14 @@ class _MyContainer1State extends State<MyContainer1> {
 
 ///Second Container T20Prediction
 class MyContainer2 extends StatefulWidget {
-  const MyContainer2({Key? key,
-    required this.backgroundImage,
-    required this.name,
-    required this.subscribers,
-    required this.age,
-    required this.wins,
-    required this.pr})
+  const MyContainer2(
+      {Key? key,
+      required this.backgroundImage,
+      required this.name,
+      required this.subscribers,
+      required this.age,
+      required this.wins,
+      required this.pr})
       : super(key: key);
   final ImageProvider backgroundImage;
   final String name;
@@ -255,10 +254,11 @@ class _MyContainer2State extends State<MyContainer2> {
                   child: Container(
                       child: _value
                           ? const Icon(
-                        Icons.favorite,
-                        color: Colors.green,
-                      )
-                          : const Icon(Icons.favorite_border, color: Colors.green)),
+                              Icons.favorite,
+                              color: Colors.green,
+                            )
+                          : const Icon(Icons.favorite_border,
+                              color: Colors.green)),
                 ),
               ),
               Padding(
@@ -388,15 +388,16 @@ class MyContainer3 extends StatelessWidget {
 
 ///Fourth Container Upcoming
 class MyContainer4 extends StatefulWidget {
-  const MyContainer4({Key? key,
-    required this.headerText,
-    required this.backgroundImage1,
-    required this.backgroundImage2,
-    required this.matchesname1,
-    required this.matchesname2,
-    required this.infoMsg,
-    required this.totalprediction,
-    required this.Starts})
+  const MyContainer4(
+      {Key? key,
+      required this.headerText,
+      required this.backgroundImage1,
+      required this.backgroundImage2,
+      required this.matchesname1,
+      required this.matchesname2,
+      required this.infoMsg,
+      required this.totalprediction,
+      required this.Starts})
       : super(key: key);
 
   final String headerText;
@@ -413,11 +414,10 @@ class MyContainer4 extends StatefulWidget {
 }
 
 class _MyContainer4State extends State<MyContainer4> {
-
   static String hourAndMin(int milliSecond) {
     DateTime date = DateTime.fromMillisecondsSinceEpoch(milliSecond);
     final dt =
-    DateTime(date.year, date.month, date.day, date.hour, date.minute);
+        DateTime(date.year, date.month, date.day, date.hour, date.minute);
     final format = DateFormat.jm(); //"6:00 AM"
     return format.format(dt);
   }
@@ -458,11 +458,11 @@ class _MyContainer4State extends State<MyContainer4> {
                         child: Container(
                             child: _value
                                 ? const Icon(
-                              Icons.notifications_none,
-                              color: Colors.white,
-                            )
+                                    Icons.notifications_none,
+                                    color: Colors.white,
+                                  )
                                 : const Icon(Icons.notifications,
-                                color: Colors.white)),
+                                    color: Colors.white)),
                       ),
                     ],
                   ),
@@ -484,7 +484,7 @@ class _MyContainer4State extends State<MyContainer4> {
                                     width: 8.5.w,
                                     decoration: BoxDecoration(
                                         borderRadius:
-                                        BorderRadius.circular(50)),
+                                            BorderRadius.circular(50)),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
@@ -496,12 +496,12 @@ class _MyContainer4State extends State<MyContainer4> {
                                             return child;
                                           return const Center(
                                               child: CircularProgressIndicator(
-                                                color: Colors.green,
-                                              ));
+                                            color: Colors.green,
+                                          ));
                                         },
                                         errorBuilder:
                                             (context, error, stackTrace) =>
-                                        const Center(
+                                                const Center(
                                           child: Text(
                                             "",
                                             style: TextStyle(
@@ -518,7 +518,7 @@ class _MyContainer4State extends State<MyContainer4> {
                                     width: 8.5.w,
                                     decoration: BoxDecoration(
                                         borderRadius:
-                                        BorderRadius.circular(50)),
+                                            BorderRadius.circular(50)),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
@@ -530,11 +530,11 @@ class _MyContainer4State extends State<MyContainer4> {
                                             return child;
                                           return const Center(
                                               child:
-                                              CircularProgressIndicator());
+                                                  CircularProgressIndicator());
                                         },
                                         errorBuilder:
                                             (context, error, stackTrace) =>
-                                        const Center(
+                                                const Center(
                                           child: Text(
                                             "",
                                             style: TextStyle(
@@ -599,10 +599,11 @@ class _MyContainer4State extends State<MyContainer4> {
                                   fontWeight: FontWeight.w800,
                                   color: AppColor.green)),
                           AppSizebox.h2,
-                          Text("Predictions", style: TextStyle(
-                              fontSize: 11,
-                              fontWeight: FontWeight.w400,
-                              color: AppColor.green))
+                          Text("Predictions",
+                              style: TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColor.green))
                         ],
                       ),
                     )
@@ -663,7 +664,7 @@ class MyContainer5 extends StatelessWidget {
                           const CircleAvatar(
                               radius: 15,
                               backgroundImage:
-                              AssetImage('asset/Images/Zim.png')),
+                                  AssetImage('asset/Images/Zim.png')),
                           SizedBox(width: 2.w),
                           const Text("ZIM",
                               style: TextStyle(fontWeight: FontWeight.w500)),
@@ -677,7 +678,7 @@ class MyContainer5 extends StatelessWidget {
                           const CircleAvatar(
                               radius: 15,
                               backgroundImage:
-                              AssetImage('asset/Images/Afg.png')),
+                                  AssetImage('asset/Images/Afg.png')),
                           SizedBox(width: 2.w),
                           const Text(
                             "ZIM",
@@ -774,7 +775,7 @@ class MyContainer6 extends StatelessWidget {
                         SizedBox(width: 1.w),
                         const Text("(20)",
                             style:
-                            TextStyle(color: AppColor.grey, fontSize: 10))
+                                TextStyle(color: AppColor.grey, fontSize: 10))
                       ],
                     ),
                     SizedBox(height: 1.5.h),
@@ -796,7 +797,7 @@ class MyContainer6 extends StatelessWidget {
                         SizedBox(width: 1.w),
                         Text("(20)",
                             style:
-                            TextStyle(color: AppColor.grey, fontSize: 10))
+                                TextStyle(color: AppColor.grey, fontSize: 10))
                       ],
                     ),
                     SizedBox(height: 1.5.h),
@@ -918,11 +919,11 @@ class _MyContainer7State extends State<MyContainer7> {
                         child: Container(
                             child: _value
                                 ? const Icon(
-                              Icons.notifications,
-                              color: Colors.white,
-                            )
+                                    Icons.notifications,
+                                    color: Colors.white,
+                                  )
                                 : const Icon(Icons.notifications_none,
-                                color: Colors.white)),
+                                    color: Colors.white)),
                       ),
                     ],
                   ),
@@ -944,7 +945,7 @@ class _MyContainer7State extends State<MyContainer7> {
                                     width: 8.5.w,
                                     decoration: BoxDecoration(
                                         borderRadius:
-                                        BorderRadius.circular(50)),
+                                            BorderRadius.circular(50)),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
@@ -956,12 +957,12 @@ class _MyContainer7State extends State<MyContainer7> {
                                             return child;
                                           return const Center(
                                               child: CircularProgressIndicator(
-                                                color: Colors.green,
-                                              ));
+                                            color: Colors.green,
+                                          ));
                                         },
                                         errorBuilder:
                                             (context, error, stackTrace) =>
-                                        const Center(
+                                                const Center(
                                           child: Text(
                                             "",
                                             style: TextStyle(
@@ -978,7 +979,7 @@ class _MyContainer7State extends State<MyContainer7> {
                                     width: 8.5.w,
                                     decoration: BoxDecoration(
                                         borderRadius:
-                                        BorderRadius.circular(50)),
+                                            BorderRadius.circular(50)),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
@@ -990,12 +991,12 @@ class _MyContainer7State extends State<MyContainer7> {
                                             return child;
                                           return const Center(
                                               child: CircularProgressIndicator(
-                                                color: Colors.green,
-                                              ));
+                                            color: Colors.green,
+                                          ));
                                         },
                                         errorBuilder:
                                             (context, error, stackTrace) =>
-                                        const Center(
+                                                const Center(
                                           child: Text(
                                             "",
                                             style: TextStyle(
@@ -1119,7 +1120,9 @@ class _MyContainer7State extends State<MyContainer7> {
 class OptionContainer extends StatelessWidget {
   final String text;
 
-  const OptionContainer({required this.text, });
+  const OptionContainer({
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -1198,7 +1201,7 @@ class MyContainer8 extends StatelessWidget {
                         SizedBox(width: 1.w),
                         Text("(20)",
                             style:
-                            TextStyle(color: AppColor.grey, fontSize: 10))
+                                TextStyle(color: AppColor.grey, fontSize: 10))
                       ],
                     ),
                     SizedBox(height: 1.5.h),
@@ -1220,7 +1223,7 @@ class MyContainer8 extends StatelessWidget {
                         SizedBox(width: 1.w),
                         const Text("(20)",
                             style:
-                            TextStyle(color: AppColor.grey, fontSize: 10))
+                                TextStyle(color: AppColor.grey, fontSize: 10))
                       ],
                     ),
                     SizedBox(height: 1.5.h),
@@ -1427,26 +1430,26 @@ class _FantasySecondtwoState extends State<FantasySecondtwo> {
             child: Container(
                 child: _value
                     ? Row(
-                  children: const [
-                    Icon(Icons.favorite_border, color: Colors.green),
-                    AppSizebox.w5,
-                    Text(AppString.favourite,
-                        style: TextStyle(color: Colors.green))
-                  ],
-                )
+                        children: const [
+                          Icon(Icons.favorite_border, color: Colors.green),
+                          AppSizebox.w5,
+                          Text(AppString.favourite,
+                              style: TextStyle(color: Colors.green))
+                        ],
+                      )
                     : Row(
-                  children: const [
-                    Icon(
-                      Icons.favorite,
-                      color: Colors.grey,
-                    ),
-                    AppSizebox.w5,
-                    Text(
-                      AppString.favourite,
-                      style: TextStyle(color: Colors.grey),
-                    )
-                  ],
-                )),
+                        children: const [
+                          Icon(
+                            Icons.favorite,
+                            color: Colors.grey,
+                          ),
+                          AppSizebox.w5,
+                          Text(
+                            AppString.favourite,
+                            style: TextStyle(color: Colors.grey),
+                          )
+                        ],
+                      )),
           ),
         ],
       ),
@@ -1509,7 +1512,7 @@ class BestPicksTile extends StatelessWidget {
                     children: [
                       const CircleAvatar(
                         backgroundImage:
-                        AssetImage("asset/player/Player Profile.png"),
+                            AssetImage("asset/player/Player Profile.png"),
                       ),
                       SizedBox(
                         width: 20.w,
@@ -1839,7 +1842,7 @@ class Scorecard extends StatelessWidget {
                                     AppSizebox.h10,
                                     Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           SizedBox(
                                               width: 42.w,
@@ -1874,13 +1877,14 @@ class MyContainer22 extends StatefulWidget {
   final String pr;
   final String ave;
 
-  MyContainer22({Key? key,
-    required this.backgroundImage,
-    required this.headerText,
-    required this.subscribers,
-    required this.ave,
-    required this.wins,
-    required this.pr})
+  MyContainer22(
+      {Key? key,
+      required this.backgroundImage,
+      required this.headerText,
+      required this.subscribers,
+      required this.ave,
+      required this.wins,
+      required this.pr})
       : super(key: key);
 
   @override
@@ -1901,42 +1905,46 @@ class _MyContainer22State extends State<MyContainer22> {
           children: [
             Positioned(
                 top: 2.2.h,
-                left: 2.w,
+                left: 4.w,
                 child: SizedBox(
                   height: 6.h,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ClipOval(
-                        child: Image.network(widget.backgroundImage,
+                        child: Image.network(
+                          widget.backgroundImage,
                           width: 45,
                           height: 80,
                           fit: BoxFit.cover,
                         ),
                       ),
                       AppSizebox.w5,
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            widget.headerText,
-                            overflow: TextOverflow.fade,
-                            maxLines: 1,
-                            softWrap: false,
-                            style: TextStyle(
-                                fontSize: 17, fontWeight: FontWeight.w400),
-                          ),
-                          Row(
-                            children: [
-                              Image.asset(AppIcon.uTube, height: 1.h),
-                              AppSizebox.w2,
-                              Text(
-                                widget.subscribers,
-                                style: TextStyle(fontSize: 10),
-                              )
-                            ],
-                          )
-                        ],
+                      Padding(
+                        padding: EdgeInsets.only(top: 0.8.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.headerText,
+                              overflow: TextOverflow.fade,
+                              maxLines: 1,
+                              softWrap: false,
+                              style: const TextStyle(
+                                  fontSize: 17, fontWeight: FontWeight.w400),
+                            ),
+                            Row(
+                              children: [
+                                Image.asset(AppIcon.uTube, height: 1.h),
+                                AppSizebox.w2,
+                                Text(
+                                  widget.subscribers,
+                                  style: TextStyle(fontSize: 10),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -1952,10 +1960,10 @@ class _MyContainer22State extends State<MyContainer22> {
                 },
                 child: Container(
                     child: _value
-                        ? Icon(
-                      Icons.favorite,
-                      color: Colors.green,
-                    )
+                        ? const Icon(
+                            Icons.favorite,
+                            color: Colors.green,
+                          )
                         : Icon(Icons.favorite_border, color: Colors.green)),
               ),
             ),
@@ -2056,7 +2064,7 @@ class _MyContainer23State extends State<MyContainer23> {
         Get.toNamed('expertinfo');
       },
       child: Container(
-        // height: 14.h,
+          // height: 14.h,
           width: 92.w,
           decoration: BoxDecoration(
               color: AppColor.light, borderRadius: BorderRadius.circular(10)),
@@ -2111,9 +2119,9 @@ class _MyContainer23State extends State<MyContainer23> {
                   child: Container(
                       child: _value
                           ? Icon(
-                        Icons.favorite,
-                        color: Colors.green,
-                      )
+                              Icons.favorite,
+                              color: Colors.green,
+                            )
                           : Icon(Icons.favorite_border, color: Colors.green)),
                 ),
               ),
@@ -2199,7 +2207,3 @@ class _MyContainer23State extends State<MyContainer23> {
     );
   }
 }
-
-
-
-

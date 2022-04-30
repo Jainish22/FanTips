@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../../Util/Sizebox.dart';
 
 class CompletedScorecard extends StatelessWidget {
   const CompletedScorecard({Key? key}) : super(key: key);

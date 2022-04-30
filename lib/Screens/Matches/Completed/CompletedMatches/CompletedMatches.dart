@@ -1,10 +1,10 @@
+import 'package:fantips/Util/AppColor.dart';
+import 'package:fantips/Util/AppStrings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../../Util/AppColor.dart';
-import '../../../../Util/AppStrings.dart';
 import 'CompletedCommentary/CompletedCommentary.dart';
 import 'CompletedFantasy/CompletedFantasy.dart';
 import 'CompletedScorecard/CompletedScorecard.dart';

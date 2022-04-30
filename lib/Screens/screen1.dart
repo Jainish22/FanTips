@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:progress_indicators/progress_indicators.dart';
 import 'package:sizer/sizer.dart';
 
-import 'Screens/Home/Home.dart';
+import 'Home/Home.dart';
 
 class Screen1 extends StatefulWidget {
   const Screen1({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class _Screen1State extends State<Screen1> {
   void initState() {
     super.initState();
     Future.delayed(
-      const Duration(seconds: 2),
+       const Duration(seconds: 2),
       () async {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeMain()));
       },
@@ -35,39 +35,38 @@ class _Screen1State extends State<Screen1> {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+      body: Stack(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 40.h),
+            child: Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 40.h),
-                  child: Center(
-                    child: Container(
-                      height: 120,
-                      width: 120,
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 4, color: AppColor.green),
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black,
-                            blurRadius: 6,
-                            offset: Offset(6, 10), // Shadow position
-                          ),
-                        ],
-                        image: const DecorationImage(
-                            image: NetworkImage(
-                              "https://lh3.googleusercontent.com/1GT4w6dAfG4lkO9ja9ZOhUKqVdU21r940zFnBrBrAsYUsTXnVb44MuUpO56ohHQzAow=s200",
-                            ),
-                            fit: BoxFit.cover),
+                Center(
+                  child:  Stack(
+                    children: [
+                      Container(
+                        height: 120,
+                        width: 120,
+                        decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.circular(30),
+                          //border: Border.all(width: 2,color: Colors.green),
+                        ),
                       ),
-                      // child: Padding(
-                      //   padding: EdgeInsets.only(top: 20.h,left: 12.w),
-                      //   child: Text("FanTips",style: TextStyle(color: Colors.black),),
-                      // ),
-                    ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 0.8.w, top: 0.4.h),
+                        child: Container(
+                          height: 114,
+                          width: 114,
+                          decoration: BoxDecoration(
+                              border: Border.all(width: 3, color: Colors.white),
+                              borderRadius: BorderRadius.circular(30),
+                              image: const DecorationImage(
+                                image: AssetImage("asset/Images/fantips_logo.png")
+                              )),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Padding(
@@ -84,7 +83,7 @@ class _Screen1State extends State<Screen1> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 25.h),
+                  padding: EdgeInsets.only(top: 23.h),
                   child: FadingText(
                     '...',
                     style: TextStyle(color: Colors.black, fontSize: 80),
@@ -93,8 +92,8 @@ class _Screen1State extends State<Screen1> {
                 // SizedBox(height: 2.0),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

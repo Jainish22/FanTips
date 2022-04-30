@@ -1,8 +1,8 @@
+import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/Sizebox.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../Util/AppColor.dart';
 
 class Squads extends StatelessWidget {
   const Squads({Key? key}) : super(key: key);

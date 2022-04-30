@@ -1,3 +1,5 @@
+import 'package:fantips/Screens/Home/News/Controller/News_Controller.dart';
+import 'package:fantips/Screens/Home/News/HomeNews.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/Sizebox.dart';
 import 'package:flutter/cupertino.dart';
@@ -8,8 +10,6 @@ import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:sizer/sizer.dart';
 
-import '../News/Controller/News_Controller.dart';
-import '../News/HomeNews.dart';
 
 class ViewAll extends StatefulWidget {
   const ViewAll({Key? key}) : super(key: key);

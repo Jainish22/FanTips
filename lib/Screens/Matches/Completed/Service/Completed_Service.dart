@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:fantips/Model/Matches_Model/completedmodel.dart';
 import 'package:http/http.dart' as http;
 
-import '../../../../Model/Matches_Model/completedmodel.dart';
 
 class CompletedService {
   static Future<Completedapi?> getCompleted({ required String value}) async {

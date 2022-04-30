@@ -8,7 +8,7 @@ import 'package:fantips/Screens/Matches/U%20L%20C%20Matches/UpcomingMatches.dart
 import 'package:fantips/Screens/More/More.dart';
 import 'package:get/get.dart';
 
-import '../screen1.dart';
+import '../Screens/screen1.dart';
 
 class Routes {
   static final routes = [

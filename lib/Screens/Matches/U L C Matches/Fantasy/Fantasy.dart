@@ -1,5 +1,7 @@
 import 'dart:developer';
+import 'package:fantips/Screens/Experts/ExperInfo/Expertinfo.dart';
 import 'package:fantips/Screens/Experts/controller/ExpertsController.dart';
+import 'package:fantips/Screens/Matches/U%20L%20C%20Matches/Team/team.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
@@ -8,7 +10,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../../../Experts/ExperInfo/Expertinfo.dart';
 
 class Fantasy extends StatefulWidget {
   const Fantasy({Key? key}) : super(key: key);
@@ -75,14 +76,15 @@ class _FantasyState extends State<Fantasy> {
                               final Experts =
                                   expertsController.getitem.value[index];
                               return GestureDetector(
-                                onTap: (){Get.to(Get.to(ExpertInfo(
-                                  name: Experts.name,
-                                  wins: "${Experts.top3}",
-                                  ave: "${Experts.avgScore}",
-                                  sub:"${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
-                                  //sub: '${Experts.subscriberCount}',
-                                  pre: '${Experts.totalPredictions}', backgroundImage: Experts.profileUrl,
-                                )));},
+                                // onTap: (){Get.to(Get.to(ExpertInfo(
+                                //   name: Experts.name,
+                                //   wins: "${Experts.top3}",
+                                //   ave: "${Experts.avgScore}",
+                                //   sub:"${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
+                                //   //sub: '${Experts.subscriberCount}',
+                                //   pre: '${Experts.totalPredictions}', backgroundImage: Experts.profileUrl,
+                                // )));},
+                                onTap: (){Get.to(Team());},
                                 child: Column(
                                   children: [
                                     MyContainer22(

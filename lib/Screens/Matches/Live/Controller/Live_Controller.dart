@@ -3,11 +3,11 @@
 import 'dart:developer';
 
 import 'package:fantips/Model/Matches_Model/UpcomingModel.dart';
+import 'package:fantips/Model/Matches_Model/completedmodel.dart';
+import 'package:fantips/Model/Matches_Model/livemodel.dart';
 import 'package:fantips/Screens/Matches/Live/Service/Live_Service.dart';
 import 'package:get/get.dart';
 
-import '../../../../Model/Matches_Model/completedmodel.dart';
-import '../../../../Model/Matches_Model/livemodel.dart';
 
 class LiveController extends GetxController {
   Rx<Liveapi> getLive = Liveapi().obs;
