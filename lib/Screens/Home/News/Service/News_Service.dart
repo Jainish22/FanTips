@@ -12,7 +12,7 @@ class NewsService {
       final url =
       Uri.parse("https://api.freefantasy.in/tips/getNewsList?offset=0&limit=20");
       final headers = {"Content-Type": "application/json"};
-      final body = ({'offset': "0", 'limit': '20'});
+      final body = ({'offset': value, 'limit': value});
       print("---------------${url}");
       final response = await http.post(url,headers: headers, body: jsonEncode(body));
       log("hello4${response.body}");

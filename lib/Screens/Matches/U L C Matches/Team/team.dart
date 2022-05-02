@@ -14,6 +14,7 @@ class Team extends StatefulWidget {
 }
 
 class _TeamState extends State<Team> {
+
   void share() {
     FlutterShare.share(title: "Example", linkUrl: "'https://flutter.dev/");
   }

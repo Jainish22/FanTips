@@ -1,4 +1,3 @@
-import 'package:fantips/Util/AppColor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -35,65 +34,62 @@ class _Screen1State extends State<Screen1> {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Stack(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 40.h),
-            child: Column(
-              children: [
-                Center(
-                  child:  Stack(
-                    children: [
-                      Container(
-                        height: 120,
-                        width: 120,
-                        decoration: BoxDecoration(
-                          color: Colors.green,
+      body: Padding(
+        padding: EdgeInsets.only(top: 40.h),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child:  Stack(
+                children: [
+                  Container(
+                    height: 120,
+                    width: 120,
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(30),
+                      //border: Border.all(width: 2,color: Colors.green),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 0.8.w, top: 0.4.h),
+                    child: Container(
+                      height: 114,
+                      width: 114,
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 3, color: Colors.white),
                           borderRadius: BorderRadius.circular(30),
-                          //border: Border.all(width: 2,color: Colors.green),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 0.8.w, top: 0.4.h),
-                        child: Container(
-                          height: 114,
-                          width: 114,
-                          decoration: BoxDecoration(
-                              border: Border.all(width: 3, color: Colors.white),
-                              borderRadius: BorderRadius.circular(30),
-                              image: const DecorationImage(
-                                image: AssetImage("asset/Images/fantips_logo.png")
-                              )),
-                        ),
-                      ),
-                    ],
+                          image: const DecorationImage(
+                            image: AssetImage("asset/Images/fantips_logo.png")
+                          )),
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 2.h, left: 2.w),
-                  child: Text(
-                    "FANTIPS",
-                    style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 38, shadows: [
-                      Shadow(
-                        color: Colors.black.withOpacity(0.3),
-                        offset: Offset(5, 7),
-                        blurRadius: 15,
-                      )
-                    ]),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 23.h),
-                  child: FadingText(
-                    '...',
-                    style: TextStyle(color: Colors.black, fontSize: 80),
-                  ),
-                ),
-                // SizedBox(height: 2.0),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+            Padding(
+              padding: EdgeInsets.only(top: 2.h),
+              child: Text(
+                "FANTIPS",
+                style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 38, shadows: [
+                  Shadow(
+                    color: Colors.black.withOpacity(0.3),
+                    offset: Offset(5, 7),
+                    blurRadius: 15,
+                  )
+                ]),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 20.h),
+              child: FadingText(
+                '...',
+                style: TextStyle(color: Colors.black, fontSize: 80),
+              ),
+            ),
+            // SizedBox(height: 2.0),
+          ],
+        ),
       ),
     );
   }

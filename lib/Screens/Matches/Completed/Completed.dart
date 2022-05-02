@@ -99,7 +99,7 @@ class _CompletedState extends State<Completed> {
                                 MyContainer7(
                                   headerText: completeData?.header ?? "",
                                   backgroundImage1:
-                                      NetworkImage("${completeData?.t1Flag}"),
+                                      "${completeData?.t1Flag}",
                                   backgroundImage2: "${completeData?.t2Flag}",
                                   matchesname1: "${completeData?.team1Name}",
                                   matchesname2: "${completeData?.team2Name}",

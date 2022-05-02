@@ -1,15 +1,18 @@
-import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-class Applay extends StatefulWidget {
+import '../../Util/AppColor.dart';
+
+class ContactMore extends StatefulWidget {
+  const ContactMore({Key? key}) : super(key: key);
+
   @override
-  _ApplayState createState() => _ApplayState();
+  _ContactMoreState createState() => _ContactMoreState();
 }
 
-class _ApplayState extends State<Applay> {
+class _ContactMoreState extends State<ContactMore> {
   TextEditingController username = TextEditingController();
   TextEditingController channel = TextEditingController();
   TextEditingController contact = TextEditingController();
@@ -24,19 +27,20 @@ class _ApplayState extends State<Applay> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
-            AppString.applyAsexperts,
+            AppString.contactUsforbranding,
             style: TextStyle(fontSize: 16),
           ),
         ),
         backgroundColor: AppColor.light,
         body: Padding(
-          padding: EdgeInsets.only(top: 3.h, left: 5.w, right: 5.w,bottom: 3.h),
+          padding:
+              EdgeInsets.only(top: 3.h, left: 5.w, right: 5.w, bottom: 3.h),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 children: [
-                  Container(
+                  SizedBox(
                     height: 6.5.h,
                     child: TextFormField(
                       controller: username,
@@ -46,7 +50,7 @@ class _ApplayState extends State<Applay> {
                           border: InputBorder.none,
                           hintText: "Name",
                           hintStyle: TextStyle(color: Colors.white)),
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please Enter Name';
@@ -56,7 +60,7 @@ class _ApplayState extends State<Applay> {
                     ),
                   ),
                   Lit(),
-                  Container(
+                  SizedBox(
                     height: 6.5.h,
                     child: TextFormField(
                       controller: channel,
@@ -64,19 +68,19 @@ class _ApplayState extends State<Applay> {
                       cursorColor: Colors.white,
                       decoration: const InputDecoration(
                           border: InputBorder.none,
-                          hintText: "Channel URL",
+                          hintText: "Email / Mobile number",
                           hintStyle: TextStyle(color: Colors.white)),
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please Enter Channel URL';
+                          return 'Please Enter Email / Mobile number';
                         }
                         return null;
                       },
                     ),
                   ),
                   Lit(),
-                  Container(
+                  SizedBox(
                     height: 6.5.h,
                     child: TextFormField(
                       controller: contact,
@@ -84,29 +88,30 @@ class _ApplayState extends State<Applay> {
                       cursorColor: Colors.white,
                       decoration: const InputDecoration(
                           border: InputBorder.none,
-                          hintText: "Contact no.",
+                          hintText: "Application link",
                           hintStyle: TextStyle(color: Colors.white)),
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please Enter Contact no.';
+                          return 'Please Enter Application link';
                         }
                         return null;
                       },
                     ),
                   ),
                   Lit(),
-                  Container(
+                  SizedBox(
                     height: 6.5.h,
                     child: TextFormField(
                       controller: description,
                       autofocus: false,
                       cursorColor: Colors.white,
                       decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Description",
-                          hintStyle: TextStyle(color: Colors.white)),
-                      style: TextStyle(color: Colors.white),
+                        border: InputBorder.none,
+                        hintText: "Description",
+                        hintStyle: TextStyle(color: Colors.white),
+                      ),
+                      style: const TextStyle(color: Colors.white),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please Enter Description';
@@ -122,7 +127,15 @@ class _ApplayState extends State<Applay> {
                 onTap: () {
                   if (_formKey.currentState!.validate()) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Processing Data')),
+                      SnackBar(
+                        content: Text('Thanks you'),
+                        action: SnackBarAction(
+                          label: '',
+                          onPressed: () {
+                            // Some code to undo the change.
+                          },
+                        ),
+                      ),
                     );
                   }
                 },
@@ -170,30 +183,3 @@ class _ApplayState extends State<Applay> {
     );
   }
 }
-//   Widget item(String name, String text, TextEditingController controller,String textname) {
-//     return Container(
-//       height: 6.5.h,
-//       child: Padding(
-//         padding: EdgeInsets.only(top: 2.h),
-//         child: TextFormField(
-//           decoration:  InputDecoration(
-//             border: InputBorder.none,
-//             hintText:  textname,
-//             hintStyle: TextStyle(color: Colors.white)
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-//
-//   Widget Lit() {
-//     return Padding(
-//       padding: EdgeInsets.only(bottom: 0.w,),
-//       child: const Divider(
-//         thickness: 2,
-//         color: Color(0xFFE6E6E6),
-//         height: 1,
-//       ),
-//     );
-//   }
-// }

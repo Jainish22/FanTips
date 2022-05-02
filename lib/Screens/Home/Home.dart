@@ -1,4 +1,5 @@
 import 'dart:developer';
+
 import 'package:fantips/Screens/Experts/ExperInfo/Expertinfo.dart';
 import 'package:fantips/Screens/Experts/Experts.dart';
 import 'package:fantips/Screens/Experts/controller/ExpertsController.dart';
@@ -272,30 +273,56 @@ class _HomeState extends State<Home> {
                                   padding:
                                       EdgeInsets.only(left: 4.w, right: 4.w),
                                   child: GestureDetector(
-                                    onTap: () {
-                                      Get.to(
-                                        ExpertInfo(
-                                          name: Experts.name,
+                                      onTap: () {
+                                        Get.to(
+                                          ExpertInfo(
+                                            name: Experts.name,
+                                            wins: "${Experts.top3}",
+                                            ave: "${Experts.avgScore}",
+                                            sub:
+                                                "${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
+                                            //sub: '${Experts.subscriberCount}',
+                                            pre: '${Experts.totalPredictions}',
+                                            backgroundImage: Experts.profileUrl,
+                                          ),
+                                        );
+                                      },
+                                      child: Obx(
+                                        () => MyContainer22(
+                                          headerText:
+                                              "${Experts.name!.length >= 25 ? Experts.name?.substring(0, 12) : Experts.name}",
+                                          pr: "${Experts.totalPredictions ?? " "}",
+                                          ave: "${Experts.avgScore ?? ""}",
                                           wins: "${Experts.top3}",
-                                          ave: "${Experts.avgScore}",
-                                          sub:
-                                              "${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
-                                          //sub: '${Experts.subscriberCount}',
-                                          pre: '${Experts.totalPredictions}',
-                                          backgroundImage: Experts.profileUrl,
+                                          subscribers:
+                                              '${Experts.subscriberCount}',
+                                          backgroundImage:
+                                              Experts.profileUrl ?? "",
+                                          onTap: () {
+                                            if (Experts.inWishList?.value ==
+                                                false) {
+                                              expertsController
+                                                  .addItem(Experts.name ?? "");
+                                            } else {
+                                              expertsController.removeItem(
+                                                  Experts.name ?? "");
+                                            }
+                                          },
+                                          iconButton: expertsController
+                                                      .getitem
+                                                      .value[index]
+                                                      .inWishList ==
+                                                  true
+                                              ? Icon(
+                                                  Icons.favorite,
+                                                  color: Colors.green,
+                                                )
+                                              : Icon(
+                                                  Icons.favorite_border,
+                                                  color: Colors.green,
+                                                ),
                                         ),
-                                      );
-                                    },
-                                    child: MyContainer22(
-                                      headerText:
-                                          "${Experts.name!.length >= 25 ? Experts.name?.substring(0, 12) : Experts.name}",
-                                      pr: "${Experts.totalPredictions ?? " "}",
-                                      ave: "${Experts.avgScore ?? ""}",
-                                      wins: "${Experts.top3}",
-                                      subscribers: '${Experts.subscriberCount}',
-                                      backgroundImage: Experts.profileUrl ?? "",
-                                    ),
-                                  ),
+                                      )),
                                 );
                               },
                             ),
@@ -358,8 +385,8 @@ class _HomeState extends State<Home> {
                                         .getNews.value.news?[index].image,
                                     newname: _NewsController
                                         .getNews.value.news?[index].title,
-                                    newstime:
-                                        "${_NewsController.getNews.value.news?[index].time}",
+                                    newstime: _NewsController
+                                        .getNews.value.news?[index].time,
                                     samlldata:
                                         "${_NewsController.getNews.value.news?[index].smallDesc}",
                                   ),
@@ -473,9 +500,9 @@ class _HomeState extends State<Home> {
                                                           .news?[index]
                                                           .smallDesc ??
                                                       "",
-                                                  maxLines: 3,
+                                                  maxLines: 2,
                                                   style: const TextStyle(
-                                                    color: AppColor.grey,
+                                                    color: AppColor.greymin,
                                                     fontSize: 12,
                                                   )),
                                               Text(
@@ -489,15 +516,16 @@ class _HomeState extends State<Home> {
                                                       color: AppColor.grey,
                                                       fontSize: 12)),
                                               Text(
-                                                  hourAndMin(_NewsController
-                                                          .getNews
-                                                          .value
-                                                          .news?[index]
-                                                          .time ??
-                                                      0),
+                                                  displayTimeAgoFromTimestamp(
+                                                      _NewsController
+                                                              .getNews
+                                                              .value
+                                                              .news?[index]
+                                                              .time ??
+                                                          0),
                                                   style: const TextStyle(
                                                       color: AppColor.grey,
-                                                      fontSize: 12)),
+                                                      fontSize: 10)),
                                             ],
                                           ),
                                         ),
@@ -526,28 +554,37 @@ class _HomeState extends State<Home> {
     );
   }
 
-  String timeAgo(DateTime date) {
-    Duration diff = DateTime.now().difference(date);
-    print('date--->>>> ${diff}');
-
-    if (diff.inDays > 365) {
-      return "${(diff.inDays / 365).floor()} ${(diff.inDays / 365).floor() == 1 ? "year" : "years"} ago";
+  String displayTimeAgoFromTimestamp(int time, {bool numericDates = true}) {
+    DateTime date = DateTime.fromMillisecondsSinceEpoch(time);
+    final currentDate = DateTime.now();
+    final difference = currentDate.difference(date);
+    log("date ---> $date");
+    log("currentDate ---> $currentDate");
+    log("difference ---> $difference");
+    String result = '';
+    if (difference.inDays >= 365) {
+      result = '${difference.inDays ~/ 365}y';
+    } else if (difference.inDays == 1) {
+      result = (numericDates) ? '1 days ago' : 'Yesterday';
+    } else if (difference.inDays > 1) {
+      result = (numericDates) ? '${difference.inDays}d' : 'Yesterday';
+    } else if (difference.inHours >= 2) {
+      result = '${difference.inHours} hours';
+    } else if (difference.inHours >= 1) {
+      result = (numericDates) ? '${difference.inHours}h' : 'An hour ago';
+    } else if (difference.inMinutes >= 1) {
+      result = '${difference.inMinutes} minutes';
+    } else if (difference.inMinutes >= 1) {
+      result = (numericDates) ? '${difference.inMinutes}m' : 'A minute ago';
+    } else if (difference.inSeconds >= 1) {
+      result = '${difference.inSeconds} seconds';
+    } else if (difference.inSeconds == 0) {
+      result = '0s';
+    } else {
+      final DateFormat formatter = DateFormat("yyyy-MM-dd");
+      result = formatter.format(date);
+      log("result :- $result");
     }
-    if (diff.inDays > 30) {
-      return "${(diff.inDays / 30).floor()} ${(diff.inDays / 30).floor() == 1 ? "month" : "months"} ago";
-    }
-    if (diff.inDays > 7) {
-      return "${(diff.inDays / 7).floor()} ${(diff.inDays / 7).floor() == 1 ? "week" : "weeks"} ago";
-    }
-    if (diff.inDays > 0) {
-      return "${diff.inDays} ${diff.inDays == 1 ? "day" : "days"} ago";
-    }
-    if (diff.inHours > 0) {
-      return "${diff.inHours} ${diff.inHours == 1 ? "hour" : "hours"} ago";
-    }
-    if (diff.inMinutes > 0) {
-      return "${diff.inMinutes} ${diff.inMinutes == 1 ? "minute" : "minutes"} ago";
-    }
-    return AppString.quiz;
+    return result;
   }
 }

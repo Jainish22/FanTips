@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
+
 Expert expertFromJson(String str) => Expert.fromJson(json.decode(str));
 
 String expertToJson(Expert data) => json.encode(data.toJson());
@@ -18,6 +20,7 @@ class Expert {
   String? result;
   List<Tipster>? tipsters;
   bool? status;
+
 
   factory Expert.fromJson(Map<String, dynamic> json) => Expert(
     result: json["result"],
@@ -43,6 +46,7 @@ class Tipster {
     this.top3,
     this.active,
     this.id,
+    this.inWishList,
     this.platform,
   });
 
@@ -56,6 +60,7 @@ class Tipster {
   bool? active;
   int? id;
   String? platform;
+  RxBool? inWishList;
 
   factory Tipster.fromJson(Map<String, dynamic> json) => Tipster(
     sourceUrl: json["sourceUrl"],
@@ -68,6 +73,7 @@ class Tipster {
     active: json["active"],
     id: json["id"],
     platform: json["platform"],
+      inWishList: false.obs,
   );
 
   Map<String, dynamic> toJson() => {

@@ -1,9 +1,14 @@
+import 'package:fantips/Screens/More/contactMore.dart';
+import 'package:fantips/Screens/More/favoriteMore.dart';
+import 'package:fantips/Screens/More/howtoplay.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
 import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:rating_dialog/rating_dialog.dart';
 import 'package:sizer/sizer.dart';
 
@@ -18,7 +23,10 @@ class More extends StatefulWidget {
 
 class _MoreState extends State<More> {
   void share() {
-    FlutterShare.share(title: "Fantips", linkUrl: "https://play.google.com/store/apps/details?id=fantasy.prediction.fantips");
+    FlutterShare.share(
+        title: "Fantips",
+        linkUrl:
+            "https://play.google.com/store/apps/details?id=fantasy.prediction.fantips");
   }
 
   final _dialog = RatingDialog(
@@ -68,7 +76,6 @@ class _MoreState extends State<More> {
     submitButtonText: 'Not Now',
     submitButtonTextStyle: TextStyle(color: Colors.green),
     onSubmitted: (response) {},
-
   );
 
   // show the dialog
@@ -111,8 +118,13 @@ class _MoreState extends State<More> {
               child: Column(
             children: [
               AppSizebox.h20,
-              const OptionContainer(
-                text: AppString.featuredExperts,
+              GestureDetector(
+                onTap: () {
+                  Get.to(WishListScreen());
+                },
+                child: const OptionContainer(
+                  text: AppString.favouriteExperts,
+                ),
               ),
               AppSizebox.h20,
               GestureDetector(
@@ -138,40 +150,53 @@ class _MoreState extends State<More> {
               ),
               AppSizebox.h2,
               GestureDetector(
-                child: OptionContainer(
+                child: const OptionContainer(
                   text: AppString.feedBack,
                 ),
-                onTap: (){
+                onTap: () {
                   Applay();
                 },
               ),
               AppSizebox.h20,
-              OptionContainer(
-                text: AppString.privacyPolicy,
+              InkWell(
+                onTap: () {},
+                child: const OptionContainer(
+                  text: AppString.privacyPolicy,
+                ),
               ),
               AppSizebox.h2,
-              OptionContainer(
+              const OptionContainer(
                 text: AppString.copyright,
               ),
               AppSizebox.h2,
-              OptionContainer(
+              const OptionContainer(
                 text: AppString.termsOfuse,
               ),
               AppSizebox.h20,
-              OptionContainer(
-                text: AppString.howtoplay,
+              GestureDetector(
+                onTap: () {
+                  Get.to(HowToPlay());
+                },
+                child: const OptionContainer(
+                  text: AppString.howtoplay,
+                ),
               ),
               AppSizebox.h2,
-              OptionContainer(
-                text: AppString.applyAsexperts,
+              GestureDetector(
+                onTap: () {
+                  Get.to(Applay());
+                },
+                child: const OptionContainer(
+                  text: AppString.applyAsexperts,
+                ),
               ),
               AppSizebox.h2,
-              InkWell(
-                child: OptionContainer(
+              GestureDetector(
+                child: const OptionContainer(
                   text: AppString.contactUsforbranding,
                 ),
                 onTap: () {
-                  Applay();
+                  Get.to(ContactMore());
                 },
               ),
             ],

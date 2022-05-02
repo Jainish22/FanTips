@@ -1,4 +1,5 @@
 import 'package:fantips/Helper/MyBottomsheet/MyBottomSheet.dart';
+import 'package:fantips/Screens/Experts/controller/ExpertsController.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
 import 'package:fantips/Util/AppStrings.dart';
@@ -8,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
-
 
 ///First Container Home
 class MyContainer1 extends StatefulWidget {
@@ -479,72 +479,84 @@ class _MyContainer4State extends State<MyContainer4> {
                             children: [
                               Column(
                                 children: [
-                                  Container(
-                                    height: 4.h,
-                                    width: 8.5.w,
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(50)),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        widget.backgroundImage2,
-                                        fit: BoxFit.cover,
-                                        loadingBuilder:
-                                            (context, child, loadingProgress) {
-                                          if (loadingProgress == null)
-                                            return child;
-                                          return const Center(
-                                              child: CircularProgressIndicator(
-                                            color: Colors.green,
-                                          ));
-                                        },
-                                        errorBuilder:
-                                            (context, error, stackTrace) =>
-                                                const Center(
-                                          child: Text(
-                                            "",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 7),
-                                          ),
-                                        ),
-                                      ),
+                                  // Container(
+                                  //   height: 4.h,
+                                  //   width: 8.5.w,
+                                  //   decoration: BoxDecoration(
+                                  //       borderRadius:
+                                  //           BorderRadius.circular(50)),
+                                  //   child: ClipRRect(
+                                  //     borderRadius: BorderRadius.circular(60),
+                                  //     child: Image.network(
+                                  //       widget.backgroundImage2,
+                                  //       fit: BoxFit.cover,
+                                  //       loadingBuilder:
+                                  //           (context, child, loadingProgress) {
+                                  //         if (loadingProgress == null)
+                                  //           return child;
+                                  //         return const Center(
+                                  //             child: CircularProgressIndicator(
+                                  //           color: Colors.green,
+                                  //         ));
+                                  //       },
+                                  //       errorBuilder:
+                                  //           (context, error, stackTrace) =>
+                                  //               const Center(
+                                  //         child: Text(
+                                  //           "",
+                                  //           style: TextStyle(
+                                  //               color: Colors.white,
+                                  //               fontSize: 7),
+                                  //         ),
+                                  //       ),
+                                  //     ),
+                                  //   ),
+                                  // ),
+                                  CircleAvatar(
+                                    radius: 15, // Image radius
+                                    backgroundImage: NetworkImage(
+                                      widget.backgroundImage1,
                                     ),
                                   ),
                                   SizedBox(height: 1.5.h),
-                                  Container(
-                                    height: 4.h,
-                                    width: 8.5.w,
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(50)),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        widget.backgroundImage2,
-                                        fit: BoxFit.cover,
-                                        loadingBuilder:
-                                            (context, child, loadingProgress) {
-                                          if (loadingProgress == null)
-                                            return child;
-                                          return const Center(
-                                              child:
-                                                  CircularProgressIndicator());
-                                        },
-                                        errorBuilder:
-                                            (context, error, stackTrace) =>
-                                                const Center(
-                                          child: Text(
-                                            "",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 7),
-                                          ),
-                                        ),
-                                      ),
+                                  CircleAvatar(
+                                    radius: 15, // Image radius
+                                    backgroundImage: NetworkImage(
+                                      widget.backgroundImage2,
                                     ),
                                   ),
+                                  // Container(
+                                  //   height: 4.h,
+                                  //   width: 8.5.w,
+                                  //   decoration: BoxDecoration(
+                                  //       borderRadius:
+                                  //           BorderRadius.circular(50)),
+                                  //   child: ClipRRect(
+                                  //     borderRadius: BorderRadius.circular(50),
+                                  //     child: Image.network(
+                                  //       widget.backgroundImage2,
+                                  //       fit: BoxFit.cover,
+                                  //       loadingBuilder:
+                                  //           (context, child, loadingProgress) {
+                                  //         if (loadingProgress == null)
+                                  //           return child;
+                                  //         return const Center(
+                                  //             child:
+                                  //                 CircularProgressIndicator());
+                                  //       },
+                                  //       errorBuilder:
+                                  //           (context, error, stackTrace) =>
+                                  //               const Center(
+                                  //         child: Text(
+                                  //           "",
+                                  //           style: TextStyle(
+                                  //               color: Colors.white,
+                                  //               fontSize: 7),
+                                  //         ),
+                                  //       ),
+                                  //     ),
+                                  //   ),
+                                  // ),
                                 ],
                               ),
                               SizedBox(width: 2.w),
@@ -848,7 +860,7 @@ class MyContainer6 extends StatelessWidget {
 ///Seventh Container IPLMatches
 class MyContainer7 extends StatefulWidget {
   final String headerText;
-  final ImageProvider backgroundImage1;
+  final String backgroundImage1;
   final String backgroundImage2;
   final String matchesname1;
   final String matchesname2;
@@ -940,73 +952,85 @@ class _MyContainer7State extends State<MyContainer7> {
                             children: [
                               Column(
                                 children: [
-                                  Container(
-                                    height: 4.h,
-                                    width: 8.5.w,
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(50)),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        widget.backgroundImage2,
-                                        fit: BoxFit.cover,
-                                        loadingBuilder:
-                                            (context, child, loadingProgress) {
-                                          if (loadingProgress == null)
-                                            return child;
-                                          return const Center(
-                                              child: CircularProgressIndicator(
-                                            color: Colors.green,
-                                          ));
-                                        },
-                                        errorBuilder:
-                                            (context, error, stackTrace) =>
-                                                const Center(
-                                          child: Text(
-                                            "",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 7),
-                                          ),
-                                        ),
-                                      ),
+                                  // Container(
+                                  //   height: 4.h,
+                                  //   width: 8.5.w,
+                                  //   decoration: BoxDecoration(
+                                  //       borderRadius:
+                                  //           BorderRadius.circular(50)),
+                                  //   child: ClipRRect(
+                                  //     borderRadius: BorderRadius.circular(50),
+                                  //     child: Image.network(
+                                  //       widget.backgroundImage2,
+                                  //       fit: BoxFit.cover,
+                                  //       loadingBuilder:
+                                  //           (context, child, loadingProgress) {
+                                  //         if (loadingProgress == null)
+                                  //           return child;
+                                  //         return const Center(
+                                  //             child: CircularProgressIndicator(
+                                  //           color: Colors.green,
+                                  //         ));
+                                  //       },
+                                  //       errorBuilder:
+                                  //           (context, error, stackTrace) =>
+                                  //               const Center(
+                                  //         child: Text(
+                                  //           "",
+                                  //           style: TextStyle(
+                                  //               color: Colors.white,
+                                  //               fontSize: 7),
+                                  //         ),
+                                  //       ),
+                                  //     ),
+                                  //   ),
+                                  // ),
+                                  CircleAvatar(
+                                    radius: 15, // Image radius
+                                    backgroundImage: NetworkImage(
+                                      widget.backgroundImage1,
                                     ),
                                   ),
                                   SizedBox(height: 1.5.h),
-                                  Container(
-                                    height: 4.h,
-                                    width: 8.5.w,
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(50)),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        widget.backgroundImage2,
-                                        fit: BoxFit.cover,
-                                        loadingBuilder:
-                                            (context, child, loadingProgress) {
-                                          if (loadingProgress == null)
-                                            return child;
-                                          return const Center(
-                                              child: CircularProgressIndicator(
-                                            color: Colors.green,
-                                          ));
-                                        },
-                                        errorBuilder:
-                                            (context, error, stackTrace) =>
-                                                const Center(
-                                          child: Text(
-                                            "",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 7),
-                                          ),
-                                        ),
-                                      ),
+                                  CircleAvatar(
+                                    radius: 15, // Image radius
+                                    backgroundImage: NetworkImage(
+                                      widget.backgroundImage2,
                                     ),
                                   ),
+                                  // Container(
+                                  //   height: 4.h,
+                                  //   width: 8.5.w,
+                                  //   decoration: BoxDecoration(
+                                  //       borderRadius:
+                                  //           BorderRadius.circular(50)),
+                                  //   child: ClipRRect(
+                                  //     borderRadius: BorderRadius.circular(50),
+                                  //     child: Image.network(
+                                  //       widget.backgroundImage2,
+                                  //       fit: BoxFit.cover,
+                                  //       loadingBuilder:
+                                  //           (context, child, loadingProgress) {
+                                  //         if (loadingProgress == null)
+                                  //           return child;
+                                  //         return const Center(
+                                  //             child: CircularProgressIndicator(
+                                  //           color: Colors.green,
+                                  //         ));
+                                  //       },
+                                  //       errorBuilder:
+                                  //           (context, error, stackTrace) =>
+                                  //               const Center(
+                                  //         child: Text(
+                                  //           "",
+                                  //           style: TextStyle(
+                                  //               color: Colors.white,
+                                  //               fontSize: 7),
+                                  //         ),
+                                  //       ),
+                                  //     ),
+                                  //   ),
+                                  // ),
                                 ],
                               ),
                               SizedBox(width: 2.w),
@@ -1876,15 +1900,19 @@ class MyContainer22 extends StatefulWidget {
   final String wins;
   final String pr;
   final String ave;
+  final Icon iconButton;
+  final VoidCallback onTap;
 
-  MyContainer22(
+  const MyContainer22(
       {Key? key,
       required this.backgroundImage,
       required this.headerText,
       required this.subscribers,
       required this.ave,
       required this.wins,
-      required this.pr})
+      required this.pr,
+      required this.iconButton,
+      required this.onTap})
       : super(key: key);
 
   @override
@@ -1894,94 +1922,131 @@ class MyContainer22 extends StatefulWidget {
 class _MyContainer22State extends State<MyContainer22> {
   bool _value = false;
 
+  final ExpertsController expertsController = Get.find();
+
+  void submitDate() {
+    Navigator.of(context).pop();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 18.h,
-        width: 92.w,
-        decoration: BoxDecoration(
-            color: AppColor.light, borderRadius: BorderRadius.circular(10)),
-        child: Stack(
-          children: [
-            Positioned(
-                top: 2.2.h,
-                left: 4.w,
-                child: SizedBox(
-                  height: 6.h,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ClipOval(
-                        child: Image.network(
-                          widget.backgroundImage,
-                          width: 45,
-                          height: 80,
-                          fit: BoxFit.cover,
+      height: 17.h,
+      width: 92.w,
+      decoration: BoxDecoration(
+          color: AppColor.light, borderRadius: BorderRadius.circular(10)),
+      child: Stack(
+        children: [
+          Positioned(
+            top: 1.5.h,
+            left: 4.w,
+            child: SizedBox(
+              height: 6.h,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipOval(
+                    child: Image.network(
+                      widget.backgroundImage,
+                      width: 45,
+                      height: 80,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  AppSizebox.w5,
+                  Padding(
+                    padding: EdgeInsets.only(top: 0.8.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.headerText,
+                          overflow: TextOverflow.fade,
+                          maxLines: 1,
+                          softWrap: false,
+                          style: const TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.w400),
                         ),
-                      ),
-                      AppSizebox.w5,
-                      Padding(
-                        padding: EdgeInsets.only(top: 0.8.h),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        Row(
                           children: [
+                            Image.asset(AppIcon.uTube, height: 1.h),
+                            AppSizebox.w2,
                             Text(
-                              widget.headerText,
-                              overflow: TextOverflow.fade,
-                              maxLines: 1,
-                              softWrap: false,
-                              style: const TextStyle(
-                                  fontSize: 17, fontWeight: FontWeight.w400),
-                            ),
-                            Row(
-                              children: [
-                                Image.asset(AppIcon.uTube, height: 1.h),
-                                AppSizebox.w2,
-                                Text(
-                                  widget.subscribers,
-                                  style: TextStyle(fontSize: 10),
-                                )
-                              ],
+                              widget.subscribers,
+                              style: TextStyle(fontSize: 10),
                             )
                           ],
-                        ),
-                      ),
-                    ],
+                        )
+                      ],
+                    ),
                   ),
-                )),
-            Positioned(
-              top: 2.h,
-              left: 82.w,
-              child: InkWell(
-                onTap: () {
-                  setState(() {
-                    _value = !_value;
-                  });
-                },
-                child: Container(
-                    child: _value
-                        ? const Icon(
-                            Icons.favorite,
-                            color: Colors.green,
-                          )
-                        : Icon(Icons.favorite_border, color: Colors.green)),
+                ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(top: 10.h, left: 5.w, right: 6.w),
-              child: SizedBox(
-                height: 7.h,
-                // width: 85.w,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(children: [
-                      Text(widget.pr,
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: "GothamPro",
-                              color: AppColor.greymin)),
+          ),
+          Positioned(
+            top: 1.h,
+            left: 78.w,
+            child: IconButton(
+              splashColor: Colors.transparent,
+              icon: widget.iconButton,
+              onPressed: widget.onTap,
+
+              // Obx(() => IconButton(
+              //   onPressed: () {
+              //     if (product.inWishList?.value == false) {
+              //       expertsController.addItem(product.name ?? "");
+              //     } else {
+              //       expertsController.removeItem(product.name ?? "");
+              //     }
+              //   },
+              //   icon: Icon(
+              //     Icons.favorite,
+              //     color: product.inWishList?.value == false
+              //         ? Colors.white
+              //         : Colors.red,
+              //   ),
+              // )),
+
+              //     InkWell(
+              //   onTap: () {
+              //     setState(() {
+              //       _value = !_value;
+              //     });
+              //   },
+              //   child: Container(
+              //     child: _value
+              //         ? IconButton(
+              //             icon: const Icon(
+              //               Icons.favorite,
+              //               color: Colors.green,
+              //             ),
+              //             onPressed: () {
+              //               submitDate();
+              //             },
+              //           )
+              //         : const Icon(Icons.favorite_border, color: Colors.green),
+              //   ),
+              // ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 10.h, left: 5.w, right: 6.w),
+            child: SizedBox(
+              height: 7.h,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        widget.pr,
+                        style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "GothamPro",
+                            color: AppColor.greymin),
+                      ),
                       const Text(
                         AppString.prediction,
                         style: TextStyle(
@@ -1991,21 +2056,25 @@ class _MyContainer22State extends State<MyContainer22> {
                           // fontFamily: "GothamPro",
                         ),
                       )
-                    ]),
-                    const VerticalDivider(
-                        width: 2,
-                        color: AppColor.dBlack,
-                        thickness: 1,
-                        endIndent: 10,
-                        indent: 10),
-                    Column(children: [
-                      Text(widget.ave,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "GothamPro",
-                            color: AppColor.greymin,
-                          )),
+                    ],
+                  ),
+                  const VerticalDivider(
+                      width: 2,
+                      color: AppColor.dBlack,
+                      thickness: 1,
+                      endIndent: 10,
+                      indent: 10),
+                  Column(
+                    children: [
+                      Text(
+                        widget.ave,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: "GothamPro",
+                          color: AppColor.greymin,
+                        ),
+                      ),
                       const Text(
                         AppString.avgScore,
                         style: TextStyle(
@@ -2014,22 +2083,26 @@ class _MyContainer22State extends State<MyContainer22> {
                           fontWeight: FontWeight.w500,
                           // fontFamily: "GothamPro",
                         ),
-                      )
-                    ]),
-                    const VerticalDivider(
-                        width: 2,
-                        color: AppColor.dBlack,
-                        thickness: 1,
-                        endIndent: 10,
-                        indent: 10),
-                    Column(children: [
-                      Text(widget.wins,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "GothamPro",
-                            color: AppColor.greymin,
-                          )),
+                      ),
+                    ],
+                  ),
+                  const VerticalDivider(
+                      width: 2,
+                      color: AppColor.dBlack,
+                      thickness: 1,
+                      endIndent: 10,
+                      indent: 10),
+                  Column(
+                    children: [
+                      Text(
+                        widget.wins,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: "GothamPro",
+                          color: AppColor.greymin,
+                        ),
+                      ),
                       const Text(
                         AppString.wins,
                         style: TextStyle(
@@ -2039,13 +2112,15 @@ class _MyContainer22State extends State<MyContainer22> {
                           // fontFamily: "GothamPro",
                         ),
                       )
-                    ])
-                  ],
-                ),
+                    ],
+                  )
+                ],
               ),
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -2118,7 +2193,7 @@ class _MyContainer23State extends State<MyContainer23> {
                   },
                   child: Container(
                       child: _value
-                          ? Icon(
+                          ? const Icon(
                               Icons.favorite,
                               color: Colors.green,
                             )

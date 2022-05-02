@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:sizer/sizer.dart';
 
+
 class CompletedFantasy extends StatefulWidget {
   const CompletedFantasy({Key? key}) : super(key: key);
 
@@ -76,15 +77,29 @@ class _CompletedFantasyState extends State<CompletedFantasy> {
                                     //   ),
                                     // );
                                   },
-                                  child: MyContainer22(
+                                  child: Obx(()=>MyContainer22(
                                     headerText:
-                                        "${Experts.name!.length >= 25 ? Experts.name?.substring(0, 12) : Experts.name}",
+                                    "${Experts.name!.length >= 25 ? Experts.name?.substring(0, 12) : Experts.name}",
                                     pr: "${Experts.totalPredictions ?? " "}",
                                     ave: "${Experts.avgScore ?? ""}",
                                     wins: "${Experts.top3}",
                                     subscribers: '${Experts.subscriberCount}',
                                     backgroundImage: Experts.profileUrl ?? "",
-                                  ),
+                                    onTap: () {
+                                      if (Experts.inWishList?.value ==
+                                          false) {
+                                        expertsController
+                                            .addItem(Experts.name ?? "");
+                                      } else {
+                                        expertsController
+                                            .removeItem(Experts.name ?? "");
+                                      }
+                                    },
+                                    iconButton: expertsController.getitem
+                                        .value[index].inWishList == true
+                                        ? Icon(Icons.favorite,color: Colors.green,)
+                                        : Icon(Icons.favorite_border,color: Colors.green,),
+                                  ),)
                                 ),
                                 AppSizebox.h10,
                               ],

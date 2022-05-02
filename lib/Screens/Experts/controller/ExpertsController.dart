@@ -7,6 +7,8 @@ import 'package:fantips/Screens/Home/News/Service/News_Service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+import '../../../Model/Matches_Model/UpcomingModel.dart';
+
 class ExpertsController extends GetxController{
   Rx<Expert> getExpert = Expert().obs;
   RxList<Tipster> getitem = <Tipster>[].obs;
@@ -34,6 +36,25 @@ class ExpertsController extends GetxController{
     getData();
     super.onInit();
   }
+
+  List<Tipster> get wishListItems {
+    return getitem.where((item) => item.inWishList?.value == true).toList();
+  }
+
+
+  void addItem(String name) {
+    final int index = getitem.indexWhere((item) => item.name == name);
+    getitem.value[index].inWishList?.value = true;
+  }
+
+  // Remove an item from the wish list
+  void removeItem(String name) {
+    final int index = getitem.indexWhere((item) => item.name == name);
+    getitem.value[index].inWishList?.value = false;
+  }
+
+
+
 
   getMoreData() async {
     isLoadMoreRunning.value = true;
