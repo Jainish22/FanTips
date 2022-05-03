@@ -1945,7 +1945,7 @@ class _MyContainer22State extends State<MyContainer22> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ClipOval(
+                  Container(
                     child: Image.network(
                       widget.backgroundImage,
                       width: 45,

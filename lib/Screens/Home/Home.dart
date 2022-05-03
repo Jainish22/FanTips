@@ -261,9 +261,10 @@ class _HomeState extends State<Home> {
                               onPageChanged: (value) {
                                 expertsController.matchSelect.value = value;
                               },
-                              itemCount: expertsController.getitem.value == true
-                                  ? expertsController.getitem.length
-                                  : 5,
+                              // itemCount: expertsController.getitem.value == true
+                              //     ? expertsController.getitem.length
+                              //     : 5,
+                        itemCount: expertsController.getitem.value.length,
                               itemBuilder: (BuildContext context, index) {
                                 log("Service111111-------${expertsController.getitem.length}");
                                 final Experts =

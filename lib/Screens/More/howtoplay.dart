@@ -16,7 +16,7 @@ class _HowToPlayState extends State<HowToPlay> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           AppString.howtoplay,
           style: TextStyle(fontSize: 16),
         ),
@@ -29,41 +29,48 @@ class _HowToPlayState extends State<HowToPlay> {
           children: [
             AppSizebox.h10,
             Container(
-                width: 92.w,
-                color: Colors.indigo[300],
-                child: const Text(
-                  "HTTP Status 404 – Not Found",
-                  style: TextStyle(
-                      fontSize: 22,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700),
-                )),
+              width: 92.w,
+              color: Colors.indigo[300],
+              child: const Text(
+                "HTTP Status 404 – Not Found",
+                style: TextStyle(
+                    fontSize: 22,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700),
+              ),
+            ),
             const Divider(
               color: Colors.black,
             ),
-            const Text("Type Status Report",  style: TextStyle(
-                fontSize: 14,
-                color: Colors.black,
-                fontWeight: FontWeight.w300),),
+            const Text(
+              "Type Status Report",
+              style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w300),
+            ),
             AppSizebox.h5,
             const Text(
-                "Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.",  style: TextStyle(
-                fontSize: 14,
-                color: Colors.black,
-                fontWeight: FontWeight.w300),),
+              "Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.",
+              style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w300),
+            ),
             const Divider(
               color: Colors.black,
             ),
             Container(
-                width: 92.w,
-                color: Colors.indigo[300],
-                child: const Text(
-                  "Apache Tomcat/9.0.31 (Ubuntu)",
-                  style: TextStyle(
-                      fontSize: 22,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700),
-                )),
+              width: 92.w,
+              color: Colors.indigo[300],
+              child: const Text(
+                "Apache Tomcat/9.0.31 (Ubuntu)",
+                style: TextStyle(
+                    fontSize: 22,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700),
+              ),
+            ),
           ],
         ),
       ),
