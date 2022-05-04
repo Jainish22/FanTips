@@ -85,9 +85,10 @@ class _ViewAllState extends State<ViewAll> {
                                     ),
                                     Padding(
                                       padding:
-                                          EdgeInsets.only(top: 18.1.h, left: 0.w),
+                                          EdgeInsets.only(top: 18.h, left: 0.w),
                                       child: Container(
                                         width: 22.w,
+                                          height: 2.h,
                                           decoration: const BoxDecoration(
                                             borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10)),
                                             color: AppColor.green,

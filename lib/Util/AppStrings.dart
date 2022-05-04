@@ -3,7 +3,7 @@ class AppString {
 
   //Home String
   static const fanTips = 'FanTips';
-  static const logIn = 'Log in';
+  static const logIn = 'Login';
   static const matchesForyou = 'Matches for you';
   static const featuredExperts = 'Featured Experts';
   static const topStories = 'Top Stories';
