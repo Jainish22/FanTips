@@ -315,11 +315,11 @@ class _HomeState extends State<Home> {
                                                       .value[index]
                                                       .inWishList ==
                                                   true
-                                              ? Icon(
+                                              ? const Icon(
                                                   Icons.favorite,
                                                   color: Colors.green,
                                                 )
-                                              : Icon(
+                                              : const Icon(
                                                   Icons.favorite_border,
                                                   color: Colors.green,
                                                 ),
