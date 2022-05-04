@@ -112,7 +112,7 @@ class _MoreState extends State<More> {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-        appBar: MyAppbar(AppString.more),
+        appBar: MyAppbar(AppString.more,),
         body: SafeArea(
           child: SingleChildScrollView(
               child: Column(

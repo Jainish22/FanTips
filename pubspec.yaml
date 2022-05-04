@@ -54,7 +54,9 @@ dependencies:
   fluttertoast: ^8.0.8
   favorite_button: ^0.0.4
   english_words: ^4.0.0
-
+  firebase_auth: ^3.3.17
+  google_sign_in: ^5.3.0
+  firebase_core: ^1.16.0
 
 
 

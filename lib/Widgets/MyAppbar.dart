@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+
+
 PreferredSizeWidget MyAppbar(
   String text1,
 ) {
@@ -21,20 +23,19 @@ PreferredSizeWidget MyAppbar(
             text1,
             style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
           ),
-          TextButton(
-            onPressed: () {
-              // LoginBottomSheet();
+          GestureDetector(
+            onTap: () {
+
+              Get.to(Login());
+
             },
-            child: GestureDetector(
-              onTap: () {
-                Get.to(Login());
-              },
-              child: const Text(
-                AppString.logIn,
-                style: TextStyle(color: AppColor.green),
-              ),
-            ),
-          ),
+            child:
+                const Text(
+                    AppString.logIn,
+                    style: TextStyle(color: AppColor.green),
+                  )
+
+          )
         ],
       ),
     ),

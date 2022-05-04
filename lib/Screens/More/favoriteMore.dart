@@ -49,8 +49,8 @@ class WishListScreen extends StatelessWidget {
                     },
                     iconButton: expertsController.getitem
                         .value[index].inWishList == true
-                        ? Icon(Icons.favorite,color: Colors.green,)
-                        : Icon(Icons.favorite_border,color: Colors.green,),
+                        ? const Icon(Icons.favorite_border,color: Colors.green,)
+                        : const Icon(Icons.favorite,color: Colors.green,),
                   ),),
                   AppSizebox.h10,
                 ],

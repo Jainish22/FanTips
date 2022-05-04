@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:fantips/Screens/Experts/ExperInfo/Expertinfo.dart';
 import 'package:fantips/Screens/Experts/Experts.dart';
 import 'package:fantips/Screens/Experts/controller/ExpertsController.dart';
@@ -112,6 +111,8 @@ class _HomeState extends State<Home> {
     return format.format(dt);
   }
 
+  bool  value1 = false;
+
   @override
   Widget build(BuildContext context) {
     Future<bool> _onWillPop() async {
@@ -143,7 +144,7 @@ class _HomeState extends State<Home> {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-        appBar: MyAppbar(AppString.fanTips),
+        appBar: MyAppbar(AppString.fanTips,),
         body: SafeArea(
           child: ListView(
             children: [
@@ -261,10 +262,10 @@ class _HomeState extends State<Home> {
                               onPageChanged: (value) {
                                 expertsController.matchSelect.value = value;
                               },
-                              // itemCount: expertsController.getitem.value == true
-                              //     ? expertsController.getitem.length
-                              //     : 5,
-                        itemCount: expertsController.getitem.value.length,
+                              itemCount: expertsController.getitem.value == true
+                                  ? expertsController.getitem.length
+                                  : 5,
+                        // itemCount: expertsController.getitem.value.length,
                               itemBuilder: (BuildContext context, index) {
                                 log("Service111111-------${expertsController.getitem.length}");
                                 final Experts =
