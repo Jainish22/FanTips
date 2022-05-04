@@ -1,4 +1,5 @@
 import 'dart:developer';
+
 import 'package:fantips/Screens/Home/News/Controller/News_Controller.dart';
 import 'package:fantips/Screens/Home/News/HomeNews.dart';
 import 'package:fantips/Util/AppColor.dart';
@@ -84,24 +85,30 @@ class _ViewAllState extends State<ViewAll> {
                                       width: 90.w,
                                     ),
                                     Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 18.h, left: 0.w),
+                                      padding: EdgeInsets.only(
+                                          top: 17.5.h, left: 0.w),
                                       child: Container(
-                                        width: 22.w,
-                                          height: 2.h,
+                                          width: 22.w,
+                                          height: 2.5.h,
                                           decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10)),
+                                            borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(10)),
                                             color: AppColor.green,
                                           ),
-                                          child:  Text(
-                                            _NewsController.getNews.value
-                                                .news?[index].newsType ??
-                                                "",
-                                            textAlign: TextAlign.center,
-                                            style: const TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 12),
+                                          child: Padding(
+                                            padding: EdgeInsets.only(
+                                                top: 0.4.h),
+                                            child: Text(
+                                              _NewsController.getNews.value
+                                                      .news?[index].newsType ??
+                                                  "",
+                                              textAlign: TextAlign.center,
+                                              style: const TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 12),
+                                            ),
                                           )),
                                     ),
                                   ],
@@ -195,7 +202,8 @@ class _ViewAllState extends State<ViewAll> {
     } else if (difference.inMinutes >= 1) {
       result = '${difference.inMinutes} minutes';
     } else if (difference.inMinutes >= 1) {
-      result = (numericDates) ? '${difference.inMinutes}minutes' : 'A minute ago';
+      result =
+          (numericDates) ? '${difference.inMinutes}minutes' : 'A minute ago';
     } else if (difference.inSeconds >= 1) {
       result = '${difference.inSeconds} seconds';
     } else if (difference.inSeconds == 0) {
