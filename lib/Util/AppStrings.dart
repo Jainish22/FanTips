@@ -57,6 +57,7 @@ class AppString {
   static const howtoplay = 'How to play quiz?';
   static const applyAsexperts = 'Apply As Expert';
   static const contactUsforbranding = 'Contact us for branding';
+  static const logout = 'Log Out';
 
   //t20 prediction
   static const t20 = 'T20 Predictions';

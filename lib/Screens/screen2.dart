@@ -43,107 +43,104 @@ class _ScreenPageState extends State<ScreenPage> {
           false;
     }
 
-    return WillPopScope(
-      onWillPop: _onWillPop,
-      child: Scaffold(
-        body: OnBoard(
-          pageController: _pageController,
-          // Either Provide onSkip Callback or skipButton Widget to handle skip state
-          onSkip: () {
-            // print('skipped');
-          },
-          // Either Provide onDone Callback or nextButton Widget to handle done state
-          onDone: () {
-            // print('done tapped');
-            // Get.to(HomeMain());
-          },
-          onBoardData: onBoardData,
-          imageHeight: 200,
-          imageWidth: 310,
-          titleStyles: const TextStyle(
-            color: Colors.white,
-            fontSize: 24,
-            fontWeight: FontWeight.w500,
-            letterSpacing: 0.15,
-          ),
-          descriptionStyles: const TextStyle(
-            fontSize: 16,
-            color: Colors.grey,
-          ),
-          pageIndicatorStyle: const PageIndicatorStyle(
-            width: 100,
-            inactiveColor: Colors.grey,
-            activeColor: Colors.green,
-            inactiveSize: Size(8, 8),
-            activeSize: Size(12, 12),
+    return Scaffold(
+      body: OnBoard(
+        pageController: _pageController,
+        // Either Provide onSkip Callback or skipButton Widget to handle skip state
+        onSkip: () {
+          // print('skipped');
+        },
+        // Either Provide onDone Callback or nextButton Widget to handle done state
+        onDone: () {
+          // print('done tapped');
+          // Get.to(HomeMain());
+        },
+        onBoardData: onBoardData,
+        imageHeight: 200,
+        imageWidth: 310,
+        titleStyles: const TextStyle(
+          color: Colors.white,
+          fontSize: 24,
+          fontWeight: FontWeight.w500,
+          letterSpacing: 0.15,
+        ),
+        descriptionStyles: const TextStyle(
+          fontSize: 16,
+          color: Colors.grey,
+        ),
+        pageIndicatorStyle: const PageIndicatorStyle(
+          width: 100,
+          inactiveColor: Colors.grey,
+          activeColor: Colors.green,
+          inactiveSize: Size(8, 8),
+          activeSize: Size(12, 12),
 
-          ),
-          // Either Provide onSkip Callback or skipButton Widget to handle skip state
-          skipButton: Container(),
+        ),
+        // Either Provide onSkip Callback or skipButton Widget to handle skip state
+        skipButton: Container(),
 
-          // TextButton(
-          //   onPressed: () {
-          //     // print('skipButton pressed');
-          //   },
-          //   child: const Text(
-          //     "",
-          //     style: TextStyle(color: Colors.deepOrangeAccent),
-          //   ),
-          // ),
-          // Either Provide onDone Callback or nextButton Widget to handle done state
-          nextButton: OnBoardConsumer(
-            builder: (context, ref, child) {
-              final state = ref.watch(onBoardStateProvider);
-              return Padding(
-                padding: EdgeInsets.only(top: 30),
-                child: InkWell(
-                  onTap: () => _onNextTap(state),
-                  child: Container(
-                    width: 450,
-                    height: 50,
-                    color: Colors.green,
-                    alignment: Alignment.center,
-                    // decoration: BoxDecoration(
-                    //   borderRadius: BorderRadius.circular(30),
-                    //   gradient: const LinearGradient(
-                    //     colors: [Colors.redAccent, Colors.deepOrangeAccent],
-                    //   ),
-                    // ),
-                    child: state.isLastPage
-                        ? GestureDetector(
-                         onTap: (){
-                           Get.to(HomeMain());
-                         },
-                           child: const Text(
-                              "Get Started",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 24,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                        )
-                        : const Text(
-                            "Next",
+        // TextButton(
+        //   onPressed: () {
+        //     // print('skipButton pressed');
+        //   },
+        //   child: const Text(
+        //     "",
+        //     style: TextStyle(color: Colors.deepOrangeAccent),
+        //   ),
+        // ),
+        // Either Provide onDone Callback or nextButton Widget to handle done state
+        nextButton: OnBoardConsumer(
+          builder: (context, ref, child) {
+            final state = ref.watch(onBoardStateProvider);
+            return Padding(
+              padding: EdgeInsets.only(top: 30),
+              child: InkWell(
+                onTap: () => _onNextTap(state),
+                child: Container(
+                  width: 450,
+                  height: 50,
+                  color: Colors.green,
+                  alignment: Alignment.center,
+                  // decoration: BoxDecoration(
+                  //   borderRadius: BorderRadius.circular(30),
+                  //   gradient: const LinearGradient(
+                  //     colors: [Colors.redAccent, Colors.deepOrangeAccent],
+                  //   ),
+                  // ),
+                  child: state.isLastPage
+                      ? GestureDetector(
+                       onTap: (){
+                         Get.to(HomeMain());
+                       },
+                         child: const Text(
+                            "Get Started",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 24,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
+                      )
+                      : const Text(
+                          "Next",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
 
-                    // Text(
-                    //   state.isLastPage ? "Done" : "Next",
-                    //   style: const TextStyle(
-                    //     color: Colors.white,
-                    //     fontWeight: FontWeight.bold,
-                    //   ),
-                    // ),
-                  ),
+                  // Text(
+                  //   state.isLastPage ? "Done" : "Next",
+                  //   style: const TextStyle(
+                  //     color: Colors.white,
+                  //     fontWeight: FontWeight.bold,
+                  //   ),
+                  // ),
                 ),
-              );
-            },
-          ),
+              ),
+            );
+          },
         ),
       ),
     );

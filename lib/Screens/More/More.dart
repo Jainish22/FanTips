@@ -12,6 +12,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:rating_dialog/rating_dialog.dart';
 import 'package:sizer/sizer.dart';
 
+import '../loginpage/GoogleLogin/services.dart';
 import 'ApplayMore.dart';
 
 class More extends StatefulWidget {
@@ -198,6 +199,14 @@ class _MoreState extends State<More> {
                 onTap: () {
                   Get.to(ContactMore());
                 },
+              ),
+              AppSizebox.h20,
+              GestureDetector(
+                child: const OptionContainer(
+                  text: AppString.logout,
+                ),
+                onTap: () {
+                  {Auth.signOut().then((value) => Navigator.pop(context));}                },
               ),
             ],
           )
