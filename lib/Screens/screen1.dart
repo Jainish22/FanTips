@@ -1,3 +1,4 @@
+import 'package:fantips/Screens/screen2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,7 +21,7 @@ class _Screen1State extends State<Screen1> {
     Future.delayed(
        const Duration(seconds: 2),
       () async {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeMain()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ScreenPage()));
       },
     );
   }
