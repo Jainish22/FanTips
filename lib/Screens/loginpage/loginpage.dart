@@ -4,6 +4,7 @@ import 'package:fantips/Util/Sizebox.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:loading_indicator/loading_indicator.dart';
 import 'package:sizer/sizer.dart';
 
 import 'GoogleLogin/services.dart';
@@ -17,7 +18,9 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
 
-  bool value2 = false;
+  bool  isLoading = false;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +67,8 @@ class _LoginState extends State<Login> {
                           border: Border.all(width: 3, color: Colors.white),
                           borderRadius: BorderRadius.circular(30),
                           image: const DecorationImage(
-                              image: NetworkImage(
-                                  "https://lh3.googleusercontent.com/1GT4w6dAfG4lkO9ja9ZOhUKqVdU21r940zFnBrBrAsYUsTXnVb44MuUpO56ohHQzAow=s200"))),
+                              image: AssetImage(
+                                  "asset/Images/fantips_logo_12png.png"))),
                     ),
                   ),
                 ],
@@ -92,6 +95,11 @@ class _LoginState extends State<Login> {
               ),
               GestureDetector(
                 onTap: () {
+                  setState(() {
+                    isLoading = true;
+                  });
+                  print('sing------------');
+
                   Auth.signInWithGoogle(
                     password: "",
                     email: '',
@@ -102,7 +110,18 @@ class _LoginState extends State<Login> {
                         )
                       });
                 },
-                child: Container(
+                child:  isLoading? Center(
+                  child: Container(
+                    height: 3.h,
+                    width: 4.w,
+                    child: LoadingIndicator(
+                        indicatorType: Indicator.lineSpinFadeLoader,
+                        colors: [Colors.white],
+                        strokeWidth: 1,
+                        backgroundColor: Colors.black,
+                        pathBackgroundColor: Colors.black),
+                  ),
+                ) :Container(
                   height: 7.h,
                   width: 75.w,
                   decoration: BoxDecoration(
@@ -114,8 +133,8 @@ class _LoginState extends State<Login> {
                       CircleAvatar(
                         radius: 15,
                         backgroundColor: Colors.transparent,
-                        backgroundImage: NetworkImage(
-                            "https://img.icons8.com/fluency/2x/google-logo.png"),
+                        backgroundImage: AssetImage(
+                            "asset/Images/google-logo.png"),
                       ),
                       AppSizebox.w15,
                       Text(
@@ -140,8 +159,8 @@ class _LoginState extends State<Login> {
                     AppSizebox.w20,
                     CircleAvatar(
                       radius: 15,
-                      backgroundImage: NetworkImage(
-                          "https://cdn-icons-png.flaticon.com/128/5968/5968764.png"),
+                      backgroundImage: AssetImage(
+                          "asset/Images/facebook_logo.png"),
                     ),
                     AppSizebox.w15,
                     Text(

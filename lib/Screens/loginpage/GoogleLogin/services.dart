@@ -30,4 +30,5 @@ class Auth {
     await _auth.signOut();
   }
 
+
 }
