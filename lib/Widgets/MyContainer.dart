@@ -4,11 +4,18 @@ import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
+
+import '../Screens/Home/Home.dart';
+import '../Screens/loginpage/GoogleLogin/profile.dart';
+import '../Screens/loginpage/GoogleLogin/services.dart';
 
 ///First Container Home
 class MyContainer1 extends StatefulWidget {
@@ -2139,146 +2146,512 @@ class _MyContainer23State extends State<MyContainer23> {
         Get.toNamed('expertinfo');
       },
       child: Container(
-          // height: 14.h,
-          width: 92.w,
-          decoration: BoxDecoration(
-              color: AppColor.light, borderRadius: BorderRadius.circular(10)),
-          child: Stack(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(top: 2.h, left: 4.w),
-                child: SizedBox(
-                  height: 7.h,
-                  child: Row(
-                    children: [
-                      const CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            "https://yt3.ggpht.com/ytc/AKedOLQZKvC4YtSgcsOZ-O--Nqhp6FEIv-pCBpywzpuHDw=s900-c-k-c0x00ffffff-no-rj"),
-                        radius: 25,
+        // height: 14.h,
+        width: 92.w,
+        decoration: BoxDecoration(
+            color: AppColor.light, borderRadius: BorderRadius.circular(10)),
+        child: Stack(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 2.h, left: 4.w),
+              child: SizedBox(
+                height: 7.h,
+                child: Row(
+                  children: [
+                    const CircleAvatar(
+                      backgroundImage: NetworkImage(
+                          "https://yt3.ggpht.com/ytc/AKedOLQZKvC4YtSgcsOZ-O--Nqhp6FEIv-pCBpywzpuHDw=s900-c-k-c0x00ffffff-no-rj"),
+                      radius: 25,
+                    ),
+                    AppSizebox.w5,
+                    Padding(
+                      padding: EdgeInsets.only(top: 1.h),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "Prediction Bhajan",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          Row(
+                            children: [
+                              Image.asset(AppIcon.uTube, height: 1.h),
+                              AppSizebox.w2,
+                              Text(
+                                "subscribers",
+                                style: TextStyle(fontSize: 10),
+                              )
+                            ],
+                          )
+                        ],
                       ),
-                      AppSizebox.w5,
-                      Padding(
-                        padding: EdgeInsets.only(top: 1.h),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              "Prediction Bhajan",
-                              style: TextStyle(fontSize: 18),
-                            ),
-                            Row(
-                              children: [
-                                Image.asset(AppIcon.uTube, height: 1.h),
-                                AppSizebox.w2,
-                                Text(
-                                  "subscribers",
-                                  style: TextStyle(fontSize: 10),
-                                )
-                              ],
-                            )
-                          ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 3.5.h, left: 80.w),
+              child: InkWell(
+                onTap: () {
+                  setState(() {
+                    _value = !_value;
+                  });
+                },
+                child: Container(
+                    child: _value
+                        ? const Icon(
+                            Icons.favorite,
+                            color: Colors.green,
+                          )
+                        : Icon(Icons.favorite_border, color: Colors.green)),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 12.h, left: 5.w, right: 6.w),
+              child: SizedBox(
+                height: 7.h,
+                // width: 85.w,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(children: const [
+                      Text("234",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: "GothamPro",
+                              color: AppColor.greymin)),
+                      Text(
+                        AppString.prediction,
+                        style: TextStyle(
+                          color: AppColor.greymin,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          // fontFamily: "GothamPro",
                         ),
                       )
-                    ],
-                  ),
+                    ]),
+                    const VerticalDivider(
+                        width: 2,
+                        color: AppColor.dBlack,
+                        thickness: 1,
+                        endIndent: 10,
+                        indent: 10),
+                    Column(children: const [
+                      Text("2342",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "GothamPro",
+                            color: AppColor.greymin,
+                          )),
+                      Text(
+                        AppString.avgScore,
+                        style: TextStyle(
+                          color: AppColor.greymin,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          // fontFamily: "GothamPro",
+                        ),
+                      )
+                    ]),
+                    const VerticalDivider(
+                        width: 2,
+                        color: AppColor.dBlack,
+                        thickness: 1,
+                        endIndent: 10,
+                        indent: 10),
+                    Column(children: const [
+                      Text("23",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "GothamPro",
+                            color: AppColor.greymin,
+                          )),
+                      Text(
+                        AppString.wins,
+                        style: TextStyle(
+                          color: AppColor.greymin,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                          // fontFamily: "GothamPro",
+                        ),
+                      )
+                    ])
+                  ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 3.5.h, left: 80.w),
-                child: InkWell(
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class MyAppBar extends StatefulWidget {
+  MyAppBar({Key? key, required this.text, required this.login})
+      : super(key: key);
+
+  String text;
+  String login;
+
+  @override
+  _MyAppBarState createState() => _MyAppBarState();
+}
+
+class _MyAppBarState extends State<MyAppBar> {
+  final Future<SharedPreferences> prefs = SharedPreferences.getInstance();
+
+  LoginData _loginData = Get.find();
+  final user = FirebaseAuth.instance.currentUser;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          widget.text,
+          style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+        ),
+        Obx(
+          () => _loginData.isLogin == true
+              ? GestureDetector(
                   onTap: () {
-                    setState(() {
-                      _value = !_value;
-                    });
+                    Get.to(ProfileData());
                   },
-                  child: Container(
-                      child: _value
-                          ? const Icon(
-                              Icons.favorite,
-                              color: Colors.green,
-                            )
-                          : Icon(Icons.favorite_border, color: Colors.green)),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 12.h, left: 5.w, right: 6.w),
-                child: SizedBox(
-                  height: 7.h,
-                  // width: 85.w,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(children: const [
-                        Text("234",
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                fontFamily: "GothamPro",
-                                color: AppColor.greymin)),
-                        Text(
-                          AppString.prediction,
-                          style: TextStyle(
-                            color: AppColor.greymin,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            // fontFamily: "GothamPro",
+                  child: ClipOval(
+                    child: Image.network(
+                      user?.photoURL ?? "",
+                      width: 25,
+                      height: 25,
+                      fit: BoxFit.cover,
+                      loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return const Center(
+                            child: CircularProgressIndicator(
+                          color: Colors.green,
+                        ));
+                      },
+                      errorBuilder: (context, error, stackTrace) => Center(
+                        child: ClipOval(
+                          child: Image.asset(
+                            "asset/Images/profileimages.png",
+                            width: 25,
+                            height: 25,
+                            fit: BoxFit.cover,
                           ),
-                        )
-                      ]),
-                      const VerticalDivider(
-                          width: 2,
-                          color: AppColor.dBlack,
-                          thickness: 1,
-                          endIndent: 10,
-                          indent: 10),
-                      Column(children: const [
-                        Text("2342",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: "GothamPro",
-                              color: AppColor.greymin,
-                            )),
-                        Text(
-                          AppString.avgScore,
-                          style: TextStyle(
-                            color: AppColor.greymin,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            // fontFamily: "GothamPro",
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              : GestureDetector(
+                  onTap: () {
+                    showModalBottomSheet(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(22.sp),
+                          topRight: Radius.circular(22.sp),
+                        ),
+                      ),
+                      context: context,
+                      isScrollControlled: true,
+                      backgroundColor: (AppColor.light),
+                      builder: (context) {
+                        return SingleChildScrollView(
+                          child: Container(
+                            height: 75.h,
+                            decoration: BoxDecoration(
+                              color: AppColor.light,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(22.sp),
+                                topRight: Radius.circular(22.sp),
+                              ),
+                            ),
+                            child: Center(
+                              child: Padding(
+                                padding: EdgeInsets.only(right: 4.w, left: 4.w),
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          right: 85.w, top: 3.h),
+                                      child: GestureDetector(
+                                        child: Icon(
+                                          Icons.close,
+                                          color: Colors.white,
+                                          size: 4.h,
+                                        ),
+                                        onTap: () {
+                                          Get.back();
+                                        },
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          left: 4.w, right: 4.w, top: 5.h),
+                                      child: Stack(
+                                        children: [
+                                          Container(
+                                            height: 112,
+                                            width: 112,
+                                            decoration: BoxDecoration(
+                                              color: Colors.green,
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                              //border: Border.all(width: 2,color: Colors.green),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                left: 0.8.w, top: 0.4.h),
+                                            child: Container(
+                                              height: 106,
+                                              width: 106,
+                                              decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      width: 3,
+                                                      color: Colors.white),
+                                                  borderRadius:
+                                                      BorderRadius.circular(30),
+                                                  image: const DecorationImage(
+                                                      image: AssetImage(
+                                                          "asset/Images/fantips_logo_12png.png"))),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 5.h),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                              child: Divider(
+                                                  color: Colors.grey.shade700)),
+                                          AppSizebox.w10,
+                                          const Text(
+                                            "LET'S CONNECT",
+                                            style: TextStyle(
+                                                color: AppColor.greymin,
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w500),
+                                          ),
+                                          AppSizebox.w10,
+                                          Expanded(
+                                            child: Divider(
+                                                color: Colors.grey.shade700),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 5.h,
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        final provider =
+                                            Provider.of<GoogleSignInProvider>(
+                                                context,
+                                                listen: false);
+                                        provider.googleLogin().whenComplete(() {
+                                          _loginData.isLogin = true.obs;
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    (ProfileData())),
+                                          );
+                                        });
+                                      },
+                                      child: Container(
+                                        height: 7.h,
+                                        width: 75.w,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white12,
+                                            borderRadius:
+                                                BorderRadius.circular(15)),
+                                        child: Row(
+                                          children: const [
+                                            AppSizebox.w20,
+                                            CircleAvatar(
+                                              radius: 15,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              backgroundImage: AssetImage(
+                                                  "asset/Images/google-logo.png"),
+                                            ),
+                                            AppSizebox.w15,
+                                            Text(
+                                              "Sign in with Google",
+                                              style: TextStyle(
+                                                  color: AppColor.greymin,
+                                                  fontSize: 13),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 2.h,
+                                    ),
+                                    Container(
+                                      height: 7.h,
+                                      width: 75.w,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white12,
+                                          borderRadius:
+                                              BorderRadius.circular(15)),
+                                      child: Row(
+                                        children: const [
+                                          AppSizebox.w20,
+                                          CircleAvatar(
+                                            radius: 15,
+                                            backgroundImage: AssetImage(
+                                                "asset/Images/facebook_logo.png"),
+                                          ),
+                                          AppSizebox.w15,
+                                          Text(
+                                            "Sign in with Facebook",
+                                            style: TextStyle(
+                                                color: AppColor.greymin,
+                                                fontSize: 13),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                           ),
-                        )
-                      ]),
-                      const VerticalDivider(
-                          width: 2,
-                          color: AppColor.dBlack,
-                          thickness: 1,
-                          endIndent: 10,
-                          indent: 10),
-                      Column(children: const [
-                        Text("23",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: "GothamPro",
-                              color: AppColor.greymin,
-                            )),
-                        Text(
-                          AppString.wins,
-                          style: TextStyle(
-                            color: AppColor.greymin,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            // fontFamily: "GothamPro",
-                          ),
-                        )
-                      ])
-                    ],
+                        );
+                      },
+                    );
+                  },
+                  child: Text(
+                    widget.login,
+                    style: const TextStyle(color: AppColor.green, fontSize: 15),
                   ),
                 ),
+        ),
+      ],
+    );
+  }
+}
+
+class MyAppBar1 extends StatefulWidget {
+  MyAppBar1({required this.login, required this.text, required this.image});
+
+  String text;
+  String login;
+  String image;
+
+  @override
+  State<MyAppBar1> createState() => _MyAppBar1State();
+}
+
+class _MyAppBar1State extends State<MyAppBar1> {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          widget.text,
+          style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
+        ),
+        Expanded(flex: 2, child: Container()),
+        Text(
+          widget.login,
+          style: const TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 15,
+              color: Color(0xFF25C06D),
+              height: 0),
+        ),
+        Expanded(child: Container()),
+        InkWell(
+          child: Image.asset(
+            widget.image,
+            height: 2.4.h,
+          ),
+          onTap: () {
+            Get.toNamed('search');
+          },
+        )
+      ],
+    );
+  }
+}
+
+class ProfileAppbar extends StatefulWidget {
+  ProfileAppbar({required this.text, required this.logout, required this.icon});
+
+  IconData icon;
+  String text;
+  String logout;
+
+  @override
+  _ProfileAppbarState createState() => _ProfileAppbarState();
+}
+
+class _ProfileAppbarState extends State<ProfileAppbar> {
+  LoginData _loginData = Get.find();
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Row(
+        children: [
+          GestureDetector(
+            onTap: () {
+              Get.back();
+            },
+            child: Icon(
+              widget.icon,
+              color: AppColor.greymin,
+            ),
+          ),
+          SizedBox(
+            width: 5.w,
+          ),
+          // Expanded(flex: 2, child: Container()),
+          Text(
+            widget.text,
+            style: const TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 20,
+              color: AppColor.greymin,
+            ),
+          ),
+          Expanded(child: Container()),
+          GestureDetector(
+            onTap: () {
+              _loginData.isLogin = false.obs;
+              final provider =
+                  Provider.of<GoogleSignInProvider>(context, listen: false);
+              provider.logout().whenComplete(() => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => (HomeMain())),
+                  ));
+            },
+            child: Text(
+              widget.logout,
+              style: const TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+                color: AppColor.greymin,
+                // color: Color(0xFF25C06D),),
               ),
-            ],
-          )),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

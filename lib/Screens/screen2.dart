@@ -108,7 +108,7 @@ class _ScreenPageState extends State<ScreenPage> {
                   //   ),
                   // ),
                   child: state.isLastPage
-                      ? GestureDetector(
+                      ? InkWell(
                        onTap: (){
                          Get.to(HomeMain());
                        },

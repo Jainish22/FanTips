@@ -60,7 +60,8 @@ dependencies:
   progressive_image: ^2.0.0
   introduction_screen: ^3.0.2
   flutter_onboard: ^2.0.0
-
+  shared_preferences: ^2.0.13
+  provider: ^6.0.2
 
 
 

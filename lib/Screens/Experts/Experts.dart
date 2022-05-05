@@ -58,323 +58,329 @@ class _ExpertsState extends State<Experts> {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-        appBar: MyAppbar1(
-            AppString.predictionExperts, AppString.logIn, AppIcon.search),
         body: Stack(
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 4.w, right: 4.w, top: 1.h),
-              child: InkWell(
-                child: Container(
-                  height: 6.h,
-                  width: 92.w,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: AppColor.light),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        AppIcon.sortby,
-                        height: 1.8.h,
-                        color: AppColor.green,
-                      ),
-                      AppSizebox.w5,
-                      const Text(AppString.sortBy + ":",
-                          style:
-                              TextStyle(color: AppColor.green, fontSize: 16)),
-                      AppSizebox.w5,
-                      const Text(AppString.avgScore,
-                          style:
-                              TextStyle(color: AppColor.green, fontSize: 16)),
-                      const Icon(
-                        Icons.keyboard_arrow_down_sharp,
-                        color: AppColor.green,
-                        size: 20,
-                      )
-                    ],
-                  ),
-                ),
-                onTap: () {
-                  showModalBottomSheet(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(12.sp),
-                        topRight: Radius.circular(12.sp),
-                      ),
-                    ),
-                    context: context,
-                    backgroundColor: (AppColor.light),
-                    builder: (context) {
-                      return Container(
-                        height: 25.h,
+              padding: EdgeInsets.only(left: 4.w, right: 4.w, top: 6.h),
+              child: Column(
+                children: [
+                  MyAppBar1(text: AppString.predictionExperts, login: AppString.logIn, image: 'asset/icon/search.png',),
+                  Padding(
+                    padding: EdgeInsets.only(top: 3.h),
+                    child: InkWell(
+                      child: Container(
+                        height: 6.h,
+                        width: 92.w,
                         decoration: BoxDecoration(
-                          color: AppColor.light,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(12.sp),
-                            topRight: Radius.circular(12.sp),
-                          ),
+                            borderRadius: BorderRadius.circular(10),
+                            color: AppColor.light),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              AppIcon.sortby,
+                              height: 1.8.h,
+                              color: AppColor.green,
+                            ),
+                            AppSizebox.w5,
+                            const Text(AppString.sortBy + ":",
+                                style:
+                                    TextStyle(color: AppColor.green, fontSize: 16)),
+                            AppSizebox.w5,
+                            const Text(AppString.avgScore,
+                                style:
+                                    TextStyle(color: AppColor.green, fontSize: 16)),
+                            const Icon(
+                              Icons.keyboard_arrow_down_sharp,
+                              color: AppColor.green,
+                              size: 20,
+                            )
+                          ],
                         ),
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                              left: 12.sp, right: 12.sp, top: 10.sp),
-                          child: Obx(
-                            () {
-                              print(expertsController
-                                  .getExpert.value.tipsters?.length);
-                              return Column(
-                                children: [
-                                  AppSizebox.h5,
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Image.asset(
-                                        AppIcon.sortby,
-                                        color: Colors.white,
-                                        height: 1.5.h,
-                                      ),
-                                      SizedBox(
-                                        width: 2.w,
-                                      ),
-                                      const Text(
-                                        AppString.sortBy,
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w700),
-                                      )
-                                    ],
-                                  ),
-                                  AppSizebox.h5,
-                                  const Divider(
-                                    color: AppColor.grey,
-                                  ),
-                                  SizedBox(
-                                    height: 1.h,
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      if (expertsController.isBottomSelect =
-                                          true) {
-                                        expertsController.index.value = 0;
-                                        print("prediction==>>>");
-                                        expertsController
-                                            .getExpert.value.tipsters
-                                            ?.sort(
-                                          (a, b) =>
-                                              a.totalPredictions!.compareTo(
-                                            b.totalPredictions!,
-                                          ),
-                                        );
-                                        setState(() {});
-                                      } else {
-                                        expertsController.isBottomSelect =
-                                            false;
-                                      }
-                                    },
-                                    child: Row(
+                      ),
+                      onTap: () {
+                        showModalBottomSheet(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(12.sp),
+                              topRight: Radius.circular(12.sp),
+                            ),
+                          ),
+                          context: context,
+                          backgroundColor: (AppColor.light),
+                          builder: (context) {
+                            return Container(
+                              height: 25.h,
+                              decoration: BoxDecoration(
+                                color: AppColor.light,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(12.sp),
+                                  topRight: Radius.circular(12.sp),
+                                ),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                    left: 12.sp, right: 12.sp, top: 10.sp),
+                                child: Obx(
+                                  () {
+                                    print(expertsController
+                                        .getExpert.value.tipsters?.length);
+                                    return Column(
                                       children: [
-                                        const Text(
-                                          AppString.prediction,
+                                        AppSizebox.h5,
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Image.asset(
+                                              AppIcon.sortby,
+                                              color: Colors.white,
+                                              height: 1.5.h,
+                                            ),
+                                            SizedBox(
+                                              width: 2.w,
+                                            ),
+                                            const Text(
+                                              AppString.sortBy,
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.w700),
+                                            )
+                                          ],
                                         ),
-                                        const Spacer(),
-                                        expertsController.index.value == 0
-                                            ? const CircleAvatar(
-                                                radius: 8,
-                                                backgroundColor: AppColor.white,
-                                                child:
-                                                    Icon(Icons.done, size: 12),
-                                              )
-                                            : const Text(
-                                                "",
-                                              )
-                                      ],
-                                    ),
-                                  ),
-                                  AppSizebox.h4,
-                                  const Divider(
-                                    color: AppColor.grey,
-                                  ),
-                                  SizedBox(
-                                    height: 1.h,
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      if (expertsController.isBottomSelect =
-                                          true) {
-                                        expertsController.index.value = 1;
-                                        print("avgScore==>>>");
-                                        expertsController
-                                            .getExpert.value.tipsters
-                                            ?.sort((a, b) => a.avgScore!
-                                                .compareTo(b.avgScore!));
-                                        setState(() {});
-                                      } else {
-                                        expertsController.isBottomSelect =
-                                            false;
-                                      }
-                                    },
-                                    child: Row(
-                                      children: [
-                                        const Text(
-                                          AppString.avgScore,
+                                        AppSizebox.h5,
+                                        const Divider(
+                                          color: AppColor.grey,
                                         ),
-                                        Spacer(),
-                                        expertsController.index.value == 1
-                                            ? const CircleAvatar(
-                                                radius: 8,
-                                                backgroundColor: AppColor.white,
-                                                child: Icon(
-                                                  Icons.done,
-                                                  size: 12,
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            if (expertsController.isBottomSelect =
+                                                true) {
+                                              expertsController.index.value = 0;
+                                              print("prediction==>>>");
+                                              expertsController
+                                                  .getExpert.value.tipsters
+                                                  ?.sort(
+                                                (a, b) =>
+                                                    a.totalPredictions!.compareTo(
+                                                  b.totalPredictions!,
                                                 ),
-                                              )
-                                            : const Text(
-                                                "",
-                                              )
-                                      ],
-                                    ),
-                                  ),
-                                  AppSizebox.h4,
-                                  const Divider(
-                                    color: AppColor.grey,
-                                  ),
-                                  SizedBox(
-                                    height: 1.h,
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      if (expertsController.isBottomSelect =
-                                          true) {
-                                        expertsController.index.value = 2;
-                                        print("wins==>>>");
-                                        expertsController
-                                            .getExpert.value.tipsters
-                                            ?.sort((a, b) =>
-                                                a.top3!.compareTo(b.top3!));
-                                        setState(() {});
-                                      } else {
-                                        expertsController.isBottomSelect =
-                                            false;
-                                      }
-                                    },
-                                    child: Row(
-                                      children: [
-                                        const Text(
-                                          AppString.wins,
+                                              );
+                                              setState(() {});
+                                            } else {
+                                              expertsController.isBottomSelect =
+                                                  false;
+                                            }
+                                          },
+                                          child: Row(
+                                            children: [
+                                              const Text(
+                                                AppString.prediction,
+                                              ),
+                                              const Spacer(),
+                                              expertsController.index.value == 0
+                                                  ? const CircleAvatar(
+                                                      radius: 8,
+                                                      backgroundColor: AppColor.white,
+                                                      child:
+                                                          Icon(Icons.done, size: 12),
+                                                    )
+                                                  : const Text(
+                                                      "",
+                                                    )
+                                            ],
+                                          ),
                                         ),
-                                        const Spacer(),
-                                        expertsController.index.value == 2
-                                            ? const CircleAvatar(
-                                                radius: 8,
-                                                backgroundColor: AppColor.white,
-                                                child:
-                                                    Icon(Icons.done, size: 12),
-                                              )
-                                            : const Text(""),
+                                        AppSizebox.h4,
+                                        const Divider(
+                                          color: AppColor.grey,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            if (expertsController.isBottomSelect =
+                                                true) {
+                                              expertsController.index.value = 1;
+                                              print("avgScore==>>>");
+                                              expertsController
+                                                  .getExpert.value.tipsters
+                                                  ?.sort((a, b) => a.avgScore!
+                                                      .compareTo(b.avgScore!));
+                                              setState(() {});
+                                            } else {
+                                              expertsController.isBottomSelect =
+                                                  false;
+                                            }
+                                          },
+                                          child: Row(
+                                            children: [
+                                              const Text(
+                                                AppString.avgScore,
+                                              ),
+                                              Spacer(),
+                                              expertsController.index.value == 1
+                                                  ? const CircleAvatar(
+                                                      radius: 8,
+                                                      backgroundColor: AppColor.white,
+                                                      child: Icon(
+                                                        Icons.done,
+                                                        size: 12,
+                                                      ),
+                                                    )
+                                                  : const Text(
+                                                      "",
+                                                    )
+                                            ],
+                                          ),
+                                        ),
+                                        AppSizebox.h4,
+                                        const Divider(
+                                          color: AppColor.grey,
+                                        ),
+                                        SizedBox(
+                                          height: 1.h,
+                                        ),
+                                        InkWell(
+                                          onTap: () {
+                                            if (expertsController.isBottomSelect =
+                                                true) {
+                                              expertsController.index.value = 2;
+                                              print("wins==>>>");
+                                              expertsController
+                                                  .getExpert.value.tipsters
+                                                  ?.sort((a, b) =>
+                                                      a.top3!.compareTo(b.top3!));
+                                              setState(() {});
+                                            } else {
+                                              expertsController.isBottomSelect =
+                                                  false;
+                                            }
+                                          },
+                                          child: Row(
+                                            children: [
+                                              const Text(
+                                                AppString.wins,
+                                              ),
+                                              const Spacer(),
+                                              expertsController.index.value == 2
+                                                  ? const CircleAvatar(
+                                                      radius: 8,
+                                                      backgroundColor: AppColor.white,
+                                                      child:
+                                                          Icon(Icons.done, size: 12),
+                                                    )
+                                                  : const Text(""),
+                                            ],
+                                          ),
+                                        ),
                                       ],
-                                    ),
-                                  ),
-                                ],
-                              );
-                            },
-                          ),
-                        ),
-                      );
-                      // Container(
-                      //   height: 29.h,
-                      //   child: Padding(
-                      //     padding: EdgeInsets.only(left: 3.w, right: 3.w),
-                      //     child: Column(
-                      //       children: [
-                      //         AppSizebox.h15,
-                      //         Row(
-                      //           mainAxisAlignment: MainAxisAlignment.center,
-                      //           children: [
-                      //             Image.asset(
-                      //               AppIcon.sortby,
-                      //               height: 1.5.h,
-                      //             ),
-                      //             AppSizebox.w5,
-                      //             const Text(
-                      //               AppString.sortBy,
-                      //               style: TextStyle(
-                      //                   fontSize: 20,
-                      //                   fontWeight: FontWeight.w500),
-                      //             ),
-                      //           ],
-                      //         ),
-                      //         AppSizebox.h10,
-                      //         Divider(
-                      //           height: 1,
-                      //           color: Colors.grey.shade700,
-                      //         ),
-                      //         SizedBox(
-                      //           height: 7.h,
-                      //           child: ListTile(
-                      //             onTap: () {},
-                      //             title: const Text(
-                      //               AppString.predictions,
-                      //               style: TextStyle(color: AppColor.white),
-                      //             ),
-                      //             trailing: const Icon(
-                      //               Icons.check_circle,
-                      //               color: AppColor.white,
-                      //             ),
-                      //           ),
-                      //         ),
-                      //         Divider(
-                      //           height: 1,
-                      //           color: Colors.grey.shade700,
-                      //         ),
-                      //         SizedBox(
-                      //           height: 7.h,
-                      //           child: ListTile(
-                      //             onTap: () {},
-                      //             title: const Text(
-                      //               AppString.avgScore,
-                      //               style: TextStyle(color: AppColor.white),
-                      //             ),
-                      //             trailing: const Icon(Icons.check_circle,
-                      //                 color: AppColor.white),
-                      //           ),
-                      //         ),
-                      //         Divider(
-                      //           height: 1,
-                      //           color: Colors.grey.shade700,
-                      //         ),
-                      //         SizedBox(
-                      //           height: 7.h,
-                      //           child: ListTile(
-                      //             onTap: () {},
-                      //             title: const Text(
-                      //               AppString.wins,
-                      //               style: TextStyle(color: AppColor.white),
-                      //             ),
-                      //             trailing: const Icon(Icons.check_circle,
-                      //                 color: AppColor.white),
-                      //           ),
-                      //         ),
-                      //       ],
-                      //     ),
-                      //   ),
-                      // ),
-                      // backgroundColor: AppColor.light,
-                      // elevation: 0,
-                      // shape: RoundedRectangleBorder(
-                      //   borderRadius: BorderRadius.circular(20),
-                      // ),
-                    },
-                  );
-                },
+                                    );
+                                  },
+                                ),
+                              ),
+                            );
+                            // Container(
+                            //   height: 29.h,
+                            //   child: Padding(
+                            //     padding: EdgeInsets.only(left: 3.w, right: 3.w),
+                            //     child: Column(
+                            //       children: [
+                            //         AppSizebox.h15,
+                            //         Row(
+                            //           mainAxisAlignment: MainAxisAlignment.center,
+                            //           children: [
+                            //             Image.asset(
+                            //               AppIcon.sortby,
+                            //               height: 1.5.h,
+                            //             ),
+                            //             AppSizebox.w5,
+                            //             const Text(
+                            //               AppString.sortBy,
+                            //               style: TextStyle(
+                            //                   fontSize: 20,
+                            //                   fontWeight: FontWeight.w500),
+                            //             ),
+                            //           ],
+                            //         ),
+                            //         AppSizebox.h10,
+                            //         Divider(
+                            //           height: 1,
+                            //           color: Colors.grey.shade700,
+                            //         ),
+                            //         SizedBox(
+                            //           height: 7.h,
+                            //           child: ListTile(
+                            //             onTap: () {},
+                            //             title: const Text(
+                            //               AppString.predictions,
+                            //               style: TextStyle(color: AppColor.white),
+                            //             ),
+                            //             trailing: const Icon(
+                            //               Icons.check_circle,
+                            //               color: AppColor.white,
+                            //             ),
+                            //           ),
+                            //         ),
+                            //         Divider(
+                            //           height: 1,
+                            //           color: Colors.grey.shade700,
+                            //         ),
+                            //         SizedBox(
+                            //           height: 7.h,
+                            //           child: ListTile(
+                            //             onTap: () {},
+                            //             title: const Text(
+                            //               AppString.avgScore,
+                            //               style: TextStyle(color: AppColor.white),
+                            //             ),
+                            //             trailing: const Icon(Icons.check_circle,
+                            //                 color: AppColor.white),
+                            //           ),
+                            //         ),
+                            //         Divider(
+                            //           height: 1,
+                            //           color: Colors.grey.shade700,
+                            //         ),
+                            //         SizedBox(
+                            //           height: 7.h,
+                            //           child: ListTile(
+                            //             onTap: () {},
+                            //             title: const Text(
+                            //               AppString.wins,
+                            //               style: TextStyle(color: AppColor.white),
+                            //             ),
+                            //             trailing: const Icon(Icons.check_circle,
+                            //                 color: AppColor.white),
+                            //           ),
+                            //         ),
+                            //       ],
+                            //     ),
+                            //   ),
+                            // ),
+                            // backgroundColor: AppColor.light,
+                            // elevation: 0,
+                            // shape: RoundedRectangleBorder(
+                            //   borderRadius: BorderRadius.circular(20),
+                            // ),
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                ],
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 8.h),
+              padding: EdgeInsets.only(top: 20.h),
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: EdgeInsets.only(top: 1.h),
+                  padding: EdgeInsets.only(top: 0.h),
                   child: Obx(
                     () => expertsController.isLoading.value
                         ? Center(

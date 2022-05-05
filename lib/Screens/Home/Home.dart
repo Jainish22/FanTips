@@ -1,4 +1,5 @@
 import 'dart:developer';
+
 import 'package:fantips/Screens/Experts/ExperInfo/Expertinfo.dart';
 import 'package:fantips/Screens/Experts/Experts.dart';
 import 'package:fantips/Screens/Experts/controller/ExpertsController.dart';
@@ -8,6 +9,8 @@ import 'package:fantips/Screens/IPL/Ipl.dart';
 import 'package:fantips/Screens/Matches/Matches.dart';
 import 'package:fantips/Screens/Matches/Upcoming/Controller/Upcoming_Controller.dart';
 import 'package:fantips/Screens/More/More.dart';
+import 'package:fantips/Screens/loginpage/GoogleLogin/getdata.dart';
+import 'package:fantips/Screens/loginpage/GoogleLogin/services.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
 import 'package:fantips/Util/AppStrings.dart';
@@ -111,8 +114,8 @@ class _HomeState extends State<Home> {
     return format.format(dt);
   }
 
-  bool  value1 = false;
-
+  bool value1 = false;
+  final LoginData _loginData = Get.put(LoginData());
   @override
   Widget build(BuildContext context) {
     Future<bool> _onWillPop() async {
@@ -144,410 +147,423 @@ class _HomeState extends State<Home> {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-        appBar: MyAppbar(AppString.fanTips,),
         body: SafeArea(
-          child: ListView(
+          child: Stack(
             children: [
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AppSizebox.h15,
-                  const MyTitle(text: AppString.matchesForyou),
-                  AppSizebox.h15,
-                  SizedBox(
-                    height: 20.h,
-                    width: 100.w,
-                    child: Obx(
-                      () => upcomingController.isLoading.value
-                          ? Center(
-                              child: Container(
-                                height: 3.h,
-                                width: 4.w,
-                                child: const LoadingIndicator(
-                                    indicatorType: Indicator.lineSpinFadeLoader,
-                                    colors: [Colors.white],
-                                    strokeWidth: 1,
-                                    backgroundColor: Colors.black,
-                                    pathBackgroundColor: Colors.black),
-                              ),
-                            )
-                          : PageView.builder(
-                              onPageChanged: (value) {
-                                upcomingController.matchSelect.value = value;
-                              },
-                              itemCount: 4,
-                              itemBuilder: (context, index) {
-                                final completeData = upcomingController
-                                    .getUpcoming
-                                    .value
-                                    .matches
-                                    ?.notstarted?[index];
-                                final ff = DateFormat.jm();
-
-                                return Padding(
-                                  padding:
-                                      EdgeInsets.only(left: 4.w, right: 4.w),
-                                  child: MyContainer4(
-                                      headerText: completeData?.header ?? "",
-                                      backgroundImage1:
-                                          "${completeData?.t1Flag}",
-                                      backgroundImage2:
-                                          "${completeData?.t2Flag}",
-                                      matchesname1:
-                                          "${completeData?.team1Name}",
-                                      matchesname2:
-                                          "${completeData?.team2Name}",
-                                      infoMsg: ff.format(
-                                        DateTime.fromMillisecondsSinceEpoch(
-                                            completeData?.startTime ?? 0),
-                                      ),
-                                      totalprediction:
-                                          completeData?.totalprediction != 0
-                                              ? "Predictions"
-                                              : ff.format(DateTime
-                                                  .fromMillisecondsSinceEpoch(
-                                                      completeData?.startTime ??
-                                                          0)),
-                                      Starts: completeData?.totalprediction != 0
-                                          ? "${completeData?.totalprediction}"
-                                          : "Starts At"),
-                                );
-                              },
-                            ),
-                    ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 1.5.h, horizontal: 5.w),
+                    child: MyAppBar(text: AppString.fanTips, login: AppString.logIn,),
                   ),
-                  AppSizebox.h10,
-                  Obx(
-                    () => Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        4,
-                        (index) => Container(
-                          height: 0.6.h,
-                          width: upcomingController.matchSelect.value == index
-                              ? 4.w
-                              : 3.w,
-                          margin: EdgeInsets.symmetric(horizontal: 1.w),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8.sp),
-                            color: upcomingController.matchSelect.value == index
-                                ? Colors.green
-                                : AppColor.grey.withOpacity(0.5),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  AppSizebox.h15,
-                  const MyTitle(text: AppString.featuredExperts),
-                  AppSizebox.h15,
-                  SizedBox(
-                    height: 18.h,
-                    width: 100.w,
-                    child: Obx(
-                      () => expertsController.isLoading.value
-                          ? Center(
-                              child: Container(
-                                height: 3.h,
-                                width: 4.w,
-                                child: const LoadingIndicator(
-                                    indicatorType: Indicator.lineSpinFadeLoader,
-                                    colors: [Colors.white],
-                                    strokeWidth: 1,
-                                    backgroundColor: Colors.black,
-                                    pathBackgroundColor: Colors.black),
-                              ),
-                            )
-                          : PageView.builder(
-                              onPageChanged: (value) {
-                                expertsController.matchSelect.value = value;
-                              },
-                              itemCount: expertsController.getitem.value == true
-                                  ? expertsController.getitem.length
-                                  : 5,
-                        // itemCount: expertsController.getitem.value.length,
-                              itemBuilder: (BuildContext context, index) {
-                                log("Service111111-------${expertsController.getitem.length}");
-                                final Experts =
-                                    expertsController.getitem.value[index];
-
-                                return Padding(
-                                  padding:
-                                      EdgeInsets.only(left: 4.w, right: 4.w),
-                                  child: GestureDetector(
-                                      onTap: () {
-                                        Get.to(
-                                          ExpertInfo(
-                                            name: Experts.name,
-                                            wins: "${Experts.top3}",
-                                            ave: "${Experts.avgScore}",
-                                            sub:
-                                                "${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
-                                            //sub: '${Experts.subscriberCount}',
-                                            pre: '${Experts.totalPredictions}',
-                                            backgroundImage: Experts.profileUrl,
-                                          ),
-                                        );
-                                      },
-                                      child: Obx(
-                                        () => MyContainer22(
-                                          headerText:
-                                              "${Experts.name!.length >= 25 ? Experts.name?.substring(0, 12) : Experts.name}",
-                                          pr: "${Experts.totalPredictions ?? " "}",
-                                          ave: "${Experts.avgScore ?? ""}",
-                                          wins: "${Experts.top3}",
-                                          subscribers:
-                                              '${Experts.subscriberCount}',
-                                          backgroundImage:
-                                              Experts.profileUrl ?? "",
-                                          onTap: () {
-                                            if (Experts.inWishList?.value ==
-                                                false) {
-                                              expertsController
-                                                  .addItem(Experts.name ?? "");
-                                            } else {
-                                              expertsController.removeItem(
-                                                  Experts.name ?? "");
-                                            }
-                                          },
-                                          iconButton: expertsController
-                                                      .getitem
-                                                      .value[index]
-                                                      .inWishList ==
-                                                  true
-                                              ? const Icon(
-                                                  Icons.favorite,
-                                                  color: Colors.green,
-                                                )
-                                              : const Icon(
-                                                  Icons.favorite_border,
-                                                  color: Colors.green,
-                                                ),
-                                        ),
-                                      )),
-                                );
-                              },
-                            ),
-                    ),
-                  ),
-                  AppSizebox.h10,
-                  Obx(
-                    () => Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        5,
-                        (index) => Container(
-                          height: 0.6.h,
-                          width: expertsController.matchSelect.value == index
-                              ? 4.w
-                              : 3.w,
-                          margin: EdgeInsets.symmetric(horizontal: 1.w),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8.sp),
-                            color: expertsController.matchSelect.value == index
-                                ? Colors.green
-                                : AppColor.grey.withOpacity(0.5),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  AppSizebox.h15,
-                  Row(
-                    children: [
-                      const MyTitle(text: AppString.topStories),
-                      Expanded(child: Container()),
-                      GestureDetector(
-                          onTap: () {
-                            Get.to(const ViewAll());
-                          },
-                          child: const Text(AppString.viewAll,
-                              style: TextStyle(fontSize: 12))),
-                      const Icon(Icons.arrow_forward_ios_sharp,
-                          color: Colors.white, size: 12),
-                      AppSizebox.w15
-                    ],
-                  ),
-                  AppSizebox.h15,
-                  SizedBox(
-                    child: ListView.builder(
-                      itemCount: 5,
-                      //_NewsController.getNews.value.news?.length,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: EdgeInsets.only(left: 4.w, right: 4.w),
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 6.h),
+                child: ListView(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppSizebox.h15,
+                        const MyTitle(text: AppString.matchesForyou),
+                        AppSizebox.h15,
+                        SizedBox(
+                          height: 20.h,
+                          width: 100.w,
                           child: Obx(
-                            () => GestureDetector(
-                              onTap: () {
-                                Get.to(
-                                  HomeNews(
-                                    newimage: _NewsController
-                                        .getNews.value.news?[index].image,
-                                    newname: _NewsController
-                                        .getNews.value.news?[index].title,
-                                    newstime: _NewsController
-                                        .getNews.value.news?[index].time,
-                                    samlldata:
-                                        "${_NewsController.getNews.value.news?[index].smallDesc}",
-                                  ),
-                                );
-                              },
-                              child: Container(
-                                height: 38.h,
-                                width: 92.w,
-                                margin: EdgeInsets.only(bottom: 10),
-                                decoration: BoxDecoration(
-                                    color: Colors.black,
-                                    borderRadius: BorderRadius.circular(5)),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: 20.h,
-                                      width: 90.w,
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(
-                                            20), // Image border
-                                        child: SizedBox.fromSize(
-                                          size: Size.fromRadius(48),
-                                          child: Image.network(
-                                            _NewsController.getNews.value
-                                                    .news?[index].image ??
-                                                "",
-                                            fit: BoxFit.cover,
-                                            loadingBuilder: (context, child,
-                                                loadingProgress) {
-                                              if (loadingProgress == null)
-                                                return child;
-                                              return Center(
-                                                child: Container(
-                                                  height: 3.h,
-                                                  width: 6.w,
-                                                  child: const LoadingIndicator(
-                                                      indicatorType: Indicator
-                                                          .lineSpinFadeLoader,
-                                                      colors: [Colors.white],
-                                                      strokeWidth: 1,
-                                                      backgroundColor:
-                                                          Colors.black,
-                                                      pathBackgroundColor:
-                                                          Colors.black),
-                                                ),
-                                              );
-                                            },
-                                            errorBuilder: (context, error,
-                                                    stackTrace) =>
-                                                const Center(child: Text("")),
-                                          ),
-                                        ),
-                                      ),
+                            () => upcomingController.isLoading.value
+                                ? Center(
+                                    child: Container(
+                                      height: 3.h,
+                                      width: 4.w,
+                                      child: const LoadingIndicator(
+                                          indicatorType: Indicator.lineSpinFadeLoader,
+                                          colors: [Colors.white],
+                                          strokeWidth: 1,
+                                          backgroundColor: Colors.black,
+                                          pathBackgroundColor: Colors.black),
                                     ),
-                                    // Container(
-                                    //   decoration: BoxDecoration(
-                                    //     borderRadius: BorderRadius.circular(20),
-                                    //     // image: DecorationImage(
-                                    //     //     image: NetworkImage(
-                                    //     //         _NewsController.getNews.value
-                                    //     //                 .news?[index].image ??
-                                    //     //             "",scale: 1),
-                                    //     //     fit: BoxFit.cover)
-                                    //   ),
-                                    //   height: 20.h,
-                                    //   width: 90.w,
-                                    //   child: Image.network(
-                                    //     _NewsController.getNews.value
-                                    //             .news?[index].image ??
-                                    //         "",
-                                    //     fit: BoxFit.cover,
-                                    //     loadingBuilder:
-                                    //         (context, child, loadingProgress) {
-                                    //       if (loadingProgress == null)
-                                    //         return child;
-                                    //       return const Center(
-                                    //           child: CircularProgressIndicator(
-                                    //         color: Colors.green,
-                                    //       ));
-                                    //     },
-                                    //     errorBuilder:
-                                    //         (context, error, stackTrace) =>
-                                    //             const Center(child: Text("")),
-                                    //   ),
-                                    // ),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          height: 16.h,
-                                          padding: const EdgeInsets.fromLTRB(
-                                              8, 8, 8, 0),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                  _NewsController.getNews.value
-                                                          .news?[index].title ??
-                                                      "",
-                                                  maxLines: 2,
-                                                  style: const TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      fontSize: 15)),
-                                              Text(
-                                                  _NewsController
-                                                          .getNews
-                                                          .value
-                                                          .news?[index]
-                                                          .smallDesc ??
-                                                      "",
-                                                  maxLines: 2,
-                                                  style: const TextStyle(
-                                                    color: AppColor.greymin,
-                                                    fontSize: 12,
-                                                  )),
-                                              Text(
-                                                  _NewsController
-                                                          .getNews
-                                                          .value
-                                                          .news?[index]
-                                                          .newsSource ??
-                                                      "",
-                                                  style: const TextStyle(
-                                                      color: AppColor.grey,
-                                                      fontSize: 12)),
-                                              Text(
-                                                  displayTimeAgoFromTimestamp(
-                                                      _NewsController
-                                                              .getNews
-                                                              .value
-                                                              .news?[index]
-                                                              .time ??
-                                                          0),
-                                                  style: const TextStyle(
-                                                      color: AppColor.grey,
-                                                      fontSize: 10)),
-                                            ],
-                                          ),
-                                        ),
-                                        AppSizebox.h10,
-                                        const Divider(
-                                          height: 2,
-                                          color: AppColor.DividerColor,
-                                        )
-                                      ],
-                                    )
-                                  ],
+                                  )
+                                : PageView.builder(
+                                    onPageChanged: (value) {
+                                      upcomingController.matchSelect.value = value;
+                                    },
+                                    itemCount: 4,
+                                    itemBuilder: (context, index) {
+                                      final completeData = upcomingController
+                                          .getUpcoming
+                                          .value
+                                          .matches
+                                          ?.notstarted?[index];
+                                      final ff = DateFormat.jm();
+
+                                      return Padding(
+                                        padding:
+                                            EdgeInsets.only(left: 4.w, right: 4.w),
+                                        child: MyContainer4(
+                                            headerText: completeData?.header ?? "",
+                                            backgroundImage1:
+                                                "${completeData?.t1Flag}",
+                                            backgroundImage2:
+                                                "${completeData?.t2Flag}",
+                                            matchesname1:
+                                                "${completeData?.team1Name}",
+                                            matchesname2:
+                                                "${completeData?.team2Name}",
+                                            infoMsg: ff.format(
+                                              DateTime.fromMillisecondsSinceEpoch(
+                                                  completeData?.startTime ?? 0),
+                                            ),
+                                            totalprediction:
+                                                completeData?.totalprediction != 0
+                                                    ? "Predictions"
+                                                    : ff.format(DateTime
+                                                        .fromMillisecondsSinceEpoch(
+                                                            completeData?.startTime ??
+                                                                0)),
+                                            Starts: completeData?.totalprediction != 0
+                                                ? "${completeData?.totalprediction}"
+                                                : "Starts At"),
+                                      );
+                                    },
+                                  ),
+                          ),
+                        ),
+                        AppSizebox.h10,
+                        Obx(
+                          () => Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: List.generate(
+                              4,
+                              (index) => Container(
+                                height: 0.6.h,
+                                width: upcomingController.matchSelect.value == index
+                                    ? 4.w
+                                    : 3.w,
+                                margin: EdgeInsets.symmetric(horizontal: 1.w),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.sp),
+                                  color: upcomingController.matchSelect.value == index
+                                      ? Colors.green
+                                      : AppColor.grey.withOpacity(0.5),
                                 ),
                               ),
                             ),
                           ),
-                        );
-                      },
+                        ),
+                        AppSizebox.h15,
+                        const MyTitle(text: AppString.featuredExperts),
+                        AppSizebox.h15,
+                        SizedBox(
+                          height: 18.h,
+                          width: 100.w,
+                          child: Obx(
+                            () => expertsController.isLoading.value
+                                ? Center(
+                                    child: Container(
+                                      height: 3.h,
+                                      width: 4.w,
+                                      child: const LoadingIndicator(
+                                          indicatorType: Indicator.lineSpinFadeLoader,
+                                          colors: [Colors.white],
+                                          strokeWidth: 1,
+                                          backgroundColor: Colors.black,
+                                          pathBackgroundColor: Colors.black),
+                                    ),
+                                  )
+                                : PageView.builder(
+                                    onPageChanged: (value) {
+                                      expertsController.matchSelect.value = value;
+                                    },
+                                    itemCount: expertsController.getitem.value == true
+                                        ? expertsController.getitem.length
+                                        : 5,
+                                    // itemCount: expertsController.getitem.value.length,
+                                    itemBuilder: (BuildContext context, index) {
+                                      log("Service111111-------${expertsController.getitem.length}");
+                                      final Experts =
+                                          expertsController.getitem.value[index];
+
+                                      return Padding(
+                                        padding:
+                                            EdgeInsets.only(left: 4.w, right: 4.w),
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            Get.to(
+                                              ExpertInfo(
+                                                name: Experts.name,
+                                                wins: "${Experts.top3}",
+                                                ave: "${Experts.avgScore}",
+                                                sub:
+                                                    "${Experts.subscriberCount!.length >= 1 ? Experts.subscriberCount?.substring(0, 4) : Experts.subscriberCount}...",
+                                                //sub: '${Experts.subscriberCount}',
+                                                pre: '${Experts.totalPredictions}',
+                                                backgroundImage: Experts.profileUrl,
+                                              ),
+                                            );
+                                          },
+                                          child: Obx(
+                                            () => MyContainer22(
+                                              headerText:
+                                                  "${Experts.name!.length >= 25 ? Experts.name?.substring(0, 12) : Experts.name}",
+                                              pr: "${Experts.totalPredictions ?? " "}",
+                                              ave: "${Experts.avgScore ?? ""}",
+                                              wins: "${Experts.top3}",
+                                              subscribers:
+                                                  '${Experts.subscriberCount}',
+                                              backgroundImage:
+                                                  Experts.profileUrl ?? "",
+                                              onTap: () {
+                                                if (Experts.inWishList?.value ==
+                                                    false) {
+                                                  expertsController
+                                                      .addItem(Experts.name ?? "");
+                                                } else {
+                                                  expertsController
+                                                      .removeItem(Experts.name ?? "");
+                                                }
+                                              },
+                                              iconButton: expertsController.getitem
+                                                          .value[index].inWishList ==
+                                                      true
+                                                  ? const Icon(
+                                                      Icons.favorite,
+                                                      color: Colors.green,
+                                                    )
+                                                  : const Icon(
+                                                      Icons.favorite_border,
+                                                      color: Colors.green,
+                                                    ),
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                          ),
+                        ),
+                        AppSizebox.h10,
+                        Obx(
+                          () => Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: List.generate(
+                              5,
+                              (index) => Container(
+                                height: 0.6.h,
+                                width: expertsController.matchSelect.value == index
+                                    ? 4.w
+                                    : 3.w,
+                                margin: EdgeInsets.symmetric(horizontal: 1.w),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.sp),
+                                  color: expertsController.matchSelect.value == index
+                                      ? Colors.green
+                                      : AppColor.grey.withOpacity(0.5),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        AppSizebox.h15,
+                        Row(
+                          children: [
+                            const MyTitle(text: AppString.topStories),
+                            Expanded(child: Container()),
+                            GestureDetector(
+                                onTap: () {
+                                  Get.to(const ViewAll());
+                                },
+                                child: const Text(AppString.viewAll,
+                                    style: TextStyle(fontSize: 12))),
+                            const Icon(Icons.arrow_forward_ios_sharp,
+                                color: Colors.white, size: 12),
+                            AppSizebox.w15
+                          ],
+                        ),
+                        AppSizebox.h15,
+                        SizedBox(
+                          child: ListView.builder(
+                            itemCount: 5,
+                            //_NewsController.getNews.value.news?.length,
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: EdgeInsets.only(left: 4.w, right: 4.w),
+                                child: Obx(
+                                  () => GestureDetector(
+                                    onTap: () {
+                                      Get.to(
+                                        HomeNews(
+                                          newimage: _NewsController
+                                              .getNews.value.news?[index].image,
+                                          newname: _NewsController
+                                              .getNews.value.news?[index].title,
+                                          newstime: _NewsController
+                                              .getNews.value.news?[index].time,
+                                          samlldata:
+                                              "${_NewsController.getNews.value.news?[index].smallDesc}",
+                                        ),
+                                      );
+                                    },
+                                    child: Container(
+                                      height: 38.h,
+                                      width: 92.w,
+                                      margin: EdgeInsets.only(bottom: 10),
+                                      decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: BorderRadius.circular(5)),
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            height: 20.h,
+                                            width: 90.w,
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.circular(
+                                                  20), // Image border
+                                              child: SizedBox.fromSize(
+                                                size: Size.fromRadius(48),
+                                                child: Image.network(
+                                                  _NewsController.getNews.value
+                                                          .news?[index].image ??
+                                                      "",
+                                                  fit: BoxFit.cover,
+                                                  loadingBuilder: (context, child,
+                                                      loadingProgress) {
+                                                    if (loadingProgress == null)
+                                                      return child;
+                                                    return Center(
+                                                      child: Container(
+                                                        height: 3.h,
+                                                        width: 6.w,
+                                                        child: const LoadingIndicator(
+                                                            indicatorType: Indicator
+                                                                .lineSpinFadeLoader,
+                                                            colors: [Colors.white],
+                                                            strokeWidth: 1,
+                                                            backgroundColor:
+                                                                Colors.black,
+                                                            pathBackgroundColor:
+                                                                Colors.black),
+                                                      ),
+                                                    );
+                                                  },
+                                                  errorBuilder: (context, error,
+                                                          stackTrace) =>
+                                                      const Center(child: Text("")),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          // Container(
+                                          //   decoration: BoxDecoration(
+                                          //     borderRadius: BorderRadius.circular(20),
+                                          //     // image: DecorationImage(
+                                          //     //     image: NetworkImage(
+                                          //     //         _NewsController.getNews.value
+                                          //     //                 .news?[index].image ??
+                                          //     //             "",scale: 1),
+                                          //     //     fit: BoxFit.cover)
+                                          //   ),
+                                          //   height: 20.h,
+                                          //   width: 90.w,
+                                          //   child: Image.network(
+                                          //     _NewsController.getNews.value
+                                          //             .news?[index].image ??
+                                          //         "",
+                                          //     fit: BoxFit.cover,
+                                          //     loadingBuilder:
+                                          //         (context, child, loadingProgress) {
+                                          //       if (loadingProgress == null)
+                                          //         return child;
+                                          //       return const Center(
+                                          //           child: CircularProgressIndicator(
+                                          //         color: Colors.green,
+                                          //       ));
+                                          //     },
+                                          //     errorBuilder:
+                                          //         (context, error, stackTrace) =>
+                                          //             const Center(child: Text("")),
+                                          //   ),
+                                          // ),
+                                          Column(
+                                            children: [
+                                              Container(
+                                                height: 16.h,
+                                                padding: const EdgeInsets.fromLTRB(
+                                                    8, 8, 8, 0),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                        _NewsController.getNews.value
+                                                                .news?[index].title ??
+                                                            "",
+                                                        maxLines: 2,
+                                                        style: const TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                            fontSize: 15)),
+                                                    Text(
+                                                        _NewsController
+                                                                .getNews
+                                                                .value
+                                                                .news?[index]
+                                                                .smallDesc ??
+                                                            "",
+                                                        maxLines: 2,
+                                                        style: const TextStyle(
+                                                          color: AppColor.greymin,
+                                                          fontSize: 12,
+                                                        )),
+                                                    Text(
+                                                        _NewsController
+                                                                .getNews
+                                                                .value
+                                                                .news?[index]
+                                                                .newsSource ??
+                                                            "",
+                                                        style: const TextStyle(
+                                                            color: AppColor.grey,
+                                                            fontSize: 12)),
+                                                    Text(
+                                                        displayTimeAgoFromTimestamp(
+                                                            _NewsController
+                                                                    .getNews
+                                                                    .value
+                                                                    .news?[index]
+                                                                    .time ??
+                                                                0),
+                                                        style: const TextStyle(
+                                                            color: AppColor.grey,
+                                                            fontSize: 10)),
+                                                  ],
+                                                ),
+                                              ),
+                                              AppSizebox.h10,
+                                              const Divider(
+                                                height: 2,
+                                                color: AppColor.DividerColor,
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),
