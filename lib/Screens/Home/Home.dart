@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:fantips/Screens/Experts/ExperInfo/Expertinfo.dart';
 import 'package:fantips/Screens/Experts/Experts.dart';
 import 'package:fantips/Screens/Experts/controller/ExpertsController.dart';
@@ -9,13 +8,10 @@ import 'package:fantips/Screens/IPL/Ipl.dart';
 import 'package:fantips/Screens/Matches/Matches.dart';
 import 'package:fantips/Screens/Matches/Upcoming/Controller/Upcoming_Controller.dart';
 import 'package:fantips/Screens/More/More.dart';
-import 'package:fantips/Screens/loginpage/GoogleLogin/getdata.dart';
-import 'package:fantips/Screens/loginpage/GoogleLogin/services.dart';
 import 'package:fantips/Util/AppColor.dart';
 import 'package:fantips/Util/AppIcon.dart';
 import 'package:fantips/Util/AppStrings.dart';
 import 'package:fantips/Util/Sizebox.dart';
-import 'package:fantips/Widgets/MyAppbar.dart';
 import 'package:fantips/Widgets/MyContainer.dart';
 import 'package:fantips/Widgets/MyTitle.dart';
 import 'package:flutter/material.dart';
@@ -115,7 +111,6 @@ class _HomeState extends State<Home> {
   }
 
   bool value1 = false;
-  final LoginData _loginData = Get.put(LoginData());
   @override
   Widget build(BuildContext context) {
     Future<bool> _onWillPop() async {
@@ -143,7 +138,6 @@ class _HomeState extends State<Home> {
           )) ??
           false;
     }
-
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(

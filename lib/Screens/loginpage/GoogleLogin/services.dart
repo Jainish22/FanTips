@@ -44,10 +44,7 @@ class GoogleSignInProvider extends ChangeNotifier {
 //Controller
 
 
-class LoginData extends GetxController{
 
-  RxBool isLogin = false.obs;
-}
 
 
 // class Auth {

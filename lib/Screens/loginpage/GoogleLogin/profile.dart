@@ -88,7 +88,7 @@ class _ProfileDataState extends State<ProfileData> {
                                     style: const TextStyle(
                                         fontSize: 18, color: AppColor.greymin)),
                               ],
-                            )
+                            ),
                           ],
                         ),
                         AppSizebox.h10,

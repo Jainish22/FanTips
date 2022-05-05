@@ -12,8 +12,9 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
-
 import '../Screens/Home/Home.dart';
+import '../Screens/More/favoriteMore.dart';
+import '../Screens/loginpage/GoogleLogin/getdata.dart';
 import '../Screens/loginpage/GoogleLogin/profile.dart';
 import '../Screens/loginpage/GoogleLogin/services.dart';
 
@@ -2305,7 +2306,7 @@ class MyAppBar extends StatefulWidget {
 class _MyAppBarState extends State<MyAppBar> {
   final Future<SharedPreferences> prefs = SharedPreferences.getInstance();
 
-  LoginData _loginData = Get.find();
+  LoginData _loginData = Get.put(LoginData());
   final user = FirebaseAuth.instance.currentUser;
 
   @override
@@ -2317,38 +2318,47 @@ class _MyAppBarState extends State<MyAppBar> {
           widget.text,
           style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
         ),
-        Obx(
-          () => _loginData.isLogin == true
-              ? GestureDetector(
-                  onTap: () {
-                    Get.to(ProfileData());
-                  },
-                  child: ClipOval(
-                    child: Image.network(
-                      user?.photoURL ?? "",
-                      width: 25,
-                      height: 25,
-                      fit: BoxFit.cover,
-                      loadingBuilder: (context, child, loadingProgress) {
-                        if (loadingProgress == null) return child;
-                        return const Center(
-                            child: CircularProgressIndicator(
-                          color: Colors.green,
-                        ));
+          _loginData.isLogin == true
+              ? Row(
+                children: [
+                  GestureDetector(
+                      onTap: () {
+                        Get.to(ProfileData());
                       },
-                      errorBuilder: (context, error, stackTrace) => Center(
-                        child: ClipOval(
-                          child: Image.asset(
-                            "asset/Images/profileimages.png",
-                            width: 25,
-                            height: 25,
-                            fit: BoxFit.cover,
+                      child: ClipOval(
+                        child: Image.network(
+                          user?.photoURL ?? "",
+                          width: 25,
+                          height: 25,
+                          fit: BoxFit.cover,
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return const Center(
+                                child: CircularProgressIndicator(
+                              color: Colors.green,
+                            ));
+                          },
+                          errorBuilder: (context, error, stackTrace) => Center(
+                            child: ClipOval(
+                              child: Image.asset(
+                                "asset/Images/profileimages.png",
+                                width: 25,
+                                height: 25,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                )
+                  AppSizebox.w15,
+                  GestureDetector(
+                      onTap: () {
+                        Get.to(WishListScreen());
+                      },
+                      child: Icon(Icons.favorite_border,color: Colors.white,))
+                ],
+              )
               : GestureDetector(
                   onTap: () {
                     showModalBottomSheet(
@@ -2459,7 +2469,10 @@ class _MyAppBarState extends State<MyAppBar> {
                                                 context,
                                                 listen: false);
                                         provider.googleLogin().whenComplete(() {
-                                          _loginData.isLogin = true.obs;
+                                          setState(() {
+
+                                          _loginData.isLogin = true;
+                                          });
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
@@ -2538,7 +2551,6 @@ class _MyAppBarState extends State<MyAppBar> {
                     style: const TextStyle(color: AppColor.green, fontSize: 15),
                   ),
                 ),
-        ),
       ],
     );
   }
@@ -2601,12 +2613,13 @@ class ProfileAppbar extends StatefulWidget {
 }
 
 class _ProfileAppbarState extends State<ProfileAppbar> {
-  LoginData _loginData = Get.find();
+  final LoginData _loginData = Get.find();
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Row(
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
             onTap: () {
@@ -2630,9 +2643,15 @@ class _ProfileAppbarState extends State<ProfileAppbar> {
             ),
           ),
           Expanded(child: Container()),
+          // SizedBox(
+          //   width: 46.w,
+          // ),
           GestureDetector(
             onTap: () {
-              _loginData.isLogin = false.obs;
+              setState(() {
+
+              _loginData.isLogin = false;
+              });
               final provider =
                   Provider.of<GoogleSignInProvider>(context, listen: false);
               provider.logout().whenComplete(() => Navigator.push(
